@@ -63,6 +63,72 @@ We also plan to watch user’s interact with our application and observe any pai
   + Django installation and psql setup (David and Sunny)
   + Determined routes/component hiearchy (Sunny, Leland, Christine)
   + Test API calls to Open State (David).
+### Group Members & Work Breakdown
+
+Our group consists of four members, Leland Krych, David Wong, Christine Garibian, and Rohit (Sunny) Rekhi.
+
+David's primary responsibilities will be:
+
+- Researching and implementing Django backend (routes, views, models and database)
+- Testing third party api calls. (google maps, open state, pexel)
+
+Sunny's primary responsiblities
+
+- Oauth and Frontend/Backend implementation.
+- Producing the new HTML file with new colors
+
+Leland Krysch's primary responsibilities
+
+- Frontend Implementation
+- User Interface and User Experience design and splash
 
 
-### Group Members and Work Breakdown
+Christine 
+- Frontend Implementation
+- User Interface and User Experience design and splash
+
+### Implementation Timeline
+
+**Day 1**: Auth frontend and backend. By the end of the day, we will have:
+
+- David: DB setup, schema, AJAX
+- Leland: Frontend, Sign in + Select Interests
+- Christine: Frontend , Sign in + Select Interests
+- Sunny: DB setup, schema, oAuth
+
+**Day 2**: User controller and model and profile and settings and finding legislators
+
+- David: Backend User routes/views/responses + find your legislator
+- Leland: Frontend, settings page + find your legislator
+- Christine: Backend User routes/views/responses + find your legislator
+- Sunny: Frontend, user profile page + find your legislator
+
+
+**Day 3**: Bills/index/item and Logo and Header
+
+- David: Backend Bills routes/views/responses
+- Leland: Frontend, Header and Logo + Bookmarked Bills
+- Christine: Frontend , Navbar and Logo + Bookmarked Bills 
+- Sunny: Frontend Bill index, Bill index item 
+
+
+**Day 4**: Bookmarked bills and finish backend and bills by subject
+
+- David: Finish backend + Help Frontend
+- Leland: Frontend Bill view, Bookmarked Bills
+- Christine:Frontend Legislator view, Bookmarked Bills
+- Sunny: Bills by subject
+
+
+**Day 5**: Call and Email feature and Frontend Splash
+- David: Call + Email feature
+- Leland: FrontEnd Splash
+- Christine: FrontEnd Splash
+- Sunny: Call + Email feature
+
+
+### Plan for getting users and reviews
+- Both Munyo and Ryan will each share with at least 20 friends and family and ask for good reviews
+- Munyo will find an appropriate subreddit and make a post there to show off the chrome extension
+- Ryan will reach out to http://www.colourblindawareness.org/ to share the chrome extension
+
