@@ -74,8 +74,8 @@ David's primary responsibilities will be:
 
 Sunny's primary responsiblities
 
-- Oauth and Frontend/Backend implementation.
-- Producing the new HTML file with new colors
+- Oauth and Backend implementation.
+- Frontend Implementation.
 
 Leland Krysch's primary responsibilities
 
