@@ -18,19 +18,22 @@ With this application, users will be able to:
  + Send messages or make calls to their representatives
 
 ## Wireframes
-![All-Subjects](/docs/wireframes/All-Subjects-View.png)
-![Bill-View](/docs/wireframes/Bill-View.png)
-![Bookmarked-Bills](/docs/wireframes/Bookmarked-Bills.png)
-![Customize-Interest](/docs/wireframes/Customize-Interests.png)
-![First-Login-Select-Interest](/docs/wireframes/First-Login-Select-Interests.png)
 ![Home-Page](/docs/wireframes/Home-Page.png)
-![Legislator-View](/docs/wireframes/Legislator-View.png)
-![Login-Page](/docs/wireframes/Login-Page.png)
-![Mobile-Splash-Page](/docs/wireframes/Mobile-Splash-Page.png)
-![OAuth-Page](/docs/wireframes/OAuth-Page.png)
-![Subject-View](/docs/wireframes/Subject-View.png)
-![User-Profile-Page](/docs/wireframes/User-Profile-Page.png)
-![Web-Splash-Page](/docs/wireframes/Web-Splash-Page.png)
+
+Other wireframes:
+  + [All-Subjects](/docs/wireframes/All-Subjects-View.png)
+  + [Bill-View](/docs/wireframes/Bill-View.png)
+  + [Bookmarked-Bills](/docs/wireframes/Bookmarked-Bills.png)
+  + [Customize-Interest](/docs/wireframes/Customize-Interests.png)
+  + [First-Login-Select-Interest](/docs/wireframes/First-Login-Select-Interests.png)
+  + [Home-Page](/docs/wireframes/Home-Page.png)
+  + [Legislator-View](/docs/wireframes/Legislator-View.png)
+  + [Login-Page](/docs/wireframes/Login-Page.png)
+  + [Mobile-Splash-Page](/docs/wireframes/Mobile-Splash-Page.png)
+  + [OAuth-Page](/docs/wireframes/OAuth-Page.png)
+  + [Subject-View](/docs/wireframes/Subject-View.png)
+  + [User-Profile-Page](/docs/wireframes/User-Profile-Page.png)
+  + [Web-Splash-Page](/docs/wireframes/Web-Splash-Page.png)
 
 
 ## Technologies and Technical Challenges
