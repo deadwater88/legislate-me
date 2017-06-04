@@ -7,7 +7,7 @@ State legislation is becoming of increasing importance to citizens across the Un
 
 This problem decomposes into several steps, including:
 
-  + Utilize OpenStates API (http://docs.openstates.org/en/latest/api/) to grab state specific legislation
+  + Utilize [OpenStates API](http://docs.openstates.org/en/latest/api/) to grab state specific legislation
   + Allow user to easily express their opinion on specific bills by contacting their representative through our application.
 
 ## Functionality & MVP
@@ -18,13 +18,26 @@ With this application, users will be able to:
  + Send messages or make calls to their representatives
 
 ## Wireframes
+![All-Subjects](/docs/All-Subjects-View.png)
+![Bill-View](/docs/Bill-View.png)
+![Bookmarked-Bills](/docs/Bookmarked-Bills.png)
+![Customize-Interest](/docs/Customize-Interests.png)
+![First-Login-Select-Interest](/docs/First-Login-Select-Interests.png)
+![Home-Page](/docs/Home-Page.png)
+![Legislator-View](/docs/Legislator-View.png)
+![Login-Page](/docs/Login-Page.png)
+![Mobile-Splash-Page](/docs/Mobile-Splash-Page.png)
+![OAuth-Page](/docs/OAuth-Page.png)
+![Subject-View](/docs/Subject-View.png)
+![User-Profile-Page](/docs/User-Profile-Page.png)
+![Web-Splash-Page](/docs/Web-Splash-Page.png)
+
 
 ## Technologies and Technical Challenges
 This application will be built with a Django/Python backend and React Native for cross-mobile OS development.
 
 ### Finding a user’s representative
 LegislateMe will route through two separate APIs to grab a user’s representative (with plans to build our own API in the near future). The user, upon sign up, will be prompted to enter his or her address. The address will be routed through the Google Maps API to grab the corresponding latitude and longitude. OpenStates API allows Geolookup by longitudinal/latitudinal coordinates to find the corresponding representative for that location.
-
 
 ### Contacting representative
 When a user views a bill, they’ll have the option of contacting their representative based on their opinion of the bill. Through our apps, users can queue emails to be sent to their representative via our app. We’ll let the representative know that a user in their district named xxx feels a certain away about the bill. This both allows users to become more civically engaged and gives representatives better data about their constituents.
@@ -41,7 +54,7 @@ Each member of the team plans to reach out to two groups of friends: those who a
 We also plan to watch user’s interact with our application and observe any pain points.
 
 ### Things Accomplished Over the Weekend
-
+  
   + Android studio installed and setup to work with React-Native. (All members)
   + Wireframes drawn for all pages. (Christine and Leland)
   + Django installation and psql setup (David and Sunny)
