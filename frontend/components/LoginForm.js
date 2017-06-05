@@ -44,4 +44,8 @@ constructor(props){
   }
 }
 
+const styles = {
+
+};
+
 export default LoginForm;
