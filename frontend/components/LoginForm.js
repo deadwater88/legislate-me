@@ -34,7 +34,7 @@ onPressButton(){
           <CardSection >
             <Input
               secureTextEntry
-              placeholder="swedishfish42"
+              placeholder="password"
               label="Password"
               value={this.state.password}
               onChangeText={password =>this.setState({password})}
@@ -46,7 +46,7 @@ onPressButton(){
             </Button>
           </CardSection>
           <TouchableHighlight onPress={this.onPressButton}>
-              <Text>Or log in</Text>
+              <Text>Or sign up</Text>
           </TouchableHighlight>
         </Card>
       );
