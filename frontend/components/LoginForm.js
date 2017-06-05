@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Button, Card, CardSection, Input} from './common';
 
 class LoginForm extends Component {
@@ -13,6 +13,9 @@ constructor(props){
   render(){
     return(
       <Card>
+        <CardSection>
+          <Text> oAuth Icons, very clickable </Text>
+        </CardSection>
         <CardSection>
           <Input
             placeholder="user@gmail.com"
@@ -40,5 +43,9 @@ constructor(props){
     );
   }
 }
+
+const styles = {
+
+};
 
 export default LoginForm;
