@@ -20,7 +20,7 @@ export default class legislate_me extends Component {
           Welcome to LEGISLATE ME!!
         </Text>
         <Text style={styles.instructions}>
-          HI SUNNY AND CHRISTINE! To get started, edit index.android.js
+          HI SUNNY AND CHRISTINE AND LELAND AND DAVID! To get started, edit index.android.js
         </Text>
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
