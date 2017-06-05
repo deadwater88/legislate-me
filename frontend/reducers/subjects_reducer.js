@@ -1,5 +1,10 @@
 import merge from 'lodash/merge';
 
+import {
+  RECEIVE_SUBJECTS,
+  RECEIVE_SUBJECT
+} from '../actions/subject_actions';
+
 const SubjectsReducers = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
