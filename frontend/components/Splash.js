@@ -4,10 +4,11 @@ import { Card, Button } from './common';
 
 const Splash = () => {
   const { headerStyle, imageStyle} = styles;
+  const pic = "http://lorempixel.com/100/100/city";
   return (
     <View>
     <Text style={headerStyle}> Now is the time for action </Text>
-    <Image style={imageStyle}/>
+    <Image style={imageStyle} source={pic}/>
       <Button>
         Make your voice heard
       </Button>
