@@ -1,3 +1,5 @@
+import * as APIUtil from '../util/api_util';
+
 export const RECEIVE_SUBJECTS = 'RECEIVE_SUBJECTS';
 export const RECEIVE_SUBJECT = 'RECEIVE_SUBJECT';
 
@@ -10,3 +12,9 @@ export const receiveSubject = subject => ({
   type: RECEIVE_SUBJECT,
   subject
 });
+
+export const fetchSubjects = () => dispatch => (
+  APIUtil.fetchSubjects().then(subjects => (
+    dispatch(receiveSubjects(subjects))
+  ))
+);
