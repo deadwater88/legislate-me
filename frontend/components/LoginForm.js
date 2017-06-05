@@ -8,11 +8,19 @@ constructor(props){
   this.state = {email: '',
                 password: '',
                 login: true};
-  this.onPressButton = this.onPressButton.bind(this);
+  this.onToggleSignIn = this.onToggleSignIn.bind(this);
 }
-onPressButton(){
+onToggleSignIn(){
   let toggle = !this.state.login;
   this.setState({login: toggle});
+}
+
+onLogIn(){
+
+}
+
+onSignUp(){
+
 }
 
   render(){
@@ -41,11 +49,11 @@ onPressButton(){
                />
           </CardSection>
           <CardSection>
-            <Button>
+            <Button onPress={this.onSignUp}>
               Log in
             </Button>
           </CardSection>
-          <TouchableHighlight onPress={this.onPressButton}>
+          <TouchableHighlight onPress={this.onToggleSignIn}>
               <Text>Or sign up</Text>
           </TouchableHighlight>
         </Card>
@@ -75,11 +83,11 @@ onPressButton(){
                />
           </CardSection>
           <CardSection>
-            <Button>
+            <Button onPress={this.onSignUp}>
               Sign Up!
             </Button>
           </CardSection>
-          <TouchableHighlight onPress={this.onPressButton}>
+          <TouchableHighlight onPress={this.onToggleSignIn}>
               <Text>Or log in</Text>
           </TouchableHighlight>
         </Card>
