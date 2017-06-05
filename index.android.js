@@ -17,10 +17,10 @@ export default class legislate_me extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to LEGISLATE ME!!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          HI SUNNY AND CHRISTINE! To get started, edit index.android.js
         </Text>
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
