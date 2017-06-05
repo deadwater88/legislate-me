@@ -9,6 +9,8 @@ constructor(props){
                 password: '',
                 login: true};
   this.onToggleSignIn = this.onToggleSignIn.bind(this);
+  this.onSignUp = this.onSignUp.bind(this);
+  this.onLogIn = this.onLogIn.bind(this);
 }
 onToggleSignIn(){
   let toggle = !this.state.login;
@@ -16,11 +18,17 @@ onToggleSignIn(){
 }
 
 onLogIn(){
-
+  this.props.login({
+    email: this.state.email,
+    password: this.state.password
+  });
 }
 
 onSignUp(){
-
+  this.props.signup({
+    email: this.state.email,
+    password: this.state.password
+  });
 }
 
   render(){
@@ -49,7 +57,7 @@ onSignUp(){
                />
           </CardSection>
           <CardSection>
-            <Button onPress={this.onSignUp}>
+            <Button onPress={this.onLogIn}>
               Log in
             </Button>
           </CardSection>
