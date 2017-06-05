@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { configureStore } from './frontend/store/store';
-// import OAuth from './frontend/components/OAuth/oauth_container';
+import OAuth from './frontend/components/OAuth/oauth_container';
 
 import {
   AppRegistry,
@@ -14,9 +14,9 @@ export default class LegislateMe extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          YO to React Native!
+          YO to React Native! ay
         </Text>
-
+        <OAuth />
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
