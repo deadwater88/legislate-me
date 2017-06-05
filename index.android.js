@@ -1,4 +1,4 @@
-import './App';
+import './frontend/components/app';
 
 // /**
 //  * Sample React Native App

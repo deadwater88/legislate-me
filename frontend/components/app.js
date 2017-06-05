@@ -18,4 +18,4 @@ const LegislateMe = StackNavigator({
   Home: { screen: HomeScreen },
 });
 
-AppRegistry.registerComponent('LegislateMe', () => LegislateMe);
+AppRegistry.registerComponent('legislate_me', () => LegislateMe);
