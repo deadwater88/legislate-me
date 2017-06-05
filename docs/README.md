@@ -12,10 +12,11 @@ This problem decomposes into several steps, including:
 
 ## Functionality & MVP
 With this application, users will be able to:
- +  View all the legislation in their state
+ + View all the legislation in their state
  + Find their legislators based upon their address
  + View legislation based upon areas of interests (e.g healthcare, environmental policy, etc).
  + Send messages or make calls to their representatives
+ + Interact with the emulator through a demo site
 
 ## Wireframes
 ![Home-Page](/docs/wireframes/Home-Page.png)
