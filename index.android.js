@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { configureStore } from './frontend/store/store';
-import OAuth from './frontend/components/OAuth/oauth_container';
+import OAuth from './frontend/components/OAuth/oauth';
 
 import {
   AppRegistry,
