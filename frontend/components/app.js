@@ -1,15 +1,21 @@
-import React, {Component} from 'react';
-import { View, Text } from 'react-native';
-import LoginForm from './LoginForm';
+import React from 'react';
+import {
+  AppRegistry,
+  Text,
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-class App extends Component {
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render() {
-    return (
-      <View>
-        <LoginForm />
-      </View>
-    );
+    return <Text>Hello, Navigation!</Text>;
   }
 }
 
-export default App;
+const LegislateMe = StackNavigator({
+  Home: { screen: HomeScreen },
+});
+
+AppRegistry.registerComponent('LegislateMe', () => LegislateMe);
