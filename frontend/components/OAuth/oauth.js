@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import FBSDK from 'react-native-fbsdk';
 const LoginButton = FBSDK.LoginButton;
 const AccessToken = FBSDK.AccessToken;
-class OAuth extends Component {
+class FBOAuth extends Component {
   render() {
     return (
       <View>
@@ -30,4 +30,4 @@ class OAuth extends Component {
   }
 }
 
-export default OAuth;
+export default FBOAuth;

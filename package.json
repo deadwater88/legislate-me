@@ -15,14 +15,23 @@
     "json-loader": "^0.5.4",
     "react-native-fbsdk": "^0.6.0",
     "react-native-oauth": "^2.1.16",
+    "lodash": "^4.17.4",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.2",
     "react-native-webpack": "^0.1.1",
+    "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "1.9.2",
+    "jest": "20.0.4",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
