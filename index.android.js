@@ -1,10 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+import { configureStore } from './frontend/store/store';
+// import OAuth from './frontend/components/OAuth/oauth_container';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -12,13 +9,14 @@ import {
   View
 } from 'react-native';
 
-export default class legislate_me extends Component {
+export default class LegislateMe extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          YO to React Native!
         </Text>
+
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
@@ -50,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('legislate_me', () => legislate_me);
+AppRegistry.registerComponent('legislate_me', () => LegislateMe);
