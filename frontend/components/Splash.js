@@ -1,19 +1,27 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
-import { Card, Button } from './common';
+import { Card, CardSection, Button } from './common';
 
 const Splash = () => {
   const { headerStyle, imageStyle} = styles;
-  const pic = "http://lorempixel.com/100/100/city";
+  const pic  = {
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
   return (
-    <View>
-    <Text style={headerStyle}> Now is the time for action </Text>
-    <Image style={imageStyle} source={pic}/>
-      <Button>
-        Make your voice heard
-      </Button>
-    </View>
+    <Card>
+      <CardSection>
+        <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
+      </CardSection>
+      <CardSection>
+        <Image style={imageStyle} source={pic}/>
+      </CardSection>
+      <CardSection>
+        <Button>
+          Get Started
+        </Button>
+      </CardSection>
 
+    </Card>
   );
 };
 
@@ -27,7 +35,9 @@ const styles = {
     flex: 1
   },
   imageStyle: {
-    flex: 2
+    flex: 2,
+    width: 100,
+    height: 100
   }
 };
 
