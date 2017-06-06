@@ -35,6 +35,20 @@ import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList
 //   }
 // });
 
+import { StackNavigator } from 'react-navigation';
+import FBOAuth from './OAuth/oauth';
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+  render() {
+    return <View>
+      <Text>Hello, Navigation!</Text>
+      <FBOAuth />
+    </View>
+  }
+}
 
 const LegislateMe = StackNavigator({
   Splash: { screen: Splash },
