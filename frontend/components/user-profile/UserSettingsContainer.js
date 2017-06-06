@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 
 import UserSettings from './UserSettings';
 import { logout, deleteUser } from '../../actions/session_actions';
-import { updateRepresentatives } from '../../actions/representatives_actions';
+import { updateAddress} from '../../actions/representatives_actions';
 
 const mapStateToProps = state => (
   {
-    session: state.session
+    session: state.session,
+    representatives: state.representatives
   }
 );
 
@@ -14,7 +15,7 @@ const mapDispatchToProps = dispatch => (
   {
     logout: user => dispatch(logout(user)),
     deleteUser: user => dispatch(deleteUser(user)),
-    updateRepresentatives: address => dispatch(updateRepresentatives(address))
+    updateAddress: address => dispatch(updateAddress(address))
   }
 );
 
