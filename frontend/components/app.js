@@ -12,6 +12,7 @@ import FBOAuth from './login/OAuth/oauth';
 import LoginForm from './login/LoginForm.js';
 import Splash from './login/Splash.js';
 import UserProfileNavigator from './user_profile/user_profile_navigator';
+import { UserProfile } from './user_profile/user_profile_navigator';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
@@ -30,7 +31,7 @@ class LoginSwiping extends Component{
       //   <View>
       //     <Splash navigation={navigate}/>
       //   </View>
-        <UserProfileNavigator />
+        <UserProfile />
       //   <View>
       //     <Text>Hello, Navigation!</Text>
       //     <FBOAuth />
