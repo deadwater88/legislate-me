@@ -7,9 +7,12 @@ import {
   Text
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import LoginForm from './LoginForm.js';
-import Splash from './Splash.js';
 import Swiper from 'react-native-swiper';
+
+
+import FBOAuth from './login/OAuth/oauth';
+import LoginForm from './login/LoginForm.js';
+import Splash from './login/Splash.js';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 
@@ -35,9 +38,6 @@ import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList
 //     )
 //   }
 // });
-
-// import { StackNavigator } from 'react-navigation';
-import FBOAuth from './OAuth/oauth';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
