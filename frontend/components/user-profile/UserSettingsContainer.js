@@ -6,8 +6,7 @@ import { updateRepresentatives } from '../../actions/representatives_actions';
 
 const mapStateToProps = state => (
   {
-    session: state.session,
-    representatives: state.representatives
+    session: state.session
   }
 );
 

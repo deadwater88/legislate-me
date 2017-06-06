@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Card, CardSection, Input } from '../common';
-import RepresentativesView from './RepresentativesView';
 
 
 class UserSettings extends React.Component {
@@ -9,6 +8,11 @@ class UserSettings extends React.Component {
     this.state = { address: ''};
     this.signOut = this.signOut.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
+    this.changeAddress = this.changeAddress.bind(this);
+  }
+
+  changeAddress(){
+    this.props.changeAddress(this.state.address);
   }
 
   signOut(){
@@ -23,14 +27,15 @@ class UserSettings extends React.Component {
     return(
       <Card>
         <CardSection >
-          <Text>Your current representatives</Text>
-          <RepresentativesView reps={this.props.representatives} />
           <Input
             placeholder={this.props}
             label="Change your address"
             value={this.state.address}
             onChangeText={address =>this.setState({address})}
              />
+         <Button onPress={this.props.changeAddress}>
+           Change Your Address
+         </Button>
         </CardSection>
         <CardSection>
           <Button onPress={this.props.signOut}>
