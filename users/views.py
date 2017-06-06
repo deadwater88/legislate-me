@@ -23,7 +23,6 @@ class UserView(APIView):
 
     def post(self, request):
         User = get_user_model()
-        pdb.set_trace()
         email = request.data['user[email]']
         password = request.data['user[password]']
         user = User(email=email, password=password)
