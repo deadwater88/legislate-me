@@ -6,7 +6,6 @@ import { StackNavigator } from 'react-navigation';
 class Splash extends Component {
   constructor(props){
     super(props);
-    console.log(props);
   }
   render(){
     const { headerStyle, imageStyle} = styles;

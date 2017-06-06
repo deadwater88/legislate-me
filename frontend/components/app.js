@@ -22,7 +22,6 @@ import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList
 class LoginSwiping extends Component{
   constructor(props){
     super(props);
-    console.log(props);
   }
   render(){
     const navigate = this.props.navigation.navigate;
