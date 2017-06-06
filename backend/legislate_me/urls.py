@@ -18,7 +18,8 @@ from django.conf.urls import include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^api/users/', include('users.urls')),
-    url(r'^api/bills/', include('bills.urls')),
+    url(r'^api/bills', include('bills.urls')),
+    url(r'^api/users', include('users.urls')),
+    url(r'^api/sessions', include('session.urls')),
     url(r'^admin/', admin.site.urls),
 ]
