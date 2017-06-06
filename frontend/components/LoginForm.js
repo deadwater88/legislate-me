@@ -31,6 +31,10 @@ onSignUp(){
   });
 }
 
+componentDidUnmount(){
+  this.props.clearErrors();
+}
+
   render(){
     if(this.state.login){
       return(
