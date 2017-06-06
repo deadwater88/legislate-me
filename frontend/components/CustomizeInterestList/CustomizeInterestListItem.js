@@ -8,7 +8,7 @@ class CustomizeInterestListItem extends Component {
 
   render(){
     return (
-      <View><Text>{this.props.data}</Text></View>
+      <View><Text>{this.props.data.key}</Text></View>
     )
   }
 }
