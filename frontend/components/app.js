@@ -8,11 +8,11 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
-
 import FBOAuth from './login/OAuth/oauth';
 import LoginForm from './login/LoginForm.js';
 import Splash from './login/Splash.js';
-import UserProfile from './user_profile/user_profile_container';
+import UserProfileNavigator from './user_profile/user_profile_navigator';
+
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
@@ -30,7 +30,7 @@ class LoginSwiping extends Component{
       //   <View>
       //     <Splash navigation={navigate}/>
       //   </View>
-        <UserProfile />
+        <UserProfileNavigator />
       //   <View>
       //     <Text>Hello, Navigation!</Text>
       //     <FBOAuth />

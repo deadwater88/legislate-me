@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import CustomizeInterestList from '../CustomizeInterestList/CustomizeInterestList';
-import Settings from './settings';
+import { View, Text, Button } from 'react-native';
+
 
 class UserProfile extends React.Component {
   static navigationOptions = {
@@ -13,38 +13,34 @@ class UserProfile extends React.Component {
   }
 
   render(){
-    const navigate = this.props.navigation.navigate;
+    console.log('THESE ARE THE PROPS',this.props);
+    const {navigate} = this.props.navigation;
     return(
       <View>
-      <Button
-        onPress={() => {
-          navigate('CustomizeInterests');
-        }}
-        subjects={this.props.subjects}
-        >
-        Customize Your Interests
-      </Button>
-      <Button
-        onPress={() => {
-          navigate('Settings');
-        }}
-        user={this.props.currentUser}>
-        Settings
-      </Button>
-      <Button
-        onPress={() => {
-          this.props.logout();
-        }}>
-        Settings
-      </Button>
+        <Text>AYYY</Text>
+        <Button
+          onPress={() => {
+            navigate('CustomizeInterests');
+          }}
+          subjects={this.props.subjects}
+          title='Customize Your Interests'
+          >
+        </Button>
+        <Button
+          onPress={() => {
+            navigate('Settings');
+          }}
+          user={this.props.currentUser}
+          title='Settings'>
+        </Button>
+        <Button
+          onPress={() => {
+            this.props.logout();
+          }}
+          title='Log out'>
+        </Button>
     </View>
   );
   }
 }
 export default UserProfile;
-
-const UserProfileNavigator = StackNavigator({
-  Settings: { screen: Settings },
-  CustomizeInterests: {screen: CustomizeInterestList },
-  UserProfile: { screen: UserProfile }
-});
