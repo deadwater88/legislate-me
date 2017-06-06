@@ -2,15 +2,21 @@ import React from 'react';
 import {
   AppRegistry,
   Text,
+  View
+
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import FBOAuth from './OAuth/oauth';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome',
   };
   render() {
-    return <Text>Hello, Navigation!</Text>;
+    return <View>
+      <Text>Hello, Navigation!</Text>
+      <FBOAuth />
+    </View>
   }
 }
 
