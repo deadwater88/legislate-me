@@ -25,7 +25,9 @@ class UserView(APIView):
         User = get_user_model()
         email = request.data['user[email]']
         password = request.data['user[password]']
-        user = User(email=email, password=password)
+        first_name = request.data['user[first_name]']
+        last_name = request.data['user[last_name]']
+        user = User(email=email, password=password, last_name=last_name, first_name=first_name)
         try:
             user.full_clean()
         except ValidationError as e:
