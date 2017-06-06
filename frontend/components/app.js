@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import {
   AppRegistry,
@@ -19,12 +19,18 @@ import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList
 
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
-const LegislateMe = React.createClass({
-  render: function(){
+class LoginSwiping extends Component{
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
+  render(){
+    const navigate = this.props.navigation.navigate;
+
     return (
       <Swiper>
         <View>
-          <Splash/>
+          <Splash navigation={navigate}/>
         </View>
         <View>
           <Text>Hello, Navigation!</Text>
@@ -44,6 +50,11 @@ const LegislateMe = React.createClass({
       </Swiper>
     )
   }
+}
+
+const LegislateMe = StackNavigator({
+  Main: {screen: LoginSwiping},
+  Login: {screen: LoginForm}
 });
 
 AppRegistry.registerComponent('legislate_me', () => LegislateMe);

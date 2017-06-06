@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import { Card, CardSection, Button } from '../common';
+import { StackNavigator } from 'react-navigation';
 
-const Splash = () => {
-  const { headerStyle, imageStyle} = styles;
-  const pic  = {
+class Splash extends Component {
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
+  render(){
+    const { headerStyle, imageStyle} = styles;
+    const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
-  return (
-    <Card>
-      <CardSection>
-        <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
-      </CardSection>
-      <CardSection>
-        <Image style={imageStyle} source={pic}/>
-      </CardSection>
-      <CardSection>
-        <Button>
-          Get Started
-        </Button>
-      </CardSection>
+    const navigate = this.props.navigation;
 
-    </Card>
-  );
+    return (
+      <Card>
+        <CardSection>
+          <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
+        </CardSection>
+        <CardSection>
+          <Image style={imageStyle} source={pic}/>
+        </CardSection>
+        <CardSection>
+          <Button
+            onPress={() => {
+              navigate('Login');
+            }}>
+            Get Started
+          </Button>
+        </CardSection>
+
+      </Card>
+    )
+  }
 };
 
 const styles = {
