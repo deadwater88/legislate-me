@@ -3,31 +3,34 @@ import { View, Text, ListView } from 'react-native';
 
 import { SUBJECTS } from '../../util/subject_api_util';
 // import CustomizeInterestListItem from './CustomizeInterestListItem';
+
 class CustomizeInterestList extends Component {
   constructor(props){
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
     this.state = {
-      dataSource: ds.cloneWithRows([
-
-      ])
-    }
+      dataSource: ds.cloneWithRows(Object.keys(SUBJECTS))
+    };
   }
 
-  componentDidMount(){
-    // this.props.fetchSubjects();
-  }
+  // componentDidMount(){
+  //   // this.props.fetchSubjects();
+  // }
 
   render(){
     return (
-      <View>
-        <ListView
-          dataSource={this.state.subjects}
-          renderRow{(rowData) => <Text>{rowData}</Text>}
-          />
-      </View>
+      <ListView
+         dataSource={this.state.dataSource}
+         renderRow={(data) =>
+           <View><Text>{data}</Text></View>
+         }
+       />
     )
   }
 }
+// <CustomizeInterestListItem {...data}/>
+
 
 export default CustomizeInterestList;
