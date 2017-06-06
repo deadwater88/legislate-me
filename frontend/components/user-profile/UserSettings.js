@@ -27,11 +27,12 @@ class UserSettings extends React.Component {
     return(
       <Card>
         <CardSection >
+          <Text>{this.props.representatives.errors}</Text>
           <Input
             placeholder={this.props}
             label="Change your address"
             value={this.state.address}
-            onChangeText={address =>this.setState({address})}
+            onChangeText={address => this.setState({address})}
              />
          <Button onPress={this.props.changeAddress}>
            Change Your Address
