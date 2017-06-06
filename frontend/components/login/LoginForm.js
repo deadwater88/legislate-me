@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
-import { Button, Card, CardSection, Input} from '../common';
+import { Button, Card, CardSection, Input} from './common';
 
 class LoginForm extends Component {
 constructor(props){
   super(props);
-  this.state = {email: '',
+  this.state = {name: '',
+                email: '',
                 password: '',
                 login: true};
   this.onToggleSignIn = this.onToggleSignIn.bind(this);
@@ -19,6 +20,7 @@ onToggleSignIn(){
 
 onLogIn(){
   this.props.login({
+    name: this.state.name,
     email: this.state.email,
     password: this.state.password
   });
@@ -26,6 +28,7 @@ onLogIn(){
 
 onSignUp(){
   this.props.signup({
+    name: this.state.name,
     email: this.state.email,
     password: this.state.password
   });
@@ -41,6 +44,14 @@ componentDidUnmount(){
         <Card>
           <CardSection>
             <Text> oAuth Icons, very clickable </Text>
+          </CardSection>
+          <CardSection>
+            <Input
+              placeholder="Full Name"
+              label="Name"
+              value={this.state.name}
+              onChangeText={name =>this.setState({name})}
+               />
           </CardSection>
           <CardSection>
             <Input
@@ -75,6 +86,14 @@ componentDidUnmount(){
         <Card>
           <CardSection>
             <Text> oAuth Icons, very clickable </Text>
+          </CardSection>
+          <CardSection>
+            <Input
+              placeholder="Full Name"
+              label="Name"
+              value={this.state.name}
+              onChangeText={name =>this.setState({name})}
+               />
           </CardSection>
           <CardSection>
             <Input
