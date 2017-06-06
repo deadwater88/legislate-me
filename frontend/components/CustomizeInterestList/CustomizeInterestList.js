@@ -3,6 +3,7 @@ import { View, Text, ListView, StyleSheet } from 'react-native';
 
 import { SUBJECTS } from '../../util/subject_api_util';
 import CustomizeInterestListItem from './CustomizeInterestListItem';
+import CustomizeHeader from './CustomizeHeader';
 
 class CustomizeInterestList extends Component {
   constructor(props){
@@ -14,6 +15,7 @@ class CustomizeInterestList extends Component {
     this.state = {
       dataSource: ds.cloneWithRows(this.zipped(SUBJECTS))
     };
+
   }
 
   zipped(hash){
@@ -28,27 +30,28 @@ class CustomizeInterestList extends Component {
 
   render(){
     return (
-      <ListView
-         dataSource={this.state.dataSource}
-         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-         renderRow={(data) =>
-           <CustomizeInterestListItem data={data} />
-         }
-       />
+      <View>
+
+        <ListView
+          dataSource={this.state.dataSource}
+          renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+          renderRow={(data) =>
+            <CustomizeInterestListItem data={data} />
+          }
+          renderHeader={() => <CustomizeHeader />}
+          />
+      </View>
     )
   }
 }
 
 // add bottom separator
 const styles = StyleSheet.create({
-  /*
-   * Removed for brevity
-   */
   separator: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
     backgroundColor: '#8E8E8E',
-  },
+  }
 });
 
 export default CustomizeInterestList;
