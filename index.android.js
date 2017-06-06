@@ -1,1 +1,1 @@
-import './frontend/components/app';
+import './frontend/components/root';
