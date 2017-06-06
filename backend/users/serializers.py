@@ -1,9 +1,7 @@
-
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.ModelSerializer)
-    class Meta:
-        model = User
-        fields = ('id', 'password', 'email', 'username')
+class UserSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(max_length=256)
