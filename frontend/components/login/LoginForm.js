@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
-import { Button, Card, CardSection, Input} from './common';
+import { Button, Card, CardSection, Input} from '../common';
 
 class LoginForm extends Component {
 constructor(props){
