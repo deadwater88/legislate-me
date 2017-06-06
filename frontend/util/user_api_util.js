@@ -9,7 +9,7 @@ export const deleteUser = user => (
 export const createAddress = address => (
   $.ajax({
     method: 'POST',
-    url: '/api/user/address',
+    url: '/api/user/representatives',
     data: address
   })
 );
@@ -17,7 +17,7 @@ export const createAddress = address => (
 export const updateAddress = address => (
   $.ajax({
     method: 'PATCH',
-    url: '/api/user/address',
+    url: '/api/user/representatives',
     data: address
   })
 );
