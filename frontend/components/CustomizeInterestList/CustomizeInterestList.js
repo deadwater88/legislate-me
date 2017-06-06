@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ListView } from 'react-native';
 
 import { SUBJECTS } from '../../util/subject_api_util';
-// import CustomizeInterestListItem from './CustomizeInterestListItem';
+import CustomizeInterestListItem from './CustomizeInterestListItem';
 
 class CustomizeInterestList extends Component {
   constructor(props){
@@ -15,22 +15,16 @@ class CustomizeInterestList extends Component {
     };
   }
 
-  // componentDidMount(){
-  //   // this.props.fetchSubjects();
-  // }
-
   render(){
     return (
       <ListView
          dataSource={this.state.dataSource}
          renderRow={(data) =>
-           <View><Text>{data}</Text></View>
+           <CustomizeInterestListItem data={data} />
          }
        />
     )
   }
 }
-// <CustomizeInterestListItem {...data}/>
-
 
 export default CustomizeInterestList;
