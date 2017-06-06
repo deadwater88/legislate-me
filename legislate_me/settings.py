@@ -40,14 +40,15 @@ INSTALLED_APPS = [
     'bills.apps.BillsConfig',
     'users.apps.UsersConfig',
     'rest_framework',
-    'django_extensions'
+    'django_extensions',
+    'session.apps.SessionConfig'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

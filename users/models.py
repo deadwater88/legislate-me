@@ -8,9 +8,6 @@ class MyUserManager(BaseUserManager):
     instead of usernames. The default that's used is "UserManager"
     """
     def _create_user(self, email, password, **extra_fields):
-        """
-        Creates and saves a User with the given email and password.
-        """
         if not email:
             raise ValueError('The Email must be set')
         email = self.normalize_email(email)
@@ -38,6 +35,8 @@ from django.utils.translation import ugettext_lazy as _
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, null=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
