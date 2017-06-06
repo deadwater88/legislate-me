@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CustomizeInterestList from './CustomizeInterestList';
+import CustomizeInterestList from './CustomizeInterestList.js';
 import {receiveSubject} from '../../actions/subject_actions';
 
 

@@ -5,7 +5,7 @@ import {
   RECEIVE_SUBJECT
 } from '../actions/subject_actions';
 
-const SubjectsReducers = (state = {}, action) => {
+const SubjectsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 

@@ -15,6 +15,7 @@ import LoginForm from './login/LoginForm.js';
 import Splash from './login/Splash.js';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
+import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
 
 // Initialize three cards that the user can swipe between:
