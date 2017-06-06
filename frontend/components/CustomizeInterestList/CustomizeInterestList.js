@@ -38,7 +38,8 @@ class CustomizeInterestList extends Component {
     )
   }
 }
-// add bottom separator later
+
+// add bottom separator
 const styles = StyleSheet.create({
   /*
    * Removed for brevity
