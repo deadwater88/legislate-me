@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "69410705565",
+    "project_id": "legislateme-169903"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69410705565:android:b1d1ca14c529f121",
+        "android_client_info": {
+          "package_name": "com.legislate_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69410705565-osvs6bbp8ua564vh8a3ueheeu5k2vgrs.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "69410705565-g9ob1bbnun589ju2976p92570tgtpaue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.legislate_me",
+            "certificate_hash": "9144a45723fcfe08b7bba6160768a226a8f518e6"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZtDFaRdv_fem6Gqpt9BtMKYrRKmondW0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

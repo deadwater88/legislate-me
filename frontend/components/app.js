@@ -1,4 +1,5 @@
 import React from 'react';
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import {
   AppRegistry,
   Text,
@@ -16,6 +17,11 @@ class HomeScreen extends React.Component {
     return <View>
       <Text>Hello, Navigation!</Text>
       <FBOAuth />
+      <GoogleSigninButton
+      style={{width: 48, height: 48}}
+      size={GoogleSigninButton.Size.Icon}
+      color={GoogleSigninButton.Color.Dark}
+      onPress={console.log("hi")}/>
     </View>
   }
 }
