@@ -35,7 +35,7 @@ import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList
 //   }
 // });
 
-import { StackNavigator } from 'react-navigation';
+// import { StackNavigator } from 'react-navigation';
 import FBOAuth from './OAuth/oauth';
 
 class HomeScreen extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
-import { Card, CardSection, Button } from '../common';
+import { Card, CardSection, Button } from './common';
 
 const Splash = () => {
   const { headerStyle, imageStyle} = styles;
