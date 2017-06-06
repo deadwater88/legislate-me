@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { AppRegistry } from 'react-native';
+import React, {Component} from 'react';
+
 import thunk from 'redux-thunk';
-import LegislateMe from './app';
-import RootReducer from '../reducers/root_reducer';
+import App from './app';
 import configureStore from '../store/store';
-//
-// const store = createStore(RootReducer);
-//
-// class Root extends Component {
-//   render() {
-//     return (
-//       <Provider store={store}>
-//         <LegislateMe />
-//       </Provider>
-//     );
-//   }
-// }
 
-const Root = ({ store }) => (
-  <Provider store={store}>
-      <LegislateMe />
-  </Provider>
-);
+const store = configureStore();
 
-export default Root;
+class Root extends Component {
+
+  render(){
+    console.log("inside root");
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+  }
+
+}
+AppRegistry.registerComponent('legislate_me', () => Root);
