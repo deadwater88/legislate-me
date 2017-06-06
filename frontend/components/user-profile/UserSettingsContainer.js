@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import UserSettings from './UserSettings';
 import { logout } from '../../actions/session_actions';
-import { updateAddress, deleteUser }
+import { updateAddress, deleteUser };
 
 const mapStateToProps = state => (
   {
