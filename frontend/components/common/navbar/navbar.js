@@ -15,11 +15,7 @@ class Navbar extends Component {
     const { bannerStyle, buttonStyle} = styles;
     return (
       <View style={bannerStyle}>
-        <TouchableOpacity>
-
           <Icon name="home"  onPress={this.goToHome} style={buttonStyle}/>
-          </TouchableOpacity>
-
           <Icon name="bookmark" onPress={this.goToBookmarks} style={buttonStyle}/>
           <Icon name="globe" onPress={this.goToDiscover} style={buttonStyle}/>
           <Icon name="user-o" onPress={this.goToProfile} style={buttonStyle}/>
@@ -50,8 +46,11 @@ const styles = {
   bannerStyle: {
     backgroundColor: 'black',
     flexDirection: 'row',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
-    padding: 16
+    padding: 16,
+    paddingLeft: 24,
+    paddingRight: 24
   }
 };
 
