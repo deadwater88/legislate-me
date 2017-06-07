@@ -1,6 +1,7 @@
-import axios  from 'axios';
- export const login = user => (
-  axios.post({
+import axios from 'axios';
+
+export const login = user => (
+  $.ajax({
     method: 'POST',
     url: '/api/session',
     data: user
@@ -10,22 +11,17 @@ import axios  from 'axios';
 export const signup = user => (
   axios({
     method: 'POST',
-    url: 'http://localhost:8000/api/user',
+    url: 'http://10.0.2.2:8000/api/users',
     data: user
-  })
+  }).then(
+    res => console.log(res),
+    err => console.log(err)
+  )
 );
 
 export const logout = () => (
-  axios({
+  $.ajax({
     method: 'DELETE',
     url: '/api/session'
   })
 );
-
-export const oauth = user => {
-  axios({
-    method: 'POST',
-    url: '/api/oauth',
-    data: user
-  });
-};

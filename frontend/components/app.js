@@ -11,7 +11,7 @@ import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
 
 import FBOAuth from './login/OAuth/oauth';
-import LoginForm from './login/LoginForm.js';
+import LoginFormContainer from './login/LoginFormContainer.js';
 import Splash from './login/Splash.js';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
@@ -57,7 +57,7 @@ class LoginSwiping extends Component{
           onPress={this.configureConnection}/>
         </View>
         <View>
-          <LoginForm/>
+          <LoginFormContainer/>
         </View>
         <View>
           <CustomizeInterestListContainer/>
@@ -70,7 +70,7 @@ class LoginSwiping extends Component{
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-  Login: {screen: LoginForm}
+  Login: {screen: LoginFormContainer}
 });
 
 // Create App
