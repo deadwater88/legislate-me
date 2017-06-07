@@ -17,20 +17,19 @@ const styles = {
   textStyle: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 16,
-    fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
+    fontSize: 20,
+    fontWeight: '900',
+    paddingTop: 18,
+    paddingBottom: 18
   },
   buttonStyle: {
-    flex: 1,
     alignSelf: 'stretch',
     backgroundColor: '#007aff',
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#007aff',
-    marginLeft: 8,
-    marginRight: 8
+    marginLeft: 12,
+    marginRight: 12
   }
 };
 

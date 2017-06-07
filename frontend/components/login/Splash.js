@@ -32,14 +32,17 @@ const styles = {
   containerStyle: {
     height: '100%',
     backgroundColor:'transparent',
+    flexDirection: 'column',
     justifyContent: 'center'
   },
   headerStyle: {
     color: '#000',
+    fontWeight: '900',
+    alignSelf: 'center',
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 18,
-    flex: 6,
+    height: 50
   }
 };
 
