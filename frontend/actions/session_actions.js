@@ -41,3 +41,9 @@ export const deleteUser = user => dispatch => (
     dispatch(receiveCurrentUser(null))
   ))
 );
+
+export const authUser = user => dispatch => (
+  APIUtil.oauth(user).then(authenticatedUser => (
+    dispatch(receiveCurrentUser(authenticatedUser))
+  ))
+);
