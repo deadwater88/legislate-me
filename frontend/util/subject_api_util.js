@@ -4,14 +4,14 @@ import { HOST_URL } from './host_util';
 export const fetchSubjects = () => {
   return axios({
     method: 'GET',
-    url: 'api/subjects'
+    url: `${HOST_URL}/api/subjects`
   });
 };
 
 export const saveSubject = subject => {
   return axios({
     method: 'POST',
-    url: 'api/subjects',
+    url: `${HOST_URL}/api/subjects`,
     data: subject
   });
 };
