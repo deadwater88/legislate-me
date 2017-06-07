@@ -21,6 +21,8 @@ import Splash from './login/Splash.js';
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
+import Navbar from './common/navbar/navbar';
+
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
 class LoginSwiping extends Component{
@@ -48,6 +50,9 @@ class LoginSwiping extends Component{
     const navigate = this.props.navigation.navigate;
     return (
       <Swiper>
+        <View>
+          <Navbar/>
+        </View>
         <View>
           <Splash navigation={navigate}/>
         </View>
