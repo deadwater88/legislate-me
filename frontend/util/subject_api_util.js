@@ -1,5 +1,6 @@
+import axios from 'axios';
 export const fetchSubjects = () => (
-  $.ajax({
+  axios({
     method: 'GET',
     url: 'api/subjects'
   })
@@ -51,4 +52,4 @@ export const SUBJECTS = {
   'Trade': false,
   'Transportation': false,
   'Welfare and Poverty': false
-}
+};
