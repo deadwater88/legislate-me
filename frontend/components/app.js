@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-//import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import { authUser } from '../actions/session_actions';
+
 import {
   AppRegistry,
   PanResponder,
@@ -10,7 +13,8 @@ import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
 
 
-//import FBOAuth from './login/OAuth/oauth';
+import FBOAuth from './login/OAuth/oauth';
+
 import LoginForm from './login/LoginForm.js';
 import Splash from './login/Splash.js';
 
@@ -22,10 +26,26 @@ import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInt
 class LoginSwiping extends Component{
   constructor(props){
     super(props);
+    this.configureConnection = this.configureConnection.bind(this);
   }
+
+  configureConnection(){
+    GoogleSignin.configure()
+    .then(() => {
+      GoogleSignin.signIn()
+        .then((user) => {
+          console.log(user);
+          authUser(user);
+        })
+        .catch((err) => {
+          console.log('WRONG SIGNIN', err);
+        })
+        .done();
+    });
+  }
+
   render(){
     const navigate = this.props.navigation.navigate;
-
     return (
       <Swiper>
         <View>
@@ -33,6 +53,14 @@ class LoginSwiping extends Component{
         </View>
         <View>
           <Text>Hello, Navigation!</Text>
+
+          <FBOAuth />
+          <GoogleSigninButton
+          style={{width: 48, height: 48}}
+          size={GoogleSigninButton.Size.Icon}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={this.configureConnection}/>
+
         </View>
         <View>
           <LoginForm/>
