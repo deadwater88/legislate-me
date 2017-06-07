@@ -6,6 +6,14 @@ export const fetchSubjects = () => (
   })
 );
 
+export const saveSubject = subject => (
+  axios({
+    method: 'POST',
+    url: 'api/subjects',
+    data: subject 
+  })
+);
+
 export const SUBJECTS = {
   'Agriculture and Food': false,
   'Animal Rights and Wildlife Issues': false,

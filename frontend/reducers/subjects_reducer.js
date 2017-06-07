@@ -1,5 +1,4 @@
 import merge from 'lodash/merge';
-
 import {
   RECEIVE_SUBJECTS,
   RECEIVE_SUBJECT
@@ -19,6 +18,6 @@ const SubjectsReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default SubjectsReducer;
