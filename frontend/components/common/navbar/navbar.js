@@ -8,18 +8,21 @@ class Navbar extends Component {
     this.goToProfile = this.goToProfile.bind(this);
     this.goToHome = this.goToHome.bind(this);
     this.goToBookmarks = this.goToBookmarks.bind(this);
-    this.goToExplore = this.goToExplore.bind(this);
+    this.goToDiscover = this.goToDiscover.bind(this);
   }
 
   render(){
-    const {buttonStyle} = styles;
+    const { bannerStyle, buttonStyle} = styles;
     return (
-      <View>
-        <TouchableOpacity onPress={this.goToProfile} style={buttonStyle}>
-        <Icon.Button name="home" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
-          Login with Facebook
-        </Icon.Button>
-        </TouchableOpacity>
+      <View style={bannerStyle}>
+        <TouchableOpacity>
+
+          <Icon name="home"  onPress={this.goToHome} style={buttonStyle}/>
+          </TouchableOpacity>
+
+          <Icon name="bookmark" onPress={this.goToBookmarks} style={buttonStyle}/>
+          <Icon name="globe" onPress={this.goToDiscover} style={buttonStyle}/>
+          <Icon name="user-o" onPress={this.goToProfile} style={buttonStyle}/>
       </View>
     )
   }
@@ -41,7 +44,14 @@ class Navbar extends Component {
 
 const styles = {
   buttonStyle: {
-
+    color: 'white',
+    fontSize: 25
+  },
+  bannerStyle: {
+    backgroundColor: 'black',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 16
   }
 };
 
