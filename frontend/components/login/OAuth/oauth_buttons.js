@@ -10,8 +10,8 @@ class OAuthButtons extends Component {
   }
   render(){
     return(
-      <View>
-        <FBOAuth
+      <View style={styles}>
+        <FBOAuth style={{width: 305, height: 48}}
         />
         <GoogleSigninButton
         style={{width: 305, height: 48}}
@@ -24,10 +24,10 @@ class OAuthButtons extends Component {
 };
 
 const styles = {
+    backgroundColor: 'black',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black'
 };
 
 export default OAuthButtons;

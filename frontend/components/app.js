@@ -48,15 +48,6 @@ class LoginSwiping extends Component{
           <Splash navigation={navigate}/>
         </View>
         <View>
-          <Text>Hello, Navigation!</Text>
-          <FBOAuth />
-          <GoogleSigninButton
-          style={{width: 48, height: 48}}
-          size={GoogleSigninButton.Size.Icon}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this.configureConnection}/>
-        </View>
-        <View>
           <LoginFormContainer/>
         </View>
         <View>
@@ -76,12 +67,10 @@ const LegislateMe = StackNavigator({
 // Create App
 class App extends Component {
   render(){
-    console.log("in app");
     return (
       <LegislateMe/>
     )
   }
 }
 
-// AppRegistry.registerComponent('legislate_me', () => LegislateMe);
 module.exports = App;
