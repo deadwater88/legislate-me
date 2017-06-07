@@ -8,35 +8,32 @@ class Splash extends Component {
     super(props);
   }
   render(){
-    const { headerStyle, imageStyle} = styles;
+    const { containerStyle, headerStyle, imageStyle} = styles;
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
     const navigate = this.props.navigation;
 
     return (
-      <Card>
-        <CardSection>
-          <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
-        </CardSection>
-        <CardSection>
-          <Image style={imageStyle} source={pic}/>
-        </CardSection>
-        <CardSection>
-          <Button
-            onPress={() => {
-              navigate('Login');
-            }}>
-            Get Started
-          </Button>
-        </CardSection>
-
-      </Card>
+      <View style={containerStyle}>
+            <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
+            <Image style={imageStyle} source={pic}/>
+            <Button
+              onPress={() => {
+                navigate('Login');
+              }}>
+              Get Started
+            </Button>
+      </View>
     )
   }
 };
 
 const styles = {
+  containerStyle: {
+    backgroundColor: '#16a085',
+    height: '100%',
+  },
   headerStyle: {
     color: '#000',
     paddingRight: 5,
@@ -46,7 +43,7 @@ const styles = {
     flex: 1
   },
   imageStyle: {
-    flex: 2,
+    flex: 1,
     width: 100,
     height: 100
   }
