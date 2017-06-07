@@ -8,47 +8,43 @@ class Splash extends Component {
     super(props);
   }
   render(){
-    const { headerStyle, imageStyle} = styles;
+    const { containerStyle, headerStyle} = styles;
     const pic  = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Golden_Gate_bridge_pillar.jpg/400px-Golden_Gate_bridge_pillar.jpg'
     };
     const navigate = this.props.navigation;
 
     return (
-      <Card>
-        <CardSection>
-          <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
-        </CardSection>
-        <CardSection>
-          <Image style={imageStyle} source={pic}/>
-        </CardSection>
-        <CardSection>
-          <Button
-            onPress={() => {
-              navigate('Login');
-            }}>
-            Get Started
-          </Button>
-        </CardSection>
-
-      </Card>
-    );
+      <Image style={containerStyle} source={pic}>
+        <Text style={headerStyle}>Make your voice heard </Text>
+        <Button 
+          onPress={() => {
+            navigate('Login');
+          }}>
+          Get Started
+        </Button>
+      </Image>
+    )
   }
 };
 
 const styles = {
-  headerStyle: {
-    color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
-    fontSize: 18,
-    lineHeight: 23,
-    flex: 1
+  containerStyle: {
+    height: '100%',
+    backgroundColor:'transparent',
+    flexDirection: 'column',
+    justifyContent: 'flex-start'
   },
-  imageStyle: {
-    flex: 2,
-    width: 100,
-    height: 100
+  headerStyle: {
+    color: 'white',
+    fontWeight: '900',
+    alignSelf: 'center',
+    paddingRight: 15,
+    paddingLeft: 15,
+    marginTop: 30,
+    marginBottom: 330,
+    fontSize: 34,
+    height: 150
   }
 };
 

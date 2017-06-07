@@ -14,8 +14,7 @@ import Swiper from 'react-native-swiper';
 import UserProfileNavigator from './user_profile/user_profile_navigator';
 
 import FBOAuth from './login/OAuth/oauth';
-
-import LoginForm from './login/LoginForm.js';
+import LoginFormContainer from './login/LoginFormContainer.js';
 import Splash from './login/Splash.js';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
@@ -52,21 +51,7 @@ class LoginSwiping extends Component{
           <Splash navigation={navigate}/>
         </View>
         <View>
-          <Text>Hello, Navigation!</Text>
-
-          <FBOAuth />
-          <GoogleSigninButton
-          style={{width: 48, height: 48}}
-          size={GoogleSigninButton.Size.Icon}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this.configureConnection}/>
-
-        </View>
-        <View>
-          <LoginForm/>
-        </View>
-        <View>
-          <CustomizeInterestListContainer/>
+          <LoginFormContainer/>
         </View>
       </Swiper>
     )
@@ -76,18 +61,16 @@ class LoginSwiping extends Component{
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-  Login: {screen: LoginForm}
+  Login: {screen: LoginFormContainer}
 });
 
 // Create App
 class App extends Component {
   render(){
-    console.log("in app");
     return (
       <LegislateMe/>
     )
   }
 }
 
-// AppRegistry.registerComponent('legislate_me', () => LegislateMe);
 module.exports = App;
