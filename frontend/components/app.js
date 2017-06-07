@@ -70,7 +70,7 @@ class LoginSwiping extends Component{
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-  Login: {screen: LoginForm}
+  Login: {screen: LoginFormContainer}
 });
 
 // Create App
