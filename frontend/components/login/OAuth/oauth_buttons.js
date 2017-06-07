@@ -29,8 +29,7 @@ class OAuthButtons extends Component {
 
 const styles = {
   containerStyle: {
-    display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   buttonStyle: {

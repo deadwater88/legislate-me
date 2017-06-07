@@ -8,7 +8,8 @@ class LoginForm extends Component {
   constructor(props){
     super(props);
     console.log(props);
-    this.state = {name: '',
+    this.state = {fName: '',
+      lName: '',
       email: '',
       password: '',
       login: true};
@@ -23,7 +24,6 @@ class LoginForm extends Component {
 
     onLogIn(){
       this.props.login({
-        name: this.state.name,
         email: this.state.email,
         password: this.state.password
       });
@@ -32,11 +32,12 @@ class LoginForm extends Component {
     onSignUp(){
       console.log("signing up");
       this.props.signup({
-        name: this.state.name,
+        fName: this.state.fName,
+        lName: this.state.lName,
         email: this.state.email,
         password: this.state.password
       }).then( (res) => {
-        console.log(res);
+        // console.log(res);
         // console.log(global.store.getState())
       }
     )
@@ -97,10 +98,18 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Input
-              placeholder="Full Name"
-              label="Name"
-              value={this.state.name}
-              onChangeText={name =>this.setState({name})}
+              placeholder="First Name"
+              label="First Name"
+              value={this.state.firstName}
+              onChangeText={firstName =>this.setState({firstName})}
+              />
+          </CardSection>
+          <CardSection>
+            <Input
+              placeholder="Last Name"
+              label="Last Name"
+              value={this.state.lastName}
+              onChangeText={lName =>this.setState({lName})}
               />
           </CardSection>
           <CardSection>
