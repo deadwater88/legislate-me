@@ -59,7 +59,7 @@ class CustomizeInterestList extends Component {
             accessibilityLabel="Save your interests"
           />
       </View>
-    )
+    );
   }
 }
 
