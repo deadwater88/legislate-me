@@ -10,13 +10,13 @@ class Splash extends Component {
   render(){
     const { containerStyle, headerStyle} = styles;
     const pic  = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/San_francisco_in_fog_with_rays.jpg/558px-San_francisco_in_fog_with_rays.jpg'
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Golden_Gate_bridge_pillar.jpg/400px-Golden_Gate_bridge_pillar.jpg'
     };
     const navigate = this.props.navigation;
 
     return (
       <Image style={containerStyle} source={pic}>
-        <Text style={headerStyle}> Now is the time for action. Make your voice heard </Text>
+        <Text style={headerStyle}>Make your voice heard </Text>
         <Button
           onPress={() => {
             navigate('Login');
@@ -33,16 +33,19 @@ const styles = {
     height: '100%',
     backgroundColor:'transparent',
     flexDirection: 'column',
-    justifyContent: 'center'
+
+    justifyContent: 'flex-start'
   },
   headerStyle: {
-    color: '#000',
+    color: 'white',
     fontWeight: '900',
     alignSelf: 'center',
-    paddingRight: 5,
-    paddingLeft: 5,
-    fontSize: 18,
-    height: 50
+    paddingRight: 15,
+    paddingLeft: 15,
+    marginTop: 30,
+    marginBottom: 330,
+    fontSize: 34,
+    height: 150
   }
 };
 
