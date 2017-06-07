@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextInput, Button, Text, TouchableHighlight } from 'react-native';
-import {Card, CardSection} from '../../../components/common';
+import { Button, Text, TouchableHighlight } from 'react-native';
+import {Card, CardSection, Input} from '../../../components/common';
 import OAuthButtons from '../OAuth/oauth_buttons';
 
 class SubmitAddress extends React.Component {
@@ -11,13 +11,15 @@ class SubmitAddress extends React.Component {
   }
 
   findRepresentative(){
-
+    this.props.createAddress(this.state.address);
+    //need to navigate to bill index from here.
   }
+
   render(){
     return(
       <Card>
         <CardSection>
-        <TextInput
+        <Input
           placeholder="Enter your street address"
           value={this.state.address}
           onChangeText={address => this.setState({address})}

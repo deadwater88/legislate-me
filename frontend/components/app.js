@@ -22,6 +22,7 @@ import Splash from './login/Splash.js';
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 import SubmitAddress from './login/submit_address/submit_address_container';
+import LoginNavigator from './login/login_navigator';
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
 class LoginSwiping extends Component{
@@ -47,37 +48,15 @@ class LoginSwiping extends Component{
     const navigate = this.props.navigation.navigate;
     return (
       // <Text></Text>
-      <SubmitAddress />
-      // <Swiper>
-      //   <View>
-      //     <Splash navigation={navigate}/>
-      //   </View>
-      //   <View>
-      //     <Text>Hello, Navigation!</Text>
-      //
-      //     <FBOAuth />
-      //     <GoogleSigninButton
-      //     style={{width: 48, height: 48}}
-      //     size={GoogleSigninButton.Size.Icon}
-      //     color={GoogleSigninButton.Color.Dark}
-      //     onPress={this.configureConnection}/>
-      //
-      //   </View>
-      //   <View>
-      //     <LoginForm/>
-      //   </View>
-      //   <View>
-      //     <CustomizeInterestListContainer/>
-      //   </View>
-      // </Swiper>
-      // <Swiper>
-      //   <View>
-      //     <Splash navigation={navigate}/>
-      //   </View>
-      //   <View>
-      //     <LoginFormContainer/>
-      //   </View>
-      // </Swiper>
+      // <SubmitAddress />
+      <Swiper>
+        <View>
+          <Splash navigation={navigate}/>
+        </View>
+        <View>
+          <LoginNavigator/>
+        </View>
+      </Swiper>
     );
   }
 }
