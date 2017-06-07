@@ -8,7 +8,7 @@ class Splash extends Component {
     super(props);
   }
   render(){
-    const { containerStyle, headerStyle, buttonStyle} = styles;
+    const { containerStyle, headerStyle} = styles;
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Golden_Gate_bridge_pillar.jpg/400px-Golden_Gate_bridge_pillar.jpg'
     };
@@ -17,7 +17,7 @@ class Splash extends Component {
     return (
       <Image style={containerStyle} source={pic}>
         <Text style={headerStyle}>Make your voice heard </Text>
-        <Button style={buttonStyle}
+        <Button 
           onPress={() => {
             navigate('Login');
           }}>
@@ -45,9 +45,6 @@ const styles = {
     marginBottom: 330,
     fontSize: 34,
     height: 150
-  },
-  buttonStyle: {
-    height: 30
   }
 };
 
