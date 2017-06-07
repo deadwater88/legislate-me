@@ -31,7 +31,7 @@ class CustomizeInterestList extends Component {
 
   //the subjects array is a two d array-- each entry
   // is a key of subject string and value of false because this has been hardcoded in the subject api util
-  
+
 
   render(){
     return (

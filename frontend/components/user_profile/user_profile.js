@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { View, Text, Button } from 'react-native';
-
+import { Icon } from 'react-native-elements';
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -13,7 +13,7 @@ class UserProfile extends React.Component {
     const {navigate} = this.props.navigation;
     return(
       <View>
-        <Text>AYYY</Text>
+        <Icon name='account-circle' size={35}/>
         <Button
           onPress={() => {
             navigate('CustomizeInterests');
