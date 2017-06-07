@@ -11,9 +11,11 @@ class UserProfile extends React.Component {
   render(){
     console.log('THESE ARE THE PROPS',this.props);
     const {navigate} = this.props.navigation;
+
     return(
       <View>
         <Icon name='account-circle' size={35}/>
+
         <Button
           onPress={() => {
             navigate('CustomizeInterests');

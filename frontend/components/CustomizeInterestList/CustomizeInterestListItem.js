@@ -18,10 +18,11 @@ class CustomizeInterestListItem extends Component {
           leftText={this.props.data[0]}
           />
       </View>
-    )
+    );
   }
 
   onClick(){
+    this.props.selectSubject(this.props.data[0]);
     console.log("click");
   }
 }
