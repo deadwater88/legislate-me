@@ -18,3 +18,9 @@ export const fetchSubjects = () => dispatch => (
     dispatch(receiveSubjects(subjects))
   ))
 );
+
+export const saveSubject = subject => dispatch => (
+  APIUtil.saveSubject(subject).then(savedSubject => (
+    dispatch(receiveSubject(savedSubject))
+  ))
+);

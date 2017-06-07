@@ -1,5 +1,6 @@
+import axios from "axios";
 export const deleteUser = user => (
-  $.ajax({
+  axios({
     method: 'DELETE',
     url: '/api/user',
     data: user
@@ -7,7 +8,7 @@ export const deleteUser = user => (
 );
 
 export const createAddress = address => (
-  $.ajax({
+  axios({
     method: 'POST',
     url: '/api/user/representatives',
     data: address
@@ -15,7 +16,7 @@ export const createAddress = address => (
 );
 
 export const updateAddress = address => (
-  $.ajax({
+  axios({
     method: 'PATCH',
     url: '/api/user/representatives',
     data: address

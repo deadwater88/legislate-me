@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { authUser } from '../actions/session_actions';
+
 import {
   AppRegistry,
   PanResponder,
@@ -9,6 +11,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
+import UserProfileNavigator from './user_profile/user_profile_navigator';
 
 import FBOAuth from './login/OAuth/oauth';
 import LoginFormContainer from './login/LoginFormContainer.js';
@@ -34,7 +37,7 @@ class LoginSwiping extends Component{
           authUser(user);
         })
         .catch((err) => {
-          console.log('WRONG SIGNIN', err);
+          console.log('Something went wrong :(', err);
         })
         .done();
     });
@@ -49,9 +52,6 @@ class LoginSwiping extends Component{
         </View>
         <View>
           <LoginFormContainer/>
-        </View>
-        <View>
-          <CustomizeInterestListContainer/>
         </View>
       </Swiper>
     )

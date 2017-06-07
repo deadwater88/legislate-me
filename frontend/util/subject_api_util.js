@@ -1,7 +1,16 @@
+import axios from 'axios';
 export const fetchSubjects = () => (
-  $.ajax({
+  axios({
     method: 'GET',
     url: 'api/subjects'
+  })
+);
+
+export const saveSubject = subject => (
+  axios({
+    method: 'POST',
+    url: 'api/subjects',
+    data: subject 
   })
 );
 
@@ -51,4 +60,4 @@ export const SUBJECTS = {
   'Trade': false,
   'Transportation': false,
   'Welfare and Poverty': false
-}
+};
