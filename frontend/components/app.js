@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { authUser } from '../actions/session_actions';
 
@@ -45,6 +46,7 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
     return (
+      // <Text></Text>
       <SubmitAddress />
       // <Swiper>
       //   <View>
@@ -68,7 +70,6 @@ class LoginSwiping extends Component{
       //     <CustomizeInterestListContainer/>
       //   </View>
       // </Swiper>
-    );
       // <Swiper>
       //   <View>
       //     <Splash navigation={navigate}/>
@@ -77,7 +78,7 @@ class LoginSwiping extends Component{
       //     <LoginFormContainer/>
       //   </View>
       // </Swiper>
-    )
+    );
   }
 }
 

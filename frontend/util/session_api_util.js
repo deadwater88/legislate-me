@@ -13,8 +13,6 @@ import Cookie from 'react-native-cookie';
 export const signup = user =>
   {
     Cookie.get('http://10.0.2.2:8000','csrftoken').then((cookie) => {
-      debugger;
-      console.log(cookie)
       return axios({
         method: 'POST',
         url: 'http://10.0.2.2:8000/api/users',

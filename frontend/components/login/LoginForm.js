@@ -47,9 +47,9 @@ class LoginForm extends Component {
     this.props.clearErrors();
   }
 
-redirectToAddressPage(){
-  this.props.navigate('');
-}
+  redirectToAddressPage(){
+    this.props.navigate('');
+  }
 
   render(){
     if(this.state.login){
