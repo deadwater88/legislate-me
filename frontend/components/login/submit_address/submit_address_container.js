@@ -1,0 +1,10 @@
+import React from 'react';
+import createAddress from '../../../actions/representative_actions';
+import SubmitAddress from './submit_address';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => ({
+  createAddress: (address) => dispatch(createAddress(address))
+});
+
+export default connect(null, mapDispatchToProps)(SubmitAddress);

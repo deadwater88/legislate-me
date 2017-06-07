@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
-
+import SubmitAddress from './submit_address';
 class LoginForm extends Component {
 constructor(props){
   super(props);
@@ -12,6 +12,7 @@ constructor(props){
   this.onToggleSignIn = this.onToggleSignIn.bind(this);
   this.onSignUp = this.onSignUp.bind(this);
   this.onLogIn = this.onLogIn.bind(this);
+  this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
 }
 onToggleSignIn(){
   let toggle = !this.state.login;
@@ -23,6 +24,8 @@ onLogIn(){
     name: this.state.name,
     email: this.state.email,
     password: this.state.password
+  }).then(()=>{
+
   });
 }
 
@@ -31,11 +34,15 @@ onSignUp(){
     name: this.state.name,
     email: this.state.email,
     password: this.state.password
-  });
+  }).then(this.redirectToAddressPage);
 }
 
 componentDidUnmount(){
   this.props.clearErrors();
+}
+
+redirectToAddressPage(){
+  this.props.navigate('')
 }
 
   render(){
@@ -131,5 +138,16 @@ componentDidUnmount(){
 const styles = {
 
 };
+
+const ModalStack = StackNavigator({
+  Home: {
+    screen: MyHomeScreen,
+  },
+  Profile: {
+    path: 'people/:name',
+    screen: MyProfileScreen,
+  },
+});
+
 
 export default LoginForm;
