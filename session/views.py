@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.core.exceptions import ValidationError
 import json
 import pdb
-from rest_framework.parsers import FormParser
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.views import APIView
 from users.serializers import UserSerializer
 # Create your views here.
@@ -14,7 +14,7 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 class SessionView(APIView):
-    parser_classes = (FormParser,)
+    parser_classes = (FormParser, JSONParser, MultiPartParser)
     def post(self, request):
         email = request.data['user[email]']
         password = request.data['user[password]']

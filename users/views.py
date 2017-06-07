@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.core.exceptions import ValidationError
 import json
 import pdb
-from rest_framework.parsers import FormParser, JSONParser
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.views import APIView
 from users.serializers import UserSerializer
 # Create your views here.
@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate, login, get_user_model, logout
 
 
 class UserView(APIView):
-    parser_classes = (JSONParser, FormParser,)
+    parser_classes = (JSONParser, FormParser, MultiPartParser)
     # def get(self, request):
     #     users = User.objects.all()
     #     return HttpResponse(users)
