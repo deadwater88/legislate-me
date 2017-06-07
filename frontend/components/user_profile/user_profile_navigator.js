@@ -10,8 +10,6 @@ const UserProfileNavigator = StackNavigator({
     }
   },
   CustomizeInterests: {screen: CustomizeInterestList }
-
-
 });
 
 export default UserProfileNavigator;

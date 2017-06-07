@@ -32,7 +32,7 @@ class Splash extends Component {
         </CardSection>
 
       </Card>
-    )
+    );
   }
 };
 
