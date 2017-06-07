@@ -9,12 +9,16 @@ class OAuthButtons extends Component {
     super(props);
   }
   render(){
+    const { containerStyle, buttonStyle} = styles;
     return(
-      <View style={styles}>
-        <FBOAuth style={{width: 405, height: 48}}
+      <View style={containerStyle}>
+        <FBOAuth style={{
+          height: 40,
+          width: 292
+        }}
         />
         <GoogleSigninButton
-        style={{width: 205, height: 48}}
+        style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
         onPress={console.log("hi")}/>
@@ -24,9 +28,15 @@ class OAuthButtons extends Component {
 };
 
 const styles = {
+  containerStyle: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttonStyle: {
+    height: 40,
+    width: 300,
+  }
 };
 
 export default OAuthButtons;

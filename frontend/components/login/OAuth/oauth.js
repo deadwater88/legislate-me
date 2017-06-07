@@ -7,7 +7,7 @@ class FBOAuth extends Component {
   render() {
     return (
       <View>
-  <LoginButton
+  <LoginButton style={this.props.style}
     publishPermissions={["publish_actions"]}
     onLoginFinished={
       (error, result) => {
