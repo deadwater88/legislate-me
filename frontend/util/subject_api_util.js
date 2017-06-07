@@ -1,18 +1,20 @@
 import axios from 'axios';
-export const fetchSubjects = () => (
-  axios({
-    method: 'GET',
-    url: 'api/subjects'
-  })
-);
+import { HOST_URL } from './host_util';
 
-export const saveSubject = subject => (
-  axios({
+export const fetchSubjects = () => {
+  return axios({
+    method: 'GET',
+    url: `${HOST_URL}/api/subjects`
+  });
+};
+
+export const saveSubject = subject => {
+  return axios({
     method: 'POST',
-    url: 'api/subjects',
-    data: subject 
-  })
-);
+    url: `${HOST_URL}/api/subjects`,
+    data: subject
+  });
+};
 
 export const SUBJECTS = {
   'Agriculture and Food': false,

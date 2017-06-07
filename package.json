@@ -19,6 +19,7 @@
     "react-icons": "^2.2.5",
     "react-native": "0.44.2",
     "react-native-check-box": "^1.0.4",
+    "react-native-cookie": "^0.1.1",
     "react-native-elements": "^0.12.2",
     "react-native-fbsdk": "^0.6.0",
     "react-native-firebase": "^1.1.0",
