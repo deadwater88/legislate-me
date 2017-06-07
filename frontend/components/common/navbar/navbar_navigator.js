@@ -6,8 +6,7 @@ const NavbarNavigator = StackNavigator({
   BillIndex: {screen: BillIndex, navigationOptions:{
     left: null
   }},
-  UserProfile: {screen: UserProfileNavigator},
-  CustomizeInterestList: { screen: CustomizeInterestList}
+  UserProfile: {screen: UserProfileNavigator}
 });
 
 export default NavbarNavigator;
