@@ -47,28 +47,29 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
     return (
-      <Swiper>
-        <View>
-          <Splash navigation={navigate}/>
-        </View>
-        <View>
-          <Text>Hello, Navigation!</Text>
-
-          <FBOAuth />
-          <GoogleSigninButton
-          style={{width: 48, height: 48}}
-          size={GoogleSigninButton.Size.Icon}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this.configureConnection}/>
-
-        </View>
-        <View>
-          <LoginForm/>
-        </View>
-        <View>
-          <CustomizeInterestListContainer/>
-        </View>
-      </Swiper>
+      <UserProfileNavigator />
+      // <Swiper>
+      //   <View>
+      //     <Splash navigation={navigate}/>
+      //   </View>
+      //   <View>
+      //     <Text>Hello, Navigation!</Text>
+      //
+      //     <FBOAuth />
+      //     <GoogleSigninButton
+      //     style={{width: 48, height: 48}}
+      //     size={GoogleSigninButton.Size.Icon}
+      //     color={GoogleSigninButton.Color.Dark}
+      //     onPress={this.configureConnection}/>
+      //
+      //   </View>
+      //   <View>
+      //     <LoginForm/>
+      //   </View>
+      //   <View>
+      //     <CustomizeInterestListContainer/>
+      //   </View>
+      // </Swiper>
     )
   }
 }
