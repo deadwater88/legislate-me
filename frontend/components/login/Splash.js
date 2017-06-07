@@ -33,7 +33,6 @@ const styles = {
     height: '100%',
     backgroundColor:'transparent',
     flexDirection: 'column',
-
     justifyContent: 'flex-start'
   },
   headerStyle: {

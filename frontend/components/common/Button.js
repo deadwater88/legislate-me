@@ -24,12 +24,12 @@ const styles = {
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: '#007aff',
+    backgroundColor: '#2c3e50',
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 12,
-    marginRight: 12
+    borderColor: '#2c3e50',
+    marginLeft: 19,
+    marginRight: 19
   }
 };
 
