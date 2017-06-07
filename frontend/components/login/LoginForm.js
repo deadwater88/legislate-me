@@ -54,6 +54,9 @@ class LoginForm extends Component {
             <OAuthButtons/>
           </CardSection>
           <CardSection>
+            <Text>------or------</Text>
+          </CardSection>
+          <CardSection>
             <Input
               placeholder="user@gmail.com"
               label="Email"
@@ -76,9 +79,11 @@ class LoginForm extends Component {
               Log in
             </Button>
           </CardSection>
-          <TouchableHighlight onPress={this.onToggleSignIn}>
-            <Text>Or sign up</Text>
-          </TouchableHighlight>
+          <CardSection>
+            <TouchableHighlight onPress={this.onToggleSignIn}>
+              <Text>Or sign up</Text>
+            </TouchableHighlight>
+          </CardSection>
         </Card>
       );
     }else{
@@ -86,6 +91,9 @@ class LoginForm extends Component {
         <Card>
           <CardSection>
             <OAuthButtons/>
+          </CardSection>
+          <CardSection>
+            <Text>------or------</Text>
           </CardSection>
           <CardSection>
             <Input
@@ -118,9 +126,12 @@ class LoginForm extends Component {
               Sign Up!
             </Button>
           </CardSection>
-          <TouchableHighlight onPress={this.onToggleSignIn}>
-            <Text>Or log in</Text>
-          </TouchableHighlight>
+          <CardSection>
+            <TouchableHighlight onPress={this.onToggleSignIn}>
+              <Text>Or log in</Text>
+            </TouchableHighlight>
+          </CardSection>
+
         </Card>
       );
     }

@@ -23,6 +23,7 @@ const styles = {
     paddingBottom: 18
   },
   buttonStyle: {
+    flex: 1,
     alignSelf: 'stretch',
     backgroundColor: '#2c3e50',
     borderRadius: 5,
