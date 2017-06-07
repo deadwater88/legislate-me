@@ -8,11 +8,16 @@ class SubmitAddress extends React.Component {
     super();
     this.state = {address: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
+    this.navigateToCustomizeInterest.bind(this);
   }
 
   findRepresentative(){
-    this.props.createAddress(this.state.address);
+    this.props.createAddress(this.state.address).then(this.navigateToCustomizeInterest);
     //need to navigate to bill index from here.
+  }
+
+  navigateToCustomizeInterest(){
+    this.props.navigate('CustomizeInterestList');
   }
 
   render(){

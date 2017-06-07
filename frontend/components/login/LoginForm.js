@@ -48,7 +48,7 @@ class LoginForm extends Component {
   }
 
   redirectToAddressPage(){
-    this.props.navigate('');
+    this.props.navigate('SubmitAddress');
   }
 
   render(){

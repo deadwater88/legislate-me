@@ -5,3 +5,5 @@ class BillIndex extends React.Component{
     return <Text>Bill Index</Text>;
   }
 }
+
+export default BillIndex;
