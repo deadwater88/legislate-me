@@ -3,6 +3,7 @@ import { TextInput, Button } from 'react-native';
 class SubmitAddress extends React.Component {
 
   constructor(){
+    super();
     this.state = {text: ""};
   }
   render(){

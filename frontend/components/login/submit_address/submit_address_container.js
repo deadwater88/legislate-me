@@ -1,5 +1,5 @@
 import React from 'react';
-import createAddress from '../../../actions/representative_actions';
+import createAddress from '../../../actions/representatives_actions';
 import SubmitAddress from './submit_address';
 import { connect } from 'react-redux';
 
