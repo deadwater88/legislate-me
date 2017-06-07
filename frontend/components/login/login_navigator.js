@@ -9,7 +9,9 @@ const LoginNavigator = StackNavigator({
   LoginForm: { screen: LoginForm },
   SubmitAddress: {screen: SubmitAddress},
   CustomizeInterestList: { screen: CustomizeInterestList},
-  BillIndex: {screen: BillIndex}
+  BillIndex: {screen: BillIndex, navigationOptions:{
+    left: null
+  }}
 });
 
 export default LoginNavigator;
