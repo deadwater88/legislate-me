@@ -32,7 +32,6 @@ class LoginSwiping extends Component{
         .then((user) => {
           console.log(user);
           authUser(user);
-          //sign in user
         })
         .catch((err) => {
           console.log('WRONG SIGNIN', err);
