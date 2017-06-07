@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.core.exceptions import ValidationError
 import json
 import pdb
-from rest_framework.parsers import FormParser, JSONParse
+from rest_framework.parsers import FormParser, JSONParser
 from rest_framework.views import APIView
 from users.serializers import UserSerializer
 # Create your views here.
@@ -23,11 +23,12 @@ class UserView(APIView):
 
     def post(self, request):
         User = get_user_model()
+        pdb.set_trace();
         email = request.data['email']
         password = request.data['password']
-        last_name = request.data['last_name']
-        first_name = request.data['first_name']
-        user = User(email=email, password=password, first_name=first_name, last_name=last_name)
+        # last_name = request.data['last_name']
+        # first_name = request.data['first_name']
+        user = User(email=email, password=password, first_name="", last_name="")
         try:
             user.full_clean()
         except ValidationError as e:

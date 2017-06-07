@@ -5,6 +5,7 @@ import co.apptailor.googlesignin.RNGoogleSigninPackage;  // <--- import
 
 import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
+import im.shimo.react.cookie.CookieManagerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.FacebookSdk;
@@ -37,6 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
       protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new CookieManagerPackage(),
             new VectorIconsPackage(),
             new RNGoogleSigninPackage(),
             new FBSDKPackage(mCallbackManager)
