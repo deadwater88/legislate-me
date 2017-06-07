@@ -6,6 +6,7 @@ import CustomizeInterestListItem from './CustomizeInterestListItem';
 import CustomizeHeader from './CustomizeHeader';
 
 class CustomizeInterestList extends Component {
+
   constructor(props){
     super(props);
     const ds = new ListView.DataSource({
@@ -18,15 +19,19 @@ class CustomizeInterestList extends Component {
 
   }
 
-  zipped(hash){
+  zipped(subjects){
     let zippedArray = [];
-    Object.keys(hash).forEach((key) => {
-      const value = hash[key];
-      zippedArray.push([key, value])
-    })
+    Object.keys(subjects).forEach((key) => {
+      const value = subjects[key];
+      zippedArray.push([key, value]);
+    });
 
     return zippedArray;
   }
+
+  //the subjects array is a two d array-- each entry
+  // is a key of subject string and value of false because this has been hardcoded in the subject api util
+  
 
   render(){
     return (

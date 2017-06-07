@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
-
+import UserProfileNavigator from './user_profile/user_profile_navigator';
 
 import FBOAuth from './login/OAuth/oauth';
 
@@ -38,7 +38,7 @@ class LoginSwiping extends Component{
           authUser(user);
         })
         .catch((err) => {
-          console.log('WRONG SIGNIN', err);
+          console.log('Something went wrong :(', err);
         })
         .done();
     });
@@ -47,28 +47,30 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
     return (
-      <Swiper>
-        <View>
-          <Splash navigation={navigate}/>
-        </View>
-        <View>
-          <Text>Hello, Navigation!</Text>
+      <UserProfileNavigator />
 
-          <FBOAuth />
-          <GoogleSigninButton
-          style={{width: 48, height: 48}}
-          size={GoogleSigninButton.Size.Icon}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this.configureConnection}/>
-
-        </View>
-        <View>
-          <LoginForm/>
-        </View>
-        <View>
-          <CustomizeInterestListContainer/>
-        </View>
-      </Swiper>
+      // <Swiper>
+      //   <View>
+      //     <Splash navigation={navigate}/>
+      //   </View>
+      //   <View>
+      //     <Text>Hello, Navigation!</Text>
+      //
+      //     <FBOAuth />
+      //     <GoogleSigninButton
+      //     style={{width: 48, height: 48}}
+      //     size={GoogleSigninButton.Size.Icon}
+      //     color={GoogleSigninButton.Color.Dark}
+      //     onPress={this.configureConnection}/>
+      //
+      //   </View>
+      //   <View>
+      //     <LoginForm/>
+      //   </View>
+      //   <View>
+      //     <CustomizeInterestListContainer/>
+      //   </View>
+      // </Swiper>
     )
   }
 }
