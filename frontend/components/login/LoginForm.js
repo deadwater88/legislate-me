@@ -105,7 +105,7 @@ class LoginForm extends Component {
               placeholder="First Name"
               label="First Name"
               value={this.state.firstName}
-              onChangeText={firstName =>this.setState({firstName})}
+              onChangeText={fName =>this.setState({fName})}
               />
           </CardSection>
           <CardSection>
