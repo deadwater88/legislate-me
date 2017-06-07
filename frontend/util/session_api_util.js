@@ -1,5 +1,6 @@
+import axios  from 'axios';
  export const login = user => (
-  $.ajax({
+  axios.post({
     method: 'POST',
     url: '/api/session',
     data: user
@@ -7,7 +8,7 @@
 );
 
 export const signup = user => (
-  $.ajax({
+  axios({
     method: 'POST',
     url: '/api/user',
     data: user
@@ -15,14 +16,14 @@ export const signup = user => (
 );
 
 export const logout = () => (
-  $.ajax({
+  axios({
     method: 'DELETE',
     url: '/api/session'
   })
 );
 
 export const oauth = user => {
-  $.ajax({
+  axios({
     method: 'POST',
     url: '/api/oauth',
     data: user
