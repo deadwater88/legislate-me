@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { authUser } from '../actions/session_actions';
+
 import {
   AppRegistry,
   PanResponder,
@@ -10,7 +12,9 @@ import {
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
 
+
 import FBOAuth from './login/OAuth/oauth';
+
 import LoginForm from './login/LoginForm.js';
 import Splash from './login/Splash.js';
 
@@ -49,12 +53,14 @@ class LoginSwiping extends Component{
         </View>
         <View>
           <Text>Hello, Navigation!</Text>
+
           <FBOAuth />
           <GoogleSigninButton
           style={{width: 48, height: 48}}
           size={GoogleSigninButton.Size.Icon}
           color={GoogleSigninButton.Color.Dark}
           onPress={this.configureConnection}/>
+
         </View>
         <View>
           <LoginForm/>
