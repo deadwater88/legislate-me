@@ -2,47 +2,53 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
 import SubmitAddress from './submit_address/submit_address';
+import OAuthButtons from './OAuth/oauth_buttons';
+
 class LoginForm extends Component {
-constructor(props){
-  super(props);
-  this.state = {name: '',
-                email: '',
-                password: '',
-                login: true};
-  this.onToggleSignIn = this.onToggleSignIn.bind(this);
-  this.onSignUp = this.onSignUp.bind(this);
-  this.onLogIn = this.onLogIn.bind(this);
-  this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
-}
-onToggleSignIn(){
-  let toggle = !this.state.login;
-  this.setState({login: toggle});
-}
+  constructor(props){
+    super(props);
+    console.log(props);
+    this.state = {
+      fName: '',
+      lName: '',
+      email: '',
+      password: '',
+      login: true};
+      this.onToggleSignIn = this.onToggleSignIn.bind(this);
+      this.onSignUp = this.onSignUp.bind(this);
+      this.onLogIn = this.onLogIn.bind(this);
+      this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
 
-onLogIn(){
-  this.props.login({
-    name: this.state.name,
-    email: this.state.email,
-    password: this.state.password
-  }).then(()=>{
+    }
+    onToggleSignIn(){
+      let toggle = !this.state.login;
+      this.setState({login: toggle});
+    }
 
-  });
-}
+    onLogIn(){
+      this.props.login({
+        email: this.state.email,
+        password: this.state.password
+      });
+    }
 
-onSignUp(){
-  this.props.signup({
-    name: this.state.name,
-    email: this.state.email,
-    password: this.state.password
-  }).then(this.redirectToAddressPage);
-}
+    onSignUp(){
+      console.log("signing up");
+      this.props.signup({
+        fName: this.state.fName,
+        lName: this.state.lName,
+        email: this.state.email,
+        password: this.state.password
+      }).then(this.redirectToAddressPage);
+      }
 
-componentDidUnmount(){
-  this.props.clearErrors();
-}
+
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
 
 redirectToAddressPage(){
-  this.props.navigate('')
+  this.props.navigate('');
 }
 
   render(){
@@ -50,15 +56,10 @@ redirectToAddressPage(){
       return(
         <Card>
           <CardSection>
-            <Text> oAuth Icons, very clickable </Text>
+            <OAuthButtons/>
           </CardSection>
           <CardSection>
-            <Input
-              placeholder="Full Name"
-              label="Name"
-              value={this.state.name}
-              onChangeText={name =>this.setState({name})}
-               />
+            <Text>------or------</Text>
           </CardSection>
           <CardSection>
             <Input
@@ -66,41 +67,54 @@ redirectToAddressPage(){
               label="Email"
               value={this.state.email}
               onChangeText={email =>this.setState({email})}
-               />
+              />
           </CardSection>
 
-          <CardSection >
+          <CardSection>
             <Input
               secureTextEntry
               placeholder="password"
               label="Password"
               value={this.state.password}
               onChangeText={password =>this.setState({password})}
-               />
+              />
           </CardSection>
           <CardSection>
             <Button onPress={this.onLogIn}>
               Log in
             </Button>
           </CardSection>
-          <TouchableHighlight onPress={this.onToggleSignIn}>
+          <CardSection>
+            <TouchableHighlight onPress={this.onToggleSignIn}>
               <Text>Or sign up</Text>
-          </TouchableHighlight>
+            </TouchableHighlight>
+          </CardSection>
         </Card>
       );
     }else{
       return(
         <Card>
           <CardSection>
-            <Text> oAuth Icons, very clickable </Text>
+            <OAuthButtons/>
+          </CardSection>
+          <CardSection>
+            <Text>------or------</Text>
           </CardSection>
           <CardSection>
             <Input
-              placeholder="Full Name"
-              label="Name"
-              value={this.state.name}
-              onChangeText={name =>this.setState({name})}
-               />
+              placeholder="First Name"
+              label="First Name"
+              value={this.state.firstName}
+              onChangeText={firstName =>this.setState({firstName})}
+              />
+          </CardSection>
+          <CardSection>
+            <Input
+              placeholder="Last Name"
+              label="Last Name"
+              value={this.state.lastName}
+              onChangeText={lName =>this.setState({lName})}
+              />
           </CardSection>
           <CardSection>
             <Input
@@ -108,7 +122,7 @@ redirectToAddressPage(){
               label="Email"
               value={this.state.email}
               onChangeText={email =>this.setState({email})}
-               />
+              />
           </CardSection>
 
           <CardSection >
@@ -118,16 +132,19 @@ redirectToAddressPage(){
               label="Password"
               value={this.state.password}
               onChangeText={password =>this.setState({password})}
-               />
+              />
           </CardSection>
           <CardSection>
             <Button onPress={this.onSignUp}>
               Sign Up!
             </Button>
           </CardSection>
-          <TouchableHighlight onPress={this.onToggleSignIn}>
+          <CardSection>
+            <TouchableHighlight onPress={this.onToggleSignIn}>
               <Text>Or log in</Text>
-          </TouchableHighlight>
+            </TouchableHighlight>
+          </CardSection>
+
         </Card>
       );
     }
@@ -135,9 +152,24 @@ redirectToAddressPage(){
   }
 }
 
-const styles = {
-
-};
+// const styles = {
+//   containerStyle: {
+//     backgroundColor: 'black'
+//   },
+//   oauthStyle: {
+//     color: 'blue',
+//     paddingRight: 5,
+//     paddingLeft: 5,
+//     fontSize: 18,
+//     lineHeight: 23,
+//     flex: 1
+//   },
+//   emailStyle: {
+//     flex: 2,
+//     width: 100,
+//     height: 100
+//   }
+// };
 
 
 
