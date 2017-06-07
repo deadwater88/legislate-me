@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { HOST_URL } from './host_util';
+
 export const fetchSubjects = () => {
   return axios({
     method: 'GET',
