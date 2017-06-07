@@ -1,4 +1,4 @@
-export const login = user => (
+ export const login = user => (
   $.ajax({
     method: 'POST',
     url: '/api/session',
@@ -20,3 +20,11 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+export const oauth = user => {
+  $.ajax({
+    method: 'POST',
+    url: '/api/oauth',
+    data: user
+  });
+};
