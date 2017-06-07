@@ -3,11 +3,29 @@ import { Text, View, Image } from 'react-native';
 import { Card, CardSection, Button } from '../../common';
 import FBOAuth from './oauth';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import { authUser } from '../../../actions/session_actions';
 
 class OAuthButtons extends Component {
   constructor(props){
     super(props);
+    this.configureConnection = this.configureConnection.bind(this);
   }
+
+  configureConnection(){
+   GoogleSignin.configure()
+   .then(() => {
+     GoogleSignin.signIn()
+       .then((user) => {
+         console.log(user);
+         authUser(user);
+       })
+        .catch((err) => {
+         console.log('WRONG SIGNIN', err);
+        })
+       .done();
+   });
+  }
+
   render(){
     const { containerStyle, buttonStyle} = styles;
     return(
@@ -21,11 +39,11 @@ class OAuthButtons extends Component {
         style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
-        onPress={console.log("hi")}/>
+        onPress={this.configureConnection}/>
       </View>
-    )
+    );
   }
-};
+}
 
 const styles = {
   containerStyle: {

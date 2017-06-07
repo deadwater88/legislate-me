@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
-// import FBOAuth from './OAuth/oauth';
+import SubmitAddress from './submit_address/submit_address';
 import OAuthButtons from './OAuth/oauth_buttons';
 
 class LoginForm extends Component {
   constructor(props){
     super(props);
     console.log(props);
-    this.state = {fName: '',
+    this.state = {
+      fName: '',
       lName: '',
       email: '',
       password: '',
@@ -16,6 +17,8 @@ class LoginForm extends Component {
       this.onToggleSignIn = this.onToggleSignIn.bind(this);
       this.onSignUp = this.onSignUp.bind(this);
       this.onLogIn = this.onLogIn.bind(this);
+      this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
+
     }
     onToggleSignIn(){
       let toggle = !this.state.login;
@@ -36,15 +39,16 @@ class LoginForm extends Component {
         lName: this.state.lName,
         email: this.state.email,
         password: this.state.password
-      }).then( (res) => {
-        // console.log(res);
-        // console.log(global.store.getState())
+      }).then(this.redirectToAddressPage);
       }
-    )
-  }
+
 
   componentWillUnmount(){
     this.props.clearErrors();
+  }
+
+  redirectToAddressPage(){
+    this.props.navigate('SubmitAddress');
   }
 
   render(){
@@ -59,7 +63,7 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Input
-              placeholder="user@gmail.com"
+              placeholder="user@email.com"
               label="Email"
               value={this.state.email}
               onChangeText={email =>this.setState({email})}
@@ -114,7 +118,7 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Input
-              placeholder="user@gmail.com"
+              placeholder="user@email.com"
               label="Email"
               value={this.state.email}
               onChangeText={email =>this.setState({email})}
@@ -166,5 +170,8 @@ class LoginForm extends Component {
 //     height: 100
 //   }
 // };
+
+
+
 
 export default LoginForm;

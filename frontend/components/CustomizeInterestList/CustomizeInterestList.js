@@ -38,6 +38,7 @@ class CustomizeInterestList extends Component {
 
   saveInterests(){
     this.selectedSubjects.forEach(subject => this.props.saveSubject(subject));
+    this.props.navigate('BillIndex');
   }
 
   render(){
@@ -58,7 +59,7 @@ class CustomizeInterestList extends Component {
             accessibilityLabel="Save your interests"
           />
       </View>
-    )
+    );
   }
 }
 
