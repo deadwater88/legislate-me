@@ -13,12 +13,11 @@ class RepresentativesView extends React.Component {
 
   render(){
     return(
-      <View style={{flex: 1, paddingTop: 22}}>
-        <ListView
-            dataSource={this.state.dataSource}
-            renderRow={(rowData) => <Text>{rowData}</Text>}
-          />
-      </View>
+      <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
+
     );
   }
 }

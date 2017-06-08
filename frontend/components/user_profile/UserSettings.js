@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { Button, Card, CardSection, Input } from '../common';
 import RepresentativesView from './RepresentativesView';
 
@@ -25,20 +25,26 @@ class UserSettings extends React.Component {
   }
 
   render(){
+    const { columns } = styles;
     return(
       <Card>
-        <CardSection >
-          <Text>{this.props.representatives.errors}</Text>
-          <RepresentativesView reps={this.props.representatives} />
+        <View>
+          <Text></Text>
+          <Text>Your representatives</Text>
+          <RepresentativesView reps="BLAH" />
+        </View>
+        <CardSection>
           <Input
-            placeholder={this.props}
-            label="Change your address"
-            value={this.state.address}
-            onChangeText={address => this.setState({address})}
-             />
-         <Button onPress={this.props.changeAddress}>
-           Change Your Address
-         </Button>
+             placeholder="Change your address"
+             label="New address"
+             value={this.state.address}
+             onChangeText={address => this.setState({address})}
+              />
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.props.changeAddress}>
+            Change Your Address
+          </Button>
         </CardSection>
         <CardSection>
           <Button onPress={this.props.signOut}>
@@ -55,4 +61,9 @@ class UserSettings extends React.Component {
   }
 }
 
+const styles = {
+  columns: {
+    flexDirection: 'column'
+  }
+};
 export default UserSettings;
