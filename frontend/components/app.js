@@ -26,7 +26,7 @@ import Navbar from './common/navbar/navbar';
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
 
-import { Router } from './common/navbar/router';
+import { HomeRouter } from './common/navbar/router';
 
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
@@ -68,7 +68,7 @@ class LoginSwiping extends Component{
 
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
-  Router: {screen: Router},
+  HomeRouter: {screen: HomeRouter},
   Main: {screen: LoginSwiping},
   Login: {screen: LoginFormContainer}
 });
@@ -81,13 +81,6 @@ class App extends Component {
     )
   }
 }
-//
-// class App extends Component {
-//   render(){
-//     return (
-//       <Router/>
-//     )
-//   }
-// }
+
 
 module.exports = App;
