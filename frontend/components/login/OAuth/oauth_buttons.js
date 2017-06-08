@@ -12,18 +12,19 @@ class OAuthButtons extends Component {
   }
 
   configureConnection(){
-   GoogleSignin.configure()
-   .then((res) => {
-     console.log("signing in");
-     console.log(res);
+
+   GoogleSignin.configure({
+     forceConsentPrompt: true
+   })
+   .then(() => {
      GoogleSignin.signIn()
        .then((user) => {
-         console.log("signed in");
+         console.log('USER SIGNED IN SUCCESSFULLY');
          console.log(user);
          authUser(user);
        })
         .catch((err) => {
-         console.log('WRONG SIGNIN', err);
+         console.log('Something went wrong :(', err);
         })
        .done();
    });
@@ -42,7 +43,7 @@ class OAuthButtons extends Component {
         style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
-        onPress={this.configureConnection}/>
+        onPress={this.configureConnection.bind(this)}/>
       </View>
     );
   }

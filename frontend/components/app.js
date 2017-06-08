@@ -21,6 +21,8 @@ import Splash from './login/Splash.js';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
+
+import Navbar from './common/navbar/navbar';
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
 // Initialize three cards that the user can swipe between:
@@ -50,6 +52,9 @@ class LoginSwiping extends Component{
       // <Text></Text>
       // <SubmitAddress />
       <Swiper>
+        <View>
+          <Navbar/>
+        </View>
         <View>
           <Splash navigation={navigate}/>
         </View>
