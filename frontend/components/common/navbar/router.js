@@ -46,13 +46,14 @@ export const HomeRouter = TabNavigator({
     },
   }
 }, {
+  tabBarPosition: "bottom",
   tabBarOptions: {
     tabBarPosition: 'bottom',
     showIcon: true,
     showLabel: false,
-    style: {
-      backgroundColor: 'black',
-    },
+    inactiveTintColor: 'white',
+    activeTintColor: 'white',
+    inactiveBackgroundColor: 'grey',
   },
 }
 );
