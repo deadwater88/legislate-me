@@ -1,40 +1,20 @@
-// import BillIndex from '../../bill_index/bill_index';
-// import UserProfileNavigator from '../../user_profile/user_profile_navigator';
-//
-// const Router = StackNavigator({
-//   BillIndex: {screen: BillIndex},
-//   UserProfile: {screen: UserProfileNavigator}
-// });
-//
-// export default Router;
-
 import { TabNavigator } from 'react-navigation';
 
 import React, { Component } from 'react';
-// import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
 import BillIndex from '../../bill_index/bill_index';
 import UserProfile from '../../user_profile/user_profile_container';
-import CustomizeInterestListContainer from '../../CustomizeInterestList/CustomizeInterestListContainer';
-import CustomizeInterestList from '../../CustomizeInterestList/CustomizeInterestList';
-// import { Icon } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// import explore and bookmarked
 
 
+// Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
-  CustomizeInterest: {
-    screen: CustomizeInterestListContainer,
-    navigationOptions: {
-      tabBarLabel: 'Feed',
-      showIcon: 'true',
-      tabBarIcon: <Icon name="home" size={20}/>,
-    },
-  },
   BillIndex: {
     screen: BillIndex,
     navigationOptions: {
       tabBarLabel: 'Feed',
       showIcon: 'true',
-      tabBarIcon: <Icon name="home" size={20}/>,
+      tabBarIcon: <Icon name="home" size={20} />,
     },
   },
   UserProfile: {
@@ -48,12 +28,8 @@ export const HomeRouter = TabNavigator({
 }, {
   tabBarPosition: "bottom",
   tabBarOptions: {
-    tabBarPosition: 'bottom',
     showIcon: true,
-    showLabel: false,
-    inactiveTintColor: 'white',
-    activeTintColor: 'white',
-    inactiveBackgroundColor: 'grey',
+    showLabel: false
   },
 }
 );
