@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListView, View } from 'react-native';
+import { ListView, View, Text } from 'react-native';
 import { parseRepresentatives } from '../../reducers/selectors';
 
 class RepresentativesView extends React.Component {
@@ -13,12 +13,11 @@ class RepresentativesView extends React.Component {
 
   render(){
     return(
-      <View style={{flex: 1, paddingTop: 22}}>
-        ListView
-            dataSource={this.state.dataSource}
-            renderRow={(rowData) => <Text>{rowData}</Text>}
-          />
-      </View>
+      <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
+
     );
   }
 }

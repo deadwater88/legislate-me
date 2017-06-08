@@ -17,15 +17,9 @@ class LoginForm extends Component {
       this.onSignUp = this.onSignUp.bind(this);
       this.onLogIn = this.onLogIn.bind(this);
       this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
-
+      this.redirectToHome = this.redirectToHome.bind(this);
     }
 
-    componentWillReceiveProps(newProps){
-      console.log('new props received');
-      if (newProps.currentUser !== null){
-        this.props.navigation.navigate('SubmitAddress');
-      }
-    }
     onToggleSignIn(){
       let toggle = !this.state.login;
       this.setState({login: toggle});
@@ -35,7 +29,7 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      });
+      }).then(this.redirectToHome);
     }
 
     onSignUp(){
@@ -46,15 +40,18 @@ class LoginForm extends Component {
         email: this.state.email,
         password: this.state.password
       }).then(this.redirectToAddressPage);
-      }
+    }
 
+    redirectToHome(){
+      console.log('redirect to home...');
+      this.props.navigation.navigate('Home');
+    }
 
-  componentWillUnmount(){
-    this.props.clearErrors();
-  }
+    componentWillUnmount(){
+      this.props.clearErrors();
+    }
 
   redirectToAddressPage(){
-    console.log('is this working');
     this.props.navigation.navigate('SubmitAddress');
   }
 

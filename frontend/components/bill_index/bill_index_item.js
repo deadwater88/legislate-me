@@ -3,13 +3,15 @@ import { Text, ListView, Image, Button } from 'react-native';
 class BillIndexItem extends React.Component{
   constructor(props){
     super(props);
-    this.bookmarkBill = this.bookmarkBill.bind(this);
+    this.toggleBookmark = this.toggleBookmark.bind(this);
   }
 
   toggleBookmark(){
     //conditional here: this.props.bill is bookmarked, unbookmark
     //else, bookmark
-    this.props.bookmarkBill(this.props.bill);
+    // this.props.bookmarkBill(this.props.bill);
+
+    this.props.navigateToBill(this.props.bill);
   }
 
   render(){

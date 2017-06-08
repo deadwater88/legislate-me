@@ -9,8 +9,13 @@ import {
   AppRegistry,
   PanResponder,
   View,
+<<<<<<< HEAD
   TouchableOpacity,
   Text
+=======
+  Text,
+  Button
+>>>>>>> fd16c71cbd71afc0ae54839bc4b28bb1398120fe
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
@@ -26,6 +31,9 @@ import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInt
 
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
+
+import call from 'react-native-phone-call';
+import Communications from 'react-native-communications';
 
 
 // import RNCommunications from './communications';
@@ -53,6 +61,7 @@ class LoginSwiping extends Component{
 
   render(){
     const navigate = this.props.navigation.navigate;
+<<<<<<< HEAD
     return (
       <Swiper>
         <View>
@@ -66,6 +75,18 @@ class LoginSwiping extends Component{
         </View>
       </Swiper>
     );
+=======
+    // <Swiper>
+    //   <View>
+    //     <Splash navigation={this.props.navigation} />
+    //   </View>
+    //   <View>
+    //     <LoginNavigator />
+    //   </View>
+    // </Swiper>
+    return (<Button title="Send email" onPress ={ () => Communications.email(['emailAddress'], null, null, null, 'my body text')}
+    />);
+>>>>>>> fd16c71cbd71afc0ae54839bc4b28bb1398120fe
   }
 }
 
