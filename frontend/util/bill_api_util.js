@@ -14,3 +14,11 @@ export const fetchBills = () => {
     url: `${HOST_URL}/api/bills`
   });
 };
+
+export const bookmarkBill = bill => {
+  return axios({
+    method: 'POST',
+    url: `${HOST_URL}/api/bills`,
+    data: bill
+  });
+};
