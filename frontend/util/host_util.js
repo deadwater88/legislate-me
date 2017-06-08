@@ -1,1 +1,3 @@
-export const HOST_URL = "http://legislateme.herokuapp.com";
+export const HOST_URL = "https://legislateme.herokuapp.com";
+
+// "http://10.0.2.2:8000";

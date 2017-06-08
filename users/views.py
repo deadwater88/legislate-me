@@ -7,37 +7,35 @@ from django.http import JsonResponse
 from django.core.exceptions import ValidationError
 import json
 import pdb
-from rest_framework.parsers import FormParser, JSONParser
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.views import APIView
 from users.serializers import UserSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
-import requests
+
 
 
 class UserView(APIView):
-    parser_classes = (FormParser, JSONParser)
+    parser_classes = (JSONParser, FormParser, MultiPartParser)
     # def get(self, request):
     #     users = User.objects.all()
     #     return HttpResponse(users)
 
     def post(self, request):
         User = get_user_model()
-        email = request.data['email']
-        password = request.data['password']
-        last_name = request.data['lName']
-        first_name = request.data['fName']
-        user = User(email=email, password=password, first_name=first_name, last_name=last_name)
+        email = request.data['user[email]']
+        password = request.data['user[password]']
+        first_name = request.data['user[first_name]']
+        last_name = request.data['user[last_name]']
+        user = User(email=email, password=password, last_name=last_name, first_name=first_name)
         try:
             user.full_clean()
         except ValidationError as e:
             return JsonResponse(e.message_dict, status=400)
         user.set_password(password)
         user.save()
-        login(request, user)
         serializer = UserSerializer(user)
-        del serializer.data['password']
-        return JsonResponse(serializer.data)n
+        return JsonResponse(serializer.data)
 
     def delete(self, request):
         user = request.user
@@ -45,18 +43,3 @@ class UserView(APIView):
         logout(request)
         serializer = UserSerializer(user)
         return JsonResponse(serializer.data)
-
-class SubjectsView(APIView):
-    parser_classes = (FormParser, JSONParser)
-
-    def patch(self, request):
-        user = request.user
-        subjectsDict = request.data['subjects']
-        user.subects = [subject for subject in subjectsDICT if subjectsDICT[subject]]
-        user.save()
-        return JsonResponse(subjectsDict)
-
-# class RepresentativeView(APIView):
-#     def post(self, request):
-#         address = request.data['address']
-#         requests.get("url")
