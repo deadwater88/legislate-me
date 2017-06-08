@@ -28,7 +28,6 @@ import LoginNavigator from './login/login_navigator';
 
 import { Router } from './common/navbar/router';
 
-import Home from './home/home';
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
 class LoginSwiping extends Component{

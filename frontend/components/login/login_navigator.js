@@ -10,7 +10,7 @@ const LoginNavigator = StackNavigator({
   LoginForm: { screen: LoginForm },
   SubmitAddress: {screen: SubmitAddress},
   CustomizeInterestList: { screen: CustomizeInterestList},
-  Router: {screen: Home, navigationOptions:{
+  Router: {screen: Router, navigationOptions:{
     left: null
   }}
 });
