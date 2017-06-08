@@ -1,14 +1,14 @@
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import React, { Component } from 'react';
 import BillIndex from '../../bill_index/bill_index';
 import UserProfile from '../../user_profile/user_profile_container';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import BillView from '../../bill_view/bill_view_container';
+import BillIndexItem from '../../bill_index/bill_index_item';
 // import explore and bookmarked
 
-
-// Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
-export const HomeRouter = TabNavigator({
+const BillNavigator = StackNavigator({
   BillIndex: {
     screen: BillIndex,
     navigationOptions: {
@@ -17,6 +17,13 @@ export const HomeRouter = TabNavigator({
       tabBarIcon: <Icon name="home" size={20} />,
     },
   },
+  BillIndexItem: { screen: BillIndexItem },
+  BillView: { screen: BillView }
+});
+
+// Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
+export const HomeRouter = TabNavigator({
+  BillNavigator,
   UserProfile: {
     screen: UserProfile,
     navigationOptions: {
