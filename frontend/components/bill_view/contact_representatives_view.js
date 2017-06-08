@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Communications from 'react-native-communications';
 
@@ -32,16 +32,18 @@ class ContactRepresentativesView extends React.Component {
      return(
        <View style={container}>
          <Text style={contact}>Contact your representatives</Text>
-         <Icon name="phone-square"
-            size={30}
-            color="#009E11"
-            onPress={this.onCall}
-            style={ {paddingRight: 10}} />
-         <Icon name="envelope"
-            size={30}
-            color="#CF2A28"
-            onPress={this.onEmail}
-            style={{}} />
+         <View style={icons}>
+           <Icon name="phone-square"
+              size={30}
+              color="#009E11"
+              onPress={this.onCall}
+              style={ {paddingRight: 10}} />
+           <Icon name="envelope"
+              size={30}
+              color="#CF2A28"
+              onPress={this.onEmail}
+              style={{}} />
+          </View>
         </View>
      );
    }
