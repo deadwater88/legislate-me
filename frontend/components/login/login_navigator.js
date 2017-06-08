@@ -4,7 +4,7 @@ import BillIndex from '../bill_index/bill_index';
 import CustomizeInterestList from '../CustomizeInterestList/CustomizeInterestListContainer';
 import LoginForm from './LoginFormContainer';
 import {HomeRouter} from '../common/navbar/router';
-
+import Splash from './Splash';
 const LoginNavigator = StackNavigator({
   LoginForm: { screen: LoginForm },
   SubmitAddress: {screen: SubmitAddress},
@@ -15,4 +15,3 @@ const LoginNavigator = StackNavigator({
 });
 
 export default LoginNavigator;
-

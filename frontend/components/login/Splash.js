@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import { Card, CardSection, Button } from '../common';
 import { StackNavigator } from 'react-navigation';
+import Swiper from 'react-native-swiper';
 
 class Splash extends Component {
   constructor(props){
@@ -12,21 +13,21 @@ class Splash extends Component {
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Golden_Gate_bridge_pillar.jpg/400px-Golden_Gate_bridge_pillar.jpg'
     };
-    const navigate = this.props.navigation;
+    const {navigate} = this.props.navigation;
 
     return (
       <Image style={containerStyle} source={pic}>
         <Text style={headerStyle}>Make your voice heard </Text>
-        <Button 
+        <Button
           onPress={() => {
             navigate('Login');
           }}>
           Get Started
         </Button>
       </Image>
-    )
+    );
   }
-};
+}
 
 const styles = {
   containerStyle: {
