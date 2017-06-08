@@ -35,17 +35,17 @@ class BillView extends React.Component {
         <CardSection>
             <Image style={billImage} source={pic} />
         </CardSection>
-        <CardSection>
-          <ContactRepresentativesView
-            reps={this.props.contactRepresentatives} />
-        </CardSection>
+
+        <ContactRepresentativesView
+          reps={this.props.contactRepresentatives} />
+
         <CardSection>
           <Text style={blurb}>blurby</Text>
         </CardSection>
-        <CardSection>
-          <SponsorBillView
-            sponsors={this.props.bill.sponsors} />
-        </CardSection>
+
+        <SponsorBillView
+          sponsors={this.props.bill.sponsors} />
+
       </Card>
     );
   }
