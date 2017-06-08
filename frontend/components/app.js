@@ -61,7 +61,7 @@ class LoginSwiping extends Component{
     //     <LoginNavigator />
     //   </View>
     // </Swiper>
-    return (<Button title="Make a call" onPress={() => Communications.phonecall('0123456789', true)}
+    return (<Button title="Send email" onPress ={ () => Communications.email(['emailAddress'], null, null, null, 'my body text')}
     />);
   }
 }
