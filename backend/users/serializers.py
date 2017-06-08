@@ -6,7 +6,7 @@ class UserSerializer(serializers.BaseSerializer):
     email = serializers.EmailField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
-
+    password = serializers.CharField()
 
     def to_representation(self, obj):
         subjects = SUJECTS

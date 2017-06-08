@@ -12,7 +12,7 @@ from rest_framework.views import APIView
 from users.serializers import UserSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
-
+import requests
 
 
 class UserView(APIView):
@@ -36,6 +36,7 @@ class UserView(APIView):
         user.save()
         login(request, user)
         serializer = UserSerializer(user)
+        del serializer.data['password']
         return JsonResponse(serializer.data)n
 
     def delete(self, request):
@@ -54,3 +55,8 @@ class SubjectsView(APIView):
         user.subects = [subject for subject in subjectsDICT if subjectsDICT[subject]]
         user.save()
         return JsonResponse(subjectsDict)
+
+# class RepresentativeView(APIView):
+#     def post(self, request):
+#         address = request.data['address']
+#         requests.get("url")
