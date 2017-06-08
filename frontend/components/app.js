@@ -47,22 +47,21 @@ class LoginSwiping extends Component{
   }
 
   render(){
-    const navigate = this.props.navigation.navigate;
-    return (
-      // <Text></Text>
-      // <SubmitAddress />
-      <Swiper>
-        <View>
-          <Navbar/>
-        </View>
-        <View>
-          <Splash navigation={navigate}/>
-        </View>
-        <View>
-          <LoginNavigator/>
-        </View>
-      </Swiper>
-    );
+    return <LoginNavigator />;
+    // const navigate = this.props.navigation.navigate;
+    // // <View>
+    // //   <Navbar/>
+    // // </View>
+    // // <View>
+    // //   <Splash navigation={navigate}/>
+    // // </View>
+    // return (
+    //   <Swiper>
+    //     <View>
+    //       <LoginNavigator/>
+    //     </View>
+    //   </Swiper>
+    // );
   }
 }
 
@@ -77,7 +76,7 @@ class App extends Component {
   render(){
     return (
       <LegislateMe/>
-    )
+    );
   }
 }
 
