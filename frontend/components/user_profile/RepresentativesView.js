@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListView, View } from 'react-native';
+import { ListView, View, Text } from 'react-native';
 import { parseRepresentatives } from '../../reducers/selectors';
 
 class RepresentativesView extends React.Component {

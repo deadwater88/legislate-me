@@ -1,6 +1,7 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { Button, Card, CardSection, Input } from '../common';
-import RepresentativesView from 'RepresentativesView';
+import RepresentativesView from './RepresentativesView';
 
 class UserSettings extends React.Component {
   constructor(props){
