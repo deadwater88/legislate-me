@@ -27,11 +27,11 @@ class BillView extends React.Component {
     };
     return(
       <Card>
-        <CardSection>
+        <View>
           <Text style={billTitle}>{this.props.bill.title}</Text>
           <Text style={billState}>{this.props.bill.state}</Text>
           <Text style={billChamber}>{this.props.bill.chamber}</Text>
-        </CardSection>
+        </View>
         <CardSection>
             <Image style={billImage} source={pic} />
         </CardSection>
@@ -52,21 +52,27 @@ class BillView extends React.Component {
 }
 const styles = {
 
-    billTitle: {
+  billTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingBottom: 10
+  },
+  billImage: {
+    flex: 2,
+    width: 100,
+    height: 100
+  },
+  blurb: {
 
-    },
-    billImage: {
-
-    },
-    blurb: {
-
-    },
-    billState: {
-
-    },
-    billChamber: {
-
-    }
+  },
+  billState: {
+    fontSize: 12,
+    color: 'grey'
+  },
+  billChamber: {
+    fontSize: 12,
+    color: 'grey'
+  }
 };
 
 export default BillView;
