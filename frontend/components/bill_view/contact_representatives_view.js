@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { CardSection } from '../common';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ContactRepresentativesView = ({reps}) => {
   const styles = {
@@ -11,20 +12,20 @@ const ContactRepresentativesView = ({reps}) => {
     contact: {
 
     },
-    call: {
+    phonecall: {
 
     },
     email: {
 
     }
   };
-  const { container, contact, call, email } = styles;
+  const { container, contact, phoneCall, email } = styles;
 
   return(
     <CardSection style={container}>
       <Text style={contact}>Contact your representatives</Text>
-      <TouchableOpacitystyle={phone}> </TouchableOpacity>
-      <TouchableOpacitystyle={email}> </TouchableOpacity>
+      <TouchableOpacity style={phoneCall}> </TouchableOpacity>
+      <TouchableOpacity style={email}> </TouchableOpacity>
     </CardSection>
   );
 };
