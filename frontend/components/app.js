@@ -8,7 +8,8 @@ import {
   AppRegistry,
   PanResponder,
   View,
-  Text
+  Text,
+  Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
@@ -22,9 +23,13 @@ import Splash from './login/Splash.js';
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
-import Navbar from './common/navbar/navbar';
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
+
+import call from 'react-native-phone-call';
+import Communications from 'react-native-communications';
+
+
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
 class LoginSwiping extends Component{
@@ -48,28 +53,23 @@ class LoginSwiping extends Component{
 
   render(){
     const navigate = this.props.navigation.navigate;
-    return (
-      // <Text></Text>
-      // <SubmitAddress />
-      <Swiper>
-        <View>
-          <Navbar/>
-        </View>
-        <View>
-          <Splash navigation={navigate}/>
-        </View>
-        <View>
-          <LoginNavigator/>
-        </View>
-      </Swiper>
-    );
+    // <Swiper>
+    //   <View>
+    //     <Splash navigation={this.props.navigation} />
+    //   </View>
+    //   <View>
+    //     <LoginNavigator />
+    //   </View>
+    // </Swiper>
+    return (<Button title="Send email" onPress ={ () => Communications.email(['emailAddress'], null, null, null, 'my body text')}
+    />);
   }
 }
 
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-  Login: {screen: LoginFormContainer}
+  Login: {screen: LoginNavigator }
 });
 
 // Create App
@@ -77,8 +77,9 @@ class App extends Component {
   render(){
     return (
       <LegislateMe/>
-    )
+    );
   }
 }
+
 
 module.exports = App;
