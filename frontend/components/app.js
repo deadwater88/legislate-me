@@ -22,9 +22,10 @@ import Splash from './login/Splash.js';
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
-import Navbar from './common/navbar/navbar';
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
+
+
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
 class LoginSwiping extends Component{
@@ -47,28 +48,24 @@ class LoginSwiping extends Component{
   }
 
   render(){
-    return <LoginNavigator />;
-    // const navigate = this.props.navigation.navigate;
-    // // <View>
-    // //   <Navbar/>
-    // // </View>
-    // // <View>
-    // //   <Splash navigation={navigate}/>
-    // // </View>
-    // return (
-    //   <Swiper>
-    //     <View>
-    //       <LoginNavigator/>
-    //     </View>
-    //   </Swiper>
-    // );
+    const navigate = this.props.navigation.navigate;
+    return (
+      <Swiper>
+        <View>
+          <Splash navigation={this.props.navigation} />
+        </View>
+        <View>
+          <LoginNavigator />
+        </View>
+      </Swiper>
+    );
   }
 }
 
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-  Login: {screen: LoginFormContainer}
+  Login: {screen: LoginNavigator }
 });
 
 // Create App
@@ -79,5 +76,6 @@ class App extends Component {
     );
   }
 }
+
 
 module.exports = App;
