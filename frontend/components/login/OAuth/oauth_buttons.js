@@ -13,9 +13,12 @@ class OAuthButtons extends Component {
 
   configureConnection(){
    GoogleSignin.configure()
-   .then(() => {
+   .then((res) => {
+     console.log("signing in");
+     console.log(res);
      GoogleSignin.signIn()
        .then((user) => {
+         console.log("signed in");
          console.log(user);
          authUser(user);
        })
