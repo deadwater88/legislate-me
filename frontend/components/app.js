@@ -50,14 +50,12 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
     return (
-      // <Text></Text>
-      // <SubmitAddress />
       <Swiper>
         <View>
-          <Splash navigation={navigate}/>
+          <Splash navigation={this.props.navigation} />
         </View>
         <View>
-          <LoginNavigator/>
+          <LoginNavigator />
         </View>
       </Swiper>
     );
@@ -67,7 +65,11 @@ class LoginSwiping extends Component{
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
+<<<<<<< HEAD
   Login: {screen: LoginNavigator}
+=======
+  Login: {screen: LoginNavigator }
+>>>>>>> 32e37f5ca2b0dc6eca7dc77908fff270b5d6ae35
 });
 
 // Create App
@@ -75,7 +77,7 @@ class App extends Component {
   render(){
     return (
       <LegislateMe/>
-    )
+    );
   }
 }
 
