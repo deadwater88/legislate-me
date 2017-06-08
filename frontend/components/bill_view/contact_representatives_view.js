@@ -27,7 +27,7 @@ class ContactRepresentativesView extends React.Component {
 
    render(){
 
-     const { container, contact, phoneCall, email } = styles;
+     const { container, contact, icons } = styles;
 
      return(
        <View style={container}>
@@ -36,12 +36,12 @@ class ContactRepresentativesView extends React.Component {
             size={30}
             color="#009E11"
             onPress={this.onCall}
-            style={phoneCall} />
+            style={ {paddingRight: 10}} />
          <Icon name="envelope"
             size={30}
             color="#CF2A28"
             onPress={this.onEmail}
-            style={email} />
+            style={{}} />
         </View>
      );
    }
@@ -53,13 +53,12 @@ const styles = {
               justifyContent: 'space-between'
             },
   contact: {
-
+    fontSize: 16,
+    fontWeight: 'bold'
   },
-  phonecall: {
-
-  },
-  email: {
-
+  icons: {
+    flexDirection: 'row',
+    paddingRight: 5
   }
 };
 
