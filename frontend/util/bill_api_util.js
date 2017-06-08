@@ -1,24 +1,25 @@
 import axios from 'axios';
 import { HOST_URL } from './host_util';
 
-export const fetchBillsBySubject = (subject) => {
+
+export const fetchBillInfo = billId => {
   return axios({
     method: 'GET',
-    url: `${HOST_URL}/api/bills/subject`
+    url: `${HOST_URL}/api/bills/${billId}`
   });
 };
 
-export const fetchBills = () => {
+export const fetchBillsBySubjects = () => {
   return axios({
     method: 'GET',
-    url: `${HOST_URL}/api/bills`
+    url: `${HOST_URL}/api/bills/subjects`
   });
 };
 
-export const bookmarkBill = bill => {
+export const fetchBookMarkedBills = () => {
   return axios({
-    method: 'POST',
-    url: `${HOST_URL}/api/bills`,
-    data: bill
+    method: 'GET',
+    url: `${HOST_URL}/api/bills/bookmarked`
+
   });
 };
