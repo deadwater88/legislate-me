@@ -22,11 +22,9 @@ import Splash from './login/Splash.js';
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
-import Navbar from './common/navbar/navbar';
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
 
-import { HomeRouter } from './common/navbar/router';
 
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
@@ -68,7 +66,6 @@ class LoginSwiping extends Component{
 
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
-  HomeRouter: {screen: HomeRouter},
   Main: {screen: LoginSwiping},
   Login: {screen: LoginFormContainer}
 });
