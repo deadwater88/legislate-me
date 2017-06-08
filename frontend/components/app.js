@@ -8,7 +8,8 @@ import {
   AppRegistry,
   PanResponder,
   View,
-  Text
+  Text,
+  Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
@@ -24,6 +25,9 @@ import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInt
 
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
+
+import call from 'react-native-phone-call';
+import Communications from 'react-native-communications';
 
 
 // Initialize three cards that the user can swipe between:
@@ -49,16 +53,16 @@ class LoginSwiping extends Component{
 
   render(){
     const navigate = this.props.navigation.navigate;
-    return (
-      <Swiper>
-        <View>
-          <Splash navigation={this.props.navigation} />
-        </View>
-        <View>
-          <LoginNavigator />
-        </View>
-      </Swiper>
-    );
+    // <Swiper>
+    //   <View>
+    //     <Splash navigation={this.props.navigation} />
+    //   </View>
+    //   <View>
+    //     <LoginNavigator />
+    //   </View>
+    // </Swiper>
+    return (<Button title="Make a call" onPress={() => Communications.phonecall('0123456789', true)}
+    />);
   }
 }
 
