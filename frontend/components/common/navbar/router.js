@@ -47,9 +47,12 @@ export const HomeRouter = TabNavigator({
   }
 }, {
   tabBarOptions: {
-   tabBarPosition: 'bottom',
-   showIcon: true,
-   showLabel: false
- },
+    tabBarPosition: 'bottom',
+    showIcon: true,
+    showLabel: false,
+    style: {
+      backgroundColor: 'black',
+    },
+  },
 }
 );
