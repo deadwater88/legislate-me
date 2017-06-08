@@ -16,14 +16,11 @@ import Swiper from 'react-native-swiper';
 
 
 import Splash from './login/Splash.js';
-
 import LoginNavigator from './login/login_navigator';
 import {HomeRouter} from './common/navbar/router';
 
 
-
-// Initialize three cards that the user can swipe between:
-// Splash Page, OAuth login, Normal Login
+// Give the user the option to swipe between screens
 class LoginSwiping extends Component{
   constructor(props){
     super(props);
@@ -34,17 +31,18 @@ class LoginSwiping extends Component{
     GoogleSignin.configure()
     .then(() => {
       GoogleSignin.signIn()
-        .then((user) => {
-          authUser(user);
-        })
-        .catch((err) => {
-        })
-        .done();
+      .then((user) => {
+        authUser(user);
+      })
+      .catch((err) => {
+      })
+      .done();
     });
   }
 
   render(){
     const navigate = this.props.navigation.navigate;
+
     return (
       <Swiper>
         <View>
@@ -59,17 +57,28 @@ class LoginSwiping extends Component{
 }
 
 // Give the user the option to click between the screens
-const LegislateMe = StackNavigator({
+const LoginSignUpNavigator = StackNavigator({
   Main: {screen: LoginSwiping},
   Login: {screen: LoginNavigator}
 });
 
+
 // Create App
 class App extends Component {
+  constructor(props){
+    super(props)
+  }
+
   render(){
-    return (
-      <LegislateMe/>
-    );
+    if (this.props.currentUser){
+      return (
+        <HomeRouter/>
+      );
+    } else {
+      return (
+        <LoginSignUpNavigator/>
+      );
+    }
   }
 }
 
