@@ -7,7 +7,6 @@ import OAuthButtons from './OAuth/oauth_buttons';
 class LoginForm extends Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       fName: '',
       lName: '',
@@ -18,8 +17,9 @@ class LoginForm extends Component {
       this.onSignUp = this.onSignUp.bind(this);
       this.onLogIn = this.onLogIn.bind(this);
       this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
-
+      this.redirectToHome = this.redirectToHome.bind(this);
     }
+
     onToggleSignIn(){
       let toggle = !this.state.login;
       this.setState({login: toggle});
@@ -29,7 +29,7 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      });
+      }).then(this.redirectToHome);
     }
 
     onSignUp(){
@@ -40,15 +40,19 @@ class LoginForm extends Component {
         email: this.state.email,
         password: this.state.password
       }).then(this.redirectToAddressPage);
-      }
+    }
 
+    redirectToHome(){
+      console.log('redirect to home...');
+      this.props.navigation.navigate('Home');
+    }
 
-  componentWillUnmount(){
-    this.props.clearErrors();
-  }
+    componentWillUnmount(){
+      this.props.clearErrors();
+    }
 
   redirectToAddressPage(){
-    this.props.navigate('SubmitAddress');
+    this.props.navigation.navigate('SubmitAddress');
   }
 
   render(){
