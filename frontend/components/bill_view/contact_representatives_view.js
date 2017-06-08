@@ -23,7 +23,7 @@ class ContactRepresentativesView extends React.Component {
      const { container, contact, phoneCall, email } = styles;
 
      return(
-       <CardSection style={container}>
+       <View style={container}>
          <Text style={contact}>Contact your representatives</Text>
          <Icon name="phone-square"
             size={30}
@@ -35,7 +35,7 @@ class ContactRepresentativesView extends React.Component {
             color="#CF2A28"
             onPress={this.onEmail}
             style={email} />
-       </CardSection>
+        </View>
      );
    }
 }
@@ -43,6 +43,7 @@ const styles = {
   container: {
               display: 'flex',
               flexDirection: 'row',
+              justifyContent: 'space-between'
             },
   contact: {
 

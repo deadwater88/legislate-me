@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TouchableOpacity } from 'react-native';
+import {Text, View, Image } from 'react-native';
 
 import ContactRepresentativesView  from './contact_representatives_view';
 import SponsorBillView from './sponsor_bill_view';
