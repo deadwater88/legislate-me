@@ -14,7 +14,7 @@ class RepresentativesView extends React.Component {
   render(){
     return(
       <View style={{flex: 1, paddingTop: 22}}>
-        ListView
+        <ListView
             dataSource={this.state.dataSource}
             renderRow={(rowData) => <Text>{rowData}</Text>}
           />
