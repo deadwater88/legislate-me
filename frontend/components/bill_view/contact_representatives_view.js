@@ -11,13 +11,13 @@ class ContactRepresentativesView extends React.Component {
    }
 
    onEmail(){
-
+     console.log("You've emailed your representatives!");
    }
 
    onCall(){
-
+     console.log("You've called your representatives!");
    }
-   
+
    render(){
 
      const { container, contact, phoneCall, email } = styles;
