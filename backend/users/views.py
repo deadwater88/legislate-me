@@ -23,18 +23,18 @@ class UserView(APIView):
 
     def post(self, request):
         User = get_user_model()
-        pdb.set_trace();
         email = request.data['email']
         password = request.data['password']
-        # last_name = request.data['last_name']
-        # first_name = request.data['first_name']
-        user = User(email=email, password=password, first_name="", last_name="")
+        last_name = request.data['lName']
+        first_name = request.data['fName']
+        user = User(email=email, password=password, first_name=first_name, last_name=last_name)
         try:
             user.full_clean()
         except ValidationError as e:
             return JsonResponse(e.message_dict, status=400)
         user.set_password(password)
         user.save()
+        login(request, user)
         serializer = UserSerializer(user)
         return JsonResponse(serializer.data)
 

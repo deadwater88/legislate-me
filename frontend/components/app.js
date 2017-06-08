@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { authUser } from '../actions/session_actions';
 
@@ -21,6 +22,9 @@ import Splash from './login/Splash.js';
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
 import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
 
+import Navbar from './common/navbar/navbar';
+import SubmitAddress from './login/submit_address/submit_address_container';
+import LoginNavigator from './login/login_navigator';
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
 class LoginSwiping extends Component{
@@ -34,11 +38,9 @@ class LoginSwiping extends Component{
     .then(() => {
       GoogleSignin.signIn()
         .then((user) => {
-          console.log(user);
           authUser(user);
         })
         .catch((err) => {
-          console.log('Something went wrong :(', err);
         })
         .done();
     });
@@ -47,15 +49,20 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
     return (
+      // <Text></Text>
+      // <SubmitAddress />
       <Swiper>
+        <View>
+          <Navbar/>
+        </View>
         <View>
           <Splash navigation={navigate}/>
         </View>
         <View>
-          <LoginFormContainer/>
+          <LoginNavigator/>
         </View>
       </Swiper>
-    )
+    );
   }
 }
 
