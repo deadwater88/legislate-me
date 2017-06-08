@@ -3,11 +3,11 @@ import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
 import SubmitAddress from './submit_address/submit_address';
 import OAuthButtons from './OAuth/oauth_buttons';
+import { signup } from '../../util/session_api_util';
 
 class LoginForm extends Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       fName: '',
       lName: '',
@@ -19,6 +19,14 @@ class LoginForm extends Component {
       this.onLogIn = this.onLogIn.bind(this);
       this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
 
+    }
+
+    componentWillReceiveProps(newProps){
+      console.log('received new props');
+      console.log(newProps);
+      if (newProps.currentUser !== null){
+        this.redirectToAddressPage;
+      }
     }
     onToggleSignIn(){
       let toggle = !this.state.login;
@@ -33,14 +41,14 @@ class LoginForm extends Component {
     }
 
     onSignUp(){
-      console.log("signing up");
+      console.log('signed up');
       this.props.signup({
         fName: this.state.fName,
         lName: this.state.lName,
         email: this.state.email,
         password: this.state.password
       }).then(this.redirectToAddressPage);
-      }
+    }
 
 
   componentWillUnmount(){

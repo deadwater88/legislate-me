@@ -16,7 +16,6 @@ import UserProfileNavigator from './user_profile/user_profile_navigator';
 
 import FBOAuth from './login/OAuth/oauth';
 
-import LoginFormContainer from './login/LoginFormContainer.js';
 import Splash from './login/Splash.js';
 
 import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
@@ -47,14 +46,9 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
     return (
-      // <Text></Text>
-      // <SubmitAddress />
       <Swiper>
         <View>
           <Splash navigation={navigate}/>
-        </View>
-        <View>
-          <LoginNavigator/>
         </View>
       </Swiper>
     );
@@ -64,7 +58,7 @@ class LoginSwiping extends Component{
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-  Login: {screen: LoginFormContainer}
+  Login: {screen: LoginNavigator}
 });
 
 // Create App
@@ -72,7 +66,7 @@ class App extends Component {
   render(){
     return (
       <LegislateMe/>
-    )
+    );
   }
 }
 
