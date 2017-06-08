@@ -10,6 +10,8 @@ class BillIndexItem extends React.Component{
     //conditional here: this.props.bill is bookmarked, unbookmark
     //else, bookmark
     // this.props.bookmarkBill(this.props.bill);
+
+    this.props.navigateToBill(this.props.bill);
   }
 
   render(){
