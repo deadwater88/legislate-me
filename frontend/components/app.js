@@ -13,18 +13,12 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
-import UserProfileNavigator from './user_profile/user_profile_navigator';
 
-import FBOAuth from './login/OAuth/oauth';
 
-import LoginFormContainer from './login/LoginFormContainer.js';
 import Splash from './login/Splash.js';
 
-import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
-import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
-
-import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
+import {HomeRouter} from './common/navbar/router';
 
 
 
