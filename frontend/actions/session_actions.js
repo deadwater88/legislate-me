@@ -15,17 +15,17 @@ export const receiveErrors = errors => ({
 });
 
 export const signup = user => dispatch => (
-  APIUtil.signup(user).then(signedUpUser => (
-    dispatch(receiveCurrentUser(signedUpUser))
-  ), err => (
+  APIUtil.signup(user).then(signedUpUser => {
+    dispatch(receiveCurrentUser(signedUpUser));
+  }, err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
 
 export const login = user => dispatch => (
-  APIUtil.login(user).then(signedUpUser => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
+  APIUtil.login(user).then(signedUpUser => {
+    dispatch(receiveCurrentUser(user));
+  }, err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
