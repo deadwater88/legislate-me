@@ -14,13 +14,13 @@ export const receiveSubject = subject => ({
 });
 
 export const fetchSubjects = () => dispatch => (
-  APIUtil.fetchSubjects().then(subjects => (
-    dispatch(receiveSubjects(subjects))
+  APIUtil.fetchSubjects().then(response => (
+    dispatch(receiveSubjects(response.data))
   ))
 );
 
 export const saveSubject = subject => dispatch => (
-  APIUtil.saveSubject(subject).then(savedSubject => (
-    dispatch(receiveSubject(savedSubject))
+  APIUtil.saveSubject(subject).then(response => (
+    dispatch(receiveSubject(response.data))
   ))
 );
