@@ -10,7 +10,6 @@ class Home extends Component{
   render(){
     return (
       <View>
-        <Text> HOME </Text>
         <Router />
       </View>
 

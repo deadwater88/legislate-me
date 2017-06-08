@@ -69,6 +69,7 @@ class LoginSwiping extends Component{
 
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
+  Router: {screen: Router},
   Main: {screen: LoginSwiping},
   Login: {screen: LoginFormContainer}
 });
