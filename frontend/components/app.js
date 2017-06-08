@@ -9,13 +9,9 @@ import {
   AppRegistry,
   PanResponder,
   View,
-<<<<<<< HEAD
   TouchableOpacity,
-  Text
-=======
   Text,
   Button
->>>>>>> fd16c71cbd71afc0ae54839bc4b28bb1398120fe
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
