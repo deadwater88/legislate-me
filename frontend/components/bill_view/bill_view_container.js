@@ -5,7 +5,7 @@ import { fetchBillInfo } from '../../util/bill_api_util';
 import { contactRepresentatives } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  contact_representatives: state.representatives
+  contactRepresentatives: contactRepresentatives(state.representatives)
 });
 
 const mapDispatchToProps = dispatch => ({
