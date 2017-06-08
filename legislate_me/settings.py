@@ -41,19 +41,17 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'rest_framework',
     'django_extensions',
-    'session.apps.SessionConfig',
-    'oauth.apps.OauthConfig'
+    'session.apps.SessionConfig'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'legislate_me.disable.DisableCsrfCheck'
 ]
 
 ROOT_URLCONF = 'legislate_me.urls'
@@ -152,5 +150,5 @@ STATICFILES_DIRS = (
 )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] =  dj_database_url.config()
