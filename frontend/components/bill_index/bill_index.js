@@ -11,16 +11,22 @@ class BillIndex extends React.Component{
     // this.state = {
     //   dataSource: ds.cloneWithRows(this.props.bills)
     // };
+    this.navigateToBill = this.navigateToBill.bind(this);
+  }
+
+  navigateToBill(){
+    //add logic for navigating to a bill
   }
 
   render(){
-    // <ListView
-    //   dataSource={this.state.dataSource}
-    //   renderRow={ bill => <BillIndexItem
-    //     bill={bill}
-    //     bookmarkBill={this.props.bookmarkBill} />}
-    //     />
-    return (<Text></Text>);
+    return (<ListView
+      onPress={this.navigateToBill}
+      dataSource={this.state.dataSource}
+      renderRow={ bill => <BillIndexItem
+        bill={bill}
+        bookmarkBill={this.props.bookmarkBill} />}
+        />);
+    // return (<Text></Text>);
   }
 }
 
