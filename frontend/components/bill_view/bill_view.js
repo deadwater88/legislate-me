@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View, TouchableOpacity } from 'react-native';
 
-import ContactRepresentativesView  from './contactRepresentativesView';
-import LegislatorBillView from './legislatorBillView';
+import ContactRepresentativesView  from './contact_representatives_view';
+import SponsorBillView from './sponsor_bill_view';
 
 import { Card, CardSection } from '../common';
 //Pass Bill Info in with props as bill
@@ -23,7 +23,7 @@ class BillView extends React.Component {
   render(){
     const {billTitle, billImage, blurb, billState, billChamber } = styles;
     const pic  = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Golden_Gate_bridge_pillar.jpg/400px-Golden_Gate_bridge_pillar.jpg'
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
     return(
       <Card>
@@ -43,8 +43,8 @@ class BillView extends React.Component {
           <Text style={blurb}>blurby</Text>
         </CardSection>
         <CardSection>
-          <LegislatorBillView
-            legislators={this.props.bill.sponsors} />
+          <SponsorBillView
+            sponsors={this.props.bill.sponsors} />
         </CardSection>
       </Card>
     );
