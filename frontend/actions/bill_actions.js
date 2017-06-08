@@ -15,8 +15,3 @@ export const fetchBills = () => dispatch => (
   APIUtil.fetchBills().then(bills =>
     dispatch(receiveBills(bills.data))
 ));
-
-export const bookmarkBill = bill => dispatch => (
-  APIUtil.bookmarkBill(bill).then(bill =>
-    dispatch(receiveBills(bill.data))
-));
