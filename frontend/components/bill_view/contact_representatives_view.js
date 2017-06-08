@@ -1,7 +1,9 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { CardSection } from '../common';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Communications from 'react-native-communications';
+
+import { CardSection } from '../common';
 
 class ContactRepresentativesView extends React.Component {
    constructor(props){
@@ -11,10 +13,15 @@ class ContactRepresentativesView extends React.Component {
    }
 
    onEmail(){
+     Communications.phonecall('valid_number', true);
      console.log("You've emailed your representatives!");
    }
 
    onCall(){
+     Communications.email(['emailAddress1', 'emailAddress2'],
+     null,null,
+     `My Support for ${this.props.bill.title}` ,
+     `I think you should support ${this.props.bill.title} `);
      console.log("You've called your representatives!");
    }
 
