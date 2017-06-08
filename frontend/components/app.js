@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Communications from 'react-native-communications';
 
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
@@ -8,6 +9,7 @@ import {
   AppRegistry,
   PanResponder,
   View,
+  TouchableOpacity,
   Text
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -25,6 +27,8 @@ import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInt
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
 
+
+// import RNCommunications from './communications';
 
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
@@ -52,6 +56,9 @@ class LoginSwiping extends Component{
     return (
       <Swiper>
         <View>
+          <RNCommunications/>
+        </View>
+        <View>
           <Splash navigation={this.props.navigation} />
         </View>
         <View>
@@ -65,18 +72,25 @@ class LoginSwiping extends Component{
 // Give the user the option to click between the screens
 const LegislateMe = StackNavigator({
   Main: {screen: LoginSwiping},
-<<<<<<< HEAD
   Login: {screen: LoginNavigator}
-=======
-  Login: {screen: LoginNavigator }
->>>>>>> 32e37f5ca2b0dc6eca7dc77908fff270b5d6ae35
 });
 
 // Create App
+// class App extends Component {
+//   render(){
+//     return (
+//       <LegislateMe/>
+//     );
+//   }
+// }
 class App extends Component {
   render(){
     return (
-      <LegislateMe/>
+      <TouchableOpacity onPress={() => Communications.email(['emailAddress1', 'emailAddress2'],null,null,'My Subject','My body text')}>
+        <View>
+          <Text>Send an email</Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
