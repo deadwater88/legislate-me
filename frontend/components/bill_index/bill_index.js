@@ -20,7 +20,9 @@ class BillIndex extends React.Component{
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={ bill => <BillIndexItem bill={bill} />}
+        renderRow={ bill => <BillIndexItem
+          bill={bill}
+          bookmarkBill={this.props.bookmarkBill} />}
        />
    );
   }

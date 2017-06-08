@@ -1,5 +1,4 @@
 import merge from 'lodash/merge';
-
 import {
   RECEIVE_BOOKMARK,
   RECEIVE_BOOKMARKS
