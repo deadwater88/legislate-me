@@ -24,8 +24,8 @@ const ContactRepresentativesView = ({reps}) => {
   return(
     <CardSection style={container}>
       <Text style={contact}>Contact your representatives</Text>
-      <TouchableOpacity style={phoneCall}> </TouchableOpacity>
-      <TouchableOpacity style={email}> </TouchableOpacity>
+      <Icon name="phone-square" size={30} style={phoneCall} />
+      <Icon name="envelope" size={30} style={email} />
     </CardSection>
   );
 };
