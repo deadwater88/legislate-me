@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Communications from 'react-native-communications';
-
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { authUser } from '../actions/session_actions';
@@ -28,11 +26,7 @@ import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInt
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
 
-import call from 'react-native-phone-call';
-import Communications from 'react-native-communications';
 
-
-// import RNCommunications from './communications';
 
 // Initialize three cards that the user can swipe between:
 // Splash Page, OAuth login, Normal Login
@@ -57,12 +51,8 @@ class LoginSwiping extends Component{
 
   render(){
     const navigate = this.props.navigation.navigate;
-<<<<<<< HEAD
     return (
       <Swiper>
-        <View>
-          <RNCommunications/>
-        </View>
         <View>
           <Splash navigation={this.props.navigation} />
         </View>
@@ -70,19 +60,7 @@ class LoginSwiping extends Component{
           <LoginNavigator />
         </View>
       </Swiper>
-    );
-=======
-    // <Swiper>
-    //   <View>
-    //     <Splash navigation={this.props.navigation} />
-    //   </View>
-    //   <View>
-    //     <LoginNavigator />
-    //   </View>
-    // </Swiper>
-    return (<Button title="Send email" onPress ={ () => Communications.email(['emailAddress'], null, null, null, 'my body text')}
-    />);
->>>>>>> fd16c71cbd71afc0ae54839bc4b28bb1398120fe
+    )
   }
 }
 
@@ -93,21 +71,10 @@ const LegislateMe = StackNavigator({
 });
 
 // Create App
-// class App extends Component {
-//   render(){
-//     return (
-//       <LegislateMe/>
-//     );
-//   }
-// }
 class App extends Component {
   render(){
     return (
-      <TouchableOpacity onPress={() => Communications.email(['emailAddress1', 'emailAddress2'],null,null,'My Subject','My body text')}>
-        <View>
-          <Text>Send an email</Text>
-        </View>
-      </TouchableOpacity>
+      <LegislateMe/>
     );
   }
 }

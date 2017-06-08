@@ -23,7 +23,9 @@ const BillNavigator = StackNavigator({
 
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
-  BillNavigator,
+  BillNavigator: {
+    screen: BillNavigator
+  },
   UserProfile: {
     screen: UserProfile,
     navigationOptions: {
