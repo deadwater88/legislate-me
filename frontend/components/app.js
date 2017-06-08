@@ -26,6 +26,7 @@ import Navbar from './common/navbar/navbar';
 import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
 
+import { Router } from './common/navbar/router';
 
 import Home from './home/home';
 // Initialize three cards that the user can swipe between:
@@ -56,9 +57,6 @@ class LoginSwiping extends Component{
       // <SubmitAddress />
       <Swiper>
         <View>
-          <Home/>
-        </View>
-        <View>
           <Splash navigation={navigate}/>
         </View>
         <View>
@@ -83,5 +81,13 @@ class App extends Component {
     )
   }
 }
+//
+// class App extends Component {
+//   render(){
+//     return (
+//       <Router/>
+//     )
+//   }
+// }
 
 module.exports = App;
