@@ -12,6 +12,7 @@ class OAuthButtons extends Component {
   }
 
   configureConnection(){
+
    GoogleSignin.configure({
      forceConsentPrompt: true
    })

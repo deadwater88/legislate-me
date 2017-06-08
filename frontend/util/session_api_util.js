@@ -3,9 +3,9 @@ import { HOST_URL } from './host_util';
 
 
 export const login = user => {
-  return axios.post({
+  return axios({
     method: 'POST',
-    url: `${HOST_URL}/api/session`,
+    url: `${HOST_URL}/api/sessions`,
     data: user
   });
 };
@@ -21,7 +21,7 @@ export const signup = user => {
 export const logout = () => {
   return axios({
     method: 'DELETE',
-    url: `${HOST_URL}/api/session`
+    url: `${HOST_URL}/api/sessions`
   });
 };
 

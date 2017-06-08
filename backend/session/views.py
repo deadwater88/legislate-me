@@ -16,8 +16,8 @@ from django.contrib.auth import authenticate, login, logout
 class SessionView(APIView):
     parser_classes = (FormParser, JSONParser)
     def post(self, request):
-        email = request.data['user[email]']
-        password = request.data['user[password]']
+        email = request.data['email']
+        password = request.data['password']
         user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
