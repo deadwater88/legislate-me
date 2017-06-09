@@ -9,12 +9,13 @@ class UserSerializer(serializers.BaseSerializer):
     password = serializers.CharField()
 
     def to_representation(self, obj):
-        subjects = SUJECTS
+        subjects = SUBJECTS
         for subject in obj.subjects:
             subjects[subject] = False
         return {
         'email': obj.email,
         'first_name': obj.first_name,
         'last_name': obj.last_name,
-        'subjects': subjects
+        'subjects': subjects,
+        'representatives': obj.representatives
         }
