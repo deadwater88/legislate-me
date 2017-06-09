@@ -70,8 +70,6 @@ class App extends Component {
   }
 
   render(){
-    console.log("CURRENTUSER", this.props.currentUser);
-    debugger;
     if (!this.props) return <Text></Text>;
     if (this.props.currentUser){
       return (
