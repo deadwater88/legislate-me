@@ -13,7 +13,7 @@ from users.serializers import UserSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
 import requests
-from legislate_me.api_keys import google_geocode_call, open_states_call
+from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators
 
 class UserView(APIView):
     parser_classes = (FormParser, JSONParser)
@@ -37,7 +37,7 @@ class UserView(APIView):
         login(request, user)
         serializer = UserSerializer(user)
         del serializer.data['password']
-        return JsonResponse(serializer.data)n
+        return JsonResponse(serializer.data)
 
     def delete(self, request):
         user = request.user
@@ -56,21 +56,13 @@ class SubjectsView(APIView):
         user.save()
         return JsonResponse(subjectsDict)
 
-class RepresentativeView(APIView):
+class RepresentativesView(APIView):
     def post(self, request):
         user = request.user
         address = request.data['address']
-        google_api_data = google_geocode_call(address)
-        # sample API call for David
-        # //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBzUKnAIApQXr6XfDWMsW0WS5o_0pCmgNU
-
-        pos = google_api_data.geometry.location
-        lat = pos.lat
-        lng = pos.lng
-        # openstates.org/api/v1/legislators/geo/?lat=35.79&long=-78.78
-        # r = request.get(f"https://openstates.org/api/v1/{query}&apikey={OPEN_STATE}")
-        query = "legislators/geo/?lat={lat}&long={lng}"
-        representatives = open_states_call(query)
-        for rep in representatives:
+        geocode = google_geocode_call(address)
+        reps = fetch_legislators(geocode)
+        user.representatives = reps
+        user.save()
+        return JsonResponse(reps)
             # save rep object in our backend
-            
