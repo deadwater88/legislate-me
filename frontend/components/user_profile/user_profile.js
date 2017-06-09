@@ -11,37 +11,38 @@ class UserProfile extends React.Component {
   render(){
     const {navigate} = this.props.navigation;
 
-    return(<Text></Text>
-    //   <View style={styles.parentView}>
-    //     <View style={{flex: 1.5}}>
-    //       <Icon name='account-circle' size={35}/>
-    //       <Text style={styles.username}>Username (will fill in later)</Text>
-    //     </View>
-    //     <View style={{flex: 1.0}}>
-    //       <Button
-    //         onPress={() => {
-    //           navigate('CustomizeInterests');
-    //         }}
-    //         subjects={this.props.subjects}
-    //         title='Customize Your Interests'
-    //         >
-    //       </Button>
-    //       <Button
-    //         onPress={() => {
-    //           navigate('Settings');
-    //         }}
-    //         user={this.props.currentUser}
-    //         title='Settings'>
-    //       </Button>
-    //     </View>
-    // </View>
+    return(
+      <View style={styles.parentView}>
+        <View style={{flex: 1.5}}>
+          <Icon name='account-circle' size={35}/>
+          <Text style={styles.username}>Username (will fill in later)</Text>
+        </View>
+        <View style={{flex: 1.0}}>
+          <Button
+            onPress={() => {
+              navigate('CustomizeInterests');
+            }}
+            subjects={this.props.subjects}
+            title='Customize Your Interests'
+            >
+          </Button>
+          <Button
+            onPress={() => {
+              this.props.logout();
+            }}
+            title='Log out'>
+          </Button>
+          <Button
+            onPress={() => {
+              navigate('Settings');
+            }}
+            user={this.props.currentUser}
+            title='Settings'>
+          </Button>
+        </View>
+    </View>
   );
-  // <Button
-  //   onPress={() => {
-  //     this.props.logout();
-  //   }}
-  //   title='Log out'>
-  // </Button>
+
   }
 }
 const styles = StyleSheet.create({

@@ -3,7 +3,6 @@ import { Text, ListView, Image } from 'react-native';
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    debugger;
     //this.props.bills will be an array of pojos
 
     //temporarily overriding
@@ -12,7 +11,7 @@ class BillIndex extends React.Component{
     // this.state = {
     //   dataSource: ds.cloneWithRows(this.props.bills)
     // };
-    // this.navigateToBill = this.navigateToBill.bind(this);
+    this.navigateToBill = this.navigateToBill.bind(this);
   }
 
   navigateToBill(){

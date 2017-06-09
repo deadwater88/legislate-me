@@ -13,7 +13,6 @@ class Root extends Component {
   }
 
  render(){
-   console.log("THIS IS STORE!!!!!!!!!!!!!!!!!!!!!!!!!", this.props.store);
     return (
       <Provider store={this.props.store}>
         <AppContainer/>
