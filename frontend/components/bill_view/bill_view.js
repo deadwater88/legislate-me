@@ -40,11 +40,11 @@ class BillView extends React.Component {
         <ContactRepresentativesView
           reps={this.props.contactRepresentatives} />
 
-        <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-          <Text style={blurb}>Bill Details</Text>
+        <View style={blurb}>
+          <Text>Bill Details</Text>
             <Icon.Button name="arrow-circle-down"
                size={20}
-               color="#CF2A28"
+               color="grey"
                backgroundColor='white'
                margin={0}
                padding={0}
@@ -60,27 +60,31 @@ class BillView extends React.Component {
 }
 const styles = {
 
-  billTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingBottom: 10
-  },
-  billImage: {
-    flex: 2,
-    width: 100,
-    height: 100
-  },
-  blurb: {
-
-  },
-  billState: {
-    fontSize: 12,
-    color: 'grey'
-  },
-  billChamber: {
-    fontSize: 12,
-    color: 'grey'
-  }
+    billTitle: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      paddingBottom: 10
+    },
+    billImage: {
+      flex: 2,
+      width: 100,
+      height: 100
+    },
+    blurb: {
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      borderBottomWidth: 1,
+      borderColor: '#ddd',
+      padding: 5
+    },
+    billState: {
+      fontSize: 12,
+      color: 'grey'
+    },
+    billChamber: {
+      fontSize: 12,
+      color: 'grey'
+    }
 };
 
 export default BillView;
