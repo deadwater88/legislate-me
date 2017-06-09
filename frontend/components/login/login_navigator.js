@@ -12,6 +12,11 @@ const LoginNavigator = StackNavigator({
   Home: {screen: HomeRouter, navigationOptions:{
      left: null
    }}
-});
+ }, {
+   headerMode: 'none'
+ }, {
+   header: null
+ });
+
 
 export default LoginNavigator;

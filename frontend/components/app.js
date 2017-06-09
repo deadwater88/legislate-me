@@ -60,6 +60,10 @@ class LoginSwiping extends Component{
 const LoginSignUpNavigator = StackNavigator({
   Main: {screen: LoginSwiping},
   Login: {screen: LoginNavigator}
+}, {
+  headerMode: 'none'
+}, {
+  header: null
 });
 
 
