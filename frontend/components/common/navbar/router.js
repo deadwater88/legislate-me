@@ -46,7 +46,7 @@ export const HomeRouter = TabNavigator({
     navigationOptions: {
       tabBarLabel: 'Explore',
       showIcon: 'true',
-      tabBarIcon: <Icon name="globe-o" size={20}/>,
+      tabBarIcon: <Icon name="globe" size={20}/>,
     },
   }
 }, {
