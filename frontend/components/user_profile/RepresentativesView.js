@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListView, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Communications from 'react-native-communications';
 
 class RepresentativesView extends React.Component {
   constructor(props){
@@ -12,11 +13,17 @@ class RepresentativesView extends React.Component {
       dataSource: ds.cloneWithRows(["john smith", "amelia johnson"]),
     };
   }
+  
   onEmail(){
+    Communications.phonecall('valid_number', true);
     console.log("You've emailed your representatives!");
   }
 
   onCall(){
+    Communications.email(['emailAddress1', 'emailAddress2'],
+    null,null,
+    `My Support for ${this.props.bill.title}` ,
+    `I think you should support ${this.props.bill.title} `);
     console.log("You've called your representatives!");
   }
 
