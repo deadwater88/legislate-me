@@ -73,7 +73,7 @@ const styles = {
   icons: {
     flexDirection: 'row',
     paddingRight: 5,
-    background: 'white'
+    backgroundColor: 'white'
 
   }
 };

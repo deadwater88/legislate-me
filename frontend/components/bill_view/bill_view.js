@@ -22,7 +22,7 @@ class BillView extends React.Component {
   }
 
   render(){
-    const {billTitle, billImage, blurb, billState, billChamber, billSponsors } = styles;
+    const {billTitle, billImage, blurb, billState, billChamber, billSponsors, blurbHeader, blurbText } = styles;
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
@@ -40,16 +40,19 @@ class BillView extends React.Component {
         <ContactRepresentativesView
           reps={this.props.contactRepresentatives} />
 
-        <View style={blurb}>
-          <Text>Bill Details</Text>
-            <Icon.Button name="arrow-circle-down"
-               size={20}
-               color="grey"
-               backgroundColor='white'
-               margin={0}
-               padding={0}
-               />
-        </View>
+          <View style={blurb} onPress={this.toggleBlurb}>
+            <View style={blurbHeader}>
+              <Text>Bill Details</Text>
+              <Icon.Button name="arrow-circle-down"
+                 size={20}
+                 color="grey"
+                 backgroundColor='white'
+                 margin={0}
+                 padding={0}
+                 />
+            </View>
+             <Text style={blurbText}>{this.props.blurb}</Text>
+          </View>
 
         <View style={billSponsors}>
           <Text>Bill Sponsors</Text>
@@ -72,14 +75,19 @@ const styles = {
     billImage: {
       flex: 1,
       width: 100,
-      height: 150
+      height: 200
     },
-    blurb: {
+    blurbHeader: {
       justifyContent: 'space-between',
       flexDirection: 'row',
+    },
+    blurb: {
       borderBottomWidth: 1,
       borderColor: '#ddd',
       padding: 5
+    },
+    blurbText: {
+
     },
     billState: {
       fontSize: 12,
@@ -93,5 +101,4 @@ const styles = {
       padding: 5
     }
 };
-
 export default BillView;
