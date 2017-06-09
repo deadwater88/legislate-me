@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
+
+import { SUBJECTS } from '../util/subject_api_util';
 
 class SubjectsIndex extends React.Component {
   constructor(props){
@@ -7,7 +9,11 @@ class SubjectsIndex extends React.Component {
   }
 
   render(){
-
+    
+    return(
+      <ScrollView>
+      </ScrollView>
+    );
   }
 }
 
