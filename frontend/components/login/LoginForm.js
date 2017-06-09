@@ -43,7 +43,7 @@ class LoginForm extends Component {
     }
 
     redirectToHome(){
-      console.log('redirect to home...');
+      //home is BillNavigator
       this.props.navigation.navigate('Home');
     }
 

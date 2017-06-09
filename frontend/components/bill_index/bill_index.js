@@ -6,8 +6,8 @@ class BillIndex extends React.Component{
     //this.props.bills will be an array of pojos
 
     //temporarily overriding
-    this.props.bills = [{}, {}, {}];
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    // this.props.bills = [{}, {}, {}];
+    // const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     // this.state = {
     //   dataSource: ds.cloneWithRows(this.props.bills)
     // };
@@ -19,14 +19,14 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    return (<ListView
-      onPress={this.navigateToBill}
-      dataSource={this.state.dataSource}
-      renderRow={ bill => <BillIndexItem
-        bill={bill}
-        bookmarkBill={this.props.bookmarkBill} />}
-        />);
-    // return (<Text></Text>);
+    return <Text></Text>;
+    // return (<ListView
+    //   onPress={this.navigateToBill}
+    //   dataSource={this.state.dataSource}
+    //   renderRow={ bill => <BillIndexItem
+    //     bill={bill}
+    //     bookmarkBill={this.props.bookmarkBill} />}
+    //     />);
   }
 }
 
