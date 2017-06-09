@@ -13,13 +13,13 @@ class RepresentativesView extends React.Component {
       dataSource: ds.cloneWithRows(["john smith", "amelia johnson"]),
     };
   }
-  
-  onEmail(){
-    Communications.phonecall('valid_number', true);
-    console.log("You've emailed your representatives!");
-  }
 
   onCall(){
+    Communications.phonecall('valid_number', true);
+    console.log("You've called your representatives!");
+  }
+
+  onEmail(){
     Communications.email(['emailAddress1', 'emailAddress2'],
     null,null,
     `My Support for ${this.props.bill.title}` ,
