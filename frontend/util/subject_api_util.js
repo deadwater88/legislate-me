@@ -8,6 +8,13 @@ export const fetchSubjects = () => {
   });
 };
 
+export const fetchSubject = subject => {
+  return axios({
+    method: 'GET',
+    url: `${HOST_URL}/api/subjects/${subject}`
+  });
+};
+
 export const saveSubject = subject => {
   return axios({
     method: 'POST',
