@@ -16,6 +16,13 @@ export const fetchBillsBySubjects = () => {
   });
 };
 
+export const fetchBillsBySubject = subject => {
+  return axios({
+    method: 'GET',
+    url: `${HOST_URL}/api/bills/subjects/${subject}`
+  });
+};
+
 export const fetchBookMarkedBills = () => {
   return axios({
     method: 'GET',
