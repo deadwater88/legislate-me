@@ -3,6 +3,7 @@ import App from './app';
 
 const mapStateToProps = state => (
   {
+    state: state,
     currentUser: state.session.currentUser
   }
 );

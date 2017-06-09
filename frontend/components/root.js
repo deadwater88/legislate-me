@@ -6,18 +6,20 @@ import thunk from 'redux-thunk';
 import AppContainer from './app_container';
 import configureStore from '../store/store';
 
-const store = configureStore();
 
 class Root extends Component {
-
-  render(){
-    console.log("inside root");
-    return (
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
-    )
+  constructor(props){
+    super(props);
   }
 
+ render(){
+   console.log("THIS IS STORE!!!!!!!!!!!!!!!!!!!!!!!!!", this.props.store);
+    return (
+      <Provider store={this.props.store}>
+        <AppContainer/>
+      </Provider>
+    );
+  }
 }
-AppRegistry.registerComponent('legislate_me', () => Root);
+
+export default Root;
