@@ -29,16 +29,16 @@ class UserProfile extends React.Component {
           </Button>
           <Button
             onPress={() => {
-              this.props.logout();
-            }}
-            title='Log out'>
-          </Button>
-          <Button
-            onPress={() => {
               navigate('UserSettings');
             }}
             user={this.props.currentUser}
             title='Settings'>
+          </Button>
+          <Button
+            onPress={() => {
+              this.props.logout();
+            }}
+            title='Log out'>
           </Button>
         </View>
     </View>
