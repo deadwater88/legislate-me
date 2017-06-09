@@ -10,7 +10,7 @@ class Subject extends React.Component {
   }
 
 componentDidMount(){
-  const bills = this.props.fetchSubject();
+  const bills = this.props.fetchBillBySubject();
   this.setState({bills});
 }
 
