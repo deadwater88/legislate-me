@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import BillIndex from './BillIndex';
-import { createBookmark } from '../actions/bookmark_actions';
+import BillIndex from './bill_index';
+import { createBookmark } from '../../actions/bookmark_actions';
 
 const mapStateToProps = (state) => ({
   bills: state.bills
