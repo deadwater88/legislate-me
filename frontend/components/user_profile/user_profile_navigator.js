@@ -5,11 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import UserSettings from './UserSettingsContainer';
 
 const UserProfileNavigator = StackNavigator({
-  UserProfile: { screen: UserProfile,
-    navigationOptions: {
-      title: "You",
-    }
-  },
+  UserProfile: { screen: UserProfile },
   CustomizeInterests: {screen: CustomizeInterestList },
   UserSettings: {screen: UserSettings }
 });
