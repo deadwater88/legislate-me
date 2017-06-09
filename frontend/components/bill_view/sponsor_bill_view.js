@@ -11,7 +11,7 @@ const SponsorBillView = ({sponsor}) => {
       <View style={{flex: 1}}>
         <Image style={sponsorImage} source={pic} />
       </View>
-      <View style={{flexDirection: 'column', flex: 1}}>
+      <View {{flexDirection: 'column', flex: 1, paddingTop: 10}}>
         <Text style={sponsorText}> {sponsor.name}</Text>
         <Text style={sponsorText}> {sponsor.role}</Text>
         <Text style={sponsorText}> {sponsor.party}</Text>
