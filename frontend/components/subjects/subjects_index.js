@@ -21,6 +21,7 @@ class SubjectsIndex extends React.Component {
     return(
       <ScrollView>
         <Text style={{}}>Discover new bills by subject</Text>
+        {subjects}
       </ScrollView>
     );
   }
@@ -28,7 +29,8 @@ class SubjectsIndex extends React.Component {
 
 const styles = {
   imageStyle: {
-
+    height: 100,
+    width: 200
   }
 };
 
