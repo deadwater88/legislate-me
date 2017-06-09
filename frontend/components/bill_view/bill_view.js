@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ContactRepresentativesView  from './contact_representatives_view';
 import SponsorBillView from './sponsor_bill_view';
