@@ -33,16 +33,27 @@ class ContactRepresentativesView extends React.Component {
        <View style={container}>
          <Text style={contact}>Contact your representatives</Text>
          <View style={icons}>
-           <Icon name="phone-square"
-              size={30}
+
+           <Icon.Button name="phone-square"
+              size={40}
               color="#009E11"
+              margin={0}
+              padding={0}
+              backgroundColor="white"
               onPress={this.onCall}
               style={ {paddingRight: 10}} />
-           <Icon name="envelope"
-              size={30}
-              color="#CF2A28"
-              onPress={this.onEmail}
-              style={{}} />
+
+
+            <Icon.Button name="envelope"
+               size={40}
+               color="#CF2A28"
+               margin={0}
+               padding={0}
+               backgroundColor="white"
+               onPress={this.onEmail}
+               style={{}} />
+
+
           </View>
         </View>
      );
@@ -60,8 +71,9 @@ const styles = {
   },
   icons: {
     flexDirection: 'row',
-    paddingRight: 5
+    paddingRight: 5,
+    background: 'white'
+
   }
 };
-
 export default ContactRepresentativesView;
