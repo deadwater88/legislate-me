@@ -10,7 +10,8 @@ class UserProfile extends React.Component {
 
   render(){
     const {navigate} = this.props.navigation;
-
+    console.log("profile nav");
+    console.log(navigate);
     return(
       <View style={styles.parentView}>
         <View style={{flex: 1.5}}>
@@ -28,16 +29,16 @@ class UserProfile extends React.Component {
           </Button>
           <Button
             onPress={() => {
-              this.props.logout();
-            }}
-            title='Log out'>
-          </Button>
-          <Button
-            onPress={() => {
-              navigate('Settings');
+              navigate('UserSettings');
             }}
             user={this.props.currentUser}
             title='Settings'>
+          </Button>
+          <Button
+            onPress={() => {
+              this.props.logout();
+            }}
+            title='Log out'>
           </Button>
         </View>
     </View>

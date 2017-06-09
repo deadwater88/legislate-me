@@ -6,6 +6,8 @@ import BillIndex from '../../bill_index/bill_index';
 import UserProfile from '../../user_profile/user_profile_container';
 import BillView from '../../bill_view/bill_view_container';
 import BillIndexItem from '../../bill_index/bill_index_item';
+import UserProfileNavigator from '../../user_profile/user_profile_navigator';
+
 // import explore and bookmarked
 
 const BillNavigator = StackNavigator({
@@ -28,16 +30,17 @@ const BillNavigator = StackNavigator({
 
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
-  BillNavigator: {
-    screen: BillNavigator
-  },
+
   UserProfile: {
-    screen: UserProfile,
+    screen: UserProfileNavigator,
     navigationOptions: {
       tabBarLabel: 'Profile',
       showIcon: 'true',
       tabBarIcon: <Icon name="user-o" size={20}/>,
     },
+  },
+  BillNavigator: {
+    screen: BillNavigator
   }
 }, {
   tabBarPosition: "bottom",
