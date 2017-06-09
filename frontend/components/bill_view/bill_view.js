@@ -22,7 +22,7 @@ class BillView extends React.Component {
   }
 
   render(){
-    const {billTitle, billImage, blurb, billState, billChamber } = styles;
+    const {billTitle, billImage, blurb, billState, billChamber, billSponsors } = styles;
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
@@ -51,8 +51,11 @@ class BillView extends React.Component {
                />
         </View>
 
-        <SponsorBillView
-          sponsors={this.props.bill.sponsors} />
+        <View style={billSponsors}>
+          <Text>Bill Sponsors</Text>
+          <SponsorBillView
+            sponsors={this.props.bill.sponsors} />
+        </View>
 
       </Card>
     );
@@ -63,12 +66,13 @@ const styles = {
     billTitle: {
       fontSize: 20,
       fontWeight: 'bold',
-      paddingBottom: 10
+      paddingBottom: 10,
+      paddingTop: 10
     },
     billImage: {
-      flex: 2,
+      flex: 1,
       width: 100,
-      height: 100
+      height: 150
     },
     blurb: {
       justifyContent: 'space-between',
@@ -84,6 +88,9 @@ const styles = {
     billChamber: {
       fontSize: 12,
       color: 'grey'
+    },
+    billSponsors: {
+      padding: 5
     }
 };
 
