@@ -9,13 +9,13 @@ class SubjectsIndex extends React.Component {
   }
 
   render(){
-    const { imageStyle, headerText, labelText } = styles;
+    const { imageStyle, headerText, labelText, imageGroup } = styles;
     const subjects = Object.keys(SUBJECTS).map((key,idx) => {
       const pic  = {
         uri:  SUBJECT_IMAGES[{key}]
       };
       return(
-        <View style={{flexDirection: 'column'}} key={idx}>
+        <View style={imageGroup} key={idx}>
           <Image style={imageStyle} source={pic} />
           <Text style={labelText}>{key}</Text>
         </View>
@@ -31,17 +31,27 @@ class SubjectsIndex extends React.Component {
 }
 
 const styles = {
+  imageGroup: {
+    flexDirection: 'column',
+    flex: 1,
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   imageStyle: {
-    height: 100,
-    width: 200
+    height: 200,
+    width: 400
   },
   headerText:{
     paddingTop:20,
     textAlign: 'center',
-    fontSize: 20
+    fontSize: 20,
+    paddingBottom: 20
   },
   labelText:{
-    textAlign: 'center'
+    paddingBottom: 10,
+    position: 'absolute',
+    backgroundColor: 'transparent'
   }
 };
 
