@@ -39,9 +39,16 @@ class BillView extends React.Component {
         <ContactRepresentativesView
           reps={this.props.contactRepresentatives} />
 
-        <CardSection>
-          <Text style={blurb}>blurby</Text>
-        </CardSection>
+        <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
+          <Text style={blurb}>Bill Details</Text>
+            <Icon.Button name="arrow-circle-down"
+               size={20}
+               color="#CF2A28"
+               backgroundColor='white'
+               margin={0}
+               padding={0}
+               />
+        </View>
 
         <SponsorBillView
           sponsors={this.props.bill.sponsors} />
