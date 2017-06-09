@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image } from 'react-native';
+import {Text, View, Image, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ContactRepresentativesView  from './contact_representatives_view';
@@ -11,14 +11,20 @@ class BillView extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-                  reveal_blurb: false
+                  reveal_blurb: false,
+                  blurb: ''
                 };
     this.toggleBlurb = this.toggleBlurb.bind(this);
   }
 
   toggleBlurb(){
     const newState = !this.state.reveal_blurb;
-    this.setState({reveal_blurb: newState});
+    if(newState === true){
+    this.setState({blurb: this.props.blurb});
+  } else{
+    this.setState({blurb: ''});
+  }
+  this.setState({reveal_blurb: newState});
   }
 
   render(){
@@ -40,7 +46,8 @@ class BillView extends React.Component {
         <ContactRepresentativesView
           reps={this.props.contactRepresentatives} />
 
-          <View style={blurb} onPress={this.toggleBlurb}>
+        <TouchableHighlight onPress={this.toggleBlurb}>
+          <View style={blurb}>
             <View style={blurbHeader}>
               <Text>Bill Details</Text>
               <Icon.Button name="arrow-circle-down"
@@ -49,10 +56,12 @@ class BillView extends React.Component {
                  backgroundColor='white'
                  margin={0}
                  padding={0}
+                 onPress={this.toggleBlurb}
                  />
             </View>
              <Text style={blurbText}>{this.props.blurb}</Text>
           </View>
+        </TouchableHighlight>
 
         <View style={billSponsors}>
           <Text>Bill Sponsors</Text>
