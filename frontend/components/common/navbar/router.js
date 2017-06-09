@@ -19,7 +19,12 @@ const BillNavigator = StackNavigator({
   },
   BillIndexItem: { screen: BillIndexItem },
   BillView: { screen: BillView }
+}, {
+  headerMode: 'none'
+}, {
+  header: null
 });
+
 
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
