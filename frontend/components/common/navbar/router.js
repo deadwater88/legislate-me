@@ -7,7 +7,7 @@ import UserProfile from '../../user_profile/user_profile_container';
 import BillView from '../../bill_view/bill_view_container';
 import BillIndexItem from '../../bill_index/bill_index_item';
 import UserProfileNavigator from '../../user_profile/user_profile_navigator';
-import Subject from '../../subjects/subject_container';
+import SubjectsIndex from '../../subjects/subjects_index';
 // import explore and bookmarked
 
 const BillNavigator = StackNavigator({
@@ -42,7 +42,7 @@ export const HomeRouter = TabNavigator({
     },
   },
   Explore: {
-    screen: Subject,
+    screen: SubjectsIndex,
     navigationOptions: {
       tabBarLabel: 'Explore',
       showIcon: 'true',

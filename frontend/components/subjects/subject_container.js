@@ -7,5 +7,4 @@ const mapDispatchToProps = dispatch =>  ({
   fetchBillsBySubject: subject => dispatch(fetchBillsBySubject(subject))
 });
 
-
 export default connect(null,mapDispatchToProps)(Subject);
