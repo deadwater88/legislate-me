@@ -67,7 +67,8 @@ const styles = {
             },
   contact: {
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingRight: 25
   },
   icons: {
     flexDirection: 'row',
@@ -76,4 +77,5 @@ const styles = {
 
   }
 };
+
 export default ContactRepresentativesView;
