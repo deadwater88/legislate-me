@@ -15,7 +15,7 @@ export const signup = user => {
     method: 'POST',
     url: `${HOST_URL}/api/users`,
     data: user,
-  }).then(console.log('user created'));
+  }).then(res => console.log(res)).then(console.log('user created'));
 };
 
 export const logout = () => {
