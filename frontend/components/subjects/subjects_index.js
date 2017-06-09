@@ -49,9 +49,9 @@ const styles = {
     paddingBottom: 20
   },
   labelText:{
-    paddingBottom: 10,
+    fontSize: 16,
     position: 'absolute',
-    backgroundColor: 'transparent'
+    backgroundColor: 'rgba(0,0,0,0.3)'
   }
 };
 
