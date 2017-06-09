@@ -28,20 +28,21 @@ class UserProfile extends React.Component {
           </Button>
           <Button
             onPress={() => {
+              this.props.logout();
+            }}
+            title='Log out'>
+          </Button>
+          <Button
+            onPress={() => {
               navigate('Settings');
             }}
             user={this.props.currentUser}
             title='Settings'>
           </Button>
-          <Button
-            onPress={() => {
-              this.props.logout();
-            }}
-            title='Log out'>
-          </Button>
         </View>
     </View>
   );
+
   }
 }
 const styles = StyleSheet.create({

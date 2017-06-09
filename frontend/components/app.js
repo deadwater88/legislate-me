@@ -66,10 +66,11 @@ const LoginSignUpNavigator = StackNavigator({
 // Create App
 class App extends Component {
   constructor(props){
-    super(props)
+    super(props);
   }
 
   render(){
+    if (!this.props) return <Text></Text>;
     if (this.props.currentUser){
       return (
         <HomeRouter/>
@@ -82,5 +83,4 @@ class App extends Component {
   }
 }
 
-
-module.exports = App;
+export default App;
