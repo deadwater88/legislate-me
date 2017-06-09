@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
+import { View, Text, TouchableHighlight, ScrollView, Image } from 'react-native';
 
 import { SUBJECTS, SUBJECT_IMAGES } from '../util/subject_api_util';
 
@@ -10,7 +10,7 @@ class SubjectsIndex extends React.Component {
 
   render(){
     const { imageStyle } = styles;
-    const subjects = SUBJECTS.keys().map(key => {
+    const subjects = Object.keys(SUBJECTS).map(key => {
       return(
         <View style={{flexDirection: 'column'}}>
           <Image style={imageStyle} source={SUBJECT_IMAGES[`${key}`]} />
