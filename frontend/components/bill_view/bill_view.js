@@ -4,6 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ContactRepresentativesView  from './contact_representatives_view';
 import SponsorBillView from './sponsor_bill_view';
+import RepresentativesView from '../user_profile/RepresentativesView';
+
 
 import { Card, CardSection } from '../common';
 //Pass Bill Info in with props as bill
@@ -43,8 +45,10 @@ class BillView extends React.Component {
             <Image style={billImage} source={pic} />
         </CardSection>
 
-        <ContactRepresentativesView
-          reps={this.props.contactRepresentatives} />
+        <View style={{flexDirection: 'column'}}>
+          <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
+          <RepresentativesView reps={this.props.representatives} />
+        </View>
 
           <TouchableHighlight onPress={this.toggleBlurb}>
           <View style={blurb}>
