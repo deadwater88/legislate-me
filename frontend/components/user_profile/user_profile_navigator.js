@@ -1,8 +1,8 @@
-import CustomizeInterestListContainer from '../CustomizeInterestList/CustomizeInterestListContainer';
+import CustomizeInterestList from '../CustomizeInterestList/CustomizeInterestList';
 import Settings from './settings';
 import UserProfile from './user_profile_container';
 import { StackNavigator } from 'react-navigation';
-import UserSettings from './UserSettings';
+import UserSettings from './UserSettingsContainer';
 
 const UserProfileNavigator = StackNavigator({
   UserProfile: { screen: UserProfile,
@@ -10,7 +10,7 @@ const UserProfileNavigator = StackNavigator({
       title: "You",
     }
   },
-  CustomizeInterests: {screen: CustomizeInterestListContainer },
+  CustomizeInterests: {screen: CustomizeInterestList },
   UserSettings: {screen: UserSettings }
 });
 
