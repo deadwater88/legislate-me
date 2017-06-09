@@ -3,7 +3,7 @@ import { AppRegistry } from 'react-native';
 import React, {Component} from 'react';
 
 import thunk from 'redux-thunk';
-import App from './app';
+import AppContainer from './app_container';
 import configureStore from '../store/store';
 
 const store = configureStore();
@@ -14,7 +14,7 @@ class Root extends Component {
     console.log("inside root");
     return (
       <Provider store={store}>
-        <App />
+        <AppContainer />
       </Provider>
     )
   }
