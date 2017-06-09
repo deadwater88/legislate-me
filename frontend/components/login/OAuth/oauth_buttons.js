@@ -9,10 +9,11 @@ class OAuthButtons extends Component {
   constructor(props){
     super(props);
     this.configureConnection = this.configureConnection.bind(this);
+    this.redirectToHome = this.redirectToHome.bind(this);
   }
 
   configureConnection(){
-
+  console.log('configuring connection');
    GoogleSignin.configure({
      forceConsentPrompt: true
    })
@@ -30,6 +31,9 @@ class OAuthButtons extends Component {
    });
   }
 
+
+
+
   render(){
     const { containerStyle, buttonStyle} = styles;
     return(
@@ -43,7 +47,7 @@ class OAuthButtons extends Component {
         style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
-        onPress={this.configureConnection.bind(this)}/>
+        onPress={this.configureConnection}/>
       </View>
     );
   }
