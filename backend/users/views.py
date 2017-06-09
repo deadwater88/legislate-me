@@ -52,7 +52,7 @@ class SubjectsView(APIView):
     def patch(self, request):
         user = request.user
         subjectsDict = request.data['subjects']
-        user.subects = [subject for subject in subjectsDICT if subjectsDICT[subject]]
+        user.subjects = [subject for subject in subjectsDICT if subjectsDICT[subject]]
         user.save()
         return JsonResponse(subjectsDict)
 

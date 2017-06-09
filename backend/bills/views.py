@@ -4,6 +4,8 @@ import pdb
 from rest_framework.parsers import FormParser, JSONParser
 from rest_framework.views import APIView
 import requests
+from legislate_me.api_keys import open_states_call
+from bills.model import Bill
 # def get(req):
 #     req.session.set_test_cookie()
 #     if req.session.test_cookie_worked():
@@ -24,4 +26,13 @@ class Bills(APIView):
     def show(self, request):
         bill_osid = req.data.bill_id
         req.url parse this
-        requests.get('')
+        bill = open_states_call(f"bills/{bill_osid}/?")
+        record = Bill(bill_osid=bill_osid)
+
+        if record:
+            serializer = BillSerializer(bill)
+            return JsonResponse(serializer.data)
+        else:
+
+            generate_img_url(bill.subject)
+            Bill(img_url=img_url)
