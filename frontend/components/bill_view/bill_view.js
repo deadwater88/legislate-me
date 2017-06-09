@@ -46,10 +46,10 @@ class BillView extends React.Component {
         <ContactRepresentativesView
           reps={this.props.contactRepresentatives} />
 
-        <TouchableHighlight onPress={this.toggleBlurb}>
+          <TouchableHighlight onPress={this.toggleBlurb}>
           <View style={blurb}>
             <View style={blurbHeader}>
-              <Text>Bill Details</Text>
+              <Text style={{fontSize: 16}}>Bill Details</Text>
               <Icon.Button name="arrow-circle-down"
                  size={20}
                  color="grey"
@@ -59,16 +59,15 @@ class BillView extends React.Component {
                  onPress={this.toggleBlurb}
                  />
             </View>
-             <Text style={blurbText}>{this.props.blurb}</Text>
+             <Text style={blurbText}>{this.state.blurb}</Text>
           </View>
         </TouchableHighlight>
 
         <View style={billSponsors}>
-          <Text>Bill Sponsors</Text>
+          <Text style={{fontSize: 16}}>Bill Sponsors</Text>
           <SponsorBillView
             sponsors={this.props.bill.sponsors} />
         </View>
-
       </Card>
     );
   }
