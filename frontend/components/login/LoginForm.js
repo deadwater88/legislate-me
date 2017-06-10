@@ -23,10 +23,10 @@ class LoginForm extends Component {
 
     componentWillReceiveProps(nextProps){
       // debugger
-      console.log("receiving props");
-      if (nextProps.currentUser) {
-        this.redirectToHome();
-      }
+      // console.log("receiving props");
+      // if (nextProps.currentUser) {
+      //   this.redirectToHome();
+      // }
     }
 
     onToggleSignIn(){
@@ -35,12 +35,11 @@ class LoginForm extends Component {
     }
 
     onLogIn(){
-      debugger
-      console.log("in login form - logging in ");
+      // console.log("in login form - logging in ");
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      });
+      }).then(this.redirectToHome);
     }
 
     onSignUp(){

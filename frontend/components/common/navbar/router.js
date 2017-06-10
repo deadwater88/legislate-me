@@ -32,6 +32,9 @@ const BillNavigator = StackNavigator({
 
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
+  BillNavigator: {
+    screen: BillNavigator
+  },
   Bookmarks: {
     screen: BookmarkedBills,
     navigationOptions: {
@@ -39,9 +42,6 @@ export const HomeRouter = TabNavigator({
       showIcon: 'true',
       tabBarIcon: <Icon name="bookmark" size={20}/>,
     },
-  },
-  BillNavigator: {
-    screen: BillNavigator
   },
   Explore: {
     screen: SubjectsIndex,
