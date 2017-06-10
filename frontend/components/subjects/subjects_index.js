@@ -9,21 +9,25 @@ class SubjectsIndex extends React.Component {
       const pic  = {
         uri:  SUBJECT_IMAGES[{key}]
       };
+      // <Image style={imageStyle} source={pic} />
+      // <View style={imageGroup} key={idx}>
+      //   <Text style={labelText}>{key}</Text>
+      // </View>
       return(
-        <View style={imageGroup} key={idx}>
-          <Image style={imageStyle} source={pic} />
-          <Text style={labelText}>{key}</Text>
-        </View>
+        <Text>{key}</Text>
       );
     });
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const listViewDataSource = ds.cloneWithRows(subjects);
-
+    // <Text style={headerText}>Discover new bills by subject</Text>
+    console.log(listViewDataSource);
     return(
-      <ScrollView>
-        <Text style={headerText}>Discover new bills by subject</Text>
-        {subjects}
-      </ScrollView>
+      <View>
+        <ListView
+          dataSource={listViewDataSource}
+          renderRow={(rowData) => <View>{rowData}</View>}
+          />
+      </View>
     );
   }
 }
