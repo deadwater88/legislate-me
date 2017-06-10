@@ -72,8 +72,9 @@ const styles = {
   container: {
               display: 'flex',
               flexDirection: 'row',
-              justifyContent: 'space-between'
-            },
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }
 };
 
 export default RepresentativesView;

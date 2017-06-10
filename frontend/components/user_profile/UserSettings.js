@@ -34,7 +34,7 @@ class UserSettings extends React.Component {
       <Card>
         <View style={repsView}>
           <Text style={title}>User Settings</Text>
-          <Text>Your representatives</Text>
+          <Text style={yourReps}>Your representatives</Text>
           <RepresentativesView reps="BLAH" />
         </View>
         <CardSection>
@@ -66,12 +66,12 @@ class UserSettings extends React.Component {
             </Button>
           </CardSection>
         </View>
-        <Image style={imageStyle} source={pic} />
       </Card>
 
     );
   }
 }
+
 
 const styles = {
   columns: {
@@ -85,8 +85,16 @@ const styles = {
   repsView: {
     paddingBottom: 40
   },
-  buttons: {
-    paddingBottom: 20
+  address: {
+    paddingBottom: 40
+  },
+  signout: {
+    paddingBottom: 5
+  },
+  yourReps: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingBottom: 10
   }
 };
 export default UserSettings;
