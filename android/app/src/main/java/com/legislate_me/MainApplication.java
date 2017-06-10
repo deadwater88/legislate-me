@@ -1,10 +1,11 @@
 package com.legislate_me;
-
+ 
 import android.app.Application;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;  // <--- import
 
 import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import im.shimo.react.cookie.CookieManagerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
@@ -38,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
       protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNGoogleSigninPackage(),
             new CookieManagerPackage(),
             new VectorIconsPackage(),
             new RNGoogleSigninPackage(),
