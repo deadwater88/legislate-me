@@ -13,7 +13,7 @@ export const receiveBookmark = bookmark => ({
 });
 
 export const fetchBookmarks = subject  => dispatch => (
-  APIUtil.fetchBookmarks().then(bookmarks =>
+  APIUtil.fetchBookmarkedBills().then(bookmarks =>
     dispatch(receiveBookmark(bookmarks.data))
 ));
 
