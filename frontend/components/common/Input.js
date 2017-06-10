@@ -19,24 +19,28 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
 };
 
 const styles = {
-  inputStyle: {
-    color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
-    fontSize: 18,
-    lineHeight: 23,
-    flex: 2
+  columns: {
+    flexDirection: 'column'
   },
-  labelStyle: {
-    fontSize: 18,
-    paddingLeft: 10,
-    flex: 1
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    padding: 40
   },
-  containerStyle: {
-    height: 40,
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center'
+  repsView: {
+    paddingBottom: 40
+  },
+  address: {
+    paddingBottom: 40
+  },
+  signout: {
+    paddingBottom: 10
+  },
+  imageStyle: {
+    height: 150,
+    width: '100%',
+    borderRadius: 5,
+    paddingBottom: 5
   }
 };
 
