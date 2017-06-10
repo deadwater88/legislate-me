@@ -6,23 +6,28 @@ class SubjectsIndex extends React.Component {
   render(){
     const { imageStyle, headerText, labelText, imageGroup } = styles;
     const subjects = Object.keys(SUBJECTS).map((key,idx) => {
-      const pic  = {
-        uri:  SUBJECT_IMAGES[{key}]
-      };
+      const pic  = SUBJECT_IMAGES[key];
+      console.log(pic);
       // <Image style={imageStyle} source={pic} />
       // <View style={imageGroup} key={idx}>
       //   <Text style={labelText}>{key}</Text>
       // </View>
       return(
-        <Text>{key}</Text>
+        <View>
+          <Image
+            source={{uri: pic}}
+            style={{width: 50, height: 50}}
+             />
+          <Text>{key}</Text>
+        </View>
       );
     });
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const listViewDataSource = ds.cloneWithRows(subjects);
-    // <Text style={headerText}>Discover new bills by subject</Text>
     console.log(listViewDataSource);
     return(
       <View>
+        <Text style={headerText}>Discover new bills by subject</Text>
         <ListView
           dataSource={listViewDataSource}
           renderRow={(rowData) => <View>{rowData}</View>}
