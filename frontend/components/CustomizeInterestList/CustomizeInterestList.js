@@ -59,6 +59,7 @@ class CustomizeInterestList extends Component {
             color="#841584"
             accessibilityLabel="Save your interests"
           />
+          <Text>HELLLOOOOOOOOO</Text>
       </View>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableHighlight, ScrollView, Image } from 'react-native';
 
-import { SUBJECTS, SUBJECT_IMAGES } from './subject_api_util';
+import { SUBJECTS, SUBJECT_IMAGES } from '../../util/subject_api_util';
 
 class SubjectsIndex extends React.Component {
   constructor(props){

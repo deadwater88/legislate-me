@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => (
 );
 
 
-export default connect(null,mapDispatchToProps)(CustomizeInterestList);
+export default connect(mapStateToProps,mapDispatchToProps)(CustomizeInterestList);

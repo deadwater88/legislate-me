@@ -2,7 +2,7 @@
 	.container {
 		width: 100%;
 	}
-	.price .container, 
+	.price .container,
 	.footer .container {
 		width: 90%;
 	}
@@ -43,7 +43,7 @@
 	.subscribe .subscribe-header {
 		width: 100%;
 	}
-	.price .container, 
+	.price .container,
 	.footer .container {
 		width: 100%;
 	}

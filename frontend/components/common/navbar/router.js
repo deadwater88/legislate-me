@@ -2,12 +2,12 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import React, { Component } from 'react';
-import BillIndex from '../../bill_index/bill_index';
+import BillIndex from '../../bill_index/bill_index_container';
 import UserProfile from '../../user_profile/user_profile_container';
 import BillView from '../../bill_view/bill_view_container';
 import BillIndexItem from '../../bill_index/bill_index_item';
 import UserProfileNavigator from '../../user_profile/user_profile_navigator';
-
+import SubjectsIndex from '../../subjects/subjects_index';
 // import explore and bookmarked
 
 const BillNavigator = StackNavigator({
@@ -30,7 +30,9 @@ const BillNavigator = StackNavigator({
 
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
-
+  BillNavigator: {
+    screen: BillNavigator
+  },
   UserProfile: {
     screen: UserProfileNavigator,
     navigationOptions: {
@@ -39,8 +41,13 @@ export const HomeRouter = TabNavigator({
       tabBarIcon: <Icon name="user-o" size={20}/>,
     },
   },
-  BillNavigator: {
-    screen: BillNavigator
+  Explore: {
+    screen: SubjectsIndex,
+    navigationOptions: {
+      tabBarLabel: 'Explore',
+      showIcon: 'true',
+      tabBarIcon: <Icon name="globe" size={20}/>,
+    },
   }
 }, {
   tabBarPosition: "bottom",
