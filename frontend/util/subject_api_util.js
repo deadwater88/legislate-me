@@ -11,7 +11,7 @@ export const fetchSubjects = () => {
 export const saveSubject = subject => {
   return axios({
     method: 'PATCH',
-    url: `${HOST_URL}/api/subjects`,
+    url: `${HOST_URL}/api/users/subjects`,
     data: subject
   });
 };

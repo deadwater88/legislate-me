@@ -32,10 +32,12 @@ class LoginForm extends Component {
     }
 
     onLogIn(){
+      debugger
+      console.log("in login form - logging in ");
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToHome);
+      });
     }
 
     onSignUp(){
