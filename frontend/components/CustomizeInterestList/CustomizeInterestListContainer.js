@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 import CustomizeInterestList from './CustomizeInterestList.js';
-import {receiveSubject, saveSubject } from '../../actions/subject_actions';
-import { zipped } from '../../reducers/selectors' ;
-
+import {fetchSubjects, saveSubjects } from '../../actions/subject_actions';
+// import { zipped } from '../../reducers/selectors' ;
+// import {fetchSubjects}
 const mapStateToProps = state => ({
-  subjects: zipped(state.subjects),
-
+  subjects: state.subjects
 });
 
 const mapDispatchToProps = dispatch => (
   {
-    receiveSubject: (subject) => dispatch(receiveSubject(subject)),
-    saveSubject: (subject) => dispatch(saveSubject(subject))
+    fetchSubjects: (subjects) => dispatch(fetchSubjects(subjects)),
+    saveSubjects: (subjects) => dispatch(saveSubjects(subjects))
   }
 );
 

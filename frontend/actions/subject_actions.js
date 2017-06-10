@@ -1,17 +1,17 @@
 import * as APIUtil from '../util/subject_api_util';
 
 export const RECEIVE_SUBJECTS = 'RECEIVE_SUBJECTS';
-export const RECEIVE_SUBJECT = 'RECEIVE_SUBJECT';
+// export const RECEIVE_SUBJECT = 'RECEIVE_SUBJECT';
 
 export const receiveSubjects = subjects => ({
   type: RECEIVE_SUBJECTS,
   subjects
 });
 
-export const receiveSubject = subject => ({
-  type: RECEIVE_SUBJECT,
-  subject
-});
+// export const receiveSubject = subject => ({
+//   type: RECEIVE_SUBJECT,
+//   subject
+// });
 
 export const fetchSubjects = () => dispatch => (
   APIUtil.fetchSubjects().then(response => (
@@ -19,8 +19,8 @@ export const fetchSubjects = () => dispatch => (
   ))
 );
 
-export const saveSubject = subject => dispatch => (
-  APIUtil.saveSubject(subject).then(response => (
-    dispatch(receiveSubject(response.data))
+export const saveSubjects = subjects => dispatch => (
+  APIUtil.saveSubjects(subjects).then(response => (
+    dispatch(receiveSubjects(response.data))
   ))
 );

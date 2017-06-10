@@ -8,3 +8,5 @@ export const bookmarkBill = bill => {
     data: bill
   });
 };
+
+// delete bill

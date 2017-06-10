@@ -8,11 +8,11 @@ export const fetchSubjects = () => {
   });
 };
 
-export const saveSubject = subject => {
+export const saveSubjects = subjects => {
   return axios({
     method: 'PATCH',
     url: `${HOST_URL}/api/users/subjects`,
-    data: subject
+    data: subjects
   });
 };
 
