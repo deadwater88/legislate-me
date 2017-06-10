@@ -6,7 +6,7 @@ from django.contrib.postgres.fields import ArrayField
 
 class Bill(models.Model):
     subject = models.CharField(default="", max_length=100, blank=True)
-    os_id = models.CharField(max_length=50, db_column="os_id", unique=True)
+    os_id = models.CharField(max_length=50, db_index=True, db_column="os_id", unique=True, )
     sponsor = models.CharField(max_length=100)
     title = models.CharField(max_length=5000)
     chamber = models.CharField(max_length=100)
