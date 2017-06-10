@@ -40,7 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(default="",max_length=50)
     subjects = ArrayField(models.CharField(max_length=250, null=True),default=[], blank=True)
     representatives = ArrayField(models.CharField(max_length=50), default=[], blank=True)
-    bills = models.ManyToManyField(Bill)
+    bills = models.ManyToManyField(Bill, blank=True)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,

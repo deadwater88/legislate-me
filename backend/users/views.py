@@ -36,7 +36,6 @@ class UserView(APIView):
         user.save()
         login(request, user)
         serializer = UserSerializer(user)
-        del serializer.data['password']
         return JsonResponse(serializer.data)
 
     def delete(self, request):
