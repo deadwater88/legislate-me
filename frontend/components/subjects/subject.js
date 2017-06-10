@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-
 import { BillIndexContainer } from '../bill_index/bill_index_container';
-
 
 class Subject extends React.Component {
   constructor(props){
