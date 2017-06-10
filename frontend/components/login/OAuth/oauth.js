@@ -18,13 +18,9 @@ class FBOAuth extends Component {
         } else {
           AccessToken.getCurrentAccessToken().then(
             (data) => {
-<<<<<<< HEAD
               console.log('THE DATA BRUH', data);
               alert(data);
               console.log(data);
-=======
-              alert(data.accessToken.toString())
->>>>>>> 675ecab821e3d02c5aa9a4b9cb52d77089486f1a
             }
           )
         }
