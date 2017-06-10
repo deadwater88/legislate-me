@@ -9,6 +9,7 @@ import BillIndexItem from '../../bill_index/bill_index_item';
 import UserProfileNavigator from '../../user_profile/user_profile_navigator';
 import SubjectsIndex from '../../subjects/subjects_index';
 // import explore and bookmarked
+import BookmarkedBills from '../../bookmarked_bills/bookmarked_bills_container';
 
 const BillNavigator = StackNavigator({
   BillIndex: {
@@ -33,13 +34,13 @@ export const HomeRouter = TabNavigator({
   BillNavigator: {
     screen: BillNavigator
   },
-  UserProfile: {
-    screen: UserProfileNavigator,
+  Bookmarks: {
+    screen: Bookmarks,
     navigationOptions: {
-      tabBarLabel: 'Profile',
+      tabBarLabel: 'Explore',
       showIcon: 'true',
-      tabBarIcon: <Icon name="user-o" size={20}/>,
-    },
+      tabBarIcon: <Icon name="bookmark" size={20}/>,
+    }
   },
   Explore: {
     screen: SubjectsIndex,
@@ -47,6 +48,14 @@ export const HomeRouter = TabNavigator({
       tabBarLabel: 'Explore',
       showIcon: 'true',
       tabBarIcon: <Icon name="globe" size={20}/>,
+    },
+  },
+  UserProfile: {
+    screen: UserProfileNavigator,
+    navigationOptions: {
+      tabBarLabel: 'Profile',
+      showIcon: 'true',
+      tabBarIcon: <Icon name="user-o" size={20}/>,
     },
   }
 }, {
