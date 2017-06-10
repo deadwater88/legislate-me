@@ -29,7 +29,7 @@ const styles = {
   },
   labelStyle: {
     fontSize: 18,
-    paddingLeft: 20,
+    paddingLeft: 10,
     flex: 1
   },
   containerStyle: {

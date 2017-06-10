@@ -25,7 +25,7 @@ class UserSettings extends React.Component {
   }
 
   render(){
-    const { columns, title } = styles;
+    const { columns, title, buttons } = styles;
     return(
       <Card>
         <View>
@@ -68,6 +68,13 @@ const styles = {
   title: {
     fontSize: 20,
     textAlign: 'center',
-    padding: 20
+    padding: 40
+  },
+  repsView: {
+    paddingBottom: 40
+  },
+  buttons: {
+    paddingBottom: 20
   }
+};
 export default UserSettings;
