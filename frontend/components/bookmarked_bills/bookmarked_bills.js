@@ -9,13 +9,13 @@ class BookmarkedBills extends React.Component{
   }
 
   componentDidMount(){
-    // this.props.fetchBookmarks();
+    this.props.fetchBookmarks();
   }
 
   render(){
     return(
-      // <Text>WHAAAAA</Text>
-      <BillIndex/>
+      <Text>WHAAAAA</Text>
+      // <BillIndex/>
     )
   }
 }
