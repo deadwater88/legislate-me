@@ -25,7 +25,7 @@ class UserSettings extends React.Component {
   }
 
   render(){
-    const { columns, title, repsView, address, imageStyle, signout } = styles;
+    const { columns, title, repsView, address, signout, yourReps } = styles;
     const pic  = {
       uri:  'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
@@ -97,4 +97,5 @@ const styles = {
     paddingBottom: 10
   }
 };
+
 export default UserSettings;
