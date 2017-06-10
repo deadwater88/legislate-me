@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import BookmarkedBills from './bookmarked_bills';
-import { createBookmark, fetchBookmarks } from '../../actions/bookmark_actions';
+import { createBookmark } from '../../actions/bookmark_actions';
+import { fetchBookmarks } from '../../actions/bill_actions';
 // import {fetchBills} from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
