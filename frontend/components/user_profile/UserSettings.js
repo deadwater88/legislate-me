@@ -78,7 +78,7 @@ const styles = {
     flexDirection: 'column'
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     textAlign: 'center',
     padding: 40
   },
