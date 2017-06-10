@@ -7,7 +7,7 @@ import OAuthButtons from './OAuth/oauth_buttons';
 class LoginForm extends Component {
   constructor(props){
     super(props);
-    console.log("In login");
+    // console.log("In login");
     this.state = {
       fName: '',
       lName: '',
@@ -22,8 +22,11 @@ class LoginForm extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-      debugger
+      // debugger
       console.log("receiving props");
+      if (nextProps.currentUser) {
+        this.redirectToHome();
+      }
     }
 
     onToggleSignIn(){
