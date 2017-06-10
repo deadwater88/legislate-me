@@ -17,6 +17,6 @@ class UserSerializer(serializers.BaseSerializer):
         'first_name': obj.first_name,
         'last_name': obj.last_name,
         'subjects': subjects,
-        'representatives': obj.representatives
+        'representatives': obj.representatives,
         'bills':obj.bills
         }

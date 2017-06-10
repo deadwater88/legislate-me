@@ -50,7 +50,7 @@ subjects = [
   'Welfare and Poverty'
 ]
 def blurb_scraper(bill_url):
-    r = urllib.urlopen(bill_url).read()
+    r = urllib.request.urlopen(bill_url).read()
     soup = BeautifulSoup(r, "lxml")
     blurb = soup.find("span", {"id": "digesttext"}).getText().split(" ")
     all_words_as_a_string = soup.get_text()
@@ -76,4 +76,4 @@ def blurb_scraper(bill_url):
     return { 'blurb': text, 'most_common_subject': most_common_subject}
 
 
-print blurb_scraper('http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201720180AB39')
+# print blurb_scraper('http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201720180AB39')

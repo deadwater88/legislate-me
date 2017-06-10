@@ -1,29 +1,47 @@
-from django.contrib.auth.models import Bill
+from bills.models import Bill
 from rest_framework import serializers
 from users.utils import SUBJECTS
+import re
 from bills.scraper import blurb_scraper
 
-class LegislatorSerializer(serializers.BaseSerializer)
+
+class LegislatorSerializer(serializers.BaseSerializer):
 
     def to_representation(self,obj):
-
+        return "test"
 
 class BillsSerializer(serializers.BaseSerializer):
+
+    class Meta:
+        model = Bill
+        fields =('bill_id', 'img_url', 'subject', 'os_id', 'sponsor'
+                'title', 'chamber', 'state', 'summary_url', 'blurb', 'first', 'last')
 
     def to_representation(self, obj):
         subjects = SUBJECTS
         url = obj['sources'][0]["url"]
-        blurb = blurb_scraper(url)
+        os_id = obj['id']
+        img_id = abs(hash(os_id)) % 20
+        scrape = blurb_scraper(url)
+        blurb = scrape['blurb']
+        subject = scrape['most_common_subject']
+        first = re.search('.{10}', obj['actions'][0]['date']).group(0)
+        last = re.search('.{10}', obj['actions'][-1]['date']).group(0)
+        sponsor = obj['sponsors'][0]
         return {
-        'os_id': obj['id']
+        'os_id': os_id,
         'bill_id': obj['bill_id'],
-        'sponsor': obj['sponsors'][0],
+        'leg_id': sponsor['leg_id'],
+        'leg_name': sponsor['name'],
         'title': obj['title'],
         'chamber': obj['chamber'],
         'state': obj['state'],
         'summary_url': url,
-        'subject': obj['subjects'][0],
-        'blurb': blurb
+        'img_id': img_id,
+        'subject': subject,
+        'blurb': blurb,
+        'first': first,
+        'last': last
         }
 
 class BillDetailSerializer(serializers.BaseSerializer):
