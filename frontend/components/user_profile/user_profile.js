@@ -10,8 +10,6 @@ class UserProfile extends React.Component {
 
   render(){
     const {navigate} = this.props.navigation;
-    console.log("profile nav");
-    console.log(navigate);
     return(
       <View style={styles.parentView}>
         <View style={{flex: 1.5}}>

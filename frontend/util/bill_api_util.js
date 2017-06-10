@@ -12,7 +12,7 @@ export const fetchBillInfo = billId => {
 export const fetchBillsBySubjects = () => {
   return axios({
     method: 'GET',
-    url: `${HOST_URL}/api/bills/subjects`
+    url: `${HOST_URL}/api/bills`
   });
 };
 

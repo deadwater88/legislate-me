@@ -45,6 +45,7 @@ class CustomizeInterestList extends Component {
   render(){
     return (
       <View>
+        <Text>HELLLOOOOOOOOO</Text>
         <ListView
           dataSource={this.state.dataSource}
           renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
