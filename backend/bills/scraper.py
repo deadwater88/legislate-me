@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import urllib
 import collections
+import re
+
 subjects = [
   'Agriculture and Food',
   'Animal Rights and Wildlife Issues',
@@ -33,7 +35,6 @@ subjects = [
   'Military',
   'Municipal and County Issues',
   'Nominations',
-  'Other',
   'Public Services',
   'Recreation',
   'Reproductive Issues',
@@ -45,24 +46,36 @@ subjects = [
   'State Agencies',
   'Technology and Communication',
   'Trade',
-  'Transportation',
+  'Transportation'
   'Welfare and Poverty'
 ]
 def blurb_scraper(bill_url):
     r = urllib.urlopen(bill_url).read()
     soup = BeautifulSoup(r, "lxml")
     blurb = soup.find("span", {"id": "digesttext"}).getText().split(" ")
-    # print " ".join(blurb)
 
-    all_words = soup.get_text().split(" ")
-    subject_counter = collections.Counter(all_words)
+    # all_words = soup.get_text().split(" ")
+
+    # all_words_as_a_string = " ".join(all_words)
+
+    all_words_as_a_string = soup.get_text()
 
     max_occurrences = 0
     most_common_subject = "OTHER"
+
     for subject in subjects:
-        if subject_counter[subject] > max_occurrences:
+        print subject
+        count_of_matches = 0
+        for subject_word in subject.split(" "):
+            lowercase_subject_word = subject_word.lower()
+            if (lowercase_subject_word in ['and', 'state', 'local', 'federal,', 'government']):
+                continue
+            matches_array = re.findall(subject_word, all_words_as_a_string, re.IGNORECASE)
+            count_of_matches += len(matches_array)
+
+        if count_of_matches > max_occurrences:
             most_common_subject = subject
-            max_occurrences = subject_counter[subject]
+            max_occurrences = count_of_matches
 
     if len(blurb) > 100:
         blurb = blurb[:100]
@@ -72,4 +85,5 @@ def blurb_scraper(bill_url):
 
     return { 'blurb': text, 'most_common_subject': most_common_subject}
 
-print blurb_scraper('http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201720180SB8')
+
+print blurb_scraper('http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201720180AB25')
