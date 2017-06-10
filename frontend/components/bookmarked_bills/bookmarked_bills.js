@@ -14,7 +14,8 @@ class BookmarkedBills extends React.Component{
 
   render(){
     return(
-      <BillIndex/>
+      <Text>WHAAAAA</Text>
+      // <BillIndex/>
     )
   }
 }

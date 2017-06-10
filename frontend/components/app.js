@@ -14,7 +14,6 @@ import {
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
 
-
 import Splash from './login/Splash.js';
 import LoginNavigator from './login/login_navigator';
 import {HomeRouter} from './common/navbar/router';
@@ -71,6 +70,7 @@ const LoginSignUpNavigator = StackNavigator({
 class App extends Component {
   constructor(props){
     super(props);
+    console.log("in app");
   }
 
   render(){
