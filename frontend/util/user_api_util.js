@@ -4,7 +4,7 @@ import { HOST_URL } from './host_util';
 export const deleteUser = user => {
   return axios({
     method: 'DELETE',
-    url: `${HOST_URL}/api/user`,
+    url: `${HOST_URL}/api/users`,
     data: user
   });
 };
@@ -12,7 +12,7 @@ export const deleteUser = user => {
 export const createAddress = address => {
   return axios({
     method: 'POST',
-    url: `${HOST_URL}/api/user/representatives`,
+    url: `${HOST_URL}/api/users/representatives`,
     data: address
   });
 };
@@ -20,7 +20,7 @@ export const createAddress = address => {
 export const updateAddress = address => {
   return axios({
     method: 'PATCH',
-    url: `${HOST_URL}/api/user/representatives`,
+    url: `${HOST_URL}/api/users/representatives`,
     data: address
   });
 };
