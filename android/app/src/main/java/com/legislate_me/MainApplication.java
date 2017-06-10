@@ -5,15 +5,10 @@ import co.apptailor.googlesignin.RNGoogleSigninPackage;  // <--- import
 
 import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
-<<<<<<< HEAD
-import im.shimo.react.cookie.CookieManagerPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-=======
 // import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import im.shimo.react.cookie.CookieManagerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 // import co.apptailor.googlesignin.RNGoogleSigninPackage;
->>>>>>> 675ecab821e3d02c5aa9a4b9cb52d77089486f1a
 import com.facebook.FacebookSdk;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.react.ReactNativeHost;
