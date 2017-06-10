@@ -20,6 +20,11 @@ class LoginForm extends Component {
       this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
       this.redirectToHome = this.redirectToHome.bind(this);
     }
+    componentWillReceiveProps(newProps){
+      if (newProps.currentUser){
+        this.redirectToHome();
+      }
+    }
 
     onToggleSignIn(){
       let toggle = !this.state.login;
@@ -30,7 +35,7 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToHome);
+      });
     }
 
     onSignUp(){
