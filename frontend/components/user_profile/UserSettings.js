@@ -25,11 +25,11 @@ class UserSettings extends React.Component {
   }
 
   render(){
-    const { columns } = styles;
+    const { columns, title } = styles;
     return(
       <Card>
         <View>
-          <Text></Text>
+          <Text style={title}>User Settings</Text>
           <Text>Your representatives</Text>
           <RepresentativesView reps="BLAH" />
         </View>
@@ -64,6 +64,10 @@ class UserSettings extends React.Component {
 const styles = {
   columns: {
     flexDirection: 'column'
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    padding: 20
   }
-};
 export default UserSettings;
