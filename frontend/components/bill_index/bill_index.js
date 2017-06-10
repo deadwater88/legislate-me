@@ -5,7 +5,7 @@ class BillIndex extends React.Component{
     super(props);
     //this.props.bills will be an array of pojos
 
-    console.log(this.props);
+    console.log("in bill index");
     //temporarily overriding
     this.props.bills = [{}, {}, {}];
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

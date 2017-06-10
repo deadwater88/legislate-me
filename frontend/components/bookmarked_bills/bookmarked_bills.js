@@ -4,6 +4,7 @@ import { Text, ListView, Image } from 'react-native';
 
 class BookmarkedBills extends React.Component{
   constructor(props){
+    console.log("in bookmarks");
     super(props);
   }
 
