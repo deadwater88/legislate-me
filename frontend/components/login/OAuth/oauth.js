@@ -22,7 +22,7 @@ class FBOAuth extends Component {
               alert(data);
               console.log(data);
             }
-          )
+          );
         }
       }
     }

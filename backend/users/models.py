@@ -1,6 +1,7 @@
 
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.postgres.fields import ArrayField
+from bills.models import Bill
 
 class MyUserManager(BaseUserManager):
     """
@@ -23,7 +24,7 @@ class MyUserManager(BaseUserManager):
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff=True.')
-        if extra_fields.get('is_superuser') is not True:
+        if extra_fields.get('is_superu ser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
         return self._create_user(email, password, **extra_fields)
 
@@ -39,7 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(default="",max_length=50)
     subjects = ArrayField(models.CharField(max_length=250, null=True),default=[], blank=True)
     representatives = ArrayField(models.CharField(max_length=50), default=[], blank=True)
-    bills = ArrayField(models.CharField(max_length=50), default=[], blank=True)
+    bills = models.ManyToManyField(Bill)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
