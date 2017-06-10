@@ -11,5 +11,4 @@ const Entry = () => (
   <Root store={store} />
 );
 
-
 AppRegistry.registerComponent('legislate_me', () => Entry);

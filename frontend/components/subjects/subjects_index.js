@@ -1,13 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, ScrollView, Image } from 'react-native';
-
+import { View, Text, TouchableHighlight, ListView, Image } from 'react-native';
 import { SUBJECTS, SUBJECT_IMAGES } from '../../util/subject_api_util';
 
 class SubjectsIndex extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
   render(){
     const { imageStyle, headerText, labelText, imageGroup } = styles;
     const subjects = Object.keys(SUBJECTS).map((key,idx) => {
@@ -21,6 +16,9 @@ class SubjectsIndex extends React.Component {
         </View>
       );
     });
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const listViewDataSource = ds.cloneWithRows(subjects);
+
     return(
       <ScrollView>
         <Text style={headerText}>Discover new bills by subject</Text>
