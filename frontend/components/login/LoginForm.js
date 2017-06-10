@@ -7,6 +7,7 @@ import OAuthButtons from './OAuth/oauth_buttons';
 class LoginForm extends Component {
   constructor(props){
     super(props);
+    console.log("In login");
     this.state = {
       fName: '',
       lName: '',
