@@ -21,6 +21,11 @@ class LoginForm extends Component {
       this.redirectToHome = this.redirectToHome.bind(this);
     }
 
+    componentWillReceiveProps(nextProps){
+      debugger
+      console.log("receiving props");
+    }
+
     onToggleSignIn(){
       let toggle = !this.state.login;
       this.setState({login: toggle});

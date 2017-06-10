@@ -10,7 +10,7 @@ export const fetchSubjects = () => {
 
 export const saveSubject = subject => {
   return axios({
-    method: 'POST',
+    method: 'PATCH',
     url: `${HOST_URL}/api/subjects`,
     data: subject
   });
