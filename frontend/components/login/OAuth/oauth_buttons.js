@@ -9,7 +9,7 @@ class OAuthButtons extends Component {
   constructor(props){
     super(props);
     this.configureConnection = this.configureConnection.bind(this);
-    this.redirectToHome = this.redirectToHome.bind(this);
+    // this.redirectToHome = this.redirectToHome.bind(this);
   }
 
   configureConnection(){
