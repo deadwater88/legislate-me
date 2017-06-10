@@ -23,6 +23,7 @@ export const fetchBillsBySubject = subject => {
 };
 
 export const fetchBookMarkedBills = () => {
+  // console.log("fetching bookmarks");
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/bills/bookmarked`
