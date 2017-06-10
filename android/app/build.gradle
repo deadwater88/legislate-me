@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
- 
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
@@ -137,14 +137,13 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-google-signin')
+    compile(project(":react-native-google-signin")){
+      exclude group: "com.google.android.gms" // very important
+    }
     compile project(':react-native-cookie')
     compile project(':react-native-vector-icons')
     compile(project(':react-native-fbsdk')){
       exclude(group: 'com.facebook.android', module: 'facebook-android-sdk')
-    }
-    compile(project(":react-native-google-signin")){
-     exclude group: "com.google.android.gms" // very important
     }
     compile 'com.google.android.gms:play-services-auth:9.2.1'
     compile fileTree(dir: "libs", include: ["*.jar"])
