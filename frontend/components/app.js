@@ -42,16 +42,15 @@ class LoginSwiping extends Component{
   render(){
     const navigate = this.props.navigation.navigate;
 
-    // <Swiper>
-    //   <View>
-    //     <Splash navigation={this.props.navigation} />
-    //   </View>
-    //   <View>
-    //     <LoginNavigator />
-    //   </View>
-    // </Swiper>
     return (
-      <SubjectsIndex />
+      <Swiper>
+        <View>
+          <Splash navigation={this.props.navigation} />
+        </View>
+        <View>
+          <LoginNavigator />
+        </View>
+      </Swiper>
     );
   }
 }
