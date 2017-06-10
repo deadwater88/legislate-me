@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  bookmarkBill: (bill) => dispatch(createBookmark(bill))
+  bookmarkBill: (bill) => dispatch(createBookmark(bill)),
+  fetchBills: () => dispatch(fetchBills())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BillIndex);
