@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ListView, Image, Button, View } from 'react-native';
+import { Text, ListView, Image, Button, View, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class BillIndexItem extends React.Component{
@@ -7,6 +7,7 @@ class BillIndexItem extends React.Component{
     super(props);
     console.log("bill index item");
     this.toggleBookmark = this.toggleBookmark.bind(this);
+    this.navigateToBill = this.navigateToBill.bind(this);
   }
 
   toggleBookmark(){
@@ -14,18 +15,24 @@ class BillIndexItem extends React.Component{
     //else, bookmark
     // this.props.bookmarkBill(this.props.bill);
 
-    this.props.navigateToBill(this.props.bill);
+    // this.props.navigateToBill(this.props.bill);
 
+  }
+
+  navigateToBill(e){
+    debugger
   }
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
     return (
-        <View>
+        <TouchableHighlight onPress={this.navigateToBill}>
+          <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
-        </View>
+          </View>
+        </TouchableHighlight>
     );
     //conditional render on bookmark bill depending on whether bill is bookmarked
   }
