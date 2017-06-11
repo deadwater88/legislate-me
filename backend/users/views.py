@@ -16,6 +16,9 @@ import requests
 from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators, fetch_legislator_objects
 
 
+
+
+
 class UserView(APIView):
     parser_classes = (FormParser, JSONParser)
     # def get(self, request):
@@ -68,3 +71,9 @@ class RepresentativesView(APIView):
         serializer = RepsSerializer(reps)
         return JsonResponse(serializer.data)
             # save rep object in our backend
+def setup(request):
+    parser_classes = (FormParser, JSONParser)
+    user = request.user
+    user.setup = True
+    serializer = UserSerializer(user)
+    return JsonResponse(serializer.data)
