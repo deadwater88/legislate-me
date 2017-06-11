@@ -9,6 +9,7 @@ class SubmitAddress extends React.Component {
     this.state = {address: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
     this.navigateToCustomizeInterest.bind(this);
+    this.skipEnteringAddress = this.skipEnteringAddress.bind(this);
   }
 
   findRepresentative(){
@@ -35,7 +36,9 @@ class SubmitAddress extends React.Component {
           title='Find your representative!'>
         </Button>
         </CardSection>
-        <Text>Skip for now</Text>
+        <Button onPress={this.navigateToCustomizeInterest}
+          title="Skip for now">
+        </Button>
    </Card>
     );
   }
