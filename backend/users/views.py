@@ -57,6 +57,7 @@ class SubjectsView(APIView):
         return JsonResponse(subjectsDict)
 
 class RepresentativesView(APIView):
+    parser_classes = (FormParser, JSONParser)
     def post(self, request):
         user = request.user
         address = request.data['address']
