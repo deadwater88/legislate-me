@@ -19,7 +19,7 @@ export const createAddress = address => {
 
 export const updateAddress = address => {
   return axios({
-    method: 'PATCH',
+    method: 'POST',
     url: `${HOST_URL}/api/users/representatives`,
     data: address
   });
