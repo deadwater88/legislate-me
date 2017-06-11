@@ -22,6 +22,7 @@ class BillIndex extends React.Component{
 
   // Once component has mounted, fetch bills
   componentDidMount(){
+    console.log("fetching bills");
     this.props.fetchBills();
   }
 

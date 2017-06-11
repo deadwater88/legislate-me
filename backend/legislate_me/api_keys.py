@@ -32,6 +32,14 @@ def google_geocode_call(address):
     return coordinatestring
     #"https://maps.googleapis.com/maps/api/geocode/json?address={interpolate address}key=YOUR_API_KEY".format(GOOGLE_API_KEY)
 
+def fetch_legislator_objects(legislator_ids):
+    legislators = []
+    for legislator_id in legislator_ids:
+        query = "legislators/{legislator_id}/?".format(legislator_id=legislator_id)
+        legislator = requests.get("https://openstates.org/api/v1/{query}&apikey={OPEN_STATE_KEY}".format(query=query,OPEN_STATE_KEY=OPEN_STATE_KEY))
+        legislators.append(legislator.json())
+    return legislators
+
 def fetch_legislators(coordinates):
     r = requests.get("https://openstates.org/api/v1/legislators/geo/?{coordinates}&term=20172018&apikey={OPEN_STATE_KEY}"
     .format(coordinates=coordinates, OPEN_STATE_KEY=OPEN_STATE_KEY))
@@ -47,3 +55,7 @@ def fetch_pexel_images(query):
 # print(b)
 # print(fetch_legislators(b))
 #Test call
+
+legislators = fetch_legislator_objects(['DCL000021', 'DCL000005'])
+
+# print legislators[0]['full_name'] # Anita Bonds

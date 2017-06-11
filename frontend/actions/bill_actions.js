@@ -15,3 +15,12 @@ export const fetchBills = () => dispatch => (
   APIUtil.fetchBillsBySubjects().then(bills =>
     dispatch(receiveBills(bills.data))
 ));
+
+export const fetchBookmarks = () => dispatch => (
+  APIUtil.fetchBookMarkedBills().then(bills => {
+    console.log("fetched bookmarks");
+    return (
+      dispatch(receiveBills(bills.data))
+    )
+  }
+));

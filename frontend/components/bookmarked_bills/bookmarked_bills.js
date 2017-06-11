@@ -9,7 +9,9 @@ class BookmarkedBills extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchBookmarks();
+    // debugger
+    console.log("hit bookmarks");
+    // this.props.fetchBookmarks();
   }
 
   render(){
