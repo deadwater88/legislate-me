@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { authUser } from '../actions/session_actions';
 
@@ -8,30 +7,19 @@ import {
   AppRegistry,
   PanResponder,
   View,
+  TouchableOpacity,
   Text,
   Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
-import UserProfileNavigator from './user_profile/user_profile_navigator';
 
-import FBOAuth from './login/OAuth/oauth';
-
-import LoginFormContainer from './login/LoginFormContainer.js';
 import Splash from './login/Splash.js';
-
-import CustomizeInterestList from './CustomizeInterestList/CustomizeInterestList.js';
-import CustomizeInterestListContainer from './CustomizeInterestList/CustomizeInterestListContainer.js';
-
-import SubmitAddress from './login/submit_address/submit_address_container';
 import LoginNavigator from './login/login_navigator';
+import {HomeRouter} from './common/navbar/router';
 
-import call from 'react-native-phone-call';
-import Communications from 'react-native-communications';
-
-
-// Initialize three cards that the user can swipe between:
-// Splash Page, OAuth login, Normal Login
+import SubjectsIndex from './subjects/subjects_index';
+// Give the user the option to swipe between screens
 class LoginSwiping extends Component{
   constructor(props){
     super(props);
@@ -42,44 +30,62 @@ class LoginSwiping extends Component{
     GoogleSignin.configure()
     .then(() => {
       GoogleSignin.signIn()
-        .then((user) => {
-          authUser(user);
-        })
-        .catch((err) => {
-        })
-        .done();
+      .then((user) => {
+        authUser(user);
+      })
+      .catch((err) => {
+      })
+      .done();
     });
   }
 
   render(){
     const navigate = this.props.navigation.navigate;
-    // <Swiper>
-    //   <View>
-    //     <Splash navigation={this.props.navigation} />
-    //   </View>
-    //   <View>
-    //     <LoginNavigator />
-    //   </View>
-    // </Swiper>
-    return (<Button title="Send email" onPress ={ () => Communications.email(['emailAddress'], null, null, null, 'my body text')}
-    />);
-  }
-}
 
-// Give the user the option to click between the screens
-const LegislateMe = StackNavigator({
-  Main: {screen: LoginSwiping},
-  Login: {screen: LoginNavigator }
-});
-
-// Create App
-class App extends Component {
-  render(){
     return (
-      <LegislateMe/>
+      <Swiper>
+        <View>
+          <Splash navigation={this.props.navigation} />
+        </View>
+        <View>
+          <LoginNavigator />
+        </View>
+      </Swiper>
     );
   }
 }
 
+// Give the user the option to click between the screens
+const LoginSignUpNavigator = StackNavigator({
+  Main: {screen: LoginSwiping},
+  Login: {screen: LoginNavigator}
+}, {
+  headerMode: 'none'
+}, {
+  header: null
+});
 
-module.exports = App;
+
+// Create App
+class App extends Component {
+  constructor(props){
+    super(props);
+    console.log("in app");
+  }
+
+  render(){
+    // if (!this.props) return <Text></Text>;
+    //if set up is false, user is still setting up
+    if (this.props.currentUser && this.props.currentUser.setup){
+      return (
+        <HomeRouter/>
+      );
+    } else {
+      return (
+        <LoginSignUpNavigator/>
+      );
+    }
+  }
+}
+
+export default App;

@@ -1,27 +1,79 @@
 import React from 'react';
-import { Text, ListView, Image } from 'react-native';
+import { Text, ListView, Image, View, TouchableHighlight, StyleSheet } from 'react-native';
+import BillIndexItem from './bill_index_item';
+import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativeComponentTree';
+
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    //this.props.bills will be an array of pojos
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
+    if (this.props.renderBookmarks){
+      this.state = {
+        ds,
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
+      };
+    }
+    else{
+      this.state = {
+        ds,
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
+      };
+    }
 
-    //temporarily overriding
-    this.props.bills = [{}, {}, {}];
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    // this.state = {
-    //   dataSource: ds.cloneWithRows(this.props.bills)
-    // };
+    this.zipped = this.zipped.bind(this);
+  }
+
+  componentWillMount() {
+    if (this.props.navigation && this.props.navigation.state.params){
+      let subjectName = this.props.navigation.state.params.subjectName;
+      this.props.fetchBillsBySubject(subjectName);
+    }else if (this.props.renderBookmarks) {
+      this.props.fetchBookmarks();
+    } else{
+      this.props.fetchBills();
+    }
+  }
+
+  zipped(bills){
+    let zippedArray = [];
+    Object.keys(bills).forEach((key) => {
+      const value = bills[key];
+      zippedArray.push([key, value]);
+    });
+
+    return zippedArray;
   }
 
   render(){
-    // <ListView
-    //   dataSource={this.state.dataSource}
-    //   renderRow={ bill => <BillIndexItem
-    //     bill={bill}
-    //     bookmarkBill={this.props.bookmarkBill} />}
-    //     />
-    return (<Text></Text>);
+    const ds = this.state.dataSource;
+    // const {navigate } = this.props.navigation;
+    const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
+    const dataSource = this.state.ds.cloneWithRows(bills);
+
+    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES;
+    return (
+      <ListView
+        dataSource={dataSource}
+        renderRow={(rowData) =>
+          <BillIndexItem
+            bill={rowData}
+            imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
+            />}
+      />
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  separator: {
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 10,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
+  }
+});
 
 export default BillIndex;

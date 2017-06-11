@@ -1,24 +1,55 @@
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import React, { Component } from 'react';
-import BillIndex from '../../bill_index/bill_index';
+import BillIndex from '../../bill_index/bill_index_container';
 import UserProfile from '../../user_profile/user_profile_container';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import BillView from '../../bill_view/bill_view_container';
+import BillIndexItem from '../../bill_index/bill_index_item';
+import UserProfileNavigator from '../../user_profile/user_profile_navigator';
+import SubjectsIndex from '../../subjects/subjects_index';
 // import explore and bookmarked
 
+import BookmarkedBills from '../../bookmarked_bills/bookmarked_bills_container';
 
-// Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
-export const HomeRouter = TabNavigator({
+const BillNavigator = StackNavigator({
   BillIndex: {
     screen: BillIndex,
     navigationOptions: {
       tabBarLabel: 'Feed',
       showIcon: 'true',
       tabBarIcon: <Icon name="home" size={20} />,
+    left: null
+    },
+  },
+  BillIndexItem: { screen: BillIndexItem },
+  BillView: { screen: BillView }
+});
+
+
+// Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
+export const HomeRouter = TabNavigator({
+  BillNavigator: {
+    screen: BillNavigator
+  },
+  Bookmarks: {
+    screen: BookmarkedBills,
+    navigationOptions: {
+      tabBarLabel: 'Bookmarks',
+      showIcon: 'true',
+      tabBarIcon: <Icon name="bookmark" size={20}/>,
+    },
+  },
+  Explore: {
+    screen: SubjectsIndex,
+    navigationOptions: {
+      tabBarLabel: 'Explore',
+      showIcon: 'true',
+      tabBarIcon: <Icon name="globe" size={20}/>,
     },
   },
   UserProfile: {
-    screen: UserProfile,
+    screen: UserProfileNavigator,
     navigationOptions: {
       tabBarLabel: 'Profile',
       showIcon: 'true',

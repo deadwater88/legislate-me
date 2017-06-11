@@ -4,11 +4,12 @@ import {Card, CardSection, Input} from '../../../components/common';
 import OAuthButtons from '../OAuth/oauth_buttons';
 
 class SubmitAddress extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {address: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
-    this.navigateToCustomizeInterest.bind(this);
+    this.navigateToCustomizeInterest = this.navigateToCustomizeInterest.bind(this);
+    this.skipEnteringAddress = this.skipEnteringAddress.bind(this);
   }
 
   findRepresentative(){
@@ -17,17 +18,20 @@ class SubmitAddress extends React.Component {
   }
 
   navigateToCustomizeInterest(){
+    // this.props.navigation.navigate maybe?
     this.props.navigate('CustomizeInterestList');
   }
 
   render(){
+    console.log('SUBMIT ADDRESS RENDER FUNC HIT');
     return(
       <Card>
+        <Text>RENDER MAN DANG</Text>
         <CardSection>
         <Input
           placeholder="Enter your street address"
           value={this.state.address}
-          onChangeText={address => this.setState({address})}
+          onChangeText={(address) => this.setState({address})}
           />
       </CardSection>
       <CardSection>
@@ -35,7 +39,8 @@ class SubmitAddress extends React.Component {
           title='Find your representative!'>
         </Button>
         </CardSection>
-        <Text>Skip for now</Text>
+        <Text>Skip for now </Text>
+
    </Card>
     );
   }

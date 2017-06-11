@@ -1,18 +1,11 @@
 import axios from 'axios';
 import { HOST_URL } from './host_util';
 
-export const fetchSubjects = () => {
+export const saveSubjects = subjects => {
   return axios({
-    method: 'GET',
-    url: `${HOST_URL}/api/subjects`
-  });
-};
-
-export const saveSubject = subject => {
-  return axios({
-    method: 'POST',
-    url: `${HOST_URL}/api/subjects`,
-    data: subject
+    method: 'PATCH',
+    url: `${HOST_URL}/api/users/subjects`,
+    data: subjects
   });
 };
 
@@ -62,4 +55,52 @@ export const SUBJECTS = {
   'Trade': false,
   'Transportation': false,
   'Welfare and Poverty': false
+};
+
+export const SUBJECT_IMAGES = {
+  'Agriculture and Food': require("../components/subjects/images/AgricultureandFood.jpg"),
+  'Animal Rights and Wildlife Issues': require("../components/subjects/images/AnimalRights.jpg"),
+  'Arts and Humanities': require("../components/subjects/images/Arts.jpg"),
+  'Budget, Spending, and Taxes': require("../components/subjects/images/Budget.jpg"),
+  'Business and Consumers': require("../components/subjects/images/Business.jpg"),
+  'Campaign Finance and Election Issues': require("../components/subjects/images/ElectionIssues.jpg"),
+  'Civil Liberties and Civil Rights': require("../components/subjects/images/Civilrights.jpg"),
+  'Commerce': require("../components/subjects/images/Commerce.jpg"),
+  'Crime': require("../components/subjects/images/Crime.jpg"),
+  'Drugs': require("../components/subjects/images/Drugs.jpg"),
+  'Education': require("../components/subjects/images/Education.jpg"),
+  'Energy': require("../components/subjects/images/Energy.jpg"),
+  'Environmental': require("../components/subjects/images/Environment.jpg"),
+  'Executive Branch': require("../components/subjects/images/Executive.jpg"),
+  'Family and Children Issues': require("../components/subjects/images/Family.jpg"),
+  'Federal, State, and Local Relations': require("../components/subjects/images/Social2.jpg"),
+  'Gambling and Gaming': require("../components/subjects/images/Gambling.jpg"),
+  'Government Reform': require("../components/subjects/images/Governmentreform.jpg"),
+  'Guns': require("../components/subjects/images/Guns.jpg"),
+  'Health': require("../components/subjects/images/Health.jpg"),
+  'Housing and Property': require("../components/subjects/images/Housing.jpg"),
+  'Immigration': require("../components/subjects/images/Immigration.jpg"),
+  'Indigenous Peoples': require("../components/subjects/images/IndigenousPeoples.jpg"),
+  'Insurance': require("../components/subjects/images/Insurance.jpg"),
+  'Judiciary': require("../components/subjects/images/Judiciary.jpg"),
+  'Labor and Employment': require("../components/subjects/images/Labor.jpg"),
+  'Legal Issues': require("../components/subjects/images/Legal.jpg"),
+  'Legislative Affairs': require("../components/subjects/images/LegislativeAffairs.jpg"),
+  'Military': require("../components/subjects/images/Military.jpg"),
+  'Municipal and County Issues': require("../components/subjects/images/Municipal.jpg"),
+  'Nominations': require("../components/subjects/images/Nominations.jpg"),
+  'Other': require("../components/subjects/images/Other.jpg"),
+  'Public Services': require("../components/subjects/images/PublicService.jpg"),
+  'Recreation': require("../components/subjects/images/Recreation.jpg"),
+  'Reproductive Issues': require("../components/subjects/images/Reproductive.jpg"),
+  'Resolutions': require("../components/subjects/images/Resolutions.jpg"),
+  'Science and Medical Research': require("../components/subjects/images/Science.jpg"),
+  'Senior Issues': require("../components/subjects/images/Senior.jpg"),
+  'Sexual Orientation and Gender Issues': require("../components/subjects/images/SexualOrientation.jpg"),
+  'Social Issues': require("../components/subjects/images/Social.jpg"),
+  'State Agencies': require("../components/subjects/images/StateAgency.jpg"),
+  'Technology and Communication': require("../components/subjects/images/Technology.jpg"),
+  'Trade': require("../components/subjects/images/Trade.jpg"),
+  'Transportation': require("../components/subjects/images/PublicTransit.jpg"),
+  'Welfare and Poverty': require("../components/subjects/images/Welfare.jpg")
 };

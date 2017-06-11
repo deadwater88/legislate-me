@@ -1,1 +1,1 @@
-import './frontend/components/root';
+import './frontend/components/entry_level';

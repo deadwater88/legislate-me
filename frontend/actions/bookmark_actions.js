@@ -1,4 +1,5 @@
-import * as APIUtil from '../util/bill_api_util';
+import * as BillAPIUtil from '../util/bill_api_util';
+// import * as BookmarkAPIUtil from '../util/bill_api_util';
 export const RECEIVE_BOOKMARKS = 'RECEIVE_BOOKMARKS';
 export const RECEIVE_BOOKMARK = 'RECEIVE_BOOKMARK';
 
@@ -13,11 +14,11 @@ export const receiveBookmark = bookmark => ({
 });
 
 export const fetchBookmarks = subject  => dispatch => (
-  APIUtil.fetchBookmarks().then(bookmarks =>
+  BillAPIUtil.fetchBookMarkedBills().then(bookmarks =>
     dispatch(receiveBookmark(bookmarks.data))
 ));
 
 export const createBookmark = bookmark  => dispatch => (
-  APIUtil.bookmarkBill(bookmark).then(bookmarkedBill =>
+  BillAPIUtil.bookmarkBill(bookmark).then(bookmarkedBill =>
     dispatch(receiveBookmark(bookmarkedBill.data))
 ));

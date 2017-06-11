@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import { Card, CardSection, Button } from '../../common';
-import FBOAuth from './oauth';
+import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
-import { authUser } from '../../../actions/session_actions';
+import { connect } from 'react-redux';
+import { signup, authUser } from '../../../actions/session_actions';
+
+const mapDispatchToProps = dispatch => ({
+  authUser: user => dispatch(authUser(user))
+});
+
 
 class OAuthButtons extends Component {
   constructor(props){
@@ -12,16 +18,18 @@ class OAuthButtons extends Component {
   }
 
   configureConnection(){
-
+  console.log('configuring connection');
    GoogleSignin.configure({
      forceConsentPrompt: true
    })
    .then(() => {
      GoogleSignin.signIn()
        .then((user) => {
-         console.log('USER SIGNED IN SUCCESSFULLY');
-         console.log(user);
-         authUser(user);
+         let userNameSplit = user.name.split(" ");
+         user.first_name = userNameSplit[0];
+         user.last_name = userNameSplit[userNameSplit.length-1];
+         user.tokenType = 'google';
+         this.props.authUser(user);
        })
         .catch((err) => {
          console.log('Something went wrong :(', err);
@@ -29,6 +37,8 @@ class OAuthButtons extends Component {
        .done();
    });
   }
+
+
 
   render(){
     const { containerStyle, buttonStyle} = styles;
@@ -43,7 +53,7 @@ class OAuthButtons extends Component {
         style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
-        onPress={this.configureConnection.bind(this)}/>
+        onPress={this.configureConnection}/>
       </View>
     );
   }
@@ -60,4 +70,4 @@ const styles = {
   }
 };
 
-export default OAuthButtons;
+export default connect(null, mapDispatchToProps)(OAuthButtons);
