@@ -33,7 +33,6 @@ class FBOAuth extends Component {
                   alert('Error fetching data: ' + err.toString());
                 } else {
                   console.log("WE MADE IT", res);
-                  // debugger;
                   res.tokenType = 'facebook';
                   this.props.authUser(res);
                 }
