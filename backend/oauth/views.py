@@ -22,13 +22,13 @@ class OAuthView(APIView):
     def post(self, request):
         User = get_user_model()
         email = request.data['email']
-        user = User(email=email)
-        if user:
+        pdb.set_trace()
+        try:
+            user = User.get(email=email)
             login(request, user)
             serializer = UserSerializer(user)
             return JsonResponse(serializer.data)
-
-        else:
+        except ObjectDoesNotExist:
             password = request.data['password']
             last_name = request.data['last_name']
             first_name = request.data['first_name']

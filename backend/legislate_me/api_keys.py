@@ -3,13 +3,14 @@ import pdb
 
 OPEN_STATE_KEY = '5ab5d64b-70e3-4b48-a831-14d5347f7e83'
 GOOGLE_API_KEY = 'AIzaSyBzUKnAIApQXr6XfDWMsW0WS5o_0pCmgNU'
+PEXEL_KEY = '563492ad6f9170000100000155c9cc8f281148c27d9cfef9e772f862'
+
 test_address = '1600+Amphitheatre+Parkway,+Mountain+View,+CA'
 
 def open_states_call(query):
     r = requests.get("https://openstates.org/api/v1/{query}&apikey={OPEN_STATE_KEY}"
     .format(OPEN_STATE_KEY=OPEN_STATE_KEY, query=query))
     bills = r.json()
-    pdb.set_trace()
     return bills
 
 def get_bill_by_subject(subject):
@@ -38,6 +39,8 @@ def fetch_legislators(coordinates):
     return list(map(lambda x: x['id'], legis_list))
     #coordinate in form of "lat=35.79&long=-78.78"
 
+def fetch_pexel_images(query):
+    "holder"
 
 
 # b = google_geocode_call(test_address)

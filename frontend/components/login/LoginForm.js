@@ -7,7 +7,6 @@ import OAuthButtons from './OAuth/oauth_buttons';
 class LoginForm extends Component {
   constructor(props){
     super(props);
-    // console.log("In login");
     this.state = {
       fName: '',
       lName: '',
@@ -19,6 +18,15 @@ class LoginForm extends Component {
       this.onLogIn = this.onLogIn.bind(this);
       this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
       this.redirectToHome = this.redirectToHome.bind(this);
+
+    }
+    componentWillReceiveProps(newProps){
+      if (newProps.errors && newProps.errors.credentials.length > 0){
+        alert(newProps.errors.credentials.join(" "));
+      }
+      if (newProps.currentUser){
+        this.redirectToHome();
+      }
     }
 
     componentWillReceiveProps(nextProps){
@@ -39,11 +47,16 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToHome);
+      });
+
+    }
+
+    renderErrors(){
+      let errorArray = this.props.errors.credentials;
+      return errorArray ? errorArray.map(error => <Text>{error}</Text>) : [];
     }
 
     onSignUp(){
-      console.log("signing up");
       this.props.signup({
         fName: this.state.fName,
         lName: this.state.lName,
@@ -53,7 +66,6 @@ class LoginForm extends Component {
     }
 
     redirectToHome(){
-      //home is BillNavigator
       this.props.navigation.navigate('Home');
     }
 
@@ -61,9 +73,10 @@ class LoginForm extends Component {
       this.props.clearErrors();
     }
 
-  redirectToAddressPage(){
-    this.props.navigation.navigate('SubmitAddress');
-  }
+
+    redirectToAddressPage(){
+      this.props.navigation.navigate('SubmitAddress');
+    }
 
   render(){
     if(this.state.login){
@@ -103,6 +116,7 @@ class LoginForm extends Component {
               <Text>Or sign up</Text>
             </TouchableHighlight>
           </CardSection>
+          <Text>ERRORS ARE {this.renderErrors()}</Text>
         </Card>
       );
     }else{
@@ -158,7 +172,7 @@ class LoginForm extends Component {
               <Text>Or log in</Text>
             </TouchableHighlight>
           </CardSection>
-
+          <Text>ERRORS ARE {this.renderErrors()}</Text>
         </Card>
       );
     }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import { Card, CardSection, Button } from '../../common';
-import FBOAuth from './oauth';
+import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
-import { authUser } from '../../../actions/session_actions';
+
 
 class OAuthButtons extends Component {
   constructor(props){
@@ -22,7 +22,7 @@ class OAuthButtons extends Component {
        .then((user) => {
          console.log('USER SIGNED IN SUCCESSFULLY');
          console.log(user);
-         authUser(user);
+        //  authUser(user);
        })
         .catch((err) => {
          console.log('Something went wrong :(', err);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { Button, Card, CardSection, Input } from '../common';
 import RepresentativesView from './RepresentativesView';
 
@@ -25,45 +25,77 @@ class UserSettings extends React.Component {
   }
 
   render(){
-    const { columns } = styles;
+    const { columns, title, repsView, address, signout, yourReps } = styles;
+    const pic  = {
+      uri:  'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
+    };
     return(
+
       <Card>
-        <View>
-          <Text></Text>
-          <Text>Your representatives</Text>
+        <View style={repsView}>
+          <Text style={title}>User Settings</Text>
+          <Text style={yourReps}>Your representatives</Text>
           <RepresentativesView reps="BLAH" />
         </View>
         <CardSection>
           <Input
-             placeholder="Change your address"
-             label="New address"
+             placeholder="1600 Foo St, San Jose, CA "
+             label="Address:"
              value={this.state.address}
              onChangeText={address => this.setState({address})}
-              />
+             />
         </CardSection>
-        <CardSection>
-          <Button onPress={this.props.changeAddress}>
-            Change Your Address
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button onPress={this.props.signOut}>
-            Sign out
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button onPress={this.props.deleteUser}>
-            Delete your account
-          </Button>
-        </CardSection>
+        <View style={address}>
+          <CardSection >
+            <Button onPress={this.props.changeAddress}>
+              Change your address
+            </Button>
+          </CardSection>
+        </View>
+        <View>
+          <CardSection>
+            <Button onPress={this.props.signOut}>
+              Sign out
+            </Button>
+          </CardSection>
+        </View>
+        <View style={signout}>
+          <CardSection>
+            <Button onPress={this.props.deleteUser}>
+              Delete your account
+            </Button>
+          </CardSection>
+        </View>
       </Card>
+
     );
   }
 }
 
+
 const styles = {
   columns: {
     flexDirection: 'column'
+  },
+  title: {
+    fontSize: 24,
+    textAlign: 'center',
+    padding: 40
+  },
+  repsView: {
+    paddingBottom: 40
+  },
+  address: {
+    paddingBottom: 40
+  },
+  signout: {
+    paddingBottom: 5
+  },
+  yourReps: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingBottom: 10
   }
 };
+
 export default UserSettings;

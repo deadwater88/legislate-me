@@ -18,7 +18,7 @@ import Splash from './login/Splash.js';
 import LoginNavigator from './login/login_navigator';
 import {HomeRouter} from './common/navbar/router';
 
-
+import SubjectsIndex from './subjects/subjects_index';
 // Give the user the option to swipe between screens
 class LoginSwiping extends Component{
   constructor(props){
@@ -51,7 +51,7 @@ class LoginSwiping extends Component{
           <LoginNavigator />
         </View>
       </Swiper>
-    )
+    );
   }
 }
 

@@ -11,11 +11,11 @@ class UserSerializer(serializers.BaseSerializer):
     def to_representation(self, obj):
         subjects = SUBJECTS
         for subject in obj.subjects:
-            subjects[subject] = False
+            subjects[subject] = True
         return {
         'email': obj.email,
         'first_name': obj.first_name,
         'last_name': obj.last_name,
         'subjects': subjects,
-        'representatives': obj.representatives
+        'representatives': obj.representatives,
         }

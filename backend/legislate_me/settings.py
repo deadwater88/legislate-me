@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'session.apps.SessionConfig',
-    'oauth.apps.OauthConfig'
+    'oauth.apps.OauthConfig',
+    'legislate_me',
 ]
 
 MIDDLEWARE = [

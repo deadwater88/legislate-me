@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import FBSDK from 'react-native-fbsdk';
+import { authUser } from '../../../actions/session_actions';
+
+
 const LoginButton = FBSDK.LoginButton;
 const AccessToken = FBSDK.AccessToken;
+const {
+  GraphRequest,
+  GraphRequestManager,
+} = FBSDK;
+
+
 class FBOAuth extends Component {
   render() {
     return (
@@ -18,9 +27,36 @@ class FBOAuth extends Component {
         } else {
           AccessToken.getCurrentAccessToken().then(
             (data) => {
-              alert(data.accessToken.toString())
+              let accessToken = data.accessToken;
+              const responseInfoCallback = (err, res) => {
+                if (error) {
+                  alert('Error fetching data: ' + err.toString());
+                } else {
+                  console.log("WE MADE IT", res);
+                  // debugger;
+                  res.tokenType = 'facebook';
+                  this.props.authUser(res);
+                }
+
+              }
+
+              const infoRequest = new GraphRequest(
+                '/me',
+                {
+                  accessToken: accessToken,
+                  parameters: {
+                    fields: {
+                      string: 'email,name,first_name,middle_name,last_name'
+                    }
+                  }
+                },
+                responseInfoCallback
+              );
+
+              // Start the graph request.
+              new GraphRequestManager().addRequest(infoRequest).start();
             }
-          )
+          );
         }
       }
     }
