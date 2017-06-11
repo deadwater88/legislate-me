@@ -30,7 +30,7 @@ class RepresentativesView extends React.Component {
   supportBill(answer){
     this.setState({showOptions: false});
     this.setState({support: answer});
-    this.onEmail(answer);
+    () => this.emailRep(representative.name, representative.email)
   }
 
   callRep(phoneNum){
@@ -39,7 +39,7 @@ class RepresentativesView extends React.Component {
 
   buildEmail(name, supportive){
     //supportive boolean will be assigned based on what they select
-    const opinion = supportive ? 'disapproval' : 'approval';
+    const opinion = this.state.support ? 'approval' : 'disapproval';
     return `Dear ${name},
       My name is ${this.props.userName}, and I'm one of your constituents.
       I'm sending this email to voice my ${opinion} about ${this.props.bill_id} ${this.props.bill.title}.
@@ -61,33 +61,50 @@ class RepresentativesView extends React.Component {
 
   render(){
     const { icons, container } = styles;
-    return(
-      <ListView
-          dataSource={this.state.dataSource}
-          renderRow={representative => (
-            <View style={container}>
-              <Text>{representative.name}</Text>
-              <View style={icons}>
-                <Icon.Button name="phone-square"
-                   size={40}
-                   color="#009E11"
-                   margin={0}
-                   padding={0}
-                   backgroundColor="white"
-                   onPress={() => this.callRep(representative.phNum)}
-                   style={ {paddingRight: 10}} />
-                 <Icon.Button name="envelope"
-                    size={40}
-                    color="#CF2A28"
-                    margin={0}
-                    padding={0}
-                    backgroundColor="white"
-                    onPress={() => this.emailRep(representative.name, representative.email)}
-                    style={{}} />
-               </View>
-           </View>                   )}
-        />
-    );
+    if(this.state.showOptions){
+      return(
+           <View style={{marginTop: 22}}>
+            <View>
+              <Text>Would you like to express support or opposition for this bill?</Text>
+              <CardSection>
+                <Button  onPress={() => this.supportBill(true)}> Support! </Button>
+              </CardSection>
+              <CardSection>
+                <Button  onPress={() => this.supportBill(false)}> Opposition! </Button>
+              </CardSection>
+            </View>
+           </View>
+
+      );
+    } else{
+      return(
+        <ListView
+            dataSource={this.state.dataSource}
+            renderRow={representative => (
+              <View style={container}>
+                <Text>{representative.name}</Text>
+                <View style={icons}>
+                  <Icon.Button name="phone-square"
+                     size={40}
+                     color="#009E11"
+                     margin={0}
+                     padding={0}
+                     backgroundColor="white"
+                     onPress={() => this.callRep(representative.phNum)}
+                     style={ {paddingRight: 10}} />
+                   <Icon.Button name="envelope"
+                      size={40}
+                      color="#CF2A28"
+                      margin={0}
+                      padding={0}
+                      backgroundColor="white"
+                      onPress={this.showOptions}
+                      style={{}} />
+                 </View>
+             </View>                   )}
+          />
+      );
+    }
   }
 }
 const styles = {
