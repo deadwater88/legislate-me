@@ -51,6 +51,17 @@ class BillsView(APIView):
             response[bill.os_id] = BillLiteSerializer(bill).data
         return JsonResponse(response)
 
+class BillsbySubjectView(APIView):
+    parser_classes = (FormParser, JSONParser)
+
+    def get(self, request, subject):
+        bills = Bill.objects.filter(subject=subject)
+        response = {}
+        for bill in bills:
+            response[bill.os_id] = BillLiteSerializer(bill).data
+        return JsonResponse(response)
+
+
 # view for for viewing BillDetail
 class BillView(APIView):
     parser_classes = (FormParser, JSONParser)
