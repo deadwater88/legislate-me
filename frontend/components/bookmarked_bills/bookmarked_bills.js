@@ -8,10 +8,10 @@ class BookmarkedBills extends React.Component{
   }
 
   componentDidMount(){
-    console.log("hit bookmarks");
   }
 
   render(){
+    console.log('running bookmark bill render function');
     return(
       <BillIndex renderBookmarks={true}/>
     );

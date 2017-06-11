@@ -5,12 +5,12 @@ import { fetchBookmarks } from '../../actions/bill_actions';
 // import {fetchBills} from '../../actions/bill_actions';
 
 const mapStateToProps = (state) => ({
-  bills: state.bills
+  bookmarks: state.bookmarks
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchBookmarks: () => dispatch(fetchBookmarks()),
-  createBookmark: () => dispatch(createBookmark(bookmark))
+  createBookmark: (bookmark) => dispatch(createBookmark(bookmark))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookmarkedBills);
