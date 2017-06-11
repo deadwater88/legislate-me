@@ -43,6 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     bills = models.ManyToManyField(Bill, blank=True)
     fb_token = models.CharField(default="", blank=True, max_length=200)
     google_token = models.CharField(default="", blank=True, max_length=200)
+    setup = models.BooleanField(default=False, blank=True)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
