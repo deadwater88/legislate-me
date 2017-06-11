@@ -9,8 +9,8 @@ class RepresentativesView extends React.Component {
 
   constructor(props){
     super(props);
-    this.onEmail = this.onEmail.bind(this);
-    this.onCall = this.onCall.bind(this);
+    this.emailRep = this.emailRep.bind(this);
+    this.callRep = this.callRep.bind(this);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     this.state = {
