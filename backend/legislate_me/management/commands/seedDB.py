@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print("requesting bills...")
-        query = 'bills/?page=2&per_page=1000&fields=bill_id,sponsors,title,chamber,subjects,state,sources,full_name,actions&state=ca'
+        query = 'bills/?page=1&per_page=1000&fields=bill_id,sponsors,title,chamber,subjects,state,sources,full_name,actions&state=ca'
         bills = open_states_call(query)
         count = 0
         amount = len(bills)

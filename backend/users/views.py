@@ -13,7 +13,8 @@ from users.serializers import UserSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
 import requests
-from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators
+from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators, fetch_legislator_objects, RepsSerializer
+
 
 class UserView(APIView):
     parser_classes = (FormParser, JSONParser)
@@ -63,5 +64,6 @@ class RepresentativesView(APIView):
         reps = fetch_legislators(geocode)
         user.representatives = reps
         user.save()
-        return JsonResponse(reps)
+        serializer = RepsSerializer(reps)
+        return JsonResponse(serializer.data)
             # save rep object in our backend
