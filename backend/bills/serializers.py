@@ -1,14 +1,11 @@
 from bills.models import Bill
 from rest_framework import serializers
 from users.utils import SUBJECTS
+import pdb
 import re
 from bills.scraper import blurb_scraper
-
-
-class LegislatorSerializer(serializers.BaseSerializer):
-
-    def to_representation(self,obj):
-        return "test"
+from legislate_me.api_keys import fetch_legislator_objects
+from users.serializers import RepSerializer
 
 class BillsSerializer(serializers.BaseSerializer):
 
@@ -53,20 +50,22 @@ class BillsSerializer(serializers.BaseSerializer):
 class BillDetailSerializer(serializers.BaseSerializer):
 
     def to_representation(self, obj):
+        leg_id = obj.leg_id
+        sponsor = fetch_legislator_objects([leg_id])[0]
+        sponsor = RepSerializer(sponsor).data
         return {
         'os_id': obj.os_id,
-        'bill_id': obj['bill_id'],
-        'leg_id': leg_id,
-        'leg_name': sponsor['name'],
-        'title': obj['title'],
-        'chamber': obj['chamber'],
-        'state': obj['state'],
-        'summary_url': url,
-        'img_id': img_id,
-        'subject': subject,
-        'blurb': blurb,
-        'first': first,
-        'last': last
+        'bill_id': obj.bill_id,
+        'title': obj.title,
+        'chamber': obj.chamber,
+        'state': obj.state,
+        'summary_url': obj.summary_url,
+        'img_id': obj.img_id,
+        'subject': obj.subject,
+        'blurb': obj.blurb,
+        'first': obj.first,
+        'last': obj.last,
+        'sponsor': sponsor
         }
 
 class BillLiteSerializer(serializers.BaseSerializer):
@@ -77,5 +76,6 @@ class BillLiteSerializer(serializers.BaseSerializer):
         'subject': obj.subject,
         'img_id': obj.img_id,
         'last_date': obj.last,
-        'title': obj.title
+        'title': obj.title,
+        'leg_name': obj.leg_name
         }

@@ -14,7 +14,7 @@ const nullReps = {
 const RepresentativesReducer = (state = nullReps, action) => {
   Object.freeze(state);
   let newState = merge({},state);
-  let newReps;
+  let newReps ;
   switch(action.type){
     case RECEIVE_CURRENT_USER:
       newReps = action.currentUser.representatives;
