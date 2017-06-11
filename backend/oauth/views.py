@@ -27,7 +27,7 @@ class OAuthView(APIView):
         }
         if request.data['tokenType'] == 'facebook':
             userobj['fb_token'] = request.data['id']
-        elif request.data['tokenType' == 'google']:
+        elif request.data['tokenType'] == 'google':
             userobj['google_token'] = request.data['id']
         try:
             user = User.objects.get(**userobj)

@@ -71,5 +71,6 @@ class BillLiteSerializer(serializers.BaseSerializer):
         'subject': obj.subject,
         'img_id': obj.img_id,
         'last_date': obj.last,
-        'title': obj.title
+        'title': obj.title,
+        'leg_name': obj.leg_name
         }
