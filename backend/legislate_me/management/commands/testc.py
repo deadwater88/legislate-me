@@ -6,12 +6,14 @@ from time import sleep
 from legislate_me.api_keys import fetch_legislator_objects
 import pdb
 from users.serializers import RepSerializer, RepsSerializer
+from legislate_me.api_keys import google_geocode_call, fetch_legislators
 
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        bill = Bill.objects.all()[0]
-        serializer = BillDetailSerializer(bill)
+        text = "160 Spear St. San Francisco, CA 94108"
+        coord = google_geocode_call(text)
+        legis = fetch_legislators(coord)
         pdb.set_trace()
