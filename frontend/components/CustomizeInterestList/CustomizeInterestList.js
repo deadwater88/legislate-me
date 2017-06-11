@@ -47,6 +47,7 @@ class CustomizeInterestList extends Component {
 
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
+    debugger
     this.props.navigation.navigate('BillIndex');
   }
 

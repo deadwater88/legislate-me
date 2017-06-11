@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => (
   {
-    fetchSubjects: (subjects) => dispatch(fetchSubjects(subjects)),
+    fetchSubjects: () => dispatch(fetchSubjects()),
     saveSubjects: (subjects) => dispatch(saveSubjects(subjects))
   }
 );
