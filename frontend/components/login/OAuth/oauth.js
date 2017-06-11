@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import FBSDK from 'react-native-fbsdk';
+import { authUser } from '../../../actions/session_actions';
+
+
 const LoginButton = FBSDK.LoginButton;
 const AccessToken = FBSDK.AccessToken;
 const {
@@ -32,7 +35,9 @@ class FBOAuth extends Component {
                 } else {
                   console.log("WE MADE IT", res)
                   alert('Success fetching data: ' + res.toString());
+                  authUser(res);
                 }
+
               }
 
               const infoRequest = new GraphRequest(

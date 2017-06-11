@@ -23,6 +23,6 @@ class Command(BaseCommand):
             except Bill.DoesNotExist:
                 Bill.objects.create(**bill_data)
             count += 1
-            sleep(3)
+            sleep(2)
             print(count)
         print("seeding completed")
