@@ -9,6 +9,7 @@ class BillIndex extends React.Component{
       rowHasChanged: (r1, r2) => r1 !== r2
     });
     this.state = {
+      ds,
       dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
     };
     // debugger
@@ -39,18 +40,19 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    ds = this.state.dataSource
+    // ds = this.state.dataSource;
     // debugger
     const bills = this.zipped(this.props.bills);
-    const dataSource = ds.cloneWithRows(bills);
-    // debugger
+    const dataSource = this.state.ds.cloneWithRows(bills);
     const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES
     return (
       <ListView
         dataSource={dataSource}
         renderRow={(rowData) =>
-          <BillIndexItem bill={rowData} imgUrl={SUBJECT_IMAGES[rowData[1].subject]}/>}
-        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+          <BillIndexItem
+            bill={rowData}
+            imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
+            />}
       />
     );
   }

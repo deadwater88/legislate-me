@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class BillIndexItem extends React.Component{
   constructor(props){
     super(props);
+    console.log("bill index item");
     this.toggleBookmark = this.toggleBookmark.bind(this);
   }
 
@@ -19,13 +20,11 @@ class BillIndexItem extends React.Component{
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
-    // debugger
-    // console.log(pic_url);
     return (
         <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
-          <Image style={{height:50, width: 50}} source={{uri: pic_url}}/>
+          <Image style={{height:50, width: 50}} source={pic_url}/>
         </View>
     );
     //conditional render on bookmark bill depending on whether bill is bookmarked
