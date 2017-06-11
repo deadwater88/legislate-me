@@ -6,6 +6,7 @@ import {SUBJECT_IMAGES} from '../../util/subject_api_util';
 
 const mapStateToProps = (state) => ({
   bills: state.bills,
+  bookmarks: state.bookmarks,
   SUBJECT_IMAGES
 });
 

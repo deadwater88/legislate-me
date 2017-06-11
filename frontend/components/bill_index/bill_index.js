@@ -5,27 +5,31 @@ import BillIndexItem from './bill_index_item';
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    ds = new ListView.DataSource({
+    const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-    this.state = {
-      dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
-    };
-    // debugger
+
+    if (this.props.renderBookmarks){
+      this.state = {
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
+      };
+    }
+    else{
+      this.state = {
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
+      };
+    }
+
     this.zipped = this.zipped.bind(this);
     this.navigateToBill = this.navigateToBill.bind(this);
   }
 
   navigateToBill(e){
-    //add logic for navigating to a bill
-    console.log("bill view");
   }
 
   // Once component has mounted, fetch bills
   componentWillMount(){
-    console.log("fetching bills");
-    this.props.fetchBills()
-    // debugger
+    this.props.renderBookmarks ? this.props.fetchBookmarks()  : this.props.fetchBills();
   }
 
   zipped(bills){
@@ -39,12 +43,12 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    ds = this.state.dataSource
-    // debugger
-    const bills = this.zipped(this.props.bills);
+    const ds = this.state.dataSource;
+
+    const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = ds.cloneWithRows(bills);
-    // debugger
-    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES
+
+    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES;
     return (
       <ListView
         dataSource={dataSource}
