@@ -53,50 +53,55 @@ class BillView extends React.Component {
       summary_url,
       title
     } = this.props.bill;
-    console.log(sponsor);
+
     const billBlurb = this.state.blurb;
-    return(
-      <ScrollView>
-        <Card>
-          <View>
-            <Text style={billTitle}>{title}</Text>
-            <Text style={billState}>{state}</Text>
-            <Text style={billChamber}>{chamber}</Text>
-          </View>
-          <CardSection>
-            <Image style={billImage} source={img_id} />
-          </CardSection>
-
-          <View style={{flexDirection: 'column'}}>
-            <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
-
-          </View>
-          <TouchableHighlight onPress={this.toggleBlurb}>
-            <View style={blurb}>
-              <View style={blurbHeader}>
-                <Text style={{fontSize: 16}}>Bill Details</Text>
-                <Icon.Button name="arrow-circle-down"
-                  size={20}
-                  color="grey"
-                  backgroundColor='white'
-                  margin={0}
-                  padding={0}
-                  onPress={this.toggleBlurb}
-                  />
-              </View>
-              <Text style={blurbText}>{billBlurb}</Text>
+    if (!state){
+      return (<Text></Text>)
+    } else {
+      const capitalizedChamber = chamber[0].toUpperCase().concat(chamber.slice(1,chamber.length));
+      return(
+        <ScrollView>
+          <Card>
+            <View>
+              <Text style={billTitle}>{title}</Text>
+              <Text style={billState}>State: {state.toUpperCase()}</Text>
+              <Text style={billChamber}>Chamber: {capitalizedChamber}</Text>
             </View>
-          </TouchableHighlight>
+            <CardSection>
+              <Image style={billImage} source={img_id} />
+            </CardSection>
 
-          <View style={billSponsors}>
-            <Text style={{fontSize: 16}}>Bill Sponsors</Text>
-            <SponsorBillView
-              sponsor={sponsor}/>
-          </View>
+            <View style={{flexDirection: 'column'}}>
+              <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
 
-        </Card>
-      </ScrollView>
-    );
+            </View>
+            <TouchableHighlight onPress={this.toggleBlurb}>
+              <View style={blurb}>
+                <View style={blurbHeader}>
+                  <Text style={{fontSize: 16}}>Bill Details</Text>
+                  <Icon.Button name="arrow-circle-down"
+                    size={20}
+                    color="grey"
+                    backgroundColor='white'
+                    margin={0}
+                    padding={0}
+                    onPress={this.toggleBlurb}
+                    />
+                </View>
+                <Text style={blurbText}>{billBlurb}</Text>
+              </View>
+            </TouchableHighlight>
+
+            <View style={billSponsors}>
+              <Text style={{fontSize: 16}}>Bill Sponsors</Text>
+              <SponsorBillView
+                sponsor={sponsor}/>
+            </View>
+
+          </Card>
+        </ScrollView>
+      )
+    }
   }
 }
 
