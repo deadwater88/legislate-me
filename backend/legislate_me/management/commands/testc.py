@@ -10,5 +10,5 @@ from users.serializers import RepSerializer, RepsSerializer
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        legislators = fetch_legislator_objects(['DCL000021', 'DCL000005'])
-        pdb.set_trace()
+        legislators = ['DCL000021', 'DCL000005']
+        test = RepsSerializer(legislators)

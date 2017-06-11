@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from users.utils import SUBJECTS
 from legislate_me.api_keys import fetch_legislator_objects
+import pdb
 
 class UserSerializer(serializers.BaseSerializer):
     email = serializers.EmailField()
@@ -55,5 +56,5 @@ class RepsSerializer(serializers.BaseSerializer):
         array = map(lambda rep: RepSerializer(rep).data, array)
         response = {}
         for rep in array:
-            response['legId'] = rep
+            response[rep['legId']] = rep
         return response

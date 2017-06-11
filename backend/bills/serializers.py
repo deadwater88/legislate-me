@@ -4,12 +4,6 @@ from users.utils import SUBJECTS
 import re
 from bills.scraper import blurb_scraper
 
-
-class LegislatorSerializer(serializers.BaseSerializer):
-
-    def to_representation(self,obj):
-        return "test"
-
 class BillsSerializer(serializers.BaseSerializer):
 
     class Meta:

@@ -20,7 +20,6 @@ class OAuthView(APIView):
     #     return HttpResponse(users)
 
     def post(self, request):
-        pdb.set_trace()
         User = get_user_model()
         email = request.data['email']
         userobj = {
