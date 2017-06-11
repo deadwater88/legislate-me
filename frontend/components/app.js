@@ -75,7 +75,7 @@ class App extends Component {
 
   render(){
     // if (!this.props) return <Text></Text>;
-    if (this.props.currentUser){
+    if (this.props.currentUser && !this.props.currentUser.setup){
       return (
         <HomeRouter/>
         // <Text>asdfasdf</Text>
