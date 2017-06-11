@@ -26,8 +26,8 @@ class OAuthButtons extends Component {
      GoogleSignin.signIn()
        .then((user) => {
          let userNameSplit = user.name.split(" ");
-         user.fName = userNameSplit[0];
-         user.lName = userNameSplit[userNameSplit.length-1];
+         user.first_name = userNameSplit[0];
+         user.last_name = userNameSplit[userNameSplit.length-1];
          user.tokenType = 'google';
          this.props.authUser(user);
        })
@@ -37,7 +37,6 @@ class OAuthButtons extends Component {
        .done();
    });
   }
-
 
 
 

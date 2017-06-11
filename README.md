@@ -20,7 +20,7 @@ Our mission statement is to reduce the overhead necessary to get involved. It's 
       - allows user to enter address and receive lat/long points for user with OpenStates API
 ## Features
   ### OAuth integration
-    + Nobody likes having to manually sign up. Luckily, LegislateMe integrates with Facebook's SDK in order to make authentication pain-free.
+    + Nobody likes having to manually sign up. Luckily, LegislateMe integrates with Facebook's/Google's SDK in order to make authentication pain-free.
     **insert video of FB sign up/login here**
     **insert video of Google sign up/login here**
 
@@ -37,3 +37,10 @@ Our mission statement is to reduce the overhead necessary to get involved. It's 
   ### Following bills
     + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill to see it's status and whether it was signed into law.
     **Insert gif of saving a bill then going into bookmark view**
+
+## Future Features
+  Our team is excited to continue working on this project. Ultimately, we want LegislateMe to be the go-to place for political action at the state level. To do this, we look forward to a number of exciting engineering challenges:
+    + Search any legislator by name in the state.
+      - If users want to see a specific legislator's voting history or sponsored bills, we want to provide search functionality. This would entail storing OpenStates
+  Push notifications when bookmarked bill changes state.
+  View all bills proposed by a single legislator + voting history
