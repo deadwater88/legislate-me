@@ -41,7 +41,21 @@ class BillView extends React.Component {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
     debugger
-    const {bill_id, blurb, chamber, first, img_id, last, os_id, sponsor, state, subject, summary_url, title} = this.props.bill;
+    const {
+      bill_id,
+      chamber,
+      first,
+      img_id,
+      last,
+      os_id,
+      sponsor,
+      state,
+      subject,
+      summary_url,
+      title
+    } = this.props.bill;
+    debugger
+    const billBlurb = this.props.bill.blurb;
     return(
       <Card>
         <View>
@@ -55,11 +69,7 @@ class BillView extends React.Component {
 
         <View style={{flexDirection: 'column'}}>
           <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
-          <RepresentativesView
-            representatives={this.props.representatives}
-            bill={this.props.bill}
-            userName={this.props.userName}
-            />
+
         </View>
         <TouchableHighlight onPress={this.toggleBlurb}>
           <View style={blurb}>
@@ -74,20 +84,29 @@ class BillView extends React.Component {
                 onPress={this.toggleBlurb}
                 />
             </View>
-            <Text style={blurbText}>{this.state.blurb}</Text>
+            <Text style={blurbText}>{billBlurb}</Text>
           </View>
         </TouchableHighlight>
 
-        <View style={billSponsors}>
-          <Text style={{fontSize: 16}}>Bill Sponsors</Text>
-          <SponsorBillView
-            sponsors={this.props.bill.sponsors} />
-        </View>
+
       </Card>
 
     );
   }
 }
+
+// 
+// <RepresentativesView
+//   representatives={this.props.representatives}
+//   bill={this.props.bill}
+//   userName={this.props.userName}
+//   />
+// <View style={billSponsors}>
+//   <Text style={{fontSize: 16}}>Bill Sponsors</Text>
+//   <SponsorBillView
+//     sponsors={sponsor}/>
+// </View>
+
 const styles = {
 
   billTitle: {
