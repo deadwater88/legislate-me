@@ -30,7 +30,7 @@ class OAuthView(APIView):
         elif request.data['tokenType'] == 'google':
             userobj['google_token'] = request.data['id']
         try:
-            user = User.objects.get(**userobj)
+            user = User.objects.get(email=email)
             login(request, user)
             serializer = UserSerializer(user)
             return JsonResponse(serializer.data)
