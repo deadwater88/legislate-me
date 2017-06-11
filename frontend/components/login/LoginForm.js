@@ -70,6 +70,7 @@ class LoginForm extends Component {
 
     redirectToAddressPage(){
       console.log('redirect to address page?');
+      debugger;
       this.props.navigation.navigate('SubmitAddress');
     }
 

@@ -6,26 +6,24 @@ import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/render
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    this.ds = new ListView.DataSource({
+    const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
     if (this.props.renderBookmarks){
       this.state = {
         ds,
-        dataSource: this.ds.cloneWithRows(this.zipped(this.props.bookmarks))
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
       };
     }
     else{
       this.state = {
         ds,
-        dataSource: this.ds.cloneWithRows(this.zipped(this.props.bills))
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
       };
     }
 
     this.zipped = this.zipped.bind(this);
   }
-  }
-
 
   componentWillMount() {
     if (this.props.navigation && this.props.navigation.state.params){
@@ -50,7 +48,7 @@ class BillIndex extends React.Component{
 
   render(){
     const ds = this.state.dataSource;
-    const {navigate } = this.props.navigation;
+    // const {navigate } = this.props.navigation;
     const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = this.state.ds.cloneWithRows(bills);
 
@@ -60,7 +58,6 @@ class BillIndex extends React.Component{
         dataSource={dataSource}
         renderRow={(rowData) =>
           <BillIndexItem
-            navigate={navigate}
             bill={rowData}
             imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
             />}
