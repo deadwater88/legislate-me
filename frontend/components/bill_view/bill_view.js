@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image, TouchableHighlight } from 'react-native';
+import {Text, View, Image, TouchableHighlight, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ContactRepresentativesView  from './contact_representatives_view';
@@ -28,7 +28,7 @@ class BillView extends React.Component {
   toggleBlurb(){
     const newState = !this.state.reveal_blurb;
     if(newState === true){
-      this.setState({blurb: this.props.blurb});
+      this.setState({blurb: this.props.bill.blurb});
     } else{
       this.setState({blurb: ''});
     }
@@ -36,11 +36,8 @@ class BillView extends React.Component {
   }
 
   render(){
-    const {billTitle, billImage, blurb, billState, billChamber, billSponsors, blurbHeader, blurbText } = styles;
-    const pic  = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
-    };
-    debugger
+    const {container,billTitle, billImage, blurb, billState, billChamber, billSponsors, blurbHeader, blurbText } = styles;
+
     const {
       bill_id,
       chamber,
@@ -54,63 +51,73 @@ class BillView extends React.Component {
       summary_url,
       title
     } = this.props.bill;
-    debugger
-    const billBlurb = this.props.bill.blurb;
-    return(
-      <Card>
-        <View>
-          <Text style={billTitle}>{title}</Text>
-          <Text style={billState}>{state}</Text>
-          <Text style={billChamber}>{chamber}</Text>
-        </View>
-        <CardSection>
-          <Image style={billImage} source={img_id} />
-        </CardSection>
 
-        <View style={{flexDirection: 'column'}}>
-          <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
-
-        </View>
-        <TouchableHighlight onPress={this.toggleBlurb}>
-          <View style={blurb}>
-            <View style={blurbHeader}>
-              <Text style={{fontSize: 16}}>Bill Details</Text>
-              <Icon.Button name="arrow-circle-down"
-                size={20}
-                color="grey"
-                backgroundColor='white'
-                margin={0}
-                padding={0}
-                onPress={this.toggleBlurb}
-                />
+    const billBlurb = this.state.blurb;
+    if (!state){
+      return (<Text></Text>)
+    } else {
+      const capitalizedChamber = chamber[0].toUpperCase().concat(chamber.slice(1,chamber.length));
+      return(
+        <ScrollView >
+          <View style={container}>
+            <View>
+              <Text style={billTitle}>{title}</Text>
+              <Text style={billState}>State: {state.toUpperCase()}</Text>
+              <Text style={billChamber}>Chamber: {capitalizedChamber}</Text>
             </View>
-            <Text style={blurbText}>{billBlurb}</Text>
+            <CardSection>
+              <Image style={billImage} source={img_id} />
+            </CardSection>
+
+            <View style={{flexDirection: 'column'}}>
+              <Text style={{fontSize:16, fontWeight: 'bold', paddingBottom: 3}}>Contact your representatives:</Text>
+
+            </View>
+            <TouchableHighlight onPress={this.toggleBlurb}>
+              <View style={blurb}>
+                <View style={blurbHeader}>
+                  <Text style={{fontSize: 16}}>Bill Details</Text>
+                  <Icon.Button name="arrow-circle-down"
+                    size={20}
+                    color="black"
+                    backgroundColor='#ecf0f1'
+                    margin={0}
+                    padding={0}
+                    onPress={this.toggleBlurb}
+                    />
+                </View>
+                <Text style={blurbText}>{billBlurb}</Text>
+              </View>
+            </TouchableHighlight>
+
+            <View style={billSponsors}>
+              <Text style={{fontSize: 16}}>Bill Sponsors</Text>
+              <SponsorBillView
+                sponsor={sponsor}/>
+            </View>
+
           </View>
-        </TouchableHighlight>
-
-
-      </Card>
-
-    );
+        </ScrollView>
+      )
+    }
   }
 }
 
-// 
+//
 // <RepresentativesView
 //   representatives={this.props.representatives}
 //   bill={this.props.bill}
 //   userName={this.props.userName}
 //   />
-// <View style={billSponsors}>
-//   <Text style={{fontSize: 16}}>Bill Sponsors</Text>
-//   <SponsorBillView
-//     sponsors={sponsor}/>
-// </View>
+
 
 const styles = {
-
+  container: {
+    marginLeft: 10,
+    marginRight: 10
+  },
   billTitle: {
-    fontSize: 20,
+    fontSize: 23,
     fontWeight: 'bold',
     paddingBottom: 10,
     paddingTop: 10
@@ -118,19 +125,21 @@ const styles = {
   billImage: {
     flex: 1,
     width: 100,
-    height: 200
+    height: 200,
+    marginTop: 10,
+    marginBottom: 10
   },
   blurbHeader: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    backgroundColor: '#ecf0f1'
   },
   blurb: {
-    borderBottomWidth: 1,
-    borderColor: '#ddd',
-    padding: 5
+    backgroundColor: '#ecf0f1'
   },
   blurbText: {
-
+    marginTop: 8,
+    backgroundColor: '#ecf0f1'
   },
   billState: {
     fontSize: 12,
@@ -141,7 +150,9 @@ const styles = {
     color: 'grey'
   },
   billSponsors: {
-    padding: 5
+    padding: 5,
+    marginTop: 10,
+    marginBottom: 10
   }
 };
 export default BillView;
