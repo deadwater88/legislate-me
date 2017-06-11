@@ -19,7 +19,7 @@ export const signup = user => dispatch => (
   APIUtil.signup(user).then(response => (
     dispatch(receiveCurrentUser(response.data))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON))
+    dispatch(receiveErrors(err.data))
   ))
 );
 
@@ -27,9 +27,12 @@ export const login = user => dispatch => (
 
   APIUtil.login(user).then(response => (
     dispatch(receiveCurrentUser(response.data))
-  ), err => (
-    dispatch(receiveErrors(err.responseJSON))
-  ))
+  ), err => {
+    // console.log('LOGIN ERROR FAM', err); // LOGIN ERROR FAM Error: Request failed with status code 402
+    console.log("ERRORS ARE", err);
+    // debugger;
+    return dispatch(receiveErrors(err.response.data));
+  })
 );
 
 export const logout = () => dispatch => (
