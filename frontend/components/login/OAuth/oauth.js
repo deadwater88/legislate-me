@@ -32,6 +32,7 @@ class FBOAuth extends Component {
                 } else {
                   console.log("WE MADE IT", res);
                   // debugger;
+                  res.tokenType = 'facebook';
                   this.props.authUser(res);
                 }
               }
