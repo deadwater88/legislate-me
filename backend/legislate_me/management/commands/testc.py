@@ -17,4 +17,3 @@ class Command(BaseCommand):
         coord = google_geocode_call(text)
         legis = fetch_legislators(coord)
         leg_obj = fetch_legislator_objects(legis)
-        pdb.set_trace()
