@@ -9,11 +9,11 @@ import json
 import pdb
 from rest_framework.parsers import FormParser, JSONParser
 from rest_framework.views import APIView
-from users.serializers import UserSerializer
+from users.serializers import UserSerializer, RepsSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
 import requests
-from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators, fetch_legislator_objects, RepsSerializer
+from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators, fetch_legislator_objects
 
 
 class UserView(APIView):
