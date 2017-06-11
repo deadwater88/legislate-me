@@ -29,7 +29,7 @@ class BillIndex extends React.Component{
 
   // Once component has mounted, fetch bills
   componentWillMount(){
-    this.props.renderBookmarks ? this.props.fetchBookmarks()  : this.props.fetchBills();
+    this.props.renderBookmarks ? this.props.fetchBookmarks() : this.props.fetchBills();
   }
 
   zipped(bills){

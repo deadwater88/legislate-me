@@ -28,7 +28,7 @@ class LoginForm extends Component {
         errors += ": " + errorObject[errorCategory].join(" ");
         errors += '\n';
       });
-      alert(errors);
+      errors.length > 0 ? alert(errors) : null;
     }
 
     onToggleSignIn(){
