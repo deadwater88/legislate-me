@@ -17,6 +17,7 @@ class BillView extends React.Component {
                   blurb: ''
                 };
     this.toggleBlurb = this.toggleBlurb.bind(this);
+    console.log("innnn bill view");
   }
 
   componentWillMount(){

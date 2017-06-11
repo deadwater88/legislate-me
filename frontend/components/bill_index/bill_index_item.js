@@ -23,18 +23,21 @@ class BillIndexItem extends React.Component{
   navigateToBill(e){
     // ReactNativeComponentTree.getInstancefFromNode(e.target)._currentElement;
     // const elem = ReactNativeComponentTree.getInstanceFromNode(e.target);
-
-    // debugger
+    debugger
+    this.props.navigate('BillView');
   }
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
     return (
+      <TouchableHighlight onPress={this.navigateToBill}>
+
         <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
         </View>
+      </TouchableHighlight>
 
     );
     //conditional render on bookmark bill depending on whether bill is bookmarked
