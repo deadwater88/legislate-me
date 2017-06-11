@@ -5,34 +5,24 @@ import BillIndexItem from './bill_index_item';
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    const ds = new ListView.DataSource({
+    this.ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
     if (this.props.renderBookmarks){
       this.state = {
-        dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
+        dataSource: this.ds.cloneWithRows(this.zipped(this.props.bookmarks))
       };
-    }
-    else if (this.props.navigation && this.props.navigation.state.params) {
     }
     else{
       this.state = {
-        dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
+        dataSource: this.ds.cloneWithRows(this.zipped(this.props.bills))
       };
     }
 
     this.zipped = this.zipped.bind(this);
-    this.navigateToBill = this.navigateToBill.bind(this);
+    // this.navigateToBill = this.navigateToBill.bind(this);
   }
 
-  navigateToBill(e){
-  }
-
-  componentWillReceiveProps(){
-    
-  }
-
-  // Once component has mounted, fetch bills
   componentWillMount(){
     if (this.props.navigation && this.props.navigation.state.params){
       let subjectName = this.props.navigation.state.params.subjectName;
