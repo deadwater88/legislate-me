@@ -3,13 +3,18 @@ import { Text, View, Image } from 'react-native';
 import { Card, CardSection, Button } from '../../common';
 import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import { connect } from 'react-redux';
+import { signup, authUser } from '../../../actions/session_actions';
+
+const mapDispatchToProps = dispatch => ({
+  authUser: user => dispatch(authUser(user))
+});
 
 
 class OAuthButtons extends Component {
   constructor(props){
     super(props);
     this.configureConnection = this.configureConnection.bind(this);
-    // this.redirectToHome = this.redirectToHome.bind(this);
   }
 
   configureConnection(){
@@ -20,9 +25,7 @@ class OAuthButtons extends Component {
    .then(() => {
      GoogleSignin.signIn()
        .then((user) => {
-         console.log('USER SIGNED IN SUCCESSFULLY');
-         console.log(user);
-        //  authUser(user);
+         this.props.authUser(user);
        })
         .catch((err) => {
          console.log('Something went wrong :(', err);
@@ -64,4 +67,4 @@ const styles = {
   }
 };
 
-export default OAuthButtons;
+export default connect(null, mapDispatchToProps)(OAuthButtons);
