@@ -9,11 +9,15 @@ import json
 import pdb
 from rest_framework.parsers import FormParser, JSONParser
 from rest_framework.views import APIView
-from users.serializers import UserSerializer
+from users.serializers import UserSerializer, RepsSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
 import requests
-from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators
+from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators, fetch_legislator_objects
+
+
+
+
 
 class UserView(APIView):
     parser_classes = (FormParser, JSONParser)
@@ -56,12 +60,20 @@ class SubjectsView(APIView):
         return JsonResponse(subjectsDict)
 
 class RepresentativesView(APIView):
+    parser_classes = (FormParser, JSONParser)
     def post(self, request):
         user = request.user
-        address = request.data['address']
+        address = request.data
         geocode = google_geocode_call(address)
         reps = fetch_legislators(geocode)
         user.representatives = reps
         user.save()
-        return JsonResponse(reps)
+        serializer = RepsSerializer(reps)
+        return JsonResponse(serializer.data)
             # save rep object in our backend
+def setup(request):
+    parser_classes = (FormParser, JSONParser)
+    user = request.user
+    user.setup = True
+    serializer = UserSerializer(user)
+    return JsonResponse(serializer.data)
