@@ -51,7 +51,7 @@ class LoginSwiping extends Component{
           <LoginNavigator />
         </View>
       </Swiper>
-    )
+    );
   }
 }
 

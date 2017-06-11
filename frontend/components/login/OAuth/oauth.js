@@ -3,6 +3,11 @@ import { Text, View } from 'react-native';
 import FBSDK from 'react-native-fbsdk';
 const LoginButton = FBSDK.LoginButton;
 const AccessToken = FBSDK.AccessToken;
+const {
+  GraphRequest,
+  GraphRequestManager,
+} = FBSDK;
+
 class FBOAuth extends Component {
   render() {
     return (
@@ -16,11 +21,35 @@ class FBOAuth extends Component {
         } else if (result.isCancelled) {
           alert("login is cancelled.");
         } else {
+
           AccessToken.getCurrentAccessToken().then(
             (data) => {
-              console.log('THE DATA BRUH', data);
-              alert(data);
-              console.log(data);
+              let accessToken = data.accessToken;
+              const responseInfoCallback = (err, res) => {
+                if (error) {
+                  console.log(error)
+                  alert('Error fetching data: ' + err.toString());
+                } else {
+                  console.log("WE MADE IT", res)
+                  alert('Success fetching data: ' + res.toString());
+                }
+              }
+
+              const infoRequest = new GraphRequest(
+                '/me',
+                {
+                  accessToken: accessToken,
+                  parameters: {
+                    fields: {
+                      string: 'email,name,first_name,middle_name,last_name'
+                    }
+                  }
+                },
+                responseInfoCallback
+              );
+
+              // Start the graph request.
+              new GraphRequestManager().addRequest(infoRequest).start();
             }
           );
         }
