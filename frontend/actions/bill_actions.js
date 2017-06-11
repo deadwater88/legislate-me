@@ -12,8 +12,9 @@ export const fetchBillsBySubject = subject  => dispatch => (
 ));
 
 export const fetchBills = () => dispatch => (
-  APIUtil.fetchBillsBySubjects().then(bills =>
+  APIUtil.fetchBillsBySubjects().then(bills => {
     dispatch(receiveBills(bills.data))
+  }
 ));
 
 export const fetchBookmarks = () => dispatch => (

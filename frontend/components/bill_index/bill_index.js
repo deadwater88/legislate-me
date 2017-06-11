@@ -27,7 +27,6 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    // return <Text>BILL INDEX</Text>;
     return (<ListView
       dataSource={this.state.dataSource}
       renderRow={ bill => <BillIndexItem
