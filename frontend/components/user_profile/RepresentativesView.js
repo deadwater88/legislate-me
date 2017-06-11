@@ -4,58 +4,67 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Communications from 'react-native-communications';
 
 class RepresentativesView extends React.Component {
+  //bill view passes rep objects to representative view
+  //in below code, assuming I have a this.props.reps objects
+
   constructor(props){
     super(props);
     this.onEmail = this.onEmail.bind(this);
     this.onCall = this.onCall.bind(this);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
     this.state = {
-      dataSource: ds.cloneWithRows(["john smith", "amelia johnson"]),
+      dataSource: ds.cloneWithRows(this.props.representatives)
     };
   }
 
-  onCall(){
-    Communications.phonecall('valid_number', true);
-    console.log("You've called your representatives!");
+  callRep(phoneNum){
+    Communications.phonecall(phoneNum, true);
   }
 
-  onEmail(){
-    Communications.email(['emailAddress1', 'emailAddress2'],
-    null,null,
-    `My Support for ${this.props.bill.title}` ,
-    `I think you should support ${this.props.bill.title} `);
-    console.log("You've called your representatives!");
+  buildEmail(name, supportive){
+    const opinion = supportive ? 'disapproval' : 'approval';
+    return `Dear ${name},
+      My name is ${this.props.userName}, and I'm one of your constituents here in {}.
+      I'm sending this email to voice my ${opinion} about ${this.props.bill_id} ${this.props.bill.title}.
+      Voters like me consider this an important issue, and I wanted to reach out personally to show you
+      how much I care. Thank you for hearing me out.
+    `;
   }
+
+  emailRep(name, emailAddress){
+    Communications.email(
+      [emailAddress],
+      null,null,
+      this.buildEmail());
+  }
+
 
   render(){
     const { icons, container } = styles;
     return(
       <ListView
           dataSource={this.state.dataSource}
-          renderRow={rowData => (
+          renderRow={representative => (
             <View style={container}>
-              <Text>{rowData}</Text>
+              <Text>{representative.name}</Text>
               <View style={icons}>
-
                 <Icon.Button name="phone-square"
                    size={40}
                    color="#009E11"
                    margin={0}
                    padding={0}
                    backgroundColor="white"
-                   onPress={this.onCall}
+                   onPress={() => this.callRep(representative.phNum)}
                    style={ {paddingRight: 10}} />
-
                  <Icon.Button name="envelope"
                     size={40}
                     color="#CF2A28"
                     margin={0}
                     padding={0}
                     backgroundColor="white"
-                    onPress={this.onEmail}
+                    onPress={() => this.emailRep(representative.name, representative.email)}
                     style={{}} />
-
-
                </View>
            </View>                   )}
         />

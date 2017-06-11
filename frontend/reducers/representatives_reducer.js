@@ -16,7 +16,9 @@ const RepresentativesReducer = (state = nullReps, action) => {
   switch(action.type){
     case RECEIVE_REPRESENTATIVES:
       const newReps = action.representatives;
-      return merge({}, nullReps, { currentReps: newReps });
+      //imgUrl, fName, lName, email, phNum 
+      //newReps is an array of rep objects fName, lName,
+      return merge({}, nullReps, { currentReps: newReps }); //overrride currentReps property of nullReps
     case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, nullReps, {
