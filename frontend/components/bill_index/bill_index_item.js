@@ -20,12 +20,12 @@ class BillIndexItem extends React.Component{
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
     // debugger
-    console.log(pic_url);
+    // console.log(pic_url);
     return (
         <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
-          <Image style={{height:50, width: 50}} source={{uri: 'https://static.pexels.com/photos/36366/pexels-photo.jpg'}}/>
+          <Image style={{height:50, width: 50}} source={{uri: pic_url}}/>
         </View>
     );
     //conditional render on bookmark bill depending on whether bill is bookmarked
