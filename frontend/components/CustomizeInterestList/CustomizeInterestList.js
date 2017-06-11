@@ -29,8 +29,10 @@ class CustomizeInterestList extends Component {
   }
 
   componentDidMount(){
+    let subjects = this.props.fetchSubjects();
+    debugger
     this.setState({
-      subjects: this.props.fetchSubjects()
+      subjects
     });
   }
   //the subjects array is a two d array-- each entry

@@ -5,7 +5,7 @@ export const fetchSubjects = () => {
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/subjects`
-  }).then(res => console.log(res));
+  }).then(res => console.log("fetching",res));
 };
 
 export const saveSubjects = subjects => {
