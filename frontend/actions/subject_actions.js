@@ -8,23 +8,8 @@ export const receiveSubjects = subjects => ({
   subjects
 });
 
-// export const receiveSubject = subject => ({
-//   type: RECEIVE_SUBJECT,
-//   subject
-// });
-
-export const fetchSubjects = () => dispatch => (
-  APIUtil.fetchSubjects().then(response => {
-    dispatch(receiveSubjects(response.data))
-  }, err => (
-    // console.log()
-  ))
-);
-
 export const saveSubjects = subjects => dispatch => (
   APIUtil.saveSubjects(subjects).then(response => {
     dispatch(receiveSubjects(response.data))
-  }, err => (
-    // console.log(err)
-  ))
+  })
 );
