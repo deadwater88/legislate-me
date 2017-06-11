@@ -12,6 +12,8 @@ class RepresentativesView extends React.Component {
     super(props);
     this.onEmail = this.onEmail.bind(this);
     this.onCall = this.onCall.bind(this);
+    this.supportBill = this.supportBill.bind(this);
+    this.showOptions = this.showOptions.bind(this);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     this.state = {
