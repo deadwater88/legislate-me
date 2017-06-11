@@ -28,13 +28,11 @@ class CustomizeInterestList extends Component {
     // this.selectedSubjects.push(subject);
   }
 
-  componentDidMount(){
-    let subjects = this.props.fetchSubjects();
-    debugger
-    this.setState({
-      subjects
-    });
-  }
+  // componentDidMount(){
+  //   this.setState({
+  //     subjects
+  //   });
+  // }
   //the subjects array is a two d array-- each entry
   // is a key of subject string and value of false because this has been hardcoded in the subject api util
   zipped(subjects){

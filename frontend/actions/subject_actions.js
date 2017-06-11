@@ -14,13 +14,19 @@ export const receiveSubjects = subjects => ({
 // });
 
 export const fetchSubjects = () => dispatch => (
-  APIUtil.fetchSubjects().then(response => (
+  APIUtil.fetchSubjects().then(response => {
+    debugger
     dispatch(receiveSubjects(response.data))
+  }, err => (
+    console.log("fail");)
   ))
 );
 
 export const saveSubjects = subjects => dispatch => (
-  APIUtil.saveSubjects(subjects).then(response => (
+  APIUtil.saveSubjects(subjects).then(response => {
+    debugger
     dispatch(receiveSubjects(response.data))
+  }, err => (
+    dispatch(console.log(err);)
   ))
 );
