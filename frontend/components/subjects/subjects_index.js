@@ -5,18 +5,28 @@ import { SUBJECTS, SUBJECT_IMAGES } from '../../util/subject_api_util';
 class SubjectsIndex extends React.Component {
   constructor(props){
     super(props);
+    this.renderBills = this.renderBills.bind(this);
+  }
+
+  renderBills(subjectName){
+    this.props.navigation.navigate('BillIndex', {subjectName});
+    //access subjectName from BillIndex with
+    //ths.props.navigation.state.params.subjectName
   }
 
   render(){
     const { imageStyle, headerText, labelText, imageGroup } = styles;
-    const subjects = Object.keys(SUBJECT_IMAGES).map((key,idx) => {
-      const image = SUBJECT_IMAGES[key];
+    const subjects = Object.keys(SUBJECT_IMAGES).map((subjectName,idx) => {
+      const image = SUBJECT_IMAGES[subjectName];
       return(
           <View style={imageGroup} key={idx}>
-            <Image style={imageStyle}
-              source={image} />
+            <TouchableHighlight onPress={() => this.renderBills(subjectName)}>
+              <Image
+                style={imageStyle}
+                source={image} />
+            </TouchableHighlight>
+            <Text style={labelText}>{subjectName}</Text>
 
-            <Text style={labelText}>{key}</Text>
 
           </View>
 

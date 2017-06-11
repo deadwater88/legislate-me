@@ -13,12 +13,12 @@ export const receiveBookmark = bookmark => ({
   bookmark
 });
 
-// export const fetchBookmarks = subject  => dispatch => (
-//   BillAPIUtil.fetchBookMarkedBills().then(bookmarks =>
-//     dispatch(receiveBookmark(bookmarks.data))
-// ));
+export const fetchBookmarks = subject  => dispatch => (
+  BillAPIUtil.fetchBookMarkedBills().then(bookmarks =>
+    dispatch(receiveBookmark(bookmarks.data))
+));
 
 export const createBookmark = bookmark  => dispatch => (
-  BookmarkAPIUtil.bookmarkBill(bookmark).then(bookmarkedBill =>
+  BillAPIUtil.bookmarkBill(bookmark).then(bookmarkedBill =>
     dispatch(receiveBookmark(bookmarkedBill.data))
 ));

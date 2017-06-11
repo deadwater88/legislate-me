@@ -19,14 +19,11 @@ const BillNavigator = StackNavigator({
       tabBarLabel: 'Feed',
       showIcon: 'true',
       tabBarIcon: <Icon name="home" size={20} />,
+    left: null
     },
   },
   BillIndexItem: { screen: BillIndexItem },
   BillView: { screen: BillView }
-}, {
-  headerMode: 'none'
-}, {
-  header: null
 });
 
 

@@ -1,31 +1,39 @@
 import React from 'react';
-import { Text, ListView, Image, View, StyleSheet } from 'react-native';
+import { Text, ListView, Image, View, TouchableHighlight, StyleSheet } from 'react-native';
 import BillIndexItem from './bill_index_item';
+import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativeComponentTree';
 
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    ds = new ListView.DataSource({
+    const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-    this.state = {
-      dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
-    };
-    // debugger
+    if (this.props.renderBookmarks){
+      this.state = {
+        ds,
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
+      };
+    }
+    else{
+      this.state = {
+        ds,
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
+      };
+    }
+
     this.zipped = this.zipped.bind(this);
-    this.navigateToBill = this.navigateToBill.bind(this);
   }
 
-  navigateToBill(e){
-    //add logic for navigating to a bill
-    console.log("bill view");
-  }
-
-  // Once component has mounted, fetch bills
-  componentWillMount(){
-    console.log("fetching bills");
-    this.props.fetchBills()
-    // debugger
+  componentWillMount() {
+    if (this.props.navigation && this.props.navigation.state.params){
+      let subjectName = this.props.navigation.state.params.subjectName;
+      this.props.fetchBillsBySubject(subjectName);
+    }else if (this.props.renderBookmarks) {
+      this.props.fetchBookmarks();
+    } else{
+      this.props.fetchBills();
+    }
   }
 
   zipped(bills){
@@ -39,30 +47,24 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    ds = this.state.dataSource
-    // debugger
-    const bills = this.zipped(this.props.bills);
-    const dataSource = ds.cloneWithRows(bills);
-    // debugger
-    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES
+    const ds = this.state.dataSource;
+    // const {navigate } = this.props.navigation;
+    const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
+    const dataSource = this.state.ds.cloneWithRows(bills);
+
+    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES;
     return (
       <ListView
         dataSource={dataSource}
         renderRow={(rowData) =>
-          <BillIndexItem bill={rowData} imgUrl={SUBJECT_IMAGES[rowData[1].subject]}/>}
-        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+          <BillIndexItem
+            bill={rowData}
+            imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
+            />}
       />
     );
   }
 }
-//
-// <ListView
-//   dataSource={this.state.dataSource}
-//   renderRow={ bill => <BillIndexItem
-//     bill={bill}
-//     navigateToBill={this.navigateToBill}
-//     bookmarkBill={this.props.bookmarkBill} />}
-//     />
 
 const styles = StyleSheet.create({
   separator: {

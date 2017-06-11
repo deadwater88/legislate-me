@@ -2,6 +2,7 @@ import axios from 'axios';
 import { HOST_URL } from './host_util';
 
 export const fetchBillInfo = billId => {
+  debugger
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/bills/${billId}`
@@ -23,6 +24,7 @@ export const fetchBillsBySubject = subject => {
 };
 
 export const fetchBookMarkedBills = () => {
+  //this is being hit.
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/bills/bookmarked`
