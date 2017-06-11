@@ -26,7 +26,7 @@ export const logout = () => {
 };
 
 export const oauth = user => {
-  debugger;
+  
   return axios({
     method: 'POST',
     url: `${HOST_URL}/api/oauth`,

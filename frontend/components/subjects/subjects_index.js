@@ -1,46 +1,32 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, ListView, Image } from 'react-native';
+import {  View, Text, TouchableHighlight, ScrollView, Image } from 'react-native';
 import { SUBJECTS, SUBJECT_IMAGES } from '../../util/subject_api_util';
 
 class SubjectsIndex extends React.Component {
-  contructor(){
-    this.renderBillsBySubect = this.renderBillsBySubect.bind(this);
-  }
-  renderBillsBySubect(e){
-    console.log(e);
-    debugger
+  constructor(props){
+    super(props);
   }
 
   render(){
     const { imageStyle, headerText, labelText, imageGroup } = styles;
-    const subjects = Object.keys(SUBJECTS).map((key,idx) => {
-      const pic  = SUBJECT_IMAGES[key];
-      // console.log(pic);
-      // <Image style={imageStyle} source={pic} />
-      // <View style={imageGroup} key={idx}>
-      //   <Text style={labelText}>{key}</Text>
-      // </View>
+    const subjects = Object.keys(SUBJECT_IMAGES).map((key,idx) => {
+      const image = SUBJECT_IMAGES[key];
       return(
-        <View>
-            <Image
-              source={{uri: pic}}
-              style={{width: 50, height: 50}}
-               />
-            <Text>{key}</Text>
-        </View>
+          <View style={imageGroup} key={idx}>
+            <Image style={imageStyle}
+              source={image} />
+
+            <Text style={labelText}>{key}</Text>
+
+          </View>
+
       );
     });
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const listViewDataSource = ds.cloneWithRows(subjects);
-    // console.log(listViewDataSource);
     return(
-      <View>
+      <ScrollView>
         <Text style={headerText}>Discover new bills by subject</Text>
-        <ListView
-          dataSource={listViewDataSource}
-          renderRow={(rowData) => <View>{rowData}</View>}
-          />
-      </View>
+        {subjects}
+      </ScrollView>
     );
   }
 }
@@ -61,13 +47,18 @@ const styles = {
     paddingTop:20,
     textAlign: 'center',
     fontSize: 20,
-    paddingBottom: 20
+    paddingBottom: 20,
+    color: 'white',
+    backgroundColor: '#2980B9'
   },
   labelText:{
-    fontSize: 16,
+    fontSize: 18,
     position: 'absolute',
-    backgroundColor: 'rgba(0,0,0,0.3)'
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    color: 'black',
+    padding: 3
   }
 };
+
 
 export default SubjectsIndex;

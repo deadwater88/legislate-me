@@ -24,15 +24,7 @@ class LoginForm extends Component {
       if (newProps.errors && newProps.errors.credentials.length > 0){
         alert(newProps.errors.credentials.join(" "));
       }
-      if (newProps.currentUser){
-        this.redirectToHome();
-      }
-    }
-
-    componentWillReceiveProps(nextProps){
-      // debugger
-      // console.log("receiving props");
-      // if (nextProps.currentUser) {
+      // if (newProps.currentUser){
       //   this.redirectToHome();
       // }
     }
@@ -47,7 +39,7 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      });
+      }).then(this.redirectToHome);
 
     }
 
@@ -75,6 +67,7 @@ class LoginForm extends Component {
 
 
     redirectToAddressPage(){
+      console.log('redirect to address page?');
       this.props.navigation.navigate('SubmitAddress');
     }
 
