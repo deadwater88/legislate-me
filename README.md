@@ -22,6 +22,7 @@ Our mission statement is to reduce the overhead necessary to get involved. It's 
   ### OAuth integration
     + Nobody likes having to manually sign up. Luckily, LegislateMe integrates with Facebook's SDK in order to make authentication pain-free.
     **insert video of FB sign up/login here**
+    **insert video of Google sign up/login here**
 
   ### Find your representative
     + Given geographic latitude/longitudinal coordinates, OpenStates API can return the representatives for that region. However, we recognize that most people wouldn't know off the top of their head what their geographic coordinates are. To solve this, LegislateMe asks users for their address (it isn't stored on the backend for privacy purposes), and routes the address through the Google Geocoding API. This returns the lat/long coordinates which can then be input into OpenStates. The representatives are then stored in our database for the current user.
@@ -34,4 +35,5 @@ Our mission statement is to reduce the overhead necessary to get involved. It's 
        + However, the option to call is also provided, in case the user wants to give a more personal touch. Hitting the call button will prefill the number with the legislator's phone number. **Show video of this happening**
     **IS THIS A CRON JOB OR WHAT ARE WE DOING TO DO**
   ### Following bills
-    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. 
+    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill to see it's status and whether it was signed into law.
+    **Insert gif of saving a bill then going into bookmark view**
