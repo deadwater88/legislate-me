@@ -13,16 +13,18 @@ class CustomizeInterestList extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
+    subjects = this.props.subjects;
     // this.selectedSubjects = [];
     this.saveInterests = this.saveInterests.bind(this);
     this.state = {
-      dataSource: ds.cloneWithRows(this.zipped(SUBJECTS)),
-      subjects: {}
+      dataSource: ds.cloneWithRows(this.zipped(this.props.subjects)),
+      subjects
     };
     this.selectSubject = this.selectSubject.bind(this);
   }
 
   selectSubject(subject){
+      debugger
         this.state.subjects[subject] = !this.state.subjects[subject];
 
     // this.selectedSubjects.push(subject);
@@ -47,8 +49,9 @@ class CustomizeInterestList extends Component {
 
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
-    debugger
-    this.props.navigation.navigate('BillIndex');
+    this.props.navigation.goBack();
+    // console.log(this.props);
+    // this.props.navigation.navigate('BillIndex');
   }
 
   render(){

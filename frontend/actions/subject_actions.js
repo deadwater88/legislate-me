@@ -18,7 +18,7 @@ export const fetchSubjects = () => dispatch => (
     debugger
     dispatch(receiveSubjects(response.data))
   }, err => (
-    console.log("fail");)
+    console.log("fail")
   ))
 );
 
@@ -27,6 +27,6 @@ export const saveSubjects = subjects => dispatch => (
     debugger
     dispatch(receiveSubjects(response.data))
   }, err => (
-    dispatch(console.log(err);)
+    console.log(err)
   ))
 );
