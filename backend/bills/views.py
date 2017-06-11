@@ -35,7 +35,7 @@ class BillsView(APIView):
         bills = Bill.objects.filter(subject__in=subjects)
         response = {}
         for bill in bills:
-            response[bill['os_id']] = BillLiteSerializer(bill).data
+            response[bill.os_id] = BillLiteSerializer(bill).data
         return JsonResponse(response)
 
 

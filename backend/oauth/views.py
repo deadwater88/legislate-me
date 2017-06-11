@@ -20,20 +20,29 @@ class OAuthView(APIView):
     #     return HttpResponse(users)
 
     def post(self, request):
+        pdb.set_trace()
         User = get_user_model()
         email = request.data['email']
-        pdb.set_trace()
+        userobj = {
+                    'email': email,
+        }
+        if request.data['tokenType'] == 'facebook':
+            userobj['fb_token'] = request.data['id']
+        elif request.data['tokenType' == 'google']:
+            userobj['google_token'] = request.data['id']
         try:
-            user = User.get(email=email)
+            user = User.objects.get(**userobj)
             login(request, user)
             serializer = UserSerializer(user)
             return JsonResponse(serializer.data)
-        except ObjectDoesNotExist:
-            password = request.data['password']
-            last_name = request.data['last_name']
-            first_name = request.data['first_name']
-            user = User(email=email, password=password, first_name=first_name, last_name=last_name)
-            user.save()
+        except User.DoesNotExist:
+            password = abs(hash(email))
+            userobj['last_name'] = request.data['last_name']
+            userobj['first_name'] = request.data['first_name']
+            userobj['password'] = password
+            user = User(**userobj)
             user.set_password(password)
+            user.save()
+            login(request, user)
             serializer = UserSerializer(user)
             return JsonResponse(serializer.data)
