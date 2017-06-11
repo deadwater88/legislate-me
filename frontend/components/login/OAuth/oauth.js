@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import FBSDK from 'react-native-fbsdk';
+import { authUser } from '../../../actions/session_actions';
+
+
 const LoginButton = FBSDK.LoginButton;
 const AccessToken = FBSDK.AccessToken;
 const {
   GraphRequest,
   GraphRequestManager,
 } = FBSDK;
-import { authUser } from '../../../actions/session_actions';
 
 
 class FBOAuth extends Component {
@@ -35,6 +37,7 @@ class FBOAuth extends Component {
                   res.tokenType = 'facebook';
                   this.props.authUser(res);
                 }
+
               }
 
               const infoRequest = new GraphRequest(

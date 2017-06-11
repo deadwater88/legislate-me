@@ -36,7 +36,6 @@ class UserView(APIView):
         user.save()
         login(request, user)
         serializer = UserSerializer(user)
-        del serializer.data['password']
         return JsonResponse(serializer.data)
 
     def delete(self, request):
@@ -51,8 +50,8 @@ class SubjectsView(APIView):
 
     def patch(self, request):
         user = request.user
-        subjectsDict = request.data['subjects']
-        user.subjects = [subject for subject in subjectsDICT if subjectsDICT[subject]]
+        subjectsDict = request.data
+        user.subjects = [subject for subject in subjectsDict if subjectsDict[subject]]
         user.save()
         return JsonResponse(subjectsDict)
 
