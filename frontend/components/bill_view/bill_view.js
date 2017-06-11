@@ -36,10 +36,8 @@ class BillView extends React.Component {
   }
 
   render(){
-    const {billTitle, billImage, blurb, billState, billChamber, billSponsors, blurbHeader, blurbText } = styles;
-    const pic  = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
-    };
+    const {container,billTitle, billImage, blurb, billState, billChamber, billSponsors, blurbHeader, blurbText } = styles;
+
     const {
       bill_id,
       chamber,
@@ -60,8 +58,8 @@ class BillView extends React.Component {
     } else {
       const capitalizedChamber = chamber[0].toUpperCase().concat(chamber.slice(1,chamber.length));
       return(
-        <ScrollView>
-          <Card>
+        <ScrollView >
+          <View style={container}>
             <View>
               <Text style={billTitle}>{title}</Text>
               <Text style={billState}>State: {state.toUpperCase()}</Text>
@@ -72,7 +70,7 @@ class BillView extends React.Component {
             </CardSection>
 
             <View style={{flexDirection: 'column'}}>
-              <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
+              <Text style={{fontSize:16, fontWeight: 'bold', paddingBottom: 3}}>Contact your representatives:</Text>
 
             </View>
             <TouchableHighlight onPress={this.toggleBlurb}>
@@ -81,8 +79,8 @@ class BillView extends React.Component {
                   <Text style={{fontSize: 16}}>Bill Details</Text>
                   <Icon.Button name="arrow-circle-down"
                     size={20}
-                    color="grey"
-                    backgroundColor='white'
+                    color="black"
+                    backgroundColor='#ecf0f1'
                     margin={0}
                     padding={0}
                     onPress={this.toggleBlurb}
@@ -98,7 +96,7 @@ class BillView extends React.Component {
                 sponsor={sponsor}/>
             </View>
 
-          </Card>
+          </View>
         </ScrollView>
       )
     }
@@ -114,9 +112,12 @@ class BillView extends React.Component {
 
 
 const styles = {
-
+  container: {
+    marginLeft: 10,
+    marginRight: 10
+  },
   billTitle: {
-    fontSize: 20,
+    fontSize: 23,
     fontWeight: 'bold',
     paddingBottom: 10,
     paddingTop: 10
@@ -124,19 +125,21 @@ const styles = {
   billImage: {
     flex: 1,
     width: 100,
-    height: 200
+    height: 200,
+    marginTop: 10,
+    marginBottom: 10
   },
   blurbHeader: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    backgroundColor: '#ecf0f1'
   },
   blurb: {
-    borderBottomWidth: 1,
-    borderColor: '#ddd',
-    padding: 5
+    backgroundColor: '#ecf0f1'
   },
   blurbText: {
-
+    marginTop: 8,
+    backgroundColor: '#ecf0f1'
   },
   billState: {
     fontSize: 12,
@@ -147,7 +150,9 @@ const styles = {
     color: 'grey'
   },
   billSponsors: {
-    padding: 5
+    padding: 5,
+    marginTop: 10,
+    marginBottom: 10
   }
 };
 export default BillView;

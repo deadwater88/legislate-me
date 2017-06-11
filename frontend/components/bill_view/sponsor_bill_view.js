@@ -7,7 +7,6 @@ const SponsorBillView = ({sponsor}) => {
   // replaace with correct pic
   if (sponsor){
     const { fName, lName, imgUrl, email, party, siteUrl, state} = sponsor;
-    debugger
     const pic  = {
       uri: imgUrl
     };
