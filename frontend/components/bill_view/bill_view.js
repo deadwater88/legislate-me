@@ -25,7 +25,6 @@ class BillView extends React.Component {
     this.props.fetchBillInfo(this.props.billId);
   }
 
-
   toggleBlurb(){
     const newState = !this.state.reveal_blurb;
     if(newState === true){

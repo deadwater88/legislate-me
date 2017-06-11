@@ -24,7 +24,7 @@ export const fetchBills = () => dispatch => (
 ));
 
 export const fetchBillInfo = (billId) => dispatch => (
-  APIUtil.fetchBillInfo().then(bills => {
+  APIUtil.fetchBillInfo(billId).then(bills => {
     debugger
     dispatch(receiveBill(bill.data))
   }
