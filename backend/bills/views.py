@@ -46,6 +46,6 @@ class BillView(APIView):
         parser_classes = (FormParser, JSONParser)
         #req.url parse this
         # bill = open_states_call("bills/{bill_osid}/?".format(bill_osid=bill_osid))
-        bill = Bill.get(os_id=os_id)
+        bill = Bill.objects.get(os_id=os_id)
         serializer = BillDetailSerializer(bill)
         return JsonResponse(serializer.data)
