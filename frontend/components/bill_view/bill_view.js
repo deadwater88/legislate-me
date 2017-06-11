@@ -17,11 +17,11 @@ class BillView extends React.Component {
                   blurb: ''
                 };
     this.toggleBlurb = this.toggleBlurb.bind(this);
-    console.log("innnn bill view");
-    debugger
+    // console.log("innnn bill view");
+    // debugger
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.fetchBillInfo(this.props.billId);
   }
 
@@ -40,8 +40,51 @@ class BillView extends React.Component {
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
+    debugger
+    const {title, state, chamber} = this.props.bill
     return(
-      <Text>blkajsdlkfjasdf</Text>
+
+      <Card>
+        <View>
+          <Text style={billTitle}>{this.props.bill.title}</Text>
+          <Text style={billState}>{this.props.bill.state}</Text>
+          <Text style={billChamber}>{this.props.bill.chamber}</Text>
+        </View>
+        <CardSection>
+            <Image style={billImage} source={pic} />
+        </CardSection>
+
+        <View style={{flexDirection: 'column'}}>
+          <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
+          <RepresentativesView
+            representatives={this.props.representatives}
+            bill={this.props.bill}
+            userName={this.props.userName}
+             />
+        </View>
+          <TouchableHighlight onPress={this.toggleBlurb}>
+          <View style={blurb}>
+            <View style={blurbHeader}>
+              <Text style={{fontSize: 16}}>Bill Details</Text>
+              <Icon.Button name="arrow-circle-down"
+                 size={20}
+                 color="grey"
+                 backgroundColor='white'
+                 margin={0}
+                 padding={0}
+                 onPress={this.toggleBlurb}
+                 />
+            </View>
+             <Text style={blurbText}>{this.state.blurb}</Text>
+          </View>
+        </TouchableHighlight>
+
+        <View style={billSponsors}>
+          <Text style={{fontSize: 16}}>Bill Sponsors</Text>
+          <SponsorBillView
+            sponsors={this.props.bill.sponsors} />
+        </View>
+      </Card>
     );
   }
 }
@@ -83,47 +126,3 @@ const styles = {
     }
 };
 export default BillView;
-
-
-
-// <Card>
-//   <View>
-//     <Text style={billTitle}>{this.props.bill.title}</Text>
-//     <Text style={billState}>{this.props.bill.state}</Text>
-//     <Text style={billChamber}>{this.props.bill.chamber}</Text>
-//   </View>
-//   <CardSection>
-//       <Image style={billImage} source={pic} />
-//   </CardSection>
-//
-//   <View style={{flexDirection: 'column'}}>
-//     <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
-//     <RepresentativesView
-//       representatives={this.props.representatives}
-//       bill={this.props.bill}
-//       userName={this.props.userName}
-//        />
-//   </View>
-//     <TouchableHighlight onPress={this.toggleBlurb}>
-//     <View style={blurb}>
-//       <View style={blurbHeader}>
-//         <Text style={{fontSize: 16}}>Bill Details</Text>
-//         <Icon.Button name="arrow-circle-down"
-//            size={20}
-//            color="grey"
-//            backgroundColor='white'
-//            margin={0}
-//            padding={0}
-//            onPress={this.toggleBlurb}
-//            />
-//       </View>
-//        <Text style={blurbText}>{this.state.blurb}</Text>
-//     </View>
-//   </TouchableHighlight>
-//
-//   <View style={billSponsors}>
-//     <Text style={{fontSize: 16}}>Bill Sponsors</Text>
-//     <SponsorBillView
-//       sponsors={this.props.bill.sponsors} />
-//   </View>
-// </Card>
