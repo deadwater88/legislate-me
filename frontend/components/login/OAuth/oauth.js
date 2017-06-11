@@ -23,18 +23,17 @@ class FBOAuth extends Component {
         } else if (result.isCancelled) {
           alert("login is cancelled.");
         } else {
-
           AccessToken.getCurrentAccessToken().then(
             (data) => {
               let accessToken = data.accessToken;
               const responseInfoCallback = (err, res) => {
                 if (error) {
-                  console.log(error)
                   alert('Error fetching data: ' + err.toString());
                 } else {
-                  console.log("WE MADE IT", res)
-                  // alert('Success fetching data: ' + res.toString());
-                  authUser(res);
+                  console.log("WE MADE IT", res);
+                  // debugger;
+                  res.tokenType = 'facebook';
+                  this.props.authUser(res);
                 }
               }
 

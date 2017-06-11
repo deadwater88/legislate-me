@@ -47,8 +47,9 @@ export const deleteUser = user => dispatch => (
   ))
 );
 
-export const authUser = user => dispatch => (
-  APIUtil.oauth(user).then(response => (
+export const authUser = user => dispatch => {
+  console.log('authUser is hit !!!!!!!!!!!--> USER IS', user);
+  return APIUtil.oauth(user).then(response => (
     dispatch(receiveCurrentUser(response.data))
-  ))
-);
+  ));
+};

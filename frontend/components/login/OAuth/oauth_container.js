@@ -1,9 +1,9 @@
-// import { connect } from 'react-redux';
-// import { signup } from '../../actions/session_actions';
-// import OAuth from './oauth.js';
-//
-// const mapDispatchToProps = dispatch => ({
-//   // signup: (user) => dispatch(signup(user)),
-// });
-//
-//
+import { connect } from 'react-redux';
+import { signup, authUser } from '../../../actions/session_actions';
+import FBOAuth from './oauth.js';
+
+const mapDispatchToProps = dispatch => ({
+  authUser: user => dispatch(authUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(FBOAuth);
