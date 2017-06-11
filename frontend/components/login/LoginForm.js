@@ -21,14 +21,15 @@ class LoginForm extends Component {
 
     }
     componentWillReceiveProps(newProps){
-      let errorObject = newProps.errors;
-      let errors = ""; //value is going to be an array.
-      Object.keys(errorObject).forEach(errorCategory => {
-        errors += errorCategory;
-        errors += ": " + errorObject[errorCategory].join(" ");
-        errors += '\n';
-      });
-      errors.length > 0 ? alert(errors) : null;
+      if (newProps.errors) {
+        let errorObject = newProps.errors;
+        let errors = ""; //value is going to be an array.
+        Object.keys(errorObject).forEach(errorCategory => {
+          errors += errorCategory;
+          errors += ": " + errorObject[errorCategory].join(" ");
+          errors += '\n';
+        });
+        errors.length > 0 ? alert(errors) : null;}
     }
 
     onToggleSignIn(){
@@ -70,7 +71,6 @@ class LoginForm extends Component {
 
     redirectToAddressPage(){
       console.log('redirect to address page?');
-      debugger;
       this.props.navigation.navigate('SubmitAddress');
     }
 

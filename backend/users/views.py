@@ -63,7 +63,7 @@ class RepresentativesView(APIView):
     parser_classes = (FormParser, JSONParser)
     def post(self, request):
         user = request.user
-        address = request.data
+        address = request.data['address']
         geocode = google_geocode_call(address)
         reps = fetch_legislators(geocode)
         user.representatives = reps
