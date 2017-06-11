@@ -1,21 +1,22 @@
 import React from 'react';
 import {Image, Text, View, Linking} from 'react-native';
 
-const SponsorBillView = (sponsor) => {
+const SponsorBillView = ({sponsor}) => {
   const { sponsorText, sponsorImage } = styles;
-  // debugger
-  const { fname, lname, imgUrl, email, party, siteUrl, state} = sponsor;
+  debugger
   const pic  = {
     uri: 'https://dccouncil.us/files/user_uploads/member_photos/barry.jpg'
   };
   // replaace with correct pic
+  if (sponsor){
+    const { fName, lName, imgUrl, email, party, siteUrl, state} = sponsor;
   return(
     <View style={{flexDirection: 'row'}}>
       <View style={{flex: 1}}>
         <Image style={sponsorImage} source={pic} />
       </View>
       <View style={{flexDirection: 'column', flex: 1, paddingTop: 10}}>
-        <Text style={sponsorText}> {fname} {lname} </Text>
+        <Text style={sponsorText}> {fName} {lName}</Text>
         <Text style={sponsorText}> {party} </Text>
           <Text style={{color: 'blue'}}
           onPress={() => Linking.openURL(`${siteUrl}`)}>
@@ -23,7 +24,12 @@ const SponsorBillView = (sponsor) => {
         </Text>
       </View>
     </View>
-  );
+  )
+} else {
+  return (
+    <Text></Text>
+  )
+}
 };
 
 const styles = {

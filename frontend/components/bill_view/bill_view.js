@@ -91,7 +91,7 @@ class BillView extends React.Component {
           <View style={billSponsors}>
             <Text style={{fontSize: 16}}>Bill Sponsors</Text>
             <SponsorBillView
-              sponsors={sponsor}/>
+              sponsor={sponsor}/>
           </View>
 
         </Card>
