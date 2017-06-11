@@ -7,6 +7,8 @@ const {
   GraphRequest,
   GraphRequestManager,
 } = FBSDK;
+import { authUser } from '../../../actions/session_actions';
+
 
 class FBOAuth extends Component {
   render() {
@@ -31,7 +33,8 @@ class FBOAuth extends Component {
                   alert('Error fetching data: ' + err.toString());
                 } else {
                   console.log("WE MADE IT", res)
-                  alert('Success fetching data: ' + res.toString());
+                  // alert('Success fetching data: ' + res.toString());
+                  authUser(res);
                 }
               }
 

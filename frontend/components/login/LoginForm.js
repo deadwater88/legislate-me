@@ -7,7 +7,6 @@ import OAuthButtons from './OAuth/oauth_buttons';
 class LoginForm extends Component {
   constructor(props){
     super(props);
-    console.log("In login");
     this.state = {
       fName: '',
       lName: '',
@@ -36,6 +35,7 @@ class LoginForm extends Component {
         email: this.state.email,
         password: this.state.password
       });
+
     }
 
     onSignUp(){
@@ -49,7 +49,7 @@ class LoginForm extends Component {
     }
 
     redirectToHome(){
-      //home is BillNavigator
+      
       this.props.navigation.navigate('Home');
     }
 
@@ -99,6 +99,7 @@ class LoginForm extends Component {
               <Text>Or sign up</Text>
             </TouchableHighlight>
           </CardSection>
+          <Text>ERRORS ARE {this.props.errors}</Text>
         </Card>
       );
     }else{
@@ -154,7 +155,7 @@ class LoginForm extends Component {
               <Text>Or log in</Text>
             </TouchableHighlight>
           </CardSection>
-
+          <Text>ERRORS ARE {this.props.errors}</Text>
         </Card>
       );
     }
