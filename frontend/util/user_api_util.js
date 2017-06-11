@@ -24,3 +24,10 @@ export const updateAddress = address => {
     data: address
   });
 };
+
+export const finishSetup = () => {
+  return axios({
+    method: 'POST',
+    url: `${HOST_URL}/api/users/setup`
+  });
+};

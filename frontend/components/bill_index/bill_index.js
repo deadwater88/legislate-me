@@ -6,32 +6,34 @@ import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/render
 class BillIndex extends React.Component{
   constructor(props){
     super(props);
-    ds = new ListView.DataSource({
+    const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-    this.state = {
-      ds,
-      dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
-    };
-    // debugger
+    if (this.props.renderBookmarks){
+      this.state = {
+        ds,
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
+      };
+    }
+    else{
+      this.state = {
+        ds,
+        dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
+      };
+    }
+
     this.zipped = this.zipped.bind(this);
-    // this.navigateToBill = this.navigateToBill.bind(this);
   }
 
-  // navigateToBill(e){
-  //   //add logic for navigating to a bill
-  //   // console.log("bill view");
-  //   const elem = ReactNativeComponentTree.getInstanceFromNode(e.target);
-  //   const elem2 = ReactNativeComponentTree.getInstanceFromNode(e.currentTarget);
-  //   const elem3 = ReactNativeComponentTree.getInstanceFromNode(e.nativeEvent.target);
-  //   debugger
-  //   // ReactNativeComponentTree.getInstancefFromNode(e.target)._currentElement;
-  //
-  // }
-
-  // Once component has mounted, fetch bills
-  componentWillMount(){
-    this.props.fetchBills()
+  componentWillMount() {
+    if (this.props.navigation && this.props.navigation.state.params){
+      let subjectName = this.props.navigation.state.params.subjectName;
+      this.props.fetchBillsBySubject(subjectName);
+    }else if (this.props.renderBookmarks) {
+      this.props.fetchBookmarks();
+    } else{
+      this.props.fetchBills();
+    }
   }
 
   zipped(bills){
@@ -45,16 +47,17 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    const {navigate } = this.props.navigation;
-    const bills = this.zipped(this.props.bills);
+    const ds = this.state.dataSource;
+    // const {navigate } = this.props.navigation;
+    const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = this.state.ds.cloneWithRows(bills);
-    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES
+
+    const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES;
     return (
       <ListView
         dataSource={dataSource}
         renderRow={(rowData) =>
           <BillIndexItem
-            navigate={navigate}
             bill={rowData}
             imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
             />}
@@ -62,14 +65,6 @@ class BillIndex extends React.Component{
     );
   }
 }
-//
-// <ListView
-//   dataSource={this.state.dataSource}
-//   renderRow={ bill => <BillIndexItem
-//     bill={bill}
-//     navigateToBill={this.navigateToBill}
-//     bookmarkBill={this.props.bookmarkBill} />}
-//     />
 
 const styles = StyleSheet.create({
   separator: {

@@ -56,6 +56,6 @@ def fetch_pexel_images(query):
 # print(fetch_legislators(b))
 #Test call
 
-legislators = fetch_legislator_objects(['DCL000021', 'DCL000005'])
+# legislators = fetch_legislator_objects(['DCL000021', 'DCL000005'])
 
 # print legislators[0]['full_name'] # Anita Bonds

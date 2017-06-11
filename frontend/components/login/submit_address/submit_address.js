@@ -4,8 +4,8 @@ import {Card, CardSection, Input} from '../../../components/common';
 import OAuthButtons from '../OAuth/oauth_buttons';
 
 class SubmitAddress extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {address: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
     this.navigateToCustomizeInterest = this.navigateToCustomizeInterest.bind(this);
@@ -39,9 +39,8 @@ class SubmitAddress extends React.Component {
           title='Find your representative!'>
         </Button>
         </CardSection>
-        <Button onPress={this.navigateToCustomizeInterest}
-          title="Skip for now">
-        </Button>
+        <Text>Skip for now </Text>
+
    </Card>
     );
   }
