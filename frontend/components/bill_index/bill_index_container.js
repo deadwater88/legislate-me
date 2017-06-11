@@ -6,7 +6,7 @@ import {SUBJECT_IMAGES} from '../../util/subject_api_util';
 
 const mapStateToProps = (state) => ({
   bills: state.bills,
-  SUBJECT_IMAGES: SUBJECT_IMAGES
+  SUBJECT_IMAGES
 });
 
 const mapDispatchToProps = dispatch => ({
