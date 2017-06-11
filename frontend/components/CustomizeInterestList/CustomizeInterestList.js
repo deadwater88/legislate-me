@@ -13,9 +13,8 @@ class CustomizeInterestList extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
-    subjects = this.props.subjects;
-    // this.selectedSubjects = [];
     this.saveInterests = this.saveInterests.bind(this);
+    let subjects = this.props.subjects;
     this.state = {
       dataSource: ds.cloneWithRows(this.zipped(this.props.subjects)),
       subjects
@@ -24,17 +23,10 @@ class CustomizeInterestList extends Component {
   }
 
   selectSubject(subject){
-      debugger
-        this.state.subjects[subject] = !this.state.subjects[subject];
-
-    // this.selectedSubjects.push(subject);
+    this.state.subjects[subject] = !this.state.subjects[subject];
   }
 
-  // componentDidMount(){
-  //   this.setState({
-  //     subjects
-  //   });
-  // }
+
   //the subjects array is a two d array-- each entry
   // is a key of subject string and value of false because this has been hardcoded in the subject api util
   zipped(subjects){
@@ -50,8 +42,6 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     this.props.navigation.goBack();
-    // console.log(this.props);
-    // this.props.navigation.navigate('BillIndex');
   }
 
   render(){
@@ -71,8 +61,6 @@ class CustomizeInterestList extends Component {
           }
           renderHeader={() => <CustomizeHeader />}
           />
-
-          <Text>HELLLOOOOOOOOO</Text>
       </View>
     );
   }

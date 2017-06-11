@@ -18,7 +18,6 @@ export const fetchBills = () => dispatch => (
 
 export const fetchBookmarks = () => dispatch => (
   APIUtil.fetchBookMarkedBills().then(bills => {
-    debugger
     console.log("fetched bookmarks");
     return (
       dispatch(receiveBills(bills.data))
