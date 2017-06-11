@@ -15,22 +15,25 @@ class RepresentativesView extends React.Component {
     this.supportBill = this.supportBill.bind(this);
     this.showOptions = this.showOptions.bind(this);
     this.state = {  showOptions: false,
-                    support: ''};
+                    support: '',
+                    emailThisRepresentative: ''};
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(this.props.representatives)
     };
   }
 
-  showOptions() {
+  showOptions(representative) {
     const newState = !this.state.showOptions;
-    this.setState({showOptions: newState });
+    this.setState({showOptions: newState,
+                  emailThisRepresentative: representative});
   }
 
-  supportBill(answer){
-    this.setState({showOptions: false});
-    this.setState({support: answer});
-    () => this.emailRep(representative.name, representative.email)
+  supportBill(answer, representative){
+    this.setState({showOptions: false,
+                    support: answer});
+    this.emailRep(representative.name, representative.email);
+    this.setState({emailThisRepresentative: ''});
   }
 
   callRep(phoneNum){
@@ -67,10 +70,10 @@ class RepresentativesView extends React.Component {
             <View>
               <Text>Would you like to express support or opposition for this bill?</Text>
               <CardSection>
-                <Button  onPress={() => this.supportBill(true)}> Support! </Button>
+                <Button  onPress={() => this.supportBill(true, this.state.emailThisRepresentative)}> Support! </Button>
               </CardSection>
               <CardSection>
-                <Button  onPress={() => this.supportBill(false)}> Opposition! </Button>
+                <Button  onPress={() => this.supportBill(false, this.state.emailThisRepresentative)}> Opposition! </Button>
               </CardSection>
             </View>
            </View>
@@ -98,7 +101,7 @@ class RepresentativesView extends React.Component {
                       margin={0}
                       padding={0}
                       backgroundColor="white"
-                      onPress={this.showOptions}
+                      onPress={() => this.showOptions(representative)}
                       style={{}} />
                  </View>
              </View>                   )}
