@@ -15,9 +15,7 @@ class SubjectsIndex extends React.Component {
           <View style={imageGroup} key={idx}>
             <Image style={imageStyle}
               source={image} />
-
             <Text style={labelText}>{key}</Text>
-
           </View>
 
       );
