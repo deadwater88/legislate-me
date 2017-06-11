@@ -2,10 +2,13 @@ import { connect } from 'react-redux';
 
 import BillView from './bill_view';
 import { fetchBillInfo } from '../../util/bill_api_util';
-import { contactRepresentatives } from '../../reducers/selectors';
+// import { contactRepresentatives } from '../../reducers/selectors';
 
-const mapStateToProps = state => ({
-  contactRepresentatives: contactRepresentatives(state.representatives)
+const mapStateToProps = (state, ownProps) => ({
+  // contactRepresentatives: contactRepresentatives(state.representatives)
+  representatives: state.representatives,
+  billID: ownProps.billId,
+  userName: state.session.currentUser.name 
 });
 
 const mapDispatchToProps = dispatch => ({

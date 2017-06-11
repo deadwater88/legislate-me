@@ -19,6 +19,11 @@ class BillView extends React.Component {
     this.toggleBlurb = this.toggleBlurb.bind(this);
   }
 
+  componentWillMount(){
+    this.props.fetchBillInfo(this.props.billId);
+  }
+
+
   toggleBlurb(){
     const newState = !this.state.reveal_blurb;
     if(newState === true){
@@ -47,9 +52,12 @@ class BillView extends React.Component {
 
         <View style={{flexDirection: 'column'}}>
           <Text style={{fontSize:16, paddingBottom: 3}}>Contact your representatives:</Text>
-          <RepresentativesView reps={this.props.representatives} />
+          <RepresentativesView
+            representatives={this.props.representatives}
+            bill={this.props.bill}
+            userName={this.props.userName}
+             />
         </View>
-
           <TouchableHighlight onPress={this.toggleBlurb}>
           <View style={blurb}>
             <View style={blurbHeader}>
