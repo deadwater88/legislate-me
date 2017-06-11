@@ -41,6 +41,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     subjects = ArrayField(models.CharField(max_length=250, null=True),default=[], blank=True)
     representatives = ArrayField(models.CharField(max_length=50), default=[], blank=True)
     bills = models.ManyToManyField(Bill, blank=True)
+    fb_token = models.CharField(default="", blank=True, max_length=200)
+    google_token = models.CharField(default="", blank=True, max_length=200)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
