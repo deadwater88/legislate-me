@@ -157,5 +157,5 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # These lines need to be activate for liver server deployment
 # And inactive for local server deployment
-# import dj_database_url
-# DATABASES['default'] =  dj_database_url.config()
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
