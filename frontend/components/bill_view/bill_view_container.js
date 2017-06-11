@@ -4,11 +4,9 @@ import BillView from './bill_view';
 import { fetchBillInfo } from '../../actions/bill_actions';
 // import { contactRepresentatives } from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   // contactRepresentatives: contactRepresentatives(state.representatives)
-  representatives: state.representatives,
-  billID: ownProps.billId,
-  userName: state.session.currentUser.name
+  bill: state.bill
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -3,7 +3,7 @@ import {
 } from '../actions/bill_actions';
 
 
-const BillsReducer = (state = [], action) => {
+const BillReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BILL:
