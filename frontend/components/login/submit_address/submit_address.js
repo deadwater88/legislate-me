@@ -9,7 +9,7 @@ class SubmitAddress extends React.Component {
     this.state = {address: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
     this.navigateToCustomizeInterest = this.navigateToCustomizeInterest.bind(this);
-    this.skipEnteringAddress = this.skipEnteringAddress.bind(this);
+    // this.skipEnteringAddress = this.skipEnteringAddress.bind(this);
   }
 
   findRepresentative(){

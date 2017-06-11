@@ -10,18 +10,20 @@ export const deleteUser = user => {
 };
 
 export const createAddress = address => {
+  debugger;
   return axios({
     method: 'POST',
     url: `${HOST_URL}/api/users/representatives`,
-    data: address
+    data: {address}
   });
 };
 
 export const updateAddress = address => {
+  debugger;
   return axios({
     method: 'POST',
     url: `${HOST_URL}/api/users/representatives`,
-    data: address
+    data: {address}
   });
 };
 
