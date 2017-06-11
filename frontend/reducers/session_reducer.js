@@ -11,7 +11,7 @@ import {
 
 const nullUser = Object.freeze({
   currentUser: null,
-  errors: []
+  errors: {}
 });
 
 const SessionReducer = (state = nullUser, action) => {
@@ -25,7 +25,7 @@ const SessionReducer = (state = nullUser, action) => {
       });
     case RECEIVE_ERRORS:
       const errors = action.errors;
-      let newState = merge({}, state);
+      newState = merge({}, state);
       newState.errors = action.errors;
       return newState;
     case RECEIVE_SUBJECTS:

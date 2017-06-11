@@ -4,6 +4,7 @@ import { View, Text, ListView, StyleSheet, Button } from 'react-native';
 import { SUBJECTS } from '../../util/subject_api_util';
 import CustomizeInterestListItem from './CustomizeInterestListItem';
 import CustomizeHeader from './CustomizeHeader';
+import { finishSetup } from '../../util/user_api_util';
 
 class CustomizeInterestList extends Component {
   constructor(props){
@@ -41,7 +42,8 @@ class CustomizeInterestList extends Component {
 
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
-    this.props.navigation.goBack();
+    finishSetup();
+    setTimeout(this.props.navigation.goBack, 100);
   }
 
   render(){
