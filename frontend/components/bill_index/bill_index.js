@@ -14,6 +14,9 @@ class BillIndex extends React.Component{
         dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
       };
     }
+    else if (this.props.navigation.state.params.subjectName) {
+
+    }
     else{
       this.state = {
         dataSource: ds.cloneWithRows(this.zipped(this.props.bookmarks))
@@ -29,7 +32,14 @@ class BillIndex extends React.Component{
 
   // Once component has mounted, fetch bills
   componentWillMount(){
-    this.props.renderBookmarks ? this.props.fetchBookmarks() : this.props.fetchBills();
+    if (this.props.navigation.state.params.subjectName){
+      let subjectName = this.props.navigation.state.params.subjectName;
+      this.props.fetchBillsBySubject(subjectName);
+    }else if (this.props.renderBookmarks) {
+      this.props.fetchBookmarks();
+    } else{
+      this.props.fetchBills();
+    }
   }
 
   zipped(bills){
