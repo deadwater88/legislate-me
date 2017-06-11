@@ -22,6 +22,17 @@ class RepresentativesView extends React.Component {
     };
   }
 
+  showOptions() {
+    const newState = !this.state.showOptions;
+    this.setState({showOptions: newState });
+  }
+
+  supportBill(answer){
+    this.setState({showOptions: false});
+    this.setState({support: answer});
+    this.onEmail(answer);
+  }
+
   callRep(phoneNum){
     Communications.phonecall(phoneNum, true);
   }
