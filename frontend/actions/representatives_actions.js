@@ -15,7 +15,7 @@ export const receiveErrors = errors => ({
 
 export const createAddress = (address) => dispatch => (
   APIUtil.createAddress(address).then(representatives =>
-    dispatch(receiveRepresentatives(representatives)
+    dispatch(receiveRepresentatives(representatives.data)
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
@@ -23,7 +23,7 @@ export const createAddress = (address) => dispatch => (
 
 export const updateAddress = (address) => dispatch => (
   APIUtil.updateAddress(address).then(representatives =>
-    dispatch(receiveRepresentatives(representatives)
+    dispatch(receiveRepresentatives(representatives.data)
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
