@@ -8,14 +8,12 @@ class BillIndex extends React.Component{
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-
     if (this.props.renderBookmarks){
       this.state = {
         dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
       };
     }
-    else if (this.props.navigation.state.params.subjectName) {
-
+    else if (this.props.navigation && this.props.navigation.state.params) {
     }
     else{
       this.state = {
@@ -30,9 +28,13 @@ class BillIndex extends React.Component{
   navigateToBill(e){
   }
 
+  componentWillReceiveProps(){
+    
+  }
+
   // Once component has mounted, fetch bills
   componentWillMount(){
-    if (this.props.navigation.state.params.subjectName){
+    if (this.props.navigation && this.props.navigation.state.params){
       let subjectName = this.props.navigation.state.params.subjectName;
       this.props.fetchBillsBySubject(subjectName);
     }else if (this.props.renderBookmarks) {

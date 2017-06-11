@@ -24,8 +24,8 @@ class SubjectsIndex extends React.Component {
               <Image
                 style={imageStyle}
                 source={image} />
-              <Text style={labelText}>{subjectName}</Text>
             </TouchableHighlight>
+            <Text style={labelText}>{subjectName}</Text>
 
 
           </View>
