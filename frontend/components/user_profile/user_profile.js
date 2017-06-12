@@ -12,12 +12,13 @@ class UserProfile extends React.Component {
     const {navigate} = this.props.navigation;
     return(
       <View style={styles.parentView}>
-        <View style={{flex: 1.5}}>
-          <Icon name='account-circle' size={35}/>
+        <View style={{flex: 1}}>
+          <Icon name='account-circle' size={55}/>
           <Text style={styles.username}>You</Text>
         </View>
-        <View style={{flex: 1.0}}>
+        <View style={{flex: 2, alignContent: 'center'}}>
           <Button
+            color='black'
             onPress={() => {
               navigate('CustomizeInterests');
             }}
@@ -26,6 +27,7 @@ class UserProfile extends React.Component {
             >
           </Button>
           <Button
+            color='black'
             onPress={() => {
               navigate('UserSettings');
             }}
@@ -33,6 +35,7 @@ class UserProfile extends React.Component {
             title='Settings'>
           </Button>
           <Button
+            color='black'
             onPress={() => {
               this.props.logout();
             }}
@@ -46,7 +49,7 @@ class UserProfile extends React.Component {
 }
 const styles = StyleSheet.create({
   username: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 5
