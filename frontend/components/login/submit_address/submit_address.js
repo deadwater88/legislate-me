@@ -29,7 +29,24 @@ class SubmitAddress extends React.Component {
         <Text>RENDER MAN DANG</Text>
         <CardSection>
         <Input
+          placeholder="160 Baker St."
+          label="Address"
+          value={this.state.address}
+          onChangeText={(address) => this.setState({address})}
+          />
+      </CardSection>
+      <CardSection>
+        <Input
+          placeholder="Los Angeles, CA"
+          label="City and State"
+          value={this.state.address}
+          onChangeText={(address) => this.setState({address})}
+          />
+      </CardSection>
+      <CardSection>
+        <Input
           placeholder="Enter your street address"
+          label="Zipcode"
           value={this.state.address}
           onChangeText={(address) => this.setState({address})}
           />
