@@ -11,6 +11,7 @@ class RepresentativesView extends React.Component {
 
   constructor(props){
     super(props);
+    debugger;
     this.supportBill = this.supportBill.bind(this);
     this.showOptions = this.showOptions.bind(this);
     this.state = {  showOptions: false,
@@ -19,6 +20,7 @@ class RepresentativesView extends React.Component {
 
       this.emailRep = this.emailRep.bind(this);
       this.callRep = this.callRep.bind(this);
+      debugger;
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.state = {
         dataSource: ds.cloneWithRows(zipped(this.props.representatives))
@@ -37,9 +39,9 @@ class RepresentativesView extends React.Component {
       this.setState({emailThisRepresentative: ''});
     }
 
-      callRep(phoneNum){
-        Communications.phonecall(phoneNum, true);
-      }
+    callRep(phoneNum){
+      Communications.phonecall(phoneNum, true);
+    }
 
       buildEmail(fName, lName, supportive){
         //supportive boolean will be assigned based on what they select

@@ -12,13 +12,12 @@ import { Card, CardSection } from '../common';
 class BillView extends React.Component {
   constructor(props){
     super(props);
+    debugger; //check why this.props.representatives is null 
     this.state = {
       reveal_blurb: false,
       blurb: ''
     };
     this.toggleBlurb = this.toggleBlurb.bind(this);
-    // console.log("innnn bill view");
-    // debugger
   }
 
   componentDidMount(){
