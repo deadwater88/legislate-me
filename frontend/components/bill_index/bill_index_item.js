@@ -31,15 +31,28 @@ class BillIndexItem extends React.Component{
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
+    let bookmarkIcon;
+    if (this.props.bookmarks[this.props.bill[0]]){
+      bookmarkIcon = <Icon
+                  name="bookmark"
+                  size={20}
+                  onPress={this.toggleBookmark}
+                  />;
+      }else{
+        bookmarkIcon = <Icon
+                    name="bookmark-o"
+                    size={20}
+                    onPress={this.toggleBookmark}
+                    />;
+                  // debugger; this is being hit!
+      }
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
         <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
-          <Button title="Bookmark this bill" onPress={this.toggleBookmark}>
-
-          </Button>
+          {bookmarkIcon}
         </View>
       </TouchableHighlight>
     );
