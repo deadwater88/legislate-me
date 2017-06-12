@@ -7,7 +7,8 @@ class SubmitAddress extends React.Component {
   constructor(props){
     super(props);
     this.state = {address: "",
-                  cityState: "",
+                  city: "",
+                  state: "",
                   zip: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
     this.navigateToCustomizeInterest = this.navigateToCustomizeInterest.bind(this);
@@ -16,8 +17,8 @@ class SubmitAddress extends React.Component {
 
   findRepresentative(){
     this.props.createAddress(this.state.address
-    + " " + this.state.cityState + " "+ this.state.zip).then(
-      this.navigateToCustomizeInterest);
+    + " " + this.state.city + " " + this.state.state + " " +
+     this.state.zip).then(this.navigateToCustomizeInterest);
     //need to navigate to bill index from here.
   }
 
@@ -41,10 +42,18 @@ class SubmitAddress extends React.Component {
       </CardSection>
       <CardSection>
         <Input
-          placeholder="Los Angeles, CA"
-          label="City and State"
-          value={this.state.cityState}
-          onChangeText={(cityState) => this.setState({cityState})}
+          placeholder="Los Angeles"
+          label="City"
+          value={this.state.city}
+          onChangeText={(city) => this.setState({city})}
+          />
+      </CardSection>
+      <CardSection>
+        <Input
+          placeholder="CA"
+          label="State"
+          value={this.state.state}
+          onChangeText={(state) => this.setState({state})}
           />
       </CardSection>
       <CardSection>
