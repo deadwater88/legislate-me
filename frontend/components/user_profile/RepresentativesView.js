@@ -24,6 +24,7 @@ class RepresentativesView extends React.Component {
   }
 
   buildEmail(fName, lName, supportive){
+    debugger
     //supportive boolean will be assigned based on what they select
     const opinion = supportive ? 'disapproval' : 'approval';
     return `Dear ${fName} ${lName},
@@ -37,7 +38,8 @@ class RepresentativesView extends React.Component {
     `;
   }
 
-  emailRep(name, emailAddress){
+  emailRep(fName, lName, emailAddress){
+    debugger
     Communications.email(
       [emailAddress],
       null,null,
