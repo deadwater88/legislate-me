@@ -39,7 +39,9 @@ export const HomeRouter = TabNavigator({
     navigationOptions: {
       tabBarLabel: 'Bookmarks',
       showIcon: 'true',
-      tabBarIcon: <Icon name="bookmark" size={20}/>,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{color: tintColor}} name="bookmark" size={20}/>
+       )
     },
   },
   Explore: {
@@ -62,7 +64,7 @@ export const HomeRouter = TabNavigator({
   tabBarPosition: "top",
   tabBarOptions: {
     showIcon: true,
-    showLabel: false
-  },
-}
-);
+    showLabel: false,
+    activeTintColor: 'black',
+  }
+});
