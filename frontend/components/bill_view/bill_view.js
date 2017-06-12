@@ -57,7 +57,6 @@ class BillView extends React.Component {
     if (!state){
       return (<Text></Text>)
     } else {
-      debugger
       const capitalizedChamber = chamber[0].toUpperCase().concat(chamber.slice(1,chamber.length));
       return(
         <ScrollView >
