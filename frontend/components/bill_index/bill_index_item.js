@@ -21,20 +21,16 @@ class BillIndexItem extends React.Component{
   }
 
   navigateToBill(e){
-    // ReactNativeComponentTree.getInstancefFromNode(e.target)._currentElement;
-    // const elem = ReactNativeComponentTree.getInstanceFromNode(e.target);
-    // debugger
     const billId = this.props.bill[0];
     //OS ID is [0], bill object is [1]
     console.log("navigatng to bill");
-    debugger;
     this.props.navigation.navigate('BillView', {billId});
+
   }
 
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
-    console.log("rendering bill index item");
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
         <View>
