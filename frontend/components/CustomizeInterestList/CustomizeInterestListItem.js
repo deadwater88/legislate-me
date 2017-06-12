@@ -23,7 +23,6 @@ class CustomizeInterestListItem extends Component {
 
   onClick(){
     this.props.selectSubject(this.props.data[0]);
-    console.log("click");
   }
 }
 

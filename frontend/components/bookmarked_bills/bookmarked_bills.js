@@ -5,7 +5,6 @@ class BookmarkedBills extends React.Component{
   constructor(props){
     super(props);
     this.renderBookmarks = true;
-    console.log('hitttttttt bookmarks');
   }
 
   componentDidMount(){

@@ -44,6 +44,7 @@ class UserView(APIView):
         user.set_password(password)
         user.save()
         login(request, user)
+        pdb.set_trace()
         serializer = UserSerializer(user)
         return JsonResponse(serializer.data)
 

@@ -16,11 +16,9 @@ class OAuthButtons extends Component {
     super(props);
     this.configureConnection = this.configureConnection.bind(this);
     this.state = {flag: false};
-    console.log('state')
   }
 
   configureConnection(){
-    console.log('configuring connection');
     // this.state.flag = true;
     if (this.state.flag) {
       return "";

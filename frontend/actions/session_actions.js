@@ -34,9 +34,6 @@ export const login = user => dispatch => (
   APIUtil.login(user).then(response => (
     dispatch(receiveCurrentUser(response.data))
   ), err => {
-    // console.log('LOGIN ERROR FAM', err); // LOGIN ERROR FAM Error: Request failed with status code 402
-    console.log("ERRORS ARE", err);
-    // debugger;
     return dispatch(receiveErrors(err.response.data));
   })
 );
@@ -63,7 +60,6 @@ export const deleteUser = user => dispatch => (
 );
 
 export const authUser = user => dispatch => {
-  console.log('authUser is hit !!!!!!!!!!!--> USER IS', user);
   return APIUtil.oauth(user).then(response => (
     dispatch(receiveCurrentUser(response.data))
   ));

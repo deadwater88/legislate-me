@@ -14,7 +14,6 @@ class ContactRepresentativesView extends React.Component {
 
    onEmail(){
      Communications.phonecall('valid_number', true);
-     console.log("You've emailed your representatives!");
    }
 
    onCall(){
@@ -22,7 +21,6 @@ class ContactRepresentativesView extends React.Component {
      null,null,
      `My Support for ${this.props.bill.title}` ,
      `I think you should support ${this.props.bill.title} `);
-     console.log("You've called your representatives!");
    }
 
    render(){

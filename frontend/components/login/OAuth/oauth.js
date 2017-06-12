@@ -14,10 +14,10 @@ const {
 
 class FBOAuth extends Component {
   render() {
-    AccessToken.getCurrentAccessToken().then(data => {
-      let res = {tokenType: 'facebook', 'id': data.userID};
-      this.props.authUser(res);
-    });
+    // AccessToken.getCurrentAccessToken().then(data => {
+    //   let res = {tokenType: 'facebook', 'id': data.userID};
+    //   this.props.authUser(res);
+    // });
     return (
       <View>
   <LoginButton style={this.props.style}
@@ -36,7 +36,6 @@ class FBOAuth extends Component {
                 if (error) {
                   alert('Error fetching data: ' + err.toString());
                 } else {
-                  console.log("WE MADE IT", res);
                   res.tokenType = 'facebook';
                   this.props.authUser(res);
                 }

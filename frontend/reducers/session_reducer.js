@@ -30,7 +30,8 @@ const SessionReducer = (state = nullUser, action) => {
       newState.errors = action.errors;
       return newState;
     case RECEIVE_SUBJECTS:
-      newState = merge({}, state, {subjects: action.subjects});
+      newState = merge({}, state);
+      newState.subjects = action.subjects;
       return newState;
     default:
       return state;
