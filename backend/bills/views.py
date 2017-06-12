@@ -38,6 +38,17 @@ class BookmarkedBillsView(APIView):
             response[bill.os_id] = BillLiteSerializer(bill).data
         return JsonResponse(response)
 
+    def delete(self, request):
+        user = request.user
+        os_id = request.data['os_id']
+        bill = Bill.objects.get(os_id=os_id)
+        user.bills.remove(bill)
+        user.save()
+        response = {}
+        for bill in bills:
+            response[bill.os_id] = BillLiteSerializer(bill).data
+        return JsonResponse(response)
+
 # View for viewing bills by user subjects
 class BillsView(APIView):
     parser_classes = (FormParser, JSONParser)
@@ -45,7 +56,10 @@ class BillsView(APIView):
     def get(self, request):
         user = request.user
         subjects = user.subjects
-        bills = Bill.objects.filter(subject__in=subjects)
+        if len(subjects) == 0:
+            bills = Bill.objects.all().order_by('-last')[:300]
+        else:
+            bills = Bill.objects.filter(subject__in=subjects).order_by('-last')[:300]
         response = {}
         for bill in bills:
             response[bill.os_id] = BillLiteSerializer(bill).data

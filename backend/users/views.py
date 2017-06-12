@@ -12,6 +12,7 @@ from rest_framework.views import APIView
 from users.serializers import UserSerializer, RepsSerializer
 # Create your views here.
 from django.contrib.auth import authenticate, login, get_user_model, logout
+from django.contrib.auth.password_validation import validate_password
 import requests
 from legislate_me.api_keys import google_geocode_call, open_states_call, fetch_legislators, fetch_legislator_objects
 
@@ -32,6 +33,10 @@ class UserView(APIView):
         last_name = request.data['lName']
         first_name = request.data['fName']
         user = User(email=email, password=password, first_name=first_name, last_name=last_name)
+        try:
+            validate_password(password, user=user)
+        except ValidationError as e:
+            return JsonResponse(e.message_dict, status=400)
         try:
             user.full_clean()
         except ValidationError as e:
@@ -75,5 +80,6 @@ def setup(request):
     parser_classes = (FormParser, JSONParser)
     user = request.user
     user.setup = True
+    user.save()
     serializer = UserSerializer(user)
     return JsonResponse(serializer.data)
