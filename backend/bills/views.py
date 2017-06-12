@@ -21,7 +21,7 @@ class BookmarkedBillsView(APIView):
 
     def get(self, request):
         user = request.user
-        bills = user.bills
+        bills = user.bills.all()
         response = {}
         for bill in bills:
             response[bill.os_id] = BillLiteSerializer(bill).data
