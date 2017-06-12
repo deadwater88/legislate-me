@@ -52,7 +52,6 @@ class BillDetailSerializer(serializers.BaseSerializer):
     def to_representation(self, obj):
         leg_id = obj.leg_id
         sponsor = fetch_legislator_objects([leg_id])[0]
-        pdb.set_trace()
         sponsor = RepSerializer(sponsor).data
         return {
         'os_id': obj.os_id,
