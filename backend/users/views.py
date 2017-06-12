@@ -63,7 +63,7 @@ class SubjectsView(APIView):
         user.subjects = [subject for subject in subjectsDict if subjectsDict[subject]]
         user.setup = True
         user.save()
-        serializer = UserSerializer(user
+        serializer = UserSerializer(user)
         return JsonResponse(serializer.data)
 
 class RepresentativesView(APIView):
@@ -78,6 +78,7 @@ class RepresentativesView(APIView):
         serializer = RepsSerializer(reps)
         return JsonResponse(serializer.data)
             # save rep object in our backend
+
 def setup(request):
     parser_classes = (FormParser, JSONParser)
     user = request.user
