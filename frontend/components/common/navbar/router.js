@@ -38,16 +38,13 @@ const BillNavigator = StackNavigator({
     activeTintColor: 'white',
     inactiveTintColor: 'grey',
   },
-  onNavigationStateChange: (prevState, newState) => {
-    debugger;
-  }
 });
 
 
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
   BillNavigator: {
-    screen: connect(null, mapDispatchToProps)(BillNavigator)
+    screen: BillNavigator
   },
   Bookmarks: {
     screen: BookmarkedBills,
