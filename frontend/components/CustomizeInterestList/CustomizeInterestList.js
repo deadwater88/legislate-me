@@ -9,7 +9,6 @@ import { finishSetup } from '../../util/user_api_util';
 class CustomizeInterestList extends Component {
   constructor(props){
     super(props);
-    // console.log("made interest list");
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
@@ -43,7 +42,11 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     finishSetup();
-    setTimeout(this.props.navigation.goBack, 100);
+    console.log('SAVE INTERESTS');
+    if (this.props.navigation.state && this.props.navigation.state.params.fromSubmitAddress){
+    } else{
+      setTimeout(this.props.navigation.goBack, 100);
+    }
   }
 
   render(){
