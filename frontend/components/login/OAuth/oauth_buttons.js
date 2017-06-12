@@ -14,11 +14,11 @@ const mapDispatchToProps = dispatch => ({
 class OAuthButtons extends Component {
   constructor(props){
     super(props);
+    // authUser = this.props.authUser;
     this.configureConnection = this.configureConnection.bind(this);
   }
 
   configureConnection(){
-  console.log('configuring connection');
    GoogleSignin.configure({
      forceConsentPrompt: true
    })
