@@ -16,7 +16,7 @@ class SubmitAddress extends React.Component {
   }
 
   findRepresentative(){
-    debugger;
+
     this.props.createAddress(this.state.address
     + " " + this.state.city + " " + this.state.state + " " +
      this.state.zip).then(this.navigateToCustomizeInterest);
@@ -25,7 +25,7 @@ class SubmitAddress extends React.Component {
 
   navigateToCustomizeInterest(){
     // this.props.navigation.navigate maybe?
-    debugger;
+
     this.props.navigation.navigate('CustomizeInterestList', {fromSubmitAddress: true});
   }
 

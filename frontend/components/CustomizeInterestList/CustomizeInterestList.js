@@ -43,8 +43,8 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     finishSetup();
+
     if (this.props.navigation.state && this.props.navigation.state.params.fromSubmitAddress){
-      this.props.navigation.navigate('Home', {fromSubmitAddress: true});
     } else{
       setTimeout(this.props.navigation.goBack, 100);
     }
