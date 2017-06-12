@@ -6,7 +6,9 @@ import OAuthButtons from '../OAuth/oauth_buttons';
 class SubmitAddress extends React.Component {
   constructor(props){
     super(props);
-    this.state = {address: ""};
+    this.state = {address: "",
+                  cityState: "",
+                  zip: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
     this.navigateToCustomizeInterest = this.navigateToCustomizeInterest.bind(this);
     // this.skipEnteringAddress = this.skipEnteringAddress.bind(this);
@@ -39,16 +41,16 @@ class SubmitAddress extends React.Component {
         <Input
           placeholder="Los Angeles, CA"
           label="City and State"
-          value={this.state.address}
-          onChangeText={(address) => this.setState({address})}
+          value={this.state.cityState}
+          onChangeText={(cityState) => this.setState({cityState})}
           />
       </CardSection>
       <CardSection>
         <Input
-          placeholder="Enter your street address"
+          placeholder="90001"
           label="Zipcode"
-          value={this.state.address}
-          onChangeText={(address) => this.setState({address})}
+          value={this.state.zip}
+          onChangeText={(zip) => this.setState({zip})}
           />
       </CardSection>
       <CardSection>
