@@ -16,8 +16,6 @@ class LoginForm extends Component {
       this.onToggleSignIn = this.onToggleSignIn.bind(this);
       this.onSignUp = this.onSignUp.bind(this);
       this.onLogIn = this.onLogIn.bind(this);
-      this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
-      this.redirectToHome = this.redirectToHome.bind(this);
     }
 
     componentWillReceiveProps(newProps){
@@ -34,7 +32,6 @@ class LoginForm extends Component {
       } else if (newProps.currentUser && newProps.setup){
         this.redirectToHome();
       }
-
     }
 
     errorsChanged(newProps){
@@ -53,12 +50,6 @@ class LoginForm extends Component {
       });
 
     }
-
-    // renderErrors(){
-    //   let errorArray = this.props.errors.credentials;
-    //   return errorArray ? errorArray.map(error => <Text>{error}</Text>) : [];
-    // }
-
     onSignUp(){
       this.props.signup({
         fName: this.state.fName,
@@ -120,7 +111,6 @@ class LoginForm extends Component {
               <Text>Or sign up</Text>
             </TouchableHighlight>
           </CardSection>
-
         </Card>
       );
     }else{

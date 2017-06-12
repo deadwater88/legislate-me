@@ -23,7 +23,6 @@ class BillIndex extends React.Component{
         dataSource: ds.cloneWithRows(this.zipped(this.props.bills))
       };
     }
-
     this.zipped = this.zipped.bind(this);
   }
 
@@ -38,6 +37,10 @@ class BillIndex extends React.Component{
     }
   }
 
+  componentDidMount(){
+    // debugger;
+  }
+
   zipped(bills){
     let zippedArray = [];
     Object.keys(bills).forEach((key) => {
@@ -49,12 +52,13 @@ class BillIndex extends React.Component{
   }
 
   render(){
+    // debugger;
+    console.log('bill index render function hit');
     const ds = this.state.dataSource;
     const {navigate} = this.props.navigation;
 
     const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = this.state.ds.cloneWithRows(bills);
-    // const style = t
     const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES;
     return (
       <ListView

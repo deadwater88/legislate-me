@@ -81,6 +81,7 @@ class App extends Component {
     // if (!this.props) return <Text></Text>;
     //if set up is false, user is still setting up
     if (this.props.currentUser && this.props.currentUser.setup){
+      console.log('SHOULD REDIRECT NOW');
       return (
         <HomeRouter/>
       );
