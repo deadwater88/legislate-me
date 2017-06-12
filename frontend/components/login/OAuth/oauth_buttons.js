@@ -59,7 +59,7 @@ class OAuthButtons extends Component {
         style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
-        onPress={()=> this.configureConnection() }/>
+        onPress={this.configureConnection }/>
       </View>
     );
   }

@@ -23,7 +23,7 @@ class SessionView(APIView):
             serializer = UserSerializer(user)
             return JsonResponse(serializer.data)
         else:
-            return JsonResponse({"error": ["No user logged in"]}, status=400)
+            return JsonResponse(None,safe=False)
 
 
     def post(self, request):
