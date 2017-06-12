@@ -15,27 +15,35 @@ class OAuthButtons extends Component {
   constructor(props){
     super(props);
     this.configureConnection = this.configureConnection.bind(this);
+    this.state = {flag: false};
+    console.log('state')
   }
 
   configureConnection(){
-  console.log('configuring connection');
-   GoogleSignin.configure({
-     forceConsentPrompt: true
-   })
-   .then(() => {
-     GoogleSignin.signIn()
-       .then((user) => {
-         let userNameSplit = user.name.split(" ");
-         user.first_name = userNameSplit[0];
-         user.last_name = userNameSplit[userNameSplit.length-1];
-         user.tokenType = 'google';
-         this.props.authUser(user);
-       })
-        .catch((err) => {
-         console.log('Something went wrong :(', err);
-        })
-       .done();
-   });
+    console.log('configuring connection');
+    // this.state.flag = true;
+    if (this.state.flag) {
+      return "";
+    }
+    this.state.flag = true;
+     GoogleSignin.configure({
+       forceConsentPrompt: true
+     })
+     .then(() => {
+       GoogleSignin.signIn()
+         .then((user) => {
+          //  this.state.flag = false;
+           let userNameSplit = user.name.split(" ");
+           user.first_name = userNameSplit[0];
+           user.last_name = userNameSplit[userNameSplit.length-1];
+           user.tokenType = 'google';
+           this.props.authUser(user);
+         })
+          .catch((err) => {
+           console.log('Something went wrong :(', err);
+          })
+         .done();
+     });
   }
 
 
@@ -53,7 +61,7 @@ class OAuthButtons extends Component {
         style={buttonStyle}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Light}
-        onPress={this.configureConnection}/>
+        onPress={()=> this.configureConnection() }/>
       </View>
     );
   }

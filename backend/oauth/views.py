@@ -18,23 +18,22 @@ class OAuthView(APIView):
     # def get(self, request):
     #     users = User.objects.all()
     #     return HttpResponse(users)
-
     def post(self, request):
         User = get_user_model()
-        email = request.data['email']
-        userobj = {
-                    'email': email,
-        }
+        userobj = {}
         if request.data['tokenType'] == 'facebook':
             userobj['fb_token'] = request.data['id']
+            user = User.objects.get(fb_token=request.data['id'])
         elif request.data['tokenType'] == 'google':
             userobj['google_token'] = request.data['id']
+            user = User.objects.get(google_token=request.data['id'])
         try:
-            user = User.objects.get(email=email)
             login(request, user)
             serializer = UserSerializer(user)
             return JsonResponse(serializer.data)
         except User.DoesNotExist:
+            email = request.data['email']
+            userobj['email'] = email
             password = abs(hash(email))
             userobj['last_name'] = request.data['last_name']
             userobj['first_name'] = request.data['first_name']

@@ -14,6 +14,10 @@ const {
 
 class FBOAuth extends Component {
   render() {
+    AccessToken.getCurrentAccessToken().then(data => {
+      let res = {tokenType: 'facebook', 'id': data.userID};
+      this.props.authUser(res);
+    });
     return (
       <View>
   <LoginButton style={this.props.style}
@@ -37,7 +41,7 @@ class FBOAuth extends Component {
                   this.props.authUser(res);
                 }
 
-              }
+              };
 
               const infoRequest = new GraphRequest(
                 '/me',
@@ -59,7 +63,7 @@ class FBOAuth extends Component {
         }
       }
     }
-    onLogoutFinished={() => alert("logout.")}/>
+    onLogoutFinished={() => alert("You have logged out of Facebook")}/>
 </View>
     );
   }
