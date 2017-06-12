@@ -17,7 +17,7 @@ class Splash extends Component {
 
     return (
       <Image style={containerStyle} source={pic}>
-        <Text style={headerStyle}>Make your voice heard </Text>
+        <Text style={headerStyle}>Voice your opinion before a bill becomes law. Join LegislateMe. </Text>
         <Button
           onPress={() => {
             navigate('Login');
@@ -44,7 +44,7 @@ const styles = {
     paddingLeft: 15,
     marginTop: 30,
     marginBottom: 330,
-    fontSize: 34,
+    fontSize: 30,
     height: 150
   }
 };
