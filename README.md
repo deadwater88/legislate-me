@@ -9,7 +9,10 @@ important to them, and email/call their representatives about specific bills fro
 
 Our mission statement is to reduce the effort needed to get involved in local politics. With LegislateMe, it's as easy as pushing a button!
 
-![Subjects View](/docs/subject_view.gif)
+<p align="center">
+<img src = "/docs/subject_view.gif">
+</p>
+
 
 ## Technologies
   LegislateMe pairs Redux data architecture with React Native for efficient, unidirectional data management and cross-mobile performant functionality. Django, chosen for its portability and well-organized documentation, serves as the application's server-side web API.
@@ -91,7 +94,9 @@ Our mission statement is to reduce the effort needed to get involved in local po
   ### Following bills
    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill.
 
-  ![bill_view](/docs/bill_view.gif)
+ <p align="center">
+ <img src = "/docs/bill_view.gif">
+ </p>
 
 ## Future Features
   Our team is excited to continue working on this project. Ultimately, we want LegislateMe to be the go-to place for political action at the state level. To do this, we look forward to a number of exciting engineering challenges:
