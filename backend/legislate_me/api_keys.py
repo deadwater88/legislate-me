@@ -37,6 +37,7 @@ def fetch_legislator_objects(legislator_ids):
     for legislator_id in legislator_ids:
         query = "legislators/{legislator_id}/?".format(legislator_id=legislator_id)
         legislator = requests.get("https://openstates.org/api/v1/{query}&apikey={OPEN_STATE_KEY}".format(query=query,OPEN_STATE_KEY=OPEN_STATE_KEY))
+        pdb.set_trace()
         legislators.append(legislator.json())
     return legislators
 

@@ -13,7 +13,7 @@ from legislate_me.api_keys import google_geocode_call, fetch_legislators, fetch_
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        text = "160 Spear St. San Francisco, CA 94108"
-        coord = google_geocode_call(text)
-        legis = fetch_legislators(coord)
-        leg_obj = fetch_legislator_objects(legis)
+        bill = Bill.objects.get(os_id='CAB00022431')
+        pdb.set_trace()
+        fetch_legislator_objects([bill.leg_id])
+        serializer = BillDetailSerializer(bill)
