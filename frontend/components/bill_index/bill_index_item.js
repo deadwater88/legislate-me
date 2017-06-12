@@ -63,7 +63,8 @@ class BillIndexItem extends React.Component{
 const styles = StyleSheet.create({
   container: {
     margin: 10
-  }
+  },
+
 });
 
 export default BillIndexItem;
