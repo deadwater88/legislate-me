@@ -52,7 +52,7 @@ class RepresentativesView extends React.Component {
 
         Sincerely,
         ${this.props.userName}
-        `
+        `;
       }
 
       emailRep(fName, lName, emailAddress){
@@ -78,9 +78,10 @@ class RepresentativesView extends React.Component {
                 </CardSection>
               </View>
             </View>
-          )
+          );
           } else {
             return(
+
               <ListView
                 dataSource={this.state.dataSource}
                 renderRow={representative => {
@@ -107,7 +108,7 @@ class RepresentativesView extends React.Component {
                           style={{}} />
                       </View>
                     </View>
-                  )}}
+                  );}}
                   />
             );
           }

@@ -21,7 +21,7 @@ class BookmarkedBillsView(APIView):
 
     def get(self, request):
         user = request.user
-        bills = user.bills
+        bills = user.bills.all()
         response = {}
         for bill in bills:
             response[bill.os_id] = BillLiteSerializer(bill).data
@@ -34,7 +34,18 @@ class BookmarkedBillsView(APIView):
         user.bills.add(bill)
         user.save()
         response = {}
-        for bill in bills:
+        for bill in user.bills.all():
+            response[bill.os_id] = BillLiteSerializer(bill).data
+        return JsonResponse(response)
+
+    def delete(self, request):
+        user = request.user
+        os_id = request.data['os_id']
+        bill = Bill.objects.get(os_id=os_id)
+        user.bills.remove(bill)
+        user.save()
+        response = {}
+        for bill in user.bills.all():
             response[bill.os_id] = BillLiteSerializer(bill).data
         return JsonResponse(response)
 
@@ -45,7 +56,10 @@ class BillsView(APIView):
     def get(self, request):
         user = request.user
         subjects = user.subjects
-        bills = Bill.objects.filter(subject__in=subjects)
+        if len(subjects) == 0:
+            bills = Bill.objects.filter(leg_id__startswith='CAL').order_by('-last')[:300]
+        else:
+            bills = Bill.objects.filter(subject__in=subjects,leg_id__startswith='CAL').order_by('-last')[:300]
         response = {}
         for bill in bills:
             response[bill.os_id] = BillLiteSerializer(bill).data
@@ -55,7 +69,7 @@ class BillsbySubjectView(APIView):
     parser_classes = (FormParser, JSONParser)
 
     def get(self, request, subject):
-        bills = Bill.objects.filter(subject=subject)
+        bills = Bill.objects.filter(subject=subject,leg_id__startswith='CAL')
         response = {}
         for bill in bills:
             response[bill.os_id] = BillLiteSerializer(bill).data
@@ -67,7 +81,6 @@ class BillView(APIView):
     parser_classes = (FormParser, JSONParser)
 
     def get(self, request, os_id):
-        parser_classes = (FormParser, JSONParser)
         #req.url parse this
         # bill = open_states_call("bills/{bill_osid}/?".format(bill_osid=bill_osid))
         bill = Bill.objects.get(os_id=os_id)
