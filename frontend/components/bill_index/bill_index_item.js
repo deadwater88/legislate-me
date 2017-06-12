@@ -32,6 +32,7 @@ class BillIndexItem extends React.Component{
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
     let bookmarkIcon;
+
     if (this.props.bookmarks[this.props.bill[0]]){
       bookmarkIcon = <Icon
                   name="bookmark"
