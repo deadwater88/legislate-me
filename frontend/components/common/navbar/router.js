@@ -18,7 +18,9 @@ const BillNavigator = StackNavigator({
     navigationOptions: {
       tabBarLabel: 'Feed',
       showIcon: 'true',
-      tabBarIcon: <Icon name="home" size={20} />,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{color: tintColor}} name="home" size={20}/>
+       ),
       left: null
     },
   },
@@ -26,6 +28,11 @@ const BillNavigator = StackNavigator({
   BillView: { screen: BillView }
 }, {
   headerMode: 'none'
+}, {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    inactiveTintColor: 'grey',
+  }
 });
 
 
@@ -49,22 +56,30 @@ export const HomeRouter = TabNavigator({
     navigationOptions: {
       tabBarLabel: 'Explore',
       showIcon: 'true',
-      tabBarIcon: <Icon name="globe" size={20}/>,
-    },
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{color: tintColor}} name="globe" size={20}/>
+       )
+     },
   },
   UserProfile: {
     screen: UserProfileNavigator,
     navigationOptions: {
       tabBarLabel: 'Profile',
       showIcon: 'true',
-      tabBarIcon: <Icon name="user-o" size={20}/>,
-    },
+      tabBarIcon: ({ tintColor }) => (
+        <Icon style={{color: tintColor}} name="user-o" size={20}/>
+       )
+     },
   }
 }, {
   tabBarPosition: "top",
   tabBarOptions: {
     showIcon: true,
     showLabel: false,
-    activeTintColor: 'black',
+    activeTintColor: 'white',
+    inactiveTintColor: 'grey',
+    tabStyle: {
+      backgroundColor: 'black'
+    }
   }
 });
