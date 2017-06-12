@@ -21,7 +21,7 @@ class LoginForm extends Component {
     }
 
     componentWillReceiveProps(newProps){
-      if (newProps.errors) {
+      if (this.errorsChanged(newProps)) {
         let errorObject = newProps.errors;
         let errors = ""; //value is going to be an array.
         Object.keys(errorObject).forEach(errorCategory => {
@@ -31,6 +31,16 @@ class LoginForm extends Component {
         });
         errors.length > 0 ? alert(errors) : null;
       }
+      if (newProps.currentUser && !newProps.currentUser.setup) {
+        this.redirectToAddressPage;
+      } else if (newProps.currentUser && newProps.setup){
+        this.redirectToHome;
+      }
+
+    }
+
+    errorsChanged(newProps){
+      return Object.keys(this.props.errors).length !== Object.keys(newProps.errors).length;
     }
 
     onToggleSignIn(){
@@ -42,14 +52,14 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToHome);
+      });
 
     }
 
-    renderErrors(){
-      let errorArray = this.props.errors.credentials;
-      return errorArray ? errorArray.map(error => <Text>{error}</Text>) : [];
-    }
+    // renderErrors(){
+    //   let errorArray = this.props.errors.credentials;
+    //   return errorArray ? errorArray.map(error => <Text>{error}</Text>) : [];
+    // }
 
     onSignUp(){
       this.props.signup({
@@ -57,10 +67,10 @@ class LoginForm extends Component {
         lName: this.state.lName,
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToAddressPage);
+      });
     }
 
-    redirectToHome(){
+    redirectToHome() {
       this.props.navigation.navigate('Home');
     }
 
@@ -112,7 +122,7 @@ class LoginForm extends Component {
               <Text>Or sign up</Text>
             </TouchableHighlight>
           </CardSection>
-          <Text>ERRORS ARE {this.renderErrors()}</Text>
+
         </Card>
       );
     }else{
@@ -168,7 +178,6 @@ class LoginForm extends Component {
               <Text>Or log in</Text>
             </TouchableHighlight>
           </CardSection>
-          <Text>ERRORS ARE {this.renderErrors()}</Text>
         </Card>
       );
     }

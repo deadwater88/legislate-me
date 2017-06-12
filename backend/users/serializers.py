@@ -21,6 +21,7 @@ class UserSerializer(serializers.BaseSerializer):
         'last_name': obj.last_name,
         'subjects': subjects,
         'representatives': representatives,
+        'setup': obj.setup,
         }
 
 class RepSerializer(serializers.BaseSerializer):
