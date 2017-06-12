@@ -45,7 +45,7 @@ class RepresentativesView extends React.Component {
       return(
 `Dear Representative ${fName} ${lName},
 
-My name is ${this.props.userName}, and I'm one of your constituents. I'm sending this email to voice my ${opinion} of ${this.props.bill.bill_id}: "${this.props.bill.title}" Voters like me consider this an important issue, and I wanted to reach out personally to show you how much I care. Thank you for hearing me out.
+My name is ${this.props.userName}, and I'm one of your constituents. I'm sending this email to voice my ${opinion} of ${this.props.bill.bill_id} "${this.props.bill.title}" Voters like me consider this an important issue, and I wanted to reach out personally to show you how much I care. Thank you for hearing me out.
 
 Sincerely,
 ${this.props.userName}`);
