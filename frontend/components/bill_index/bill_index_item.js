@@ -24,6 +24,7 @@ class BillIndexItem extends React.Component{
     const billId = this.props.bill[0];
     //OS ID is [0], bill object is [1]
     console.log("navigatng to bill");
+    // debugger;
     this.props.navigation.navigate('BillView', {billId});
   }
 
