@@ -14,7 +14,7 @@ Our mission statement is to reduce the overhead necessary to get involved in loc
 
   ![React Icon](/frontend/components/subjects/images/React-icon.png)
   ![Django Icon](/frontend/components/subjects/images/Django_logo.png)
-  ![Google Maps](/frontend/components/subjects/images/Google_Maps.jpg)
+  ![Google Maps](/frontend/components/subjects/images/Google_Maps.png)
 
 
   Third Party APIS involved:
@@ -71,7 +71,7 @@ Our mission statement is to reduce the overhead necessary to get involved in loc
 
   ### Keeping the Database up-to-date
 
-    + In order to serve our users the most recently edited bills, we have our server scan the Open States API every night at 3 am for new bills. We used the Heroku Scheduler to set up this job.
+   + In order to serve our users the most recently edited bills, we have our server scan the Open States API every night at 3 am for new bills. We used the Heroku Scheduler to set up this job.
 
   ``` python
   class Command(BaseCommand):
