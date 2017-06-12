@@ -36,12 +36,14 @@ class BillIndexItem extends React.Component{
       bookmarkIcon = <Icon
                   name="bookmark"
                   size={20}
+                  style={{color: 'black'}}
                   onPress={this.toggleBookmark}
                   />;
       }else{
         bookmarkIcon = <Icon
                     name="bookmark-o"
                     size={20}
+                    style={{color: 'black'}}
                     onPress={this.toggleBookmark}
                     />;
                   // debugger; this is being hit!
@@ -49,11 +51,16 @@ class BillIndexItem extends React.Component{
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
         <View style={styles.container}>
-          <Text>{bill.subject}</Text>
-          <Text>{bill.title}</Text>
-          <Text>By: {bill.leg_name}</Text>
-          <Image style={{height:50, width: 50}} source={pic_url}/>
-          {bookmarkIcon}
+          <View style={styles.left}>
+            <Text style={styles.subject}>{bill.subject}</Text>
+            <Text style={styles.title}>{bill.title}</Text>
+            <Text>By: {bill.leg_name}</Text>
+          </View>
+
+          <View style={styles.right}>
+            <Image style={styles.image} source={pic_url}/>
+            {bookmarkIcon}
+          </View>
         </View>
       </TouchableHighlight>
     );
@@ -62,9 +69,36 @@ class BillIndexItem extends React.Component{
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10
+    margin: 18,
+    flex: 1,
+    justifyContent: 'space-around',
+    alignContent: 'space-around',
+    flexDirection: 'row',
   },
-
+  image: {
+    height:70,
+    width: 70,
+    marginBottom: 15
+  },
+  title: {
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: 16,
+    marginBottom: 5
+  },
+  subject: {
+    fontSize: 18,
+    marginBottom: 5
+  },
+  left: {
+    flex: 4
+  },
+  right: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flex: 1
+  }
 });
 
 export default BillIndexItem;
