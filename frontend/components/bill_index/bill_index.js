@@ -5,6 +5,7 @@ import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/render
 
 class BillIndex extends React.Component{
   constructor(props){
+    console.log("creating bill index");
     super(props);
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
@@ -29,7 +30,7 @@ class BillIndex extends React.Component{
     if (this.props.navigation && this.props.navigation.state.params){
       let subjectName = this.props.navigation.state.params.subjectName;
       this.props.fetchBillsBySubject(subjectName);
-    }else if (this.props.renderBookmarks) {
+    } else if (this.props.renderBookmarks) {
       this.props.fetchBookmarks();
     } else{
       this.props.fetchBills();
@@ -47,8 +48,11 @@ class BillIndex extends React.Component{
   }
 
   render(){
+    console.log("rendeing bill index");
+
     const ds = this.state.dataSource;
     // const {navigate } = this.props.navigation;
+    debugger
     const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = this.state.ds.cloneWithRows(bills);
 
