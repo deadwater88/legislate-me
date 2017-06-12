@@ -9,6 +9,8 @@ important to them, and email/call their representatives about specific bills fro
 
 Our mission statement is to reduce the effort needed to get involved in local politics. With LegislateMe, it's as easy as pushing a button!
 
+![Subjects View](/docs/subject_view.gif)
+
 ## Technologies
   LegislateMe pairs Redux data architecture with React Native for efficient, unidirectional data management and cross-mobile performant functionality. Django, chosen for its portability and well-organized documentation, serves as the application's server-side web API.
 
@@ -21,15 +23,12 @@ Our mission statement is to reduce the effort needed to get involved in local po
    + [OpenStates](http://docs.openstates.org/en/latest/api/)
       - allows for curation of bill data for states.
    + [Google Maps Geocoding](https://developers.google.com/maps/documentation/javascript/geocoding)
-      - allows user to enter address and receive corresponding lat/long points. 
+      - allows user to enter address and receive corresponding lat/long points.
 
 ## Features
   ### OAuth integration
 
   + Nobody likes having to manually sign up for an app. LegislateMe integrates with the Facebook and Google SDK in order to make authentication pain-free.
-  
-    **insert video of FB sign up/login here**
-    **insert video of Google sign up/login here**
 
   ### Find your representative
 
@@ -59,15 +58,12 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
    + If a user is reading a bill that they feel particularly passionate about, they can call or email their representatives from within the application.
 
-    **Show the RepresentativeView gif**  
-    
+
    + If the user chooses to email, a prefilled-email with the bill details and legislator's email address are populated and ready to send.
 
-    **Show prefilled email gif**
 
    + In case the user wants to give a more personal touch, the option to call is also provided. Hitting the call button will prefill the number with the representative's phone number.
 
-   **Show video of this happening**
 
   ### Keeping the Database up-to-date
 
@@ -94,7 +90,8 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
   ### Following bills
    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill.
-    **Insert gif of saving a bill then going into bookmark view**
+   
+    ![bill_view](/docs/bill_view.gif)
 
 ## Future Features
   Our team is excited to continue working on this project. Ultimately, we want LegislateMe to be the go-to place for political action at the state level. To do this, we look forward to a number of exciting engineering challenges:
