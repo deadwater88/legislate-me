@@ -1,5 +1,5 @@
 # LegislateMe
-[Our Splash Page]("www.legislateme.com")
+[Our Splash Page]("http://www.legislateme.com")
 
 ## Overview
 In today's world of sound bytes and social media, it's often difficult to keep up with local policy.  LegislateMe, a mobile application built with React Native and a Django backend, aims to solve that problem.
