@@ -12,32 +12,51 @@ class BillIndexItem extends React.Component{
   }
 
   toggleBookmark(){
-    //conditional here: this.props.bill is bookmarked, unbookmark
-    //else, bookmark
-    // this.props.bookmarkBill(this.props.bill);
-
-    // this.props.navigateToBill(this.props.bill);
-
+    // debugger;
+    if (this.props.bookmarks[this.props.bill[0]]){ // if it's bookmarked
+      this.props.deleteBookmark(this.props.bill[1]);
+    } else {
+      this.props.bookmarkBill(this.props.bill[1]);
+    }
   }
 
   navigateToBill(e){
     const billId = this.props.bill[0];
-    this.props.navigate('BillView', {billId});
+    //OS ID is [0], bill object is [1]
+    console.log("navigatng to bill");
+    this.props.navigation.navigate('BillView', {billId});
+
   }
 
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
+    let bookmarkIcon;
+
+    if (this.props.bookmarks[this.props.bill[0]]){
+      bookmarkIcon = <Icon
+                  name="bookmark"
+                  size={20}
+                  onPress={this.toggleBookmark}
+                  />;
+      }else{
+        bookmarkIcon = <Icon
+                    name="bookmark-o"
+                    size={20}
+                    onPress={this.toggleBookmark}
+                    />;
+                  // debugger; this is being hit!
+      }
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
         <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
+          {bookmarkIcon}
         </View>
       </TouchableHighlight>
     );
-    //conditional render on bookmark bill depending on whether bill is bookmarked
   }
 }
 
