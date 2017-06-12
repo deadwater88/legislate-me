@@ -19,6 +19,6 @@ export const fetchBookmarks = subject  => dispatch => (
 ));
 
 export const createBookmark = bookmark  => dispatch => (
-  BillAPIUtil.bookmarkBill(bookmark).then(bookmarkedBill =>
-    dispatch(receiveBookmark(bookmarkedBill.data))
+  BillAPIUtil.bookmarkBill(bookmark).then(bookmarks =>
+    dispatch(receiveBookmarks(bookmarks.data))
 ));
