@@ -29,7 +29,7 @@ class SubjectsIndex extends React.Component {
       );
     });
     return(
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <Text style={headerText}>Discover new bills by subject</Text>
         {subjects}
       </ScrollView>
@@ -38,6 +38,11 @@ class SubjectsIndex extends React.Component {
 }
 
 const styles = {
+  container: {
+    backgroundColor: 'black',
+    flex: 1,
+    opacity: 0.8
+  },
   imageGroup: {
     flexDirection: 'column',
     flex: 1,
@@ -46,27 +51,23 @@ const styles = {
     alignItems: 'center'
   },
   imageStyle: {
-    opacity: 0.8
+    opacity: 0.6
   },
   headerText:{
     paddingTop:30,
     textAlign: 'center',
     fontSize: 25,
     paddingBottom: 30,
-    color: 'black',
-    backgroundColor: '#ecf0f1'
+    color: 'white',
   },
   labelText:{
     fontSize: 35,
     fontWeight: 'bold',
     position: 'absolute',
-    bottom: 0,
-    left: 0,
+    bottom: 10,
+    left: 20,
     width: '97%',
-    margin: 6,
-    padding: 5,
-    backgroundColor: '#34495e',
-    color: '#ecf0f1',
+    color: 'white',
   }
 };
 
