@@ -44,7 +44,7 @@ Our mission statement is to reduce the effort needed to get involved in local po
       lng = coordinates['lng']
       coordinatestring = "lat={lat}&long={lng}".format(lat=lat, lng=lng)
       return coordinatestring
-      #"https://maps.googleapis.com/maps/api/geocode/json?address={interpolate address}key=YOUR_API_KEY".format(GOOGLE_API_KEY)
+
 
   def fetch_legislators(coordinates):
       r = requests.get("https://openstates.org/api/v1/legislators/geo/?{coordinates}&term=20172018&apikey={OPEN_STATE_KEY}"
@@ -72,25 +72,25 @@ Our mission statement is to reduce the effort needed to get involved in local po
   ``` python
   class Command(BaseCommand):
 
-      def handle(self, *args, **options):
-          query = 'bills/?   page=1&per_page=1000&fields=bill_id,sponsors,title,chamber,subjects,state,sources,full_name,actions&state=ca'
-          bills = open_states_call(query)
-          count = 0
-          amount = len(bills)
-          for bill in bills:
-              bill_data = BillsSerializer(bill).data
-              try:
-                  instance = Bill.objects.get(os_id= bill_data['os_id'])
-                  Bill(id=instance.id, **bill_data).save()
-              except Bill.DoesNotExist:
-                  Bill.objects.create(**bill_data)
-              count += 1
-              sleep(2)
+    def handle(self, *args, **options):
+        query = 'bills/?   page=1&per_page=1000&fields=bill_id,sponsors,title,chamber,subjects,state,sources,full_name,actions&state=ca'
+        bills = open_states_call(query)
+        count = 0
+        amount = len(bills)
+        for bill in bills:
+            bill_data = BillsSerializer(bill).data
+            try:
+                instance = Bill.objects.get(os_id= bill_data['os_id'])
+                Bill(id=instance.id, **bill_data).save()
+            except Bill.DoesNotExist:
+                Bill.objects.create(**bill_data)
+            count += 1
+            sleep(2)
   ```
 
   ### Following bills
    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill.
-   
+
     ![bill_view](/docs/bill_view.gif)
 
 ## Future Features
