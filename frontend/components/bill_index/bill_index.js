@@ -50,15 +50,17 @@ class BillIndex extends React.Component{
 
   render(){
     const ds = this.state.dataSource;
-    const {navigate } = this.props.navigation;
+    const {navigate} = this.props.navigation;
 
     const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = this.state.ds.cloneWithRows(bills);
-
+    // const style = t
     const SUBJECT_IMAGES = this.props.SUBJECT_IMAGES;
     return (
       <ListView
+        style={styles.container}
         dataSource={dataSource}
+        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
         renderRow={(rowData) =>
           <BillIndexItem
             bill={rowData}
@@ -77,11 +79,16 @@ class BillIndex extends React.Component{
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white'
+  },
   separator: {
     flex: 1,
     marginTop: 10,
     marginBottom: 10,
+    width: '80%',
     height: StyleSheet.hairlineWidth,
+    color: 'black',
     backgroundColor: '#8E8E8E',
   }
 });
