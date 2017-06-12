@@ -51,21 +51,22 @@ const styles = {
     alignItems: 'center'
   },
   imageStyle: {
-    opacity: 0.6
+    opacity: 0.6,
+    flex: 1
   },
   headerText:{
     paddingTop:30,
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: 18,
     paddingBottom: 30,
     color: 'white',
   },
   labelText:{
     fontSize: 35,
     fontWeight: 'bold',
-    position: 'absolute',
-    bottom: 10,
-    left: 20,
+    bottom: 130,
+    alignSelf: 'center',
+    left: 30,
     width: '97%',
     color: 'white',
   }
