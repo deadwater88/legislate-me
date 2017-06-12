@@ -16,8 +16,6 @@ class LoginForm extends Component {
       this.onToggleSignIn = this.onToggleSignIn.bind(this);
       this.onSignUp = this.onSignUp.bind(this);
       this.onLogIn = this.onLogIn.bind(this);
-      this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
-      this.redirectToHome = this.redirectToHome.bind(this);
     }
 
     componentWillReceiveProps(newProps){
@@ -32,11 +30,10 @@ class LoginForm extends Component {
         errors.length > 0 ? alert(errors) : null;
       }
       if (newProps.currentUser && !newProps.currentUser.setup) {
-        this.redirectToAddressPage;
+        this.redirectToAddressPage();
       } else if (newProps.currentUser && newProps.setup){
-        this.redirectToHome;
+        this.redirectToHome();
       }
-
     }
 
     errorsChanged(newProps){

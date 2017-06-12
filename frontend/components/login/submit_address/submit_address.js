@@ -26,7 +26,7 @@ class SubmitAddress extends React.Component {
   navigateToCustomizeInterest(){
     // this.props.navigation.navigate maybe?
     debugger;
-    this.props.navigation.navigate('CustomizeInterestList');
+    this.props.navigation.navigate('CustomizeInterestList', {fromSubmitAddress: true});
   }
 
   render(){

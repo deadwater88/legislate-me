@@ -31,7 +31,6 @@ class CustomizeInterestList extends Component {
   //the subjects array is a two d array-- each entry
   // is a key of subject string and value of false because this has been hardcoded in the subject api util
   zipped(subjects){
-    debugger;
     let zippedArray = [];
     Object.keys(subjects).forEach((key) => {
       const value = subjects[key];
@@ -44,7 +43,11 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     finishSetup();
-    setTimeout(this.props.navigation.goBack, 100);
+    if (this.props.navigation.state && this.props.navigation.state.params.fromSubmitAddress){
+      this.props.navigation.navigate('Home', {fromSubmitAddress: true});
+    } else{
+      setTimeout(this.props.navigation.goBack, 100);
+    }
   }
 
   render(){
