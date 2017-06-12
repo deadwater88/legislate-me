@@ -36,12 +36,14 @@ class BillIndexItem extends React.Component{
       bookmarkIcon = <Icon
                   name="bookmark"
                   size={20}
+                  style={{color: 'black'}}
                   onPress={this.toggleBookmark}
                   />;
       }else{
         bookmarkIcon = <Icon
                     name="bookmark-o"
                     size={20}
+                    style={{color: 'black'}}
                     onPress={this.toggleBookmark}
                     />;
                   // debugger; this is being hit!
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
+    color: 'black',
     fontSize: 16,
     marginBottom: 5
   },
