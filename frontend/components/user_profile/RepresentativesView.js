@@ -6,22 +6,20 @@ import Communications from 'react-native-communications';
 import { zipped } from '../../reducers/selectors';
 
 class RepresentativesView extends React.Component {
-  //bill view passes rep objects to representative view
-  //in below code, assuming I have a this.props.reps objects
 
   constructor(props){
     super(props);
 
     this.supportBill = this.supportBill.bind(this);
     this.showOptions = this.showOptions.bind(this);
-    this.state = {  showOptions: false,
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.emailRep = this.emailRep.bind(this);
+    this.callRep = this.callRep.bind(this);
+    this.state = {
+      showOptions: false,
       support: '',
-      emailThisRepresentative: ''};
-      this.emailRep = this.emailRep.bind(this);
-      this.callRep = this.callRep.bind(this);
-      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      this.state = {
-        dataSource: ds.cloneWithRows(zipped(this.props.representatives))
+      emailThisRepresentative: '',
+      dataSource: ds.cloneWithRows(zipped(this.props.representatives))
       };
     }
 
@@ -33,7 +31,7 @@ class RepresentativesView extends React.Component {
 
     supportBill(answer, representative){
       this.setState({showOptions: false, support: answer});
-      this.emailRep(representative.name, representative.email);
+      this.emailRep(representative.fName, representative.lName, representative.email, answer);
       this.setState({emailThisRepresentative: ''});
     }
 
@@ -41,26 +39,21 @@ class RepresentativesView extends React.Component {
       Communications.phonecall(phoneNum, true);
     }
 
-      buildEmail(fName, lName, supportive){
-        //supportive boolean will be assigned based on what they select
-        const opinion = this.state.support ? 'approval' : 'disapproval';
-        return `Dear ${fName} ${lName},
-        My name is ${this.props.userName}, and I'm one of your constituents.
-        I'm sending this email to voice my ${opinion} about ${this.props.billId} ${this.props.bill.title}.
-        Voters like me consider this an important issue, and I wanted to reach out personally to show you
-        how much I care. Thank you for hearing me out.
+    buildEmail(fName, lName, supportive){
+      //supportive boolean will be assigned based on what they select
+      const opinion = supportive ? 'approval' : 'disapproval';
+      return `Dear ${fName} ${lName},
+My name is ${this.props.userName}, and I'm one of your constituents. I'm sending this email to voice my ${opinion} about ${this.props.bill.bill_id}: "${this.props.bill.title}" Voters like me consider this an important issue, and I wanted to reach out personally to show you how much I care. Thank you for hearing me out.
+Sincerely,
+${this.props.userName}`;
+    }
 
-        Sincerely,
-        ${this.props.userName}
-        `;
-      }
-
-      emailRep(fName, lName, emailAddress){
+      emailRep(fName, lName, emailAddress, answer){
         let title = this.props.bill.title;
         Communications.email(
           [emailAddress],
           null,null, title,
-          this.buildEmail());
+          this.buildEmail(fName, lName, answer));
       }
 
 
@@ -105,7 +98,7 @@ class RepresentativesView extends React.Component {
                           margin={0}
                           padding={0}
                           backgroundColor="white"
-                          onPress={() => this.emailRep(rep.fName, rep.lName, rep.email)}
+                          onPress={() => this.showOptions(rep)}
                           style={{}} />
                       </View>
                     </View>
