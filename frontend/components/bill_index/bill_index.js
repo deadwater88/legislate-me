@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, ListView, Image, View, TouchableHighlight, StyleSheet } from 'react-native';
 import BillIndexItem from './bill_index_item';
 import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativeComponentTree';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class BillIndex extends React.Component{
   constructor(props){
@@ -29,7 +30,6 @@ class BillIndex extends React.Component{
   componentWillMount() {
 
     if (this.props.navigation && this.props.navigation.state.params){
-
       let subjectName = this.props.navigation.state.params.subjectName;
       this.props.fetchBillsBySubject(subjectName);
     }else if (this.props.renderBookmarks) {
