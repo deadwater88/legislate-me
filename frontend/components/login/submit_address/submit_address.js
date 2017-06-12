@@ -24,14 +24,14 @@ class SubmitAddress extends React.Component {
 
   navigateToCustomizeInterest(){
     // this.props.navigation.navigate maybe?
-    this.props.navigate('CustomizeInterestList');
+    this.props.navigation.navigate('CustomizeInterestList');
   }
 
   render(){
-    console.log('SUBMIT ADDRESS RENDER FUNC HIT');
+
     return(
       <Card>
-        <Text>RENDER MAN DANG</Text>
+
         <CardSection>
         <Input
           placeholder="160 Baker St."
@@ -69,7 +69,8 @@ class SubmitAddress extends React.Component {
           title='Find your representative!'>
         </Button>
         </CardSection>
-        <Text>Skip for now </Text>
+
+        <Text>We will not save your address. It is only used to find your representatives.</Text>
 
    </Card>
     );

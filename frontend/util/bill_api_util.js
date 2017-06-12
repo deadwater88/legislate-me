@@ -37,3 +37,11 @@ export const bookmarkBill = bill => {
     data: bill
   });
 };
+
+export const deleteBookmark = bill => {
+  return axios({
+    method: 'DELETE',
+    url: `${HOST_URL}/api/bills/bookmarked`,
+    data: bill
+  });
+};
