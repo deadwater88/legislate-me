@@ -14,10 +14,10 @@ class UserProfile extends React.Component {
     return(
       <Image style={styles.parentView} source={pic}>
         <View style={{flex: 1}}>
-          <Icon name='account-circle' size={55} color={'white'} style={{marginTop: 20, alignSelf: 'center'}}/>
+          <Icon name='account-circle' size={55} color={'white'} style={{marginTop: 50, alignSelf: 'center'}}/>
           <Text style={styles.username}>You</Text>
         </View>
-        <View style={{flex: 2, alignContent: 'center'}}>
+        <View style={{flex: 1, alignContent: 'center'}}>
           <Button
             color='black'
             onPress={() => {
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     alignContent: 'center',
+    justifyContent: 'center',
     flexDirection: 'column'
   }
 });
