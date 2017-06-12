@@ -1,5 +1,5 @@
 # LegislateMe
-[Our Demo Page](http://www.legislateme.com)
+[LegislateMe's homepage](http://www.legislateme.com)
 
 ## Overview
 In today's world of sound bites and social media, it's difficult to keep up with local policy.  LegislateMe, a mobile application built with React Native and a Django backend, aims to solve that problem.
@@ -21,7 +21,7 @@ Our mission statement is to reduce the effort needed to get involved in local po
    + [OpenStates](http://docs.openstates.org/en/latest/api/)
       - allows for curation of bill data for states.
    + [Google Maps Geocoding](https://developers.google.com/maps/documentation/javascript/geocoding)
-      - allows user to enter address and receive lat/long points for user with OpenStates API  
+      - allows user to enter address and receive corresponding lat/long points. 
 
 ## Features
   ### OAuth integration
@@ -60,7 +60,7 @@ Our mission statement is to reduce the effort needed to get involved in local po
    + If a user is reading a bill that they feel particularly passionate about, they can call or email their representatives from within the application.
 
     **Show the RepresentativeView gif**  
-
+    
    + If the user chooses to email, a prefilled-email with the bill details and legislator's email address are populated and ready to send.
 
     **Show prefilled email gif**
@@ -90,11 +90,7 @@ Our mission statement is to reduce the effort needed to get involved in local po
                   Bill.objects.create(**bill_data)
               count += 1
               sleep(2)
-
-
-
   ```
-
 
   ### Following bills
    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill.
