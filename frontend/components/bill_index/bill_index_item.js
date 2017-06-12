@@ -51,6 +51,7 @@ class BillIndexItem extends React.Component{
         <View style={styles.container}>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
+          <Text>By: {bill.leg_name}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
           {bookmarkIcon}
         </View>
