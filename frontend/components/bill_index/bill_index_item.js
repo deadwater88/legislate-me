@@ -21,11 +21,7 @@ class BillIndexItem extends React.Component{
   }
 
   navigateToBill(e){
-    // ReactNativeComponentTree.getInstancefFromNode(e.target)._currentElement;
-    // const elem = ReactNativeComponentTree.getInstanceFromNode(e.target);
-    // debugger
     const billId = this.props.bill[0];
-    debugger
     console.log("navigatng to bill");
     this.props.navigate('BillView', {billId});
   }
