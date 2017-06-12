@@ -46,10 +46,7 @@ class LoginForm extends Component {
 
     }
 
-    renderErrors(){
-      let errorArray = this.props.errors.credentials;
-      return errorArray ? errorArray.map(error => <Text>{error}</Text>) : [];
-    }
+
 
     onSignUp(){
       this.props.signup({
@@ -112,7 +109,6 @@ class LoginForm extends Component {
               <Text>Or sign up</Text>
             </TouchableHighlight>
           </CardSection>
-          <Text>ERRORS ARE {this.renderErrors()}</Text>
         </Card>
       );
     }else{
@@ -168,7 +164,6 @@ class LoginForm extends Component {
               <Text>Or log in</Text>
             </TouchableHighlight>
           </CardSection>
-          <Text>ERRORS ARE {this.renderErrors()}</Text>
         </Card>
       );
     }

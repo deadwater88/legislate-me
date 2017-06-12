@@ -9,12 +9,12 @@ import { finishSetup } from '../../util/user_api_util';
 class CustomizeInterestList extends Component {
   constructor(props){
     super(props);
-    // console.log("made interest list");
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
     this.saveInterests = this.saveInterests.bind(this);
+    debugger;
     let subjects = this.props.subjects;
     this.state = {
       dataSource: ds.cloneWithRows(this.zipped(this.props.subjects)),
@@ -31,6 +31,7 @@ class CustomizeInterestList extends Component {
   //the subjects array is a two d array-- each entry
   // is a key of subject string and value of false because this has been hardcoded in the subject api util
   zipped(subjects){
+    debugger;
     let zippedArray = [];
     Object.keys(subjects).forEach((key) => {
       const value = subjects[key];
