@@ -51,8 +51,7 @@ class BillIndex extends React.Component{
     console.log("rendeing bill index");
 
     const ds = this.state.dataSource;
-    // const {navigate } = this.props.navigation;
-    debugger
+    const {navigate } = this.props.navigation;
     const bills = (this.props.renderBookmarks ? this.zipped(this.props.bookmarks) : this.zipped(this.props.bills));
     const dataSource = this.state.ds.cloneWithRows(bills);
 
@@ -63,6 +62,7 @@ class BillIndex extends React.Component{
         renderRow={(rowData) =>
           <BillIndexItem
             bill={rowData}
+            navigate={navigate}
             imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
             />}
       />
