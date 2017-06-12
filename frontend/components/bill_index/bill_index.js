@@ -27,7 +27,7 @@ class BillIndex extends React.Component{
   }
 
   componentWillMount() {
-    
+
     if (this.props.navigation && this.props.navigation.state.params){
 
       let subjectName = this.props.navigation.state.params.subjectName;
@@ -52,7 +52,6 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    console.log("rendeing bill index");
     const ds = this.state.dataSource;
     const {navigate } = this.props.navigation;
 
@@ -68,7 +67,12 @@ class BillIndex extends React.Component{
             bill={rowData}
             navigate={navigate}
             imgUrl={SUBJECT_IMAGES[rowData[1].subject]}
+            bookmarkBill={this.props.bookmarkBill}
+            deleteBookmark={this.props.deleteBookmark}
+            bookmarks={this.props.bookmarks}
+            navigation={this.props.navigation}
             />}
+
       />
     );
   }
