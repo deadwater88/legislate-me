@@ -3,6 +3,7 @@ import * as UserAPIUtil from '../util/user_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const LOG_OUT = 'LOGOUT';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -13,6 +14,11 @@ export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
 });
+export const killState = () => ({
+  type: LOG_OUT
+});
+
+
 
 export const signup = user => dispatch => (
 
@@ -37,7 +43,7 @@ export const login = user => dispatch => (
 
 export const logout = () => dispatch => (
   APIUtil.logout().then(user => (
-    dispatch(receiveCurrentUser(null))
+    dispatch(killState())
   ))
 );
 
