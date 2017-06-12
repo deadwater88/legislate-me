@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ListView, Image, Button, View, TouchableHighlight } from 'react-native';
+import { Text, ListView, Image, Button, View, TouchableHighlight, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/renderers/native/ReactNativeComponentTree';
 
@@ -25,7 +25,6 @@ class BillIndexItem extends React.Component{
     //OS ID is [0], bill object is [1]
     console.log("navigatng to bill");
     this.props.navigation.navigate('BillView', {billId});
-
   }
 
   render(){
@@ -49,7 +48,7 @@ class BillIndexItem extends React.Component{
       }
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
-        <View>
+        <View style={styles.container}>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
@@ -59,5 +58,11 @@ class BillIndexItem extends React.Component{
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 10
+  }
+});
 
 export default BillIndexItem;

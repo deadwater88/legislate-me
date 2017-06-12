@@ -86,9 +86,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 10,
     marginBottom: 10,
-    width: '80%',
+    width: '90%',
+    alignSelf: 'center',
     height: StyleSheet.hairlineWidth,
-    color: 'black',
     backgroundColor: '#8E8E8E',
   }
 });
