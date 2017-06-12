@@ -1,5 +1,5 @@
-import React, { Component, ToastAndroid } from 'react';
-import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
+import React, { Component} from 'react';
+import { View, Text, TouchableHighlight, StackNavigator, ToastAndroid  } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
 import SubmitAddress from './submit_address/submit_address';
 import OAuthButtons from './OAuth/oauth_buttons';
@@ -21,7 +21,6 @@ class LoginForm extends Component {
     }
 
     componentWillReceiveProps(newProps){
-      if (this.errorsChanged(newProps)) {
         let errorObject = newProps.errors;
         let errors = ""; //value is going to be an array.
         Object.keys(errorObject).forEach(errorCategory => {
@@ -29,9 +28,7 @@ class LoginForm extends Component {
           errors += ": " + errorObject[errorCategory].join(" ");
           errors += '\n';
         });
-        ToastAndroid.show('example toast')
-        errors.length > 0 ? alert(errors) : null;
-      }
+        errors.length > 0 ? ToastAndroid.showWithGravity(errors, ToastAndroid.SHORT, ToastAndroid.TOP) : null;
       if (newProps.currentUser && !newProps.currentUser.setup) {
         this.redirectToAddressPage();
       } else if (newProps.currentUser && newProps.setup){
