@@ -91,7 +91,7 @@ Our mission statement is to reduce the effort needed to get involved in local po
   ### Following bills
    + It's too easy to lose track of bills that are important to you. LegislateMe allows users to bookmark bills that they'd like to follow. At any time in the future, users can check in on that bill.
 
-    ![bill_view](/docs/bill_view.gif)
+  ![bill_view](/docs/bill_view.gif)
 
 ## Future Features
   Our team is excited to continue working on this project. Ultimately, we want LegislateMe to be the go-to place for political action at the state level. To do this, we look forward to a number of exciting engineering challenges:
