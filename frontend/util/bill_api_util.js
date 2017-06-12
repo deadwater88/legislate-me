@@ -23,8 +23,25 @@ export const fetchBillsBySubject = subject => {
 };
 
 export const fetchBookMarkedBills = () => {
+  //this is being hit.
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/bills/bookmarked`
+  });
+};
+
+export const bookmarkBill = bill => {
+  return axios({
+    method: 'POST',
+    url: `${HOST_URL}/api/bills/bookmarked`,
+    data: bill
+  });
+};
+
+export const deleteBookmark = bill => {
+  return axios({
+    method: 'DELETE',
+    url: `${HOST_URL}/api/bills/bookmarked`,
+    data: bill
   });
 };

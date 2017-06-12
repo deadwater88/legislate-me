@@ -14,7 +14,7 @@ class UserProfile extends React.Component {
       <View style={styles.parentView}>
         <View style={{flex: 1.5}}>
           <Icon name='account-circle' size={35}/>
-          <Text style={styles.username}>Username (will fill in later)</Text>
+          <Text style={styles.username}>You</Text>
         </View>
         <View style={{flex: 1.0}}>
           <Button

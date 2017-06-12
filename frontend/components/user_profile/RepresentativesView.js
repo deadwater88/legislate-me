@@ -17,6 +17,9 @@ class RepresentativesView extends React.Component {
     this.state = {  showOptions: false,
                     support: '',
                     emailThisRepresentative: ''};
+
+    this.emailRep = this.emailRep.bind(this);
+    this.callRep = this.callRep.bind(this);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(this.props.representatives)

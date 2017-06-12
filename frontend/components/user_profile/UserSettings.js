@@ -35,7 +35,7 @@ class UserSettings extends React.Component {
         <View style={repsView}>
           <Text style={title}>User Settings</Text>
           <Text style={yourReps}>Your representatives</Text>
-          <RepresentativesView reps="BLAH" />
+          <RepresentativesView representatives={[{'BLAH': true}]} />
         </View>
         <CardSection>
           <Input
