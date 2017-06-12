@@ -15,7 +15,7 @@ export const fetchBillsBySubjects = () => {
   });
 };
 
-export const fetchBillsBySubject = subject => {
+export const fetchBills = subject => {
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/bills/subjects/${subject}`
