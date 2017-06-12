@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import FBSDK from 'react-native-fbsdk';
-import { authUser } from '../../../actions/session_actions';
-
+import { authUser, logout } from '../../../actions/session_actions';
 
 const LoginButton = FBSDK.LoginButton;
 const AccessToken = FBSDK.AccessToken;
@@ -10,7 +9,6 @@ const {
   GraphRequest,
   GraphRequestManager,
 } = FBSDK;
-
 
 class FBOAuth extends Component {
   render() {
@@ -32,11 +30,9 @@ class FBOAuth extends Component {
                 if (error) {
                   alert('Error fetching data: ' + err.toString());
                 } else {
-                  console.log("WE MADE IT", res);
                   res.tokenType = 'facebook';
                   this.props.authUser(res);
                 }
-
               }
 
               const infoRequest = new GraphRequest(
@@ -59,7 +55,11 @@ class FBOAuth extends Component {
         }
       }
     }
-    onLogoutFinished={() => alert("logout.")}/>
+    onLogoutFinished={() => {
+      this.props.logout();
+      }
+    }
+    />
 </View>
     );
   }

@@ -15,7 +15,7 @@ class OAuthButtons extends Component {
   constructor(props){
     super(props);
     // authUser = this.props.authUser;
-    this.configureConnection = this.configureConnection.bind(this);
+    // this.configureConnection = this.configureConnection.bind(this);
   }
 
   configureConnection(){
@@ -23,6 +23,7 @@ class OAuthButtons extends Component {
      forceConsentPrompt: true
    })
    .then(() => {
+    //  debugger;
      GoogleSignin.signIn()
        .then((user) => {
          let userNameSplit = user.name.split(" ");
@@ -37,8 +38,6 @@ class OAuthButtons extends Component {
        .done();
    });
   }
-
-
 
   render(){
     const { containerStyle, buttonStyle} = styles;

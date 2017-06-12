@@ -10,7 +10,7 @@ class UserProfile extends React.Component {
 
   render(){
     const {navigate} = this.props.navigation;
-    const pic = require('../subjects/images/gradient.jpg');
+    // const pic = require('../subjects/images/gradient.jpg');
     return(
       <Image style={styles.parentView} source={pic}>
         <View style={{flex: 1}}>
