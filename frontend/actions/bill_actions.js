@@ -1,5 +1,11 @@
 import * as APIUtil from '../util/bill_api_util';
 export const RECEIVE_BILLS = 'RECEIVE_BILLS';
+export const RECEIVE_BILL = 'RECEIVE_BILL';
+
+export const receiveBill = bill => ({
+  type: RECEIVE_BILL,
+  bill
+});
 
 export const receiveBills = bills => ({
   type: RECEIVE_BILLS,
@@ -15,3 +21,9 @@ export const fetchBills = () => dispatch => (
   APIUtil.fetchBills().then(bills =>
     dispatch(receiveBills(bills.data))
 ));
+
+export const fetchBillInfo = billId => dispatch => {
+  console.log('fetch bill info being called...');
+  APIUtil.fetchBillInfo(billId).then(bill =>
+    dispatch(receiveBill(bill.data)));
+};

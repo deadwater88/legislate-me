@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
   // contactRepresentatives: contactRepresentatives(state.representatives)
   bill: state.bill,
   billId: ownProps.navigation.state.params.billId,
-  representatives: state.representatives.currentReps,
+  representatives: state.session.currentUser.representatives,
   userName: state.session.currentUser.first_name
 });
 

@@ -54,7 +54,7 @@ class BillIndexItem extends React.Component{
           <View style={styles.left}>
             <Text style={styles.subject}>{bill.subject}</Text>
             <Text style={styles.title}>{bill.title}</Text>
-            <Text>By: {bill.leg_name}</Text>
+            <Text>By: Rep.{bill.leg_name}</Text>
           </View>
 
           <View style={styles.right}>
