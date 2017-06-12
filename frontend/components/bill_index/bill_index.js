@@ -71,6 +71,7 @@ class BillIndex extends React.Component{
             deleteBookmark={this.props.deleteBookmark}
             bookmarks={this.props.bookmarks}
             navigation={this.props.navigation}
+            isBookmark={this.props.renderBookmarks}
             />}
 
       />
