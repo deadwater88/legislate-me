@@ -21,7 +21,7 @@ class LoginForm extends Component {
     }
 
     componentWillReceiveProps(newProps){
-      if (newProps.errors) {
+      if (this.errorsChanged(newProps)) {
         let errorObject = newProps.errors;
         let errors = ""; //value is going to be an array.
         Object.keys(errorObject).forEach(errorCategory => {
@@ -31,6 +31,16 @@ class LoginForm extends Component {
         });
         errors.length > 0 ? alert(errors) : null;
       }
+      if (newProps.currentUser && !newProps.currentUser.setup) {
+        this.redirectToAddressPage;
+      } else if (newProps.currentUser && newProps.setup){
+        this.redirectToHome;
+      }
+
+    }
+
+    errorsChanged(newProps){
+      return Object.keys(this.props.errors).length !== Object.keys(newProps.errors).length;
     }
 
     onToggleSignIn(){
@@ -42,22 +52,19 @@ class LoginForm extends Component {
       this.props.login({
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToHome);
+      });
 
     }
-
-
-
     onSignUp(){
       this.props.signup({
         fName: this.state.fName,
         lName: this.state.lName,
         email: this.state.email,
         password: this.state.password
-      }).then(this.redirectToAddressPage);
+      });
     }
 
-    redirectToHome(){
+    redirectToHome() {
       this.props.navigation.navigate('Home');
     }
 
