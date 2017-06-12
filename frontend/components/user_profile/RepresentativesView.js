@@ -42,10 +42,13 @@ class RepresentativesView extends React.Component {
     buildEmail(fName, lName, supportive){
       //supportive boolean will be assigned based on what they select
       const opinion = supportive ? 'approval' : 'disapproval';
-      return `Dear ${fName} ${lName},
+      return(
+`Dear Representative ${fName} ${lName},
+
 My name is ${this.props.userName}, and I'm one of your constituents. I'm sending this email to voice my ${opinion} about ${this.props.bill.bill_id}: "${this.props.bill.title}" Voters like me consider this an important issue, and I wanted to reach out personally to show you how much I care. Thank you for hearing me out.
+
 Sincerely,
-${this.props.userName}`;
+${this.props.userName}`);
     }
 
       emailRep(fName, lName, emailAddress, answer){
