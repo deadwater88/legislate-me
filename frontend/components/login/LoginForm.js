@@ -19,9 +19,9 @@ class LoginForm extends Component {
       this.redirectToAddressPage = this.redirectToAddressPage.bind(this);
       this.redirectToHome = this.redirectToHome.bind(this);
     }
-    
+
     componentWillReceiveProps(newProps){
-      if (newProps.errors){
+      if (newProps.errors) {
         let errorObject = newProps.errors;
         let errors = ""; //value is going to be an array.
         Object.keys(errorObject).forEach(errorCategory => {

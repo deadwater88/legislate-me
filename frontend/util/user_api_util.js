@@ -13,7 +13,7 @@ export const createAddress = address => {
   return axios({
     method: 'POST',
     url: `${HOST_URL}/api/users/representatives`,
-    data: address
+    data: {address}
   });
 };
 
@@ -21,7 +21,7 @@ export const updateAddress = address => {
   return axios({
     method: 'POST',
     url: `${HOST_URL}/api/users/representatives`,
-    data: address
+    data: {address}
   });
 };
 
