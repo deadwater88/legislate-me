@@ -34,7 +34,7 @@ class BookmarkedBillsView(APIView):
         user.bills.add(bill)
         user.save()
         response = {}
-        for bill in bills:
+        for bill in user.bills.all():
             response[bill.os_id] = BillLiteSerializer(bill).data
         return JsonResponse(response)
 
@@ -45,7 +45,7 @@ class BookmarkedBillsView(APIView):
         user.bills.remove(bill)
         user.save()
         response = {}
-        for bill in bills:
+        for bill in user.bills.all():
             response[bill.os_id] = BillLiteSerializer(bill).data
         return JsonResponse(response)
 
