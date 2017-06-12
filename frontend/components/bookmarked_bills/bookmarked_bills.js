@@ -5,15 +5,17 @@ class BookmarkedBills extends React.Component{
   constructor(props){
     super(props);
     this.renderBookmarks = true;
+    console.log('hitttttttt bookmarks');
   }
 
   componentDidMount(){
-    console.log("hit bookmarks");
   }
 
   render(){
     return(
-      <BillIndex renderBookmarks={true}/>
+      <BillIndex
+        navigation={this.props.navigation}
+        renderBookmarks={true}/>
     );
   }
 }

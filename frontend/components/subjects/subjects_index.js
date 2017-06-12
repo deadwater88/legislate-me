@@ -10,8 +10,6 @@ class SubjectsIndex extends React.Component {
 
   renderBills(subjectName){
     this.props.navigation.navigate('BillIndex', {subjectName});
-    //access subjectName from BillIndex with
-    //ths.props.navigation.state.params.subjectName
   }
 
   render(){

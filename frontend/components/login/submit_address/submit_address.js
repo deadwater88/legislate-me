@@ -6,14 +6,19 @@ import OAuthButtons from '../OAuth/oauth_buttons';
 class SubmitAddress extends React.Component {
   constructor(props){
     super(props);
-    this.state = {address: ""};
+    this.state = {address: "",
+                  city: "",
+                  state: "",
+                  zip: ""};
     this.findRepresentative = this.findRepresentative.bind(this);
     this.navigateToCustomizeInterest = this.navigateToCustomizeInterest.bind(this);
     // this.skipEnteringAddress = this.skipEnteringAddress.bind(this);
   }
 
   findRepresentative(){
-    this.props.createAddress(this.state.address).then(this.navigateToCustomizeInterest);
+    this.props.createAddress(this.state.address
+    + " " + this.state.city + " " + this.state.state + " " +
+     this.state.zip).then(this.navigateToCustomizeInterest);
     //need to navigate to bill index from here.
   }
 
@@ -29,9 +34,34 @@ class SubmitAddress extends React.Component {
         <Text>RENDER MAN DANG</Text>
         <CardSection>
         <Input
-          placeholder="Enter your street address"
+          placeholder="160 Baker St."
+          label="Address"
           value={this.state.address}
           onChangeText={(address) => this.setState({address})}
+          />
+      </CardSection>
+      <CardSection>
+        <Input
+          placeholder="Los Angeles"
+          label="City"
+          value={this.state.city}
+          onChangeText={(city) => this.setState({city})}
+          />
+      </CardSection>
+      <CardSection>
+        <Input
+          placeholder="CA"
+          label="State"
+          value={this.state.state}
+          onChangeText={(state) => this.setState({state})}
+          />
+      </CardSection>
+      <CardSection>
+        <Input
+          placeholder="90001"
+          label="Zip code"
+          value={this.state.zip}
+          onChangeText={(zip) => this.setState({zip})}
           />
       </CardSection>
       <CardSection>

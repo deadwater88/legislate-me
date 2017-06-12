@@ -29,3 +29,11 @@ export const fetchBookMarkedBills = () => {
     url: `${HOST_URL}/api/bills/bookmarked`
   });
 };
+
+export const bookmarkBill = bill => {
+  return axios({
+    method: 'POST',
+    url: `${HOST_URL}/api/bills/bookmarked`,
+    data: bill
+  });
+};
