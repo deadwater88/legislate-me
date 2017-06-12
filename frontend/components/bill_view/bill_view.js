@@ -12,7 +12,7 @@ import { Card, CardSection } from '../common';
 class BillView extends React.Component {
   constructor(props){
     super(props);
-    debugger; //check why this.props.representatives is null 
+    // debugger; //check why this.props.representatives is null 
     this.state = {
       reveal_blurb: false,
       blurb: ''
