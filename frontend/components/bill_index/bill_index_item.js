@@ -25,21 +25,23 @@ class BillIndexItem extends React.Component{
     // const elem = ReactNativeComponentTree.getInstanceFromNode(e.target);
     // debugger
     const billId = this.props.bill[0];
-    this.props.navigation.navigate('BillView', {billId});
+    debugger
+    console.log("navigatng to bill");
+    this.props.navigate('BillView', {billId});
   }
+
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
+    console.log("rendering bill index item");
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
-
         <View>
           <Text>{bill.subject}</Text>
           <Text>{bill.title}</Text>
           <Image style={{height:50, width: 50}} source={pic_url}/>
         </View>
       </TouchableHighlight>
-
     );
     //conditional render on bookmark bill depending on whether bill is bookmarked
   }
