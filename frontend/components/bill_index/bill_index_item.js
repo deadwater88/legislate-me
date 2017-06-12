@@ -22,14 +22,12 @@ class BillIndexItem extends React.Component{
 
   navigateToBill(e){
     const billId = this.props.bill[0];
-    console.log("navigatng to bill");
     this.props.navigate('BillView', {billId});
   }
 
   render(){
     const bill = this.props.bill[1];
     const pic_url = this.props.imgUrl;
-    console.log("rendering bill index item");
     return (
       <TouchableHighlight onPress={this.navigateToBill}>
         <View>
