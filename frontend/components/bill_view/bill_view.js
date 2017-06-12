@@ -17,7 +17,7 @@ class BillView extends React.Component {
       blurb: ''
     };
     this.toggleBlurb = this.toggleBlurb.bind(this);
-    console.log("innnn bill view");
+    // console.log("innnn bill view");
     // debugger
   }
 
@@ -52,10 +52,12 @@ class BillView extends React.Component {
       title
     } = this.props.bill;
 
+
     const billBlurb = this.state.blurb;
     if (!state){
       return (<Text></Text>)
     } else {
+      debugger
       const capitalizedChamber = chamber[0].toUpperCase().concat(chamber.slice(1,chamber.length));
       return(
         <ScrollView >
@@ -71,6 +73,12 @@ class BillView extends React.Component {
 
             <View style={{flexDirection: 'column'}}>
               <Text style={{fontSize:16, fontWeight: 'bold', paddingBottom: 3}}>Contact your representatives:</Text>
+
+                <RepresentativesView
+                  representatives={this.props.representatives}
+                  bill={this.props.bill}
+                  userName={this.props.userName}
+                  />
 
             </View>
             <TouchableHighlight onPress={this.toggleBlurb}>
@@ -103,12 +111,6 @@ class BillView extends React.Component {
   }
 }
 
-//
-// <RepresentativesView
-//   representatives={this.props.representatives}
-//   bill={this.props.bill}
-//   userName={this.props.userName}
-//   />
 
 
 const styles = {
