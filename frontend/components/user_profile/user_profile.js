@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 class UserProfile extends React.Component {
@@ -10,10 +10,11 @@ class UserProfile extends React.Component {
 
   render(){
     const {navigate} = this.props.navigation;
+    const pic = require('../subjects/images/gradient.jpg');
     return(
-      <View style={styles.parentView}>
+      <Image style={styles.parentView} source={pic}>
         <View style={{flex: 1}}>
-          <Icon name='account-circle' size={55}/>
+          <Icon name='account-circle' size={55} color={'white'} style={{marginTop: 20, alignSelf: 'center'}}/>
           <Text style={styles.username}>You</Text>
         </View>
         <View style={{flex: 2, alignContent: 'center'}}>
@@ -42,22 +43,25 @@ class UserProfile extends React.Component {
             title='Log out'>
           </Button>
         </View>
-    </View>
+    </Image>
   );
 
   }
 }
 const styles = StyleSheet.create({
   username: {
-    fontSize: 30,
+    fontSize: 50,
+    marginBottom: 170,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 5
+    marginTop: 5,
+    color: 'white'
   },
   parentView:{
     flex: 1,
+    width: '100%',
     alignContent: 'center',
-    paddingTop: 20
+    flexDirection: 'column'
   }
 });
 export default UserProfile;
