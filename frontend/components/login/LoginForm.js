@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ToastAndroid } from 'react';
 import { View, Text, TouchableHighlight, StackNavigator } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
 import SubmitAddress from './submit_address/submit_address';
@@ -29,12 +29,13 @@ class LoginForm extends Component {
           errors += ": " + errorObject[errorCategory].join(" ");
           errors += '\n';
         });
+        ToastAndroid.show('example toast')
         errors.length > 0 ? alert(errors) : null;
       }
       if (newProps.currentUser && !newProps.currentUser.setup) {
-        this.redirectToAddressPage;
+        this.redirectToAddressPage();
       } else if (newProps.currentUser && newProps.setup){
-        this.redirectToHome;
+        this.redirectToHome();
       }
 
     }
