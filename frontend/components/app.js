@@ -73,6 +73,10 @@ class App extends Component {
     console.log("in app");
   }
 
+  componentWillMount(){
+    this.props.checkLogin();
+  }
+
   render(){
     // if (!this.props) return <Text></Text>;
     //if set up is false, user is still setting up

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from './app';
-
+import {checkLogin} from '../actions/session_actions';
 const mapStateToProps = state => (
   {
     state: state,
@@ -8,4 +8,11 @@ const mapStateToProps = state => (
   }
 );
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => (
+  {
+    checkLogin: () => dispatch(checkLogin())
+  }
+);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
