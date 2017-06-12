@@ -22,6 +22,7 @@ class LoginForm extends Component {
         let errorObject = newProps.errors;
         let errors = ""; //value is going to be an array.
         Object.keys(errorObject).forEach(errorCategory => {
+          debugger;
           errors += errorCategory;
           errors += ": " + errorObject[errorCategory].join(" ");
           errors += '\n';
