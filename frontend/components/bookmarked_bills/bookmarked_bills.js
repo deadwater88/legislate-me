@@ -9,12 +9,9 @@ class BookmarkedBills extends React.Component{
   }
 
   componentDidMount(){
-    console.log("hit bookmarks");
   }
 
   render(){
-    console.log('rendering bookmarked bills');
-
     return(
       <BillIndex
         navigation={this.props.navigation}
