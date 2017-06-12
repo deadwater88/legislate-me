@@ -50,13 +50,13 @@ class BillIndexItem extends React.Component{
       <TouchableHighlight onPress={this.navigateToBill}>
         <View style={styles.container}>
           <View style={styles.left}>
-            <Text style={styles.title}>{bill.subject}</Text>
-            <Text>{bill.title}</Text>
+            <Text style={styles.subject}>{bill.subject}</Text>
+            <Text style={styles.title}>{bill.title}</Text>
             <Text>By: {bill.leg_name}</Text>
           </View>
 
           <View style={styles.right}>
-            <Image style={{height:50, width: 50}} source={pic_url}/>
+            <Image style={styles.image} source={pic_url}/>
             {bookmarkIcon}
           </View>
         </View>
@@ -67,21 +67,33 @@ class BillIndexItem extends React.Component{
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    margin: 18,
     flex: 1,
     justifyContent: 'space-around',
     alignContent: 'space-around',
     flexDirection: 'row',
   },
+  image: {
+    height:70,
+    width: 70,
+    marginBottom: 15
+  },
   title: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginBottom: 5
+  },
+  subject: {
+    fontSize: 18,
+    marginBottom: 5
   },
   left: {
-    flex: 1
+    flex: 4
   },
   right: {
     flexDirection: 'column',
-    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     flex: 1
   }
 });
