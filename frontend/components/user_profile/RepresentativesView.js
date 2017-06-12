@@ -3,6 +3,7 @@ import { ListView, View, Text } from 'react-native';
 import { Button, CardSection} from '../common';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Communications from 'react-native-communications';
+import { zipped } from '../../reducers/selectors';
 
 class RepresentativesView extends React.Component {
   //bill view passes rep objects to representative view
@@ -22,7 +23,7 @@ class RepresentativesView extends React.Component {
     this.callRep = this.callRep.bind(this);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows(this.props.representatives)
+      dataSource: ds.cloneWithRows(zipped(this.props.representatives))
     };
   }
 
@@ -43,7 +44,8 @@ class RepresentativesView extends React.Component {
     Communications.phonecall(phoneNum, true);
   }
 
-  buildEmail(name, supportive){
+  buildEmail(fName, lName, supportive){
+    debugger
     //supportive boolean will be assigned based on what they select
     const opinion = this.state.support ? 'approval' : 'disapproval';
     return `Dear ${name},
@@ -52,17 +54,18 @@ class RepresentativesView extends React.Component {
       Voters like me consider this an important issue, and I wanted to reach out personally to show you
       how much I care. Thank you for hearing me out.
 
-      Sincerely,
-      ${this.props.userName}
+    Sincerely,
+    ${this.props.userName}
     `;
   }
 
-  emailRep(name, emailAddress){
+  emailRep(fName, lName, emailAddress){
+    debugger
     Communications.email(
       [emailAddress],
       null,null,
       this.buildEmail());
-  }
+    }
 
 
   render(){
@@ -84,48 +87,53 @@ class RepresentativesView extends React.Component {
       );
     } else{
       return(
-        <ListView
-            dataSource={this.state.dataSource}
-            renderRow={representative => (
+             <ListView
+          dataSource={this.state.dataSource}
+          renderRow={representative => {
+            const rep = representative[1];
+            return(
               <View style={container}>
-                <Text>{representative.name}</Text>
+                <Text>{rep.fName} {rep.lName}</Text>
                 <View style={icons}>
                   <Icon.Button name="phone-square"
-                     size={40}
-                     color="#009E11"
-                     margin={0}
-                     padding={0}
-                     backgroundColor="white"
-                     onPress={() => this.callRep(representative.phNum)}
-                     style={ {paddingRight: 10}} />
-                   <Icon.Button name="envelope"
-                      size={40}
-                      color="#CF2A28"
-                      margin={0}
-                      padding={0}
-                      backgroundColor="white"
-                      onPress={() => this.showOptions(representative)}
-                      style={{}} />
-                 </View>
-             </View>                   )}
+                    size={40}
+                    color="#009E11"
+                    margin={0}
+                    padding={0}
+                    backgroundColor="white"
+                    onPress={() => this.callRep(rep.phNum)}
+                    style={ {paddingRight: 10}} />
+                  <Icon.Button name="envelope"
+                    size={40}
+                    color="#CF2A28"
+                    margin={0}
+                    padding={0}
+                    backgroundColor="white"
+                    onPress={() => this.emailRep(rep.fName, rep.lName, rep.email)}
+                    style={{}} />
+                </View>
+              </View>
+            )}}
+            />
           />
       );
     }
   }
 }
+
 const styles = {
   icons: {
     flexDirection: 'row',
     paddingRight: 5,
     backgroundColor: 'white'
 
-  },
-  container: {
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }
-};
+      },
+      container: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }
+    };
 
-export default RepresentativesView;
+    export default RepresentativesView;

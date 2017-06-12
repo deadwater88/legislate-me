@@ -28,15 +28,12 @@ class BillIndex extends React.Component{
   }
 
   componentWillMount() {
-
     if (this.props.navigation && this.props.navigation.state.params){
       let subjectName = this.props.navigation.state.params.subjectName;
       this.props.fetchBillsBySubject(subjectName);
     }else if (this.props.renderBookmarks) {
-
       this.props.fetchBookmarks();
     } else{
-
       this.props.fetchBills();
     }
   }
