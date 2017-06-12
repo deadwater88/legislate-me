@@ -46,23 +46,27 @@ const styles = {
     alignItems: 'center'
   },
   imageStyle: {
-    height: 200,
-    width: 400
+    opacity: 0.8
   },
   headerText:{
-    paddingTop:20,
+    paddingTop:30,
     textAlign: 'center',
-    fontSize: 20,
-    paddingBottom: 20,
-    color: 'white',
-    backgroundColor: '#2980B9'
+    fontSize: 25,
+    paddingBottom: 30,
+    color: 'black',
+    backgroundColor: '#ecf0f1'
   },
   labelText:{
-    fontSize: 18,
+    fontSize: 35,
+    fontWeight: 'bold',
     position: 'absolute',
-    backgroundColor: 'rgba(255,255,255,0.9)',
-    color: 'black',
-    padding: 3
+    bottom: 0,
+    left: 0,
+    width: '97%',
+    margin: 6,
+    padding: 5,
+    backgroundColor: '#34495e',
+    color: '#ecf0f1',
   }
 };
 
