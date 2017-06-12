@@ -8,7 +8,7 @@ export const fetchBillInfo = billId => {
   });
 };
 
-export const fetchBillsBySubjects = () => {
+export const fetchBills = () => {
   return axios({
     method: 'GET',
     url: `${HOST_URL}/api/bills`

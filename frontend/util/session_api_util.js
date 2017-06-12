@@ -26,10 +26,17 @@ export const logout = () => {
 };
 
 export const oauth = user => {
-  
+
   return axios({
     method: 'POST',
     url: `${HOST_URL}/api/oauth`,
     data: user
+  });
+};
+
+export const checkLogin = () => {
+  return axios({
+    method: 'GET',
+    url: `${HOST_URL}/api/sessions`
   });
 };

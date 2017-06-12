@@ -41,6 +41,15 @@ export const logout = () => dispatch => (
   ))
 );
 
+export const checkLogin = () => dispatch => (
+  APIUtil.checkLogin().then(response=> (
+    dispatch(receiveCurrentUser(response.data))
+  ))
+);
+
+
+
+
 export const deleteUser = user => dispatch => (
   UserAPIUtil.deleteUser(user).then(nullUser => (
     dispatch(receiveCurrentUser(null))

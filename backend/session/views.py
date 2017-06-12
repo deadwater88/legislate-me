@@ -15,6 +15,17 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 class SessionView(APIView):
     parser_classes = (FormParser, JSONParser)
+
+    def get(self, request):
+        user = request.user
+        if (not user.is_anonymous):
+            login(request, user)
+            serializer = UserSerializer(user)
+            return JsonResponse(serializer.data)
+        else:
+            return JsonResponse({"error": ["No user logged in"]}, status=400)
+
+
     def post(self, request):
         email = request.data['email']
         password = request.data['password']
