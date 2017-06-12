@@ -14,7 +14,6 @@ class CustomizeInterestList extends Component {
     });
 
     this.saveInterests = this.saveInterests.bind(this);
-    debugger;
     let subjects = this.props.subjects;
     this.state = {
       dataSource: ds.cloneWithRows(this.zipped(this.props.subjects)),
@@ -43,7 +42,7 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     finishSetup();
-
+    console.log('SAVE INTERESTS');
     if (this.props.navigation.state && this.props.navigation.state.params.fromSubmitAddress){
     } else{
       setTimeout(this.props.navigation.goBack, 100);
