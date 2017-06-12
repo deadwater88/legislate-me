@@ -14,6 +14,8 @@ const UserProfileNavigator = StackNavigator({
   SubjectsIndex: { screen: SubjectsIndex },
   BillIndex: { screen: BillIndex },
   BillIndexItem: { screen: BillIndexItem }
+},{
+  headerMode: 'none'
 });
 
 export default UserProfileNavigator;
