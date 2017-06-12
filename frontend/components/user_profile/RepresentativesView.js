@@ -115,7 +115,7 @@ class RepresentativesView extends React.Component {
               </View>
             )}}
             />
-          />
+
       );
     }
   }

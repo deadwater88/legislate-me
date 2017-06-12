@@ -36,7 +36,7 @@ class UserView(APIView):
         try:
             validate_password(password, user=user)
         except ValidationError as e:
-            return JsonResponse(e.message_dict, status=400)
+            return JsonResponse({'password': e.messages}, status=400)
         try:
             user.full_clean()
         except ValidationError as e:
