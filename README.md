@@ -1,5 +1,5 @@
 # LegislateMe
-[Our Splash Page]("www.legislateme.com")
+[Our Splash Page]("http://www.legislateme.com")
 
 ## Overview
 In today's world of sound bytes and social media, it's often difficult to keep up with local policy.  LegislateMe, a mobile application built with React Native and a Django backend, aims to solve that problem.
@@ -10,11 +10,11 @@ important for them, and email/call their representatives about specific bills st
 Our mission statement is to reduce the overhead necessary to get involved in local politics. It's as easy as pushing a button!
 
 ## Technologies
-  LegislateMe pairs Redux data architecture with React Native for efficient, unidirectional data management and cross-mobile performant functionality. Django, chosen for its portability and well-organized documentation, served as the application's server-side web API.
+  LegislateMe pairs Redux data architecture with React Native for efficient, unidirectional data management and cross-mobile performant functionality. Django, chosen for its portability and well-organized documentation, serves as the application's server-side web API.
 
   ![React Icon](/frontend/components/subjects/images/React-icon.png)
   ![Django Icon](/frontend/components/subjects/images/Django_logo.png)
-  ![Google Maps](/frontend/components/subjects/images/googlemaps.jpg)
+  ![Google Maps](/frontend/components/subjects/images/Google_Maps.jpg)
 
 
   Third Party APIS involved:
@@ -55,6 +55,7 @@ Our mission statement is to reduce the overhead necessary to get involved in loc
   ```
 
   ### Contacting representatives within app
+
    + People are busy. When they come back from work the last thing on their list is reaching out to their representative about a particularly irritating bill.
     LegislateMe helps out. If a user is reading a bill that they feel particularly passionate about, they can call or email their representative from within the application.
 
@@ -69,31 +70,32 @@ Our mission statement is to reduce the overhead necessary to get involved in loc
    **Show video of this happening**
 
   ### Keeping the Database up-to-date
+
     + In order to serve our users the most recently edited bills, we have our server scan the Open States API every night at 3 am for new bills. We used the Heroku Scheduler to set up this job.
 
-    ``` python
-    class Command(BaseCommand):
+  ``` python
+  class Command(BaseCommand):
 
-        def handle(self, *args, **options):
-            print("requesting bills...")
-            query = 'bills/?page=1&per_page=1000&fields=bill_id,sponsors,title,chamber,subjects,state,sources,full_name,actions&state=ca'
-            bills = open_states_call(query)
-            count = 0
-            amount = len(bills)
-            print("{amount} Bills Fetched. Seeding...".format(amount=amount))
-            for bill in bills:
-                bill_data = BillsSerializer(bill).data
-                try:
-                    instance = Bill.objects.get(os_id= bill_data['os_id'])
-                    Bill(id=instance.id, **bill_data).save()
-                except Bill.DoesNotExist:
-                    Bill.objects.create(**bill_data)
-                count += 1
-                sleep(2)
-                print(count)
-            print("seeding completed")
+      def handle(self, *args, **options):
+          print("requesting bills...")
+          query = 'bills/?page=1&per_page=1000&fields=bill_id,sponsors,title,chamber,subjects,state,sources,full_name,actions&state=ca'
+          bills = open_states_call(query)
+          count = 0
+          amount = len(bills)
+          print("{amount} Bills Fetched. Seeding...".format(amount=amount))
+          for bill in bills:
+              bill_data = BillsSerializer(bill).data
+              try:
+                  instance = Bill.objects.get(os_id= bill_data['os_id'])
+                  Bill(id=instance.id, **bill_data).save()
+              except Bill.DoesNotExist:
+                  Bill.objects.create(**bill_data)
+              count += 1
+              sleep(2)
+              print(count)
+          print("seeding completed")
 
-    ```
+  ```
 
 
   ### Following bills
