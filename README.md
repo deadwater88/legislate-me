@@ -1,5 +1,5 @@
 # LegislateMe
-[Live App](#)
+[Our Splash Page]("www.legislateme.com")
 
 ## Overview
 In today's world of sound bytes and social media, it's often difficult to keep up with local policy.  LegislateMe, a mobile application built with React Native and a Django backend, aims to solve that problem.
@@ -12,11 +12,16 @@ Our mission statement is to reduce the overhead necessary to get involved in loc
 ## Technologies
   LegislateMe pairs Redux data architecture with React Native for efficient, unidirectional data management and cross-mobile performant functionality. Django, chosen for its portability and well-organized documentation, served as the application's server-side web API.
 
+  ![React Icon](/frontend/components/subjects/images/React-icon.png)
+  ![Django Icon](/frontend/components/subjects/images/Django_logo.png)
+  ![Google Maps](/frontend/components/subjects/images/googlemaps.jpg)
+
+
   Third Party APIS involved:
    + [OpenStates](http://docs.openstates.org/en/latest/api/)
-      - API that allows for curation of bill data for states.
+      - allows for curation of bill data for states.
    + [Google Maps Geocoding](https://developers.google.com/maps/documentation/javascript/geocoding)
-      - API that allows user to enter address and receive lat/long points for user with OpenStates API  
+      - allows user to enter address and receive lat/long points for user with OpenStates API  
 
 ## Features
   ### OAuth integration
