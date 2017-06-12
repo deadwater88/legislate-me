@@ -33,10 +33,10 @@ class UserView(APIView):
         last_name = request.data['lName']
         first_name = request.data['fName']
         user = User(email=email, password=password, first_name=first_name, last_name=last_name)
-        try:
-            validate_password(password, user=user)
-        except ValidationError as e:
-            return JsonResponse({'password': e.messages}, status=400)
+        # try:
+        #     validate_password(password, user=user)
+        # except ValidationError as e:
+        #     return JsonResponse({'password': e.messages}, status=400)
         try:
             user.full_clean()
         except ValidationError as e:
@@ -61,8 +61,9 @@ class SubjectsView(APIView):
         user = request.user
         subjectsDict = request.data
         user.subjects = [subject for subject in subjectsDict if subjectsDict[subject]]
+        user.setup = True
         user.save()
-        return JsonResponse(subjectsDict)
+        return JsonResponse(user)
 
 class RepresentativesView(APIView):
     parser_classes = (FormParser, JSONParser)
