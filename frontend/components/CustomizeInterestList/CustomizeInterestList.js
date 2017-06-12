@@ -5,7 +5,7 @@ import { SUBJECTS } from '../../util/subject_api_util';
 import CustomizeInterestListItem from './CustomizeInterestListItem';
 import CustomizeHeader from './CustomizeHeader';
 import { finishSetup } from '../../util/user_api_util';
-
+//import BillNavigator here instead 
 class CustomizeInterestList extends Component {
   constructor(props){
     super(props);
@@ -25,8 +25,6 @@ class CustomizeInterestList extends Component {
   selectSubject(subject){
     this.state.subjects[subject] = !this.state.subjects[subject];
   }
-
-
   //the subjects array is a two d array-- each entry
   // is a key of subject string and value of false because this has been hardcoded in the subject api util
   zipped(subjects){
@@ -42,8 +40,8 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     finishSetup();
-    console.log('SAVE INTERESTS');
     if (this.props.navigation.state && this.props.navigation.state.params.fromSubmitAddress){
+
     } else{
       setTimeout(this.props.navigation.goBack, 100);
     }

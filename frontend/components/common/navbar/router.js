@@ -59,6 +59,7 @@ export const HomeRouter = TabNavigator({
     },
   }
 }, {
+  lazy: true,
   tabBarPosition: "top",
   tabBarOptions: {
     showIcon: true,
