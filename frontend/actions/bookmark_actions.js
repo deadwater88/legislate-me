@@ -22,3 +22,8 @@ export const createBookmark = bookmark  => dispatch => (
   BillAPIUtil.bookmarkBill(bookmark).then(bookmarks =>
     dispatch(receiveBookmarks(bookmarks.data))
 ));
+
+export const deleteBookmark = bookmark  => dispatch => (
+  BillAPIUtil.deleteBookmark(bookmark).then(bookmarks =>
+    dispatch(receiveBookmarks(bookmarks.data))
+));
