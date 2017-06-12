@@ -8,7 +8,12 @@ import BillView from '../../bill_view/bill_view_container';
 import BillIndexItem from '../../bill_index/bill_index_item';
 import UserProfileNavigator from '../../user_profile/user_profile_navigator';
 import SubjectsIndex from '../../subjects/subjects_index';
+import { fetchBills } from '../../../actions/bill_actions';
 // import explore and bookmarked
+import { connect } from 'react-redux';
+const mapDispatchToProps = (dispatch) => ({
+  fetchBills: () => dispatch(fetchBills)
+});
 
 import BookmarkedBills from '../../bookmarked_bills/bookmarked_bills_container';
 
@@ -32,6 +37,9 @@ const BillNavigator = StackNavigator({
   tabBarOptions: {
     activeTintColor: 'white',
     inactiveTintColor: 'grey',
+  },
+  onNavigationStateChange: (prevState, newState) => {
+    debugger;
   }
 });
 
@@ -39,7 +47,7 @@ const BillNavigator = StackNavigator({
 // Add explore ("globe-o") and bookmarked ("bookmark") options once they're available
 export const HomeRouter = TabNavigator({
   BillNavigator: {
-    screen: BillNavigator
+    screen: connect(null, mapDispatchToProps)(BillNavigator)
   },
   Bookmarks: {
     screen: BookmarkedBills,
