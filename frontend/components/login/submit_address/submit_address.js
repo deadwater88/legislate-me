@@ -15,7 +15,9 @@ class SubmitAddress extends React.Component {
   }
 
   findRepresentative(){
-    this.props.createAddress(this.state.address).then(this.navigateToCustomizeInterest);
+    this.props.createAddress(this.state.address
+    + " " + this.state.cityState + " "+ this.state.zip).then(
+      this.navigateToCustomizeInterest);
     //need to navigate to bill index from here.
   }
 
@@ -48,7 +50,7 @@ class SubmitAddress extends React.Component {
       <CardSection>
         <Input
           placeholder="90001"
-          label="Zipcode"
+          label="Zip code"
           value={this.state.zip}
           onChangeText={(zip) => this.setState({zip})}
           />
