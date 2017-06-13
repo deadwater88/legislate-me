@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { View, Text, TouchableHighlight, StackNavigator, ToastAndroid  } from 'react-native';
+import { View, Text, TouchableHighlight, TextInput, StackNavigator, ToastAndroid, Image  } from 'react-native';
 import { Button, Card, CardSection, Input} from '../common';
 import SubmitAddress from './submit_address/submit_address';
 import OAuthButtons from './OAuth/oauth_buttons';
@@ -74,17 +74,24 @@ class LoginForm extends Component {
     }
 
   render(){
+    const pic = require('../subjects/images/gradient.jpg');
+
     if(this.state.login){
       return(
-        <Card>
+        <Image style={style.parentView} source={pic}>
+        <View>
           <CardSection>
             <OAuthButtons/>
           </CardSection>
           <CardSection>
-            <Text>------or------</Text>
+            <Text style={{color: 'white'}}>
+              ------------------------------------ or ------------------------------------
+            </Text>
           </CardSection>
           <CardSection>
-            <Input
+            <TextInput
+              style={style.text}
+              placeholderTextColor='grey'
               placeholder="user@email.com"
               label="Email"
               value={this.state.email}
@@ -93,9 +100,11 @@ class LoginForm extends Component {
           </CardSection>
 
           <CardSection>
-            <Input
+            <TextInput
+              style={style.text}
               secureTextEntry
               placeholder="password"
+              placeholderTextColor='grey'
               label="Password"
               value={this.state.password}
               onChangeText={password =>this.setState({password})}
@@ -108,23 +117,29 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <TouchableHighlight onPress={this.onToggleSignIn}>
-              <Text>Or sign up</Text>
+              <Text style={{color: 'white'}}>Or sign up</Text>
             </TouchableHighlight>
           </CardSection>
-        </Card>
+        </View>
+      </Image>
       );
     }else{
       return(
+        <Image style={style.parentView} source={pic}>
         <Card>
           <CardSection>
             <OAuthButtons/>
           </CardSection>
           <CardSection>
-            <Text>------or------</Text>
+            <Text style={{color: 'white'}}>
+              ------------------------------------ or ------------------------------------
+            </Text>
           </CardSection>
           <CardSection>
             <Input
+              style={style.text}
               placeholder="First Name"
+              placeholderTextColor='white'
               label="First Name"
               value={this.state.firstName}
               onChangeText={fName =>this.setState({fName})}
@@ -132,7 +147,9 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Input
+              style={style.text}
               placeholder="Last Name"
+              placeholderTextColor='white'
               label="Last Name"
               value={this.state.lastName}
               onChangeText={lName =>this.setState({lName})}
@@ -140,7 +157,9 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Input
+              style={style.text}
               placeholder="user@email.com"
+              placeholderTextColor='white'
               label="Email"
               value={this.state.email}
               onChangeText={email =>this.setState({email})}
@@ -149,8 +168,10 @@ class LoginForm extends Component {
 
           <CardSection >
             <Input
+              style={style.text}
               secureTextEntry
               placeholder="password"
+              placeholderTextColor='white'
               label="Password"
               value={this.state.password}
               onChangeText={password =>this.setState({password})}
@@ -163,34 +184,38 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <TouchableHighlight onPress={this.onToggleSignIn}>
-              <Text>Or log in</Text>
+              <Text style={style.text}>Or log in</Text>
             </TouchableHighlight>
           </CardSection>
         </Card>
+      </Image>
       );
     }
 
   }
 }
 
-// const styles = {
-//   containerStyle: {
-//     backgroundColor: 'black'
-//   },
-//   oauthStyle: {
-//     color: 'blue',
-//     paddingRight: 5,
-//     paddingLeft: 5,
-//     fontSize: 18,
-//     lineHeight: 23,
-//     flex: 1
-//   },
-//   emailStyle: {
-//     flex: 2,
-//     width: 100,
-//     height: 100
-//   }
-// };
+const style = {
+  parentView: {
+    flex: 1,
+    width: '100%',
+    alignContent: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  },
+  text: {
+    textAlignVertical: 'top',
+    textAlign: 'center',
+    flex: 1,
+    alignSelf: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    fontSize: 20
+  }
+};
 
 
 
