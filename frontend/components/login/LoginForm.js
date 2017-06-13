@@ -204,9 +204,10 @@ const style = {
     flexDirection: 'column'
   },
   text: {
-    textAlignVertical: 'top',
+    textAlignVertical: 'center',
     textAlign: 'center',
     flex: 1,
+    height: 70,
     alignSelf: 'center',
     alignContent: 'center',
     alignItems: 'center',

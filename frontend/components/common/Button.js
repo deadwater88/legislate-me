@@ -26,11 +26,13 @@ const styles = {
     alignSelf: 'stretch',
     backgroundColor: 'black',
     borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#2c3e50',
     marginLeft: 19,
     marginRight: 19,
-    height: 70,
+    height: 90,
     width: '90%'
   }
 };

@@ -12,7 +12,6 @@ const CardSection = (props) => {
 const styles = {
   containerStyle: {
     alignSelf: 'center',
-    padding: 5,
     margin: 8,
     backgroundColor: 'transparent',
     justifyContent: 'flex-start',
