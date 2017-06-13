@@ -17,7 +17,7 @@ class Splash extends Component {
 
     return (
       <Image style={containerStyle} source={pic}>
-        <Text style={headerStyle}>Voice your opinion before a bill becomes law. Join LegislateMe. </Text>
+        <Text style={headerStyle}>Voice your opinion before a bill becomes law. </Text>
         <Button
           onPress={() => {
             navigate('Login');
