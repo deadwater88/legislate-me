@@ -9,15 +9,16 @@ class Splash extends Component {
     super(props);
   }
   render(){
-    const { containerStyle, headerStyle} = styles;
+    const { containerStyle, headerStyle, imageBackgroundStyle} = styles;
     const pic  = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Golden_Gate_bridge_pillar.jpg/400px-Golden_Gate_bridge_pillar.jpg'
     };
     const {navigate} = this.props.navigation;
 
     return (
-      <Image style={containerStyle} source={pic}>
-        <Text style={headerStyle}>Voice your opinion before a bill becomes law. </Text>
+      <View style={imageBackgroundStyle}>
+        <Image style={containerStyle} source={pic}>
+          <Text style={headerStyle}>Voice your opinion before a bill becomes law. </Text>
         <Button
           onPress={() => {
             navigate('Login');
@@ -25,18 +26,24 @@ class Splash extends Component {
           Get Started
         </Button>
       </Image>
-    );
-  }
+    </View>
+  );
+}
 }
 
 const styles = {
   containerStyle: {
     height: '100%',
-    backgroundColor:'transparent',
+    opacity: 0.8,
     flexDirection: 'column',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  imageBackgroundStyle: {
+    backgroundColor: 'black',
   },
   headerStyle: {
+    backgroundColor: 'transparent',
     color: 'white',
     fontWeight: '900',
     alignSelf: 'center',
@@ -44,8 +51,8 @@ const styles = {
     paddingLeft: 15,
     marginTop: 30,
     marginBottom: 330,
-    fontSize: 30,
-    height: 150
+    fontSize: 35,
+    height: 170
   }
 };
 

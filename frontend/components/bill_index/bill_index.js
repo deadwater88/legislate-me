@@ -37,9 +37,7 @@ class BillIndex extends React.Component{
     }
   }
 
-  componentDidMount(){
-    // debugger;
-  }
+
 
   zipped(bills){
     let zippedArray = [];
@@ -52,7 +50,6 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    // debugger;
     console.log('bill index render function hit');
     const ds = this.state.dataSource;
     const {navigate} = this.props.navigation;
