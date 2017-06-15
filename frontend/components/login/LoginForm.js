@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import { View, Text, TouchableHighlight, TextInput, StackNavigator, ToastAndroid, Image  } from 'react-native';
-import { Button, Card, CardSection, Input} from '../common';
+import { View, Text, TouchableHighlight, TouchableOpacity, TextInput, StackNavigator, ToastAndroid, Image  } from 'react-native';
+import { Card, CardSection, Button, Input} from '../common';
 import SubmitAddress from './submit_address/submit_address';
 import OAuthButtons from './OAuth/oauth_buttons';
 
@@ -75,7 +75,7 @@ class LoginForm extends Component {
 
   render(){
     const pic = require('../subjects/images/gradient.jpg');
-
+    const user_pic = require('../subjects/images/gradient.jpg');
     if(this.state.login){
       return(
         <Image style={style.parentView} source={pic}>
@@ -84,14 +84,14 @@ class LoginForm extends Component {
             <OAuthButtons/>
           </CardSection>
           <CardSection>
-            <Text style={{color: 'white'}}>
+            <Text style={{color: 'white', margin: 30}}>
               ------------------------------------ or ------------------------------------
             </Text>
           </CardSection>
           <CardSection>
             <TextInput
               style={style.text}
-              placeholderTextColor='grey'
+              placeholderTextColor='white'
               placeholder="user@email.com"
               label="Email"
               value={this.state.email}
@@ -104,17 +104,17 @@ class LoginForm extends Component {
               style={style.text}
               secureTextEntry
               placeholder="password"
-              placeholderTextColor='grey'
+              placeholderTextColor='white'
               label="Password"
               value={this.state.password}
               onChangeText={password =>this.setState({password})}
               />
           </CardSection>
-          <CardSection>
-            <Button onPress={this.onLogIn}>
-              Log in
-            </Button>
-          </CardSection>
+          <TouchableOpacity onPress={this.onLogIn} style={style.buttonStyle}>
+            <Text style={style.textStyle}>
+              LOG IN
+            </Text>
+            </TouchableOpacity>
           <CardSection>
             <TouchableHighlight onPress={this.onToggleSignIn}>
               <Text style={{color: 'white'}}>Or sign up</Text>
@@ -200,7 +200,7 @@ const style = {
     flex: 1,
     width: '100%',
     alignContent: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     flexDirection: 'column'
   },
   text: {
@@ -208,17 +208,38 @@ const style = {
     textAlign: 'center',
     flex: 1,
     height: 70,
-    alignSelf: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
     borderRadius: 10,
-    backgroundColor: 'black',
+    borderColor: '#7f8c8d',
+    borderWidth: 1,
+    color: '#ecf0f1',
     justifyContent: 'center',
     fontSize: 20
+  },
+  buttonStyle: {
+    alignSelf: 'center',
+    backgroundColor: '#bdc3c7',
+    borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#2c3e50',
+    margin: 30,
+    height: 90,
+    width: '90%'
+  },
+  textStyle: {
+    alignSelf: 'center',
+    color: 'black',
+    fontSize: 25,
+    fontWeight: '900',
+    paddingTop: 18,
+    paddingBottom: 18
   }
 };
 
-
+// alignSelf: 'center',
+// alignContent: 'center',
+// alignItems: 'center',
 
 
 export default LoginForm;
