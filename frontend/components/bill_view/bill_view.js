@@ -29,7 +29,7 @@ class BillView extends React.Component {
     if(newState === true){
       this.setState({blurb: this.props.bill.blurb,
         link: this.props.bill.summary_url,
-        linkTitle: 'Read More'
+        linkTitle: 'See Full Bill'
         });
     } else{
       this.setState({blurb: '', link: '', linkTitle: ''});
@@ -40,7 +40,7 @@ class BillView extends React.Component {
   render(){
     const {container,billTitle, billImage, blurb,
       billState, billChamber, billSponsors, blurbHeader,
-      blurbText, representative } = styles;
+      blurbText, header, representative } = styles;
 
     const {
       bill_id,
@@ -74,7 +74,7 @@ class BillView extends React.Component {
             <Image style={billImage} source={img_id} />
 
             <View style={representative}>
-              <Text style={{fontSize:20, fontWeight: 'bold', marginBottom: 15, color: 'black'}}>Contact your representatives:</Text>
+              <Text style={header}>Contact your representatives:</Text>
 
               <RepresentativesView
                 representatives={this.props.representatives}
@@ -85,7 +85,7 @@ class BillView extends React.Component {
             <TouchableHighlight onPress={this.toggleBlurb}>
               <View style={blurb}>
                 <View style={blurbHeader}>
-                  <Text style={{fontSize:20, fontWeight: 'bold', color: 'black'}}>Bill Details</Text>
+                  <Text style={header}>Bill Details</Text>
                   <Icon.Button name="arrow-circle-down"
                     size={30}
                     color="black"
@@ -100,14 +100,14 @@ class BillView extends React.Component {
                   <Text onPress={() => {
                     Linking.openURL(summary_url)
                   }}>
-                  {linkTitle}
+                    <Text style={{fontWeight: 'bold', color: 'black', marginLeft: 16}}>{linkTitle}</Text>
                   </Text>
                 </Text>
               </View>
             </TouchableHighlight>
 
             <View style={billSponsors}>
-              <Text style={{fontSize: 16, color: 'black', marginBottom: 10}}>Bill Sponsors</Text>
+              <Text style={header}>Bill Sponsors</Text>
               <SponsorBillView
                 sponsor={sponsor}/>
             </View>
@@ -124,8 +124,6 @@ class BillView extends React.Component {
 const styles = {
   container: {
     flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
     backgroundColor: 'white'
   },
   billTitle: {
@@ -134,41 +132,59 @@ const styles = {
     paddingBottom: 10,
     paddingTop: 20,
     color: 'black',
+    paddingLeft: 20,
+    paddingRight: 20,
     backgroundColor: 'white'
   },
   billImage: {
     flex: 1,
+    width: '100%',
     marginTop: 15,
     marginBottom: 20
   },
   blurbHeader: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    paddingLeft: 20,
+    paddingRight: 20,
     backgroundColor: 'white'
   },
   blurb: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   blurbText: {
     marginTop: 8,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   billState: {
     fontSize: 12,
-    color: 'grey'
+    color: 'grey',
+    paddingLeft: 20
   },
   billChamber: {
     fontSize: 12,
-    color: 'grey'
+    color: 'grey',
+    paddingLeft: 20
   },
   billSponsors: {
     padding: 5,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black'
   },
   representative: {
     flexDirection: 'column',
     paddingBottom: 30,
     marginBottom: 40,
+    paddingLeft: 20,
+    paddingRight: 20,
     borderBottomWidth: 1,
     borderBottomColor: 'grey'
   }

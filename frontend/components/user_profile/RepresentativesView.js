@@ -122,7 +122,8 @@ ${this.props.userName}`);
       container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 30
       }
     };
             export default RepresentativesView;
