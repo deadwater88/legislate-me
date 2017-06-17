@@ -65,12 +65,10 @@ class BillView extends React.Component {
               <Text style={billState}>State: {state.toUpperCase()}</Text>
               <Text style={billChamber}>Chamber: {capitalizedChamber}</Text>
             </View>
-            <CardSection>
               <Image style={billImage} source={img_id} />
-            </CardSection>
 
             <View style={{flexDirection: 'column'}}>
-              <Text style={{fontSize:16, fontWeight: 'bold', paddingBottom: 3}}>Contact your representatives:</Text>
+              <Text style={{fontSize:20, fontWeight: 'bold', marginBottom: 15, color: 'black'}}>Contact your representatives:</Text>
 
                 <RepresentativesView
                   representatives={this.props.representatives}
@@ -119,17 +117,17 @@ const styles = {
     backgroundColor: 'white'
   },
   billTitle: {
-    fontSize: 23,
+    fontSize: 27,
     fontWeight: 'bold',
     paddingBottom: 10,
-    paddingTop: 10,
+    paddingTop: 20,
     color: 'black',
     backgroundColor: 'white'
   },
   billImage: {
-    flex: 1,
+    width: '100%',
     marginTop: 15,
-    marginBottom: 15
+    marginBottom: 20
   },
   blurbHeader: {
     justifyContent: 'space-between',
