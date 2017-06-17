@@ -5,6 +5,7 @@ import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { connect } from 'react-redux';
 import { signup, authUser } from '../../../actions/session_actions';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const mapDispatchToProps = dispatch => ({
   authUser: user => dispatch(authUser(user))
@@ -43,10 +44,7 @@ class OAuthButtons extends Component {
     const { containerStyle, buttonStyle} = styles;
     return(
       <View style={containerStyle}>
-        <FBOAuth style={{
-          height: 40,
-          width: 292
-        }}
+        <FBOAuth style={buttonStyle}
         />
         <GoogleSigninButton
         style={buttonStyle}
@@ -64,8 +62,14 @@ const styles = {
     alignItems: 'center',
   },
   buttonStyle: {
-    height: 40,
-    width: 300,
+    alignSelf: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    height: 50,
+    width: 300
   }
 };
 

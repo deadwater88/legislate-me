@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles;
@@ -13,26 +14,28 @@ const Button = ({ onPress, children }) => {
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   textStyle: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: '900',
     paddingTop: 18,
     paddingBottom: 18
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: '#2c3e50',
-    borderRadius: 5,
+    backgroundColor: 'black',
+    borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#2c3e50',
     marginLeft: 19,
     marginRight: 19,
-    height: 70,
+    height: 90,
     width: '90%'
   }
-};
+});
 
 export { Button };
