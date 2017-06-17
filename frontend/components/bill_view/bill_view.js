@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image, TouchableHighlight, ScrollView } from 'react-native';
+import {Text, View, Image, TouchableHighlight, ScrollView, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import ContactRepresentativesView  from './contact_representatives_view';
@@ -27,9 +27,12 @@ class BillView extends React.Component {
   toggleBlurb(){
     const newState = !this.state.reveal_blurb;
     if(newState === true){
-      this.setState({blurb: this.props.bill.blurb});
+      this.setState({blurb: this.props.bill.blurb,
+        link: this.props.bill.summary_url,
+        linkTitle: 'Read More'
+        });
     } else{
-      this.setState({blurb: ''});
+      this.setState({blurb: '', link: '', linkTitle: ''});
     }
     this.setState({reveal_blurb: newState});
   }
@@ -55,6 +58,7 @@ class BillView extends React.Component {
 
 
     const billBlurb = this.state.blurb;
+    const linkTitle = this.state.linkTitle;
     if (!state){
       return (<Text></Text>)
     } else {
@@ -81,22 +85,29 @@ class BillView extends React.Component {
             <TouchableHighlight onPress={this.toggleBlurb}>
               <View style={blurb}>
                 <View style={blurbHeader}>
-                  <Text style={{fontSize: 16}}>Bill Details</Text>
+                  <Text style={{fontSize:20, fontWeight: 'bold', color: 'black'}}>Bill Details</Text>
                   <Icon.Button name="arrow-circle-down"
-                    size={20}
+                    size={30}
                     color="black"
-                    backgroundColor='#ecf0f1'
-                    margin={0}
+                    backgroundColor='white'
+                    marginBottom={10}
                     padding={0}
                     onPress={this.toggleBlurb}
                     />
                 </View>
-                <Text style={blurbText}>{billBlurb}</Text>
+                <Text style={blurbText}>
+                  {billBlurb}
+                  <Text onPress={() => {
+                    Linking.openURL(summary_url)
+                  }}>
+                  {linkTitle}
+                  </Text>
+                </Text>
               </View>
             </TouchableHighlight>
 
             <View style={billSponsors}>
-              <Text style={{fontSize: 16}}>Bill Sponsors</Text>
+              <Text style={{fontSize: 16, color: 'black', marginBottom: 10}}>Bill Sponsors</Text>
               <SponsorBillView
                 sponsor={sponsor}/>
             </View>
@@ -140,7 +151,6 @@ const styles = {
   },
   blurbText: {
     marginTop: 8,
-    backgroundColor: '#ecf0f1'
   },
   billState: {
     fontSize: 12,
@@ -158,7 +168,7 @@ const styles = {
   representative: {
     flexDirection: 'column',
     paddingBottom: 30,
-    marginBottom: 30,
+    marginBottom: 40,
     borderBottomWidth: 1,
     borderBottomColor: 'grey'
   }
