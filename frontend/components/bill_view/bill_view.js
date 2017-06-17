@@ -177,7 +177,8 @@ const styles = {
   header: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
+    marginBottom: 20
   },
   representative: {
     flexDirection: 'column',
