@@ -12,7 +12,7 @@ import { Card, CardSection } from '../common';
 class BillView extends React.Component {
   constructor(props){
     super(props);
-    // debugger; //check why this.props.representatives is null 
+    // debugger; //check why this.props.representatives is null
     this.state = {
       reveal_blurb: false,
       blurb: ''
@@ -113,29 +113,31 @@ class BillView extends React.Component {
 
 const styles = {
   container: {
-    marginLeft: 10,
-    marginRight: 10
+    flex: 1,
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: 'white'
   },
   billTitle: {
     fontSize: 23,
     fontWeight: 'bold',
     paddingBottom: 10,
-    paddingTop: 10
+    paddingTop: 10,
+    color: 'black',
+    backgroundColor: 'white'
   },
   billImage: {
     flex: 1,
-    width: 100,
-    height: 200,
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 15,
+    marginBottom: 15
   },
   blurbHeader: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: '#ecf0f1'
+    backgroundColor: 'white'
   },
   blurb: {
-    backgroundColor: '#ecf0f1'
+    backgroundColor: 'white'
   },
   blurbText: {
     marginTop: 8,
