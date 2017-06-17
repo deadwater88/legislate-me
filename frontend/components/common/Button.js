@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: 'black',
+    backgroundColor: '#015249',
     borderRadius: 10,
     alignContent: 'center',
     justifyContent: 'center',
