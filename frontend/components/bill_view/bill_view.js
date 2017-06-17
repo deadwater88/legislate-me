@@ -35,7 +35,9 @@ class BillView extends React.Component {
   }
 
   render(){
-    const {container,billTitle, billImage, blurb, billState, billChamber, billSponsors, blurbHeader, blurbText } = styles;
+    const {container,billTitle, billImage, blurb,
+      billState, billChamber, billSponsors, blurbHeader,
+      blurbText, representative } = styles;
 
     const {
       bill_id,
@@ -65,17 +67,16 @@ class BillView extends React.Component {
               <Text style={billState}>State: {state.toUpperCase()}</Text>
               <Text style={billChamber}>Chamber: {capitalizedChamber}</Text>
             </View>
-              <Image style={billImage} source={img_id} />
+            <Image style={billImage} source={img_id} />
 
-            <View style={{flexDirection: 'column'}}>
+            <View style={representative}>
               <Text style={{fontSize:20, fontWeight: 'bold', marginBottom: 15, color: 'black'}}>Contact your representatives:</Text>
 
-                <RepresentativesView
-                  representatives={this.props.representatives}
-                  bill={this.props.bill}
-                  userName={this.props.userName}
-                  />
-
+              <RepresentativesView
+                representatives={this.props.representatives}
+                bill={this.props.bill}
+                userName={this.props.userName}
+                />
             </View>
             <TouchableHighlight onPress={this.toggleBlurb}>
               <View style={blurb}>
@@ -125,7 +126,7 @@ const styles = {
     backgroundColor: 'white'
   },
   billImage: {
-    width: '100%',
+    flex: 1,
     marginTop: 15,
     marginBottom: 20
   },
@@ -153,6 +154,13 @@ const styles = {
     padding: 5,
     marginTop: 10,
     marginBottom: 10
+  },
+  representative: {
+    flexDirection: 'column',
+    paddingBottom: 30,
+    marginBottom: 30,
+    borderBottomWidth: 1,
+    borderBottomColor: 'grey'
   }
 };
 export default BillView;

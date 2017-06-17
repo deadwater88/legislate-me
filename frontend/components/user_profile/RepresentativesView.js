@@ -114,12 +114,12 @@ ${this.props.userName}`);
     const styles = {
       icons: {
         flexDirection: 'row',
-        paddingRight: 5,
+        paddingTop: 8,
+        paddingBottom: 8,
         backgroundColor: 'white'
 
       },
       container: {
-        display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
