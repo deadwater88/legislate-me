@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
-import { Card, CardSection, Button } from '../../common';
+import { Text, View, Image, Button, TouchableOpacity } from 'react-native';
+import { Card, CardSection } from '../../common';
 import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { connect } from 'react-redux';
 import { signup, authUser } from '../../../actions/session_actions';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const mapDispatchToProps = dispatch => ({
   authUser: user => dispatch(authUser(user))
@@ -44,13 +43,13 @@ class OAuthButtons extends Component {
     const { containerStyle, buttonStyle} = styles;
     return(
       <View style={containerStyle}>
-        <FBOAuth style={buttonStyle}
+        <FBOAuth/>
+      <Button
+          style={{width: 300, height: 100, backgroundColor:'black'}}
+          onPress={this.configureConnection}
+          title="Continue with Google"
+          color="#00008B"
         />
-        <GoogleSigninButton
-        style={buttonStyle}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Light}
-        onPress={this.configureConnection}/>
       </View>
     );
   }
@@ -62,14 +61,14 @@ const styles = {
     alignItems: 'center',
   },
   buttonStyle: {
-    alignSelf: 'center',
-    alignContent: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    marginLeft: 10,
-    marginRight: 10,
-    height: 50,
-    width: 300
+    height: 40,
+    width: 300,
+  },
+  googleStyle: {
+    height: 40,
+    width: 300,
+    backgroundColor: 'gray',
+    color: 'yellow'
   }
 };
 
