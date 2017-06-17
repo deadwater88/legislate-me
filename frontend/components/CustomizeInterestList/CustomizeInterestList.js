@@ -5,7 +5,7 @@ import { SUBJECTS } from '../../util/subject_api_util';
 import CustomizeInterestListItem from './CustomizeInterestListItem';
 import CustomizeHeader from './CustomizeHeader';
 import { finishSetup } from '../../util/user_api_util';
-//import BillNavigator here instead 
+//import BillNavigator here instead
 class CustomizeInterestList extends Component {
   constructor(props){
     super(props);
@@ -53,7 +53,7 @@ class CustomizeInterestList extends Component {
         <Button
           onPress={this.saveInterests}
           title="Continue"
-          color="#841584"
+          color="#015249"
           accessibilityLabel="Save your interests"
         />
         <ListView
