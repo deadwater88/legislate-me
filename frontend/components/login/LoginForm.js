@@ -34,6 +34,10 @@ class LoginForm extends Component {
       }
     }
 
+    demoIn(){
+      this.props.demoIn();
+    }
+
     errorsChanged(newProps){
       return Object.keys(this.props.errors).length !== Object.keys(newProps.errors).length;
     }
@@ -85,7 +89,6 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Text style={{color: 'white', margin: 30}}>
-              ------------------------------------ or ------------------------------------
             </Text>
           </CardSection>
           <CardSection>
@@ -110,11 +113,18 @@ class LoginForm extends Component {
               onChangeText={password =>this.setState({password})}
               />
           </CardSection>
-          <TouchableOpacity onPress={this.onLogIn} style={style.buttonStyle}>
-            <Text style={style.textStyle}>
-              LOG IN
-            </Text>
+          <View>
+            <TouchableOpacity onPress={this.onLogIn} style={style.buttonStyle}>
+              <Text style={style.textStyle}>
+                LOG IN
+              </Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={this.demoIn} style={style.buttonStyle}>
+              <Text style={style.textStyle}>
+                Continue Without Logging In
+              </Text>
+            </TouchableOpacity>
+          </View>
           <CardSection>
             <TouchableHighlight onPress={this.onToggleSignIn}>
               <Text style={{color: 'white'}}>Or sign up</Text>
@@ -132,7 +142,6 @@ class LoginForm extends Component {
           </CardSection>
           <CardSection>
             <Text style={{color: 'white'}}>
-              ------------------------------------ or ------------------------------------
             </Text>
           </CardSection>
           <CardSection>
@@ -223,8 +232,8 @@ const style = {
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#2c3e50',
-    margin: 30,
-    height: 90,
+    margin: 10,
+    height: 60,
     width: '90%'
   },
   textStyle: {

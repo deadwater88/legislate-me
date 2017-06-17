@@ -44,3 +44,8 @@ class SessionView(APIView):
         logout(request)
         serializer = UserSerializer(user)
         return JsonResponse(serializer.data)
+
+        # Create guest account
+    def patch(self, request):
+        User = get_user_model()
+        email =
