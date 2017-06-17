@@ -107,7 +107,7 @@ class BillView extends React.Component {
             </TouchableHighlight>
 
             <View style={billSponsors}>
-              <Text style={header}>Bill Sponsors</Text>
+              <Text style={header}>Bill Author</Text>
               <SponsorBillView
                 sponsor={sponsor}/>
             </View>
@@ -169,8 +169,8 @@ const styles = {
   },
   billSponsors: {
     padding: 5,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 30,
+    marginBottom: 20,
     paddingLeft: 20,
     paddingRight: 20
   },

@@ -61,12 +61,12 @@ ${this.props.userName}`);
 
 
       render(){
-        const { icons, container } = styles;
+        const { icons, container, contactText, repNames } = styles;
         if(this.state.showOptions){
           return(
             <View style={{marginTop: 22}}>
               <View>
-                <Text>Would you like to express support or opposition for this bill?</Text>
+                <Text style={contactText}>Would you like to express support or opposition for this bill?</Text>
                 <CardSection>
                   <Button  onPress={() => this.supportBill(true, this.state.emailThisRepresentative)}> Support! </Button>
                 </CardSection>
@@ -85,7 +85,7 @@ ${this.props.userName}`);
                   const rep = representative[1];
                   return(
                     <View style={container}>
-                      <Text>{rep.fName} {rep.lName}</Text>
+                      <Text style={repNames}>{rep.fName} {rep.lName}</Text>
                       <View style={icons}>
                         <Icon.Button name="phone-square"
                           size={40}
@@ -124,6 +124,17 @@ ${this.props.userName}`);
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 30
+      },
+      contactText: {
+        color: 'black',
+        fontSize: 20,
+        marginBottom: 20,
+        textAlign: 'center',
+      },
+      repNames: {
+        color: 'black',
+        fontSize: 20,
+        marginLeft: 2
       }
     };
             export default RepresentativesView;
