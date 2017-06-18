@@ -29,7 +29,7 @@ class BillView extends React.Component {
     if(newState === true){
       this.setState({blurb: this.props.bill.blurb,
         link: this.props.bill.summary_url,
-        linkTitle: 'See Full Bill'
+        linkTitle: 'See full bill'
         });
     } else{
       this.setState({blurb: '', link: '', linkTitle: ''});
