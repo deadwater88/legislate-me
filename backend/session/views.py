@@ -10,7 +10,8 @@ from rest_framework.parsers import FormParser, JSONParser
 from rest_framework.views import APIView
 from users.serializers import UserSerializer
 # Create your views here.
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from legislate_me.utils import id_generator
 
 # Create your views here.
 class SessionView(APIView):
@@ -42,5 +43,19 @@ class SessionView(APIView):
     def delete(self, request):
         user = request.user
         logout(request)
+        serializer = UserSerializer(user)
+        return JsonResponse(serializer.data)
+
+        # Create guest account
+    def patch(self, request):
+        User = get_user_model()
+        email = id_generator(30) + "@example.com"
+        last_name = "Account"
+        first_name = "Guest"
+        representatives = ["CAL000452", "CAL000512"]
+        user = User(email=email, password="password", first_name=first_name, last_name=last_name, representatives=representatives, setup=True)
+        user.set_password("password")
+        user.save()
+        login(request, user)
         serializer = UserSerializer(user)
         return JsonResponse(serializer.data)

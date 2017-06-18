@@ -35,7 +35,7 @@ class FBOAuth extends Component {
                           res.tokenType = 'facebook';
                           this.props.authUser(res);
                         }
-                      }
+                      };
 
                       const infoRequest = new GraphRequest(
                         '/me',

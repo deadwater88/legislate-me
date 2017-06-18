@@ -1,10 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import merge from 'lodash/merge';
 
-const Button = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
-
+const Button = ({ onPress, children, buttonStyle, textStyle}) => {
+  console.log(merge);
+  buttonStyle = merge(defaultStyles.buttonStyle, buttonStyle);
+  textStyle = merge(defaultStyles.textStyle, textStyle);
   return (
     <TouchableOpacity onPress={onPress} style={buttonStyle}>
       <Text style={textStyle}>
@@ -14,10 +16,10 @@ const Button = ({ onPress, children }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const defaultStyles = {
   textStyle: {
     alignSelf: 'center',
-    color: 'white',
+    color: '#015249',
     fontSize: 25,
     fontWeight: '900',
     paddingTop: 18,
@@ -25,17 +27,18 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: '#015249',
-    borderRadius: 10,
+    backgroundColor: 'transparent',
+    borderRadius: 6,
+    borderColor: '#015249',
     alignContent: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#2c3e50',
-    marginLeft: 19,
-    marginRight: 19,
-    height: 90,
-    width: '90%'
+    marginLeft: 35,
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 35,
+    height: 90
   }
-});
+};
 
 export { Button };

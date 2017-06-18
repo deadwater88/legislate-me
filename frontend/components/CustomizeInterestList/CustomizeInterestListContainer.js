@@ -4,7 +4,8 @@ import { saveSubjects } from '../../actions/subject_actions';
 // import { zipped } from '../../reducers/selectors' ;
 
 const mapStateToProps = state => ({
-  subjects: state.session.currentUser.subjects
+  subjects: state.session.currentUser.subjects,
+  signingUp: state.session.currentUser.setup
 });
 
 const mapDispatchToProps = dispatch => (

@@ -13,7 +13,8 @@ class UserSettings extends React.Component {
   }
 
   changeAddress(){
-    this.props.changeAddress(this.state.address);
+    console.log(this.state.address);
+    this.props.updateAddress(this.state.address);
   }
 
   signOut(){
@@ -25,76 +26,41 @@ class UserSettings extends React.Component {
   }
 
   render(){
-    const { columns, title, repsView, address, signout, yourReps } = styles;
+    const { container, columns, title } = styles;
     const pic  = {
       uri:  'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
     return(
 
-      <Card>
-        <View style={repsView}>
-          <Text style={title}>User Settings</Text>
-          <Text style={yourReps}>Your representatives</Text>
-          <RepresentativesView representatives={[{'BLAH': true}]} />
-        </View>
-        <CardSection>
-          <Input
-             placeholder="1600 Foo St, San Jose, CA "
-             label="Address:"
-             value={this.state.address}
-             onChangeText={address => this.setState({address})}
-             />
-        </CardSection>
-        <View style={address}>
-          <CardSection >
-            <Button onPress={this.props.changeAddress}>
-              Change your address
-            </Button>
-          </CardSection>
-        </View>
-        <View>
-          <CardSection>
-            <Button onPress={this.props.signOut}>
-              Sign out
-            </Button>
-          </CardSection>
-        </View>
-        <View style={signout}>
-          <CardSection>
-            <Button onPress={this.props.deleteUser}>
-              Delete your account
-            </Button>
-          </CardSection>
-        </View>
-      </Card>
+      <View style={container}>
+        <Text style={title}>Settings</Text>
+        <Button onPress={this.props.signOut}>
+          Sign out
+        </Button>
+        <Button onPress={this.props.deleteUser}>
+          Delete your account
+        </Button>
+      </View>
 
     );
   }
 }
 
-
 const styles = {
   columns: {
     flexDirection: 'column'
   },
+  container: {
+    backgroundColor: 'white',
+    flex: 1
+  },
   title: {
-    fontSize: 24,
+    fontSize: 50,
+    color: 'black',
+    fontWeight: 'bold',
     textAlign: 'center',
-    padding: 40
-  },
-  repsView: {
-    paddingBottom: 40
-  },
-  address: {
-    paddingBottom: 40
-  },
-  signout: {
-    paddingBottom: 5
-  },
-  yourReps: {
-    fontSize: 16,
-    textAlign: 'center',
-    paddingBottom: 10
+    marginTop: 100,
+    marginBottom: 100
   }
 };
 
