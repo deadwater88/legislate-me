@@ -44,7 +44,7 @@ class LoginSwiping extends Component{
 
     return (
       <Swiper>
-        <View>
+        <View style={{flex: 1}}>
           <Splash navigation={this.props.navigation} />
         </View>
         <View>

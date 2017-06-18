@@ -229,7 +229,6 @@ const style = {
   },
   textStyle: {
     alignSelf: 'center',
-    color: 'black',
     fontSize: 25,
     fontWeight: '900',
     paddingTop: 18,
