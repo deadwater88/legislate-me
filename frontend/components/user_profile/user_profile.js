@@ -11,12 +11,13 @@ class UserProfile extends React.Component {
 
   render(){
     const {navigate} = this.props.navigation;
-    const pic = require('../subjects/images/gradient.jpg');
+    const pic = require('../subjects/images/gradient.jpg')
+    const {first_name, last_name} = this.props.currentUser
     return(
       <View style={styles.parentView} >
         <View>
           <Icon name='user' size={80} color={'black'} style={{marginTop: 20, alignSelf: 'center'}}/>
-          <Text style={styles.username}>You</Text>
+          <Text style={styles.username}>{`${first_name} ${last_name}`}</Text>
         </View>
         <View style={{alignContent: 'center'}}>
           <Button
@@ -47,7 +48,7 @@ class UserProfile extends React.Component {
 }
 const styles = StyleSheet.create({
   username: {
-    fontSize: 50,
+    fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 5,
