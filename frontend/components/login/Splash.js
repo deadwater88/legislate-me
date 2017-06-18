@@ -19,8 +19,7 @@ class Splash extends Component {
         <View alignItems="stretch">
           <OAuthButtons />
           <TouchableOpacity
-            onPress={()=> navigate('Login')}
-            >
+            onPress={()=> navigate('Login')}>
             <Text style={{padding: 10, alignSelf: 'stretch', color: '#015249', textAlign: 'center' }}>Sign in with email</Text>
           </TouchableOpacity>
         </View>
