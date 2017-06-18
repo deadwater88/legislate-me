@@ -84,8 +84,8 @@ export const HomeRouter = TabNavigator({
     showLabel: false,
     activeTintColor: 'white',
     inactiveTintColor: 'grey',
-    tabStyle: {
-      backgroundColor: 'black'
+    style: {
+      backgroundColor: '#015249'
     }
   }
 });
