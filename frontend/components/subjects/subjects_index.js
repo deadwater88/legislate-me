@@ -30,7 +30,6 @@ class SubjectsIndex extends React.Component {
     });
     return(
       <ScrollView style={styles.container}>
-        <Text style={headerText}>Discover new bills by subject</Text>
         {subjects}
       </ScrollView>
     );
