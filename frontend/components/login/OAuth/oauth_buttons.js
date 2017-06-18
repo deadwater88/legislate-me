@@ -5,6 +5,7 @@ import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { connect } from 'react-redux';
 import { signup, authUser } from '../../../actions/session_actions';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const mapDispatchToProps = dispatch => ({
   authUser: user => dispatch(authUser(user))
@@ -44,12 +45,26 @@ class OAuthButtons extends Component {
     return(
       <View style={containerStyle}>
         <FBOAuth/>
-      <Button
-          style={{width: 300, height: 100, backgroundColor:'black'}}
+        <TouchableOpacity
           onPress={this.configureConnection}
-          title="Continue with Google"
-          color="#00008B"
-        />
+          style={
+            {
+              flexDirection:"row",
+              alignItems:"center", justifyContent:"flex-start",
+              marginLeft: -25
+            }}>
+          <Icon.Button
+              title="AYYY"
+              name="google"
+              onPress={this.configureConnection}
+              color="#00008B"
+              backgroundColor="white"
+
+            />
+          <Text style={{color: "black"}}>Continue with Google</Text>
+          <View style={{backgroundColor: "white"}}>
+          </View>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -59,6 +74,7 @@ const styles = {
   containerStyle: {
     justifyContent: 'flex-start',
     alignItems: 'center',
+    alignSelf: 'stretch'
   },
   buttonStyle: {
     height: 40,

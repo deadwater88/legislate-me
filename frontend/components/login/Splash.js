@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Button } from 'react-native';
+import { Text, View, Image, Button, TouchableOpacity } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Swiper from 'react-native-swiper';
 import OAuthButtons from './OAuth/oauth_buttons';
+
 class Splash extends Component {
   constructor(props){
     super(props);
@@ -12,16 +13,17 @@ class Splash extends Component {
     const {navigate} = this.props.navigation;
 
     return (
-      <View style={{flex: 1, flexDirection:'column', justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{flex: 1, paddingBottom: 40, flexDirection:'column', justifyContent: 'center', alignItems: 'center', backgroundColor:"white"}}>
         <Text style={styles.headerStyle}>LegislateMe</Text>
-        <Text>Influence local policy.</Text>
-        <Button
-          style={styles.buttonStyle}
-          onPress={() => {
-            navigate('Login');
-          }}
-          title="Sign in with email" />
-        <OAuthButtons />
+        <Text style={{marginBottom: 30}}>Influence local policy.</Text>
+        <View alignItems="stretch">
+          <OAuthButtons />
+          <TouchableOpacity
+            onPress={()=> navigate('Login')}
+            style={{borderWidth: 1, borderColor:"#015249"}}>
+            <Text style={{padding: 10, alignSelf: 'stretch', color: 'black', textAlign: 'center' }}>Sign in with email</Text>
+          </TouchableOpacity>
+        </View>
       </View>
   );
 }
