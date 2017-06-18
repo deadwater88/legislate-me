@@ -40,3 +40,10 @@ export const checkLogin = () => {
     url: `${HOST_URL}/api/sessions`
   });
 };
+
+export const demoIn = () => {
+  return axios({
+    method: 'PATCH',
+    url: `${HOST_URL}/api/sessions`
+  });
+};

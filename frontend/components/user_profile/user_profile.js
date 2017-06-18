@@ -11,7 +11,7 @@ class UserProfile extends React.Component {
 
   render(){
     const {navigate} = this.props.navigation;
-    // const pic = require('../subjects/images/gradient.jpg');
+    const pic = require('../subjects/images/gradient.jpg');
     return(
       <View style={styles.parentView} >
         <View>

@@ -41,6 +41,14 @@ export const login = user => dispatch => (
   })
 );
 
+export const demoIn = () => dispatch => {
+  return (
+    APIUtil.demoIn().then(res => {
+      dispatch(receiveCurrentUser(res.data));
+    })
+  );
+};
+
 export const logout = () => dispatch => (
   APIUtil.logout().then(user => (
     dispatch(killState())
