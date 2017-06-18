@@ -26,29 +26,20 @@ class UserSettings extends React.Component {
   }
 
   render(){
-    const { button, container, columns, title, yourReps } = styles;
+    const { container, columns, title } = styles;
     const pic  = {
       uri:  'https://upload.wikimedia.org/wikipedia/commons/4/4f/US_Capitol_west_side.JPG'
     };
     return(
 
       <View style={container}>
-          <Text style={title}>User Settings</Text>
-          <Input
-             placeholder="1600 Foo St, San Jose, CA "
-             label="Address:"
-             value={this.state.address}
-             onChangeText={address => this.setState({address})}
-             />
-            <Button onPress={this.props.updateAddress}>
-              Change your address
-            </Button>
-            <Button onPress={this.props.signOut}>
-              Sign out
-            </Button>
-            <Button onPress={this.props.deleteUser}>
-              Delete your account
-            </Button>
+        <Text style={title}>Settings</Text>
+        <Button onPress={this.props.signOut}>
+          Sign out
+        </Button>
+        <Button onPress={this.props.deleteUser}>
+          Delete your account
+        </Button>
       </View>
 
     );
@@ -64,19 +55,12 @@ const styles = {
     flex: 1
   },
   title: {
-    fontSize: 30,
+    fontSize: 50,
     color: 'black',
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 30
-  },
-  button: {
-    marginBottom: 20
-  },
-  yourReps: {
-    fontSize: 16,
-    textAlign: 'center',
-    marginBottom: 20
+    marginTop: 100,
+    marginBottom: 100
   }
 };
 

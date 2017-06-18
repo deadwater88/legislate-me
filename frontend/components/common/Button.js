@@ -17,7 +17,7 @@ const Button = ({ onPress, children }) => {
 const styles = StyleSheet.create({
   textStyle: {
     alignSelf: 'center',
-    color: 'white',
+    color: '#015249',
     fontSize: 25,
     fontWeight: '900',
     paddingTop: 18,
@@ -25,18 +25,17 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: '#015249',
-    borderRadius: 10,
+    backgroundColor: 'transparent',
+    borderRadius: 6,
+    borderColor: '#015249',
     alignContent: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#2c3e50',
-    marginLeft: 19,
+    borderWidth: 2,
+    marginLeft: 35,
     marginTop: 10,
     marginBottom: 10,
-    marginRight: 19,
-    height: 90,
-    width: '90%'
+    marginRight: 35,
+    height: 90
   }
 });
 
