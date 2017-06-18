@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
-import { Card, CardSection, Button } from '../../common';
+import { Text, View, Image, Button, TouchableOpacity } from 'react-native';
+import { Card, CardSection } from '../../common';
 import FBOAuth from './oauth_container';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { connect } from 'react-redux';
@@ -44,13 +44,45 @@ class OAuthButtons extends Component {
     const { containerStyle, buttonStyle} = styles;
     return(
       <View style={containerStyle}>
-        <FBOAuth style={buttonStyle}
-        />
-        <GoogleSigninButton
-        style={buttonStyle}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Light}
-        onPress={this.configureConnection}/>
+        <FBOAuth/>
+        <TouchableOpacity
+          onPress={this.configureConnection}>
+            <View
+              style={
+                {
+                  flexDirection:"row",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  marginLeft: -25,
+                  padding: 2,
+                  paddingLeft: 17,
+                  borderColor: "blue",
+                  borderWidth: 1,
+                  backgroundColor:"#4285F4",
+                  marginTop: 10,
+                }}>
+              <Icon.Button
+                  name="google"
+                  onPress={this.configureConnection}
+                  color="white"
+                  backgroundColor="#4285F4"
+                  padding={0}
+                  marginRight= {10}
+                  marginLeft={15}
+                />
+              <Text
+                style={{color: "white",
+                  marginRight: 10,
+                  marginLeft: -5,
+                  fontWeight: "500"
+                  }}>
+                  Continue with Google
+                </Text>
+              <View style={{backgroundColor: "white"}}>
+              </View>
+          </View>
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -58,18 +90,20 @@ class OAuthButtons extends Component {
 
 const styles = {
   containerStyle: {
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'stretch',
+
   },
   buttonStyle: {
-    alignSelf: 'center',
-    alignContent: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    marginLeft: 10,
-    marginRight: 10,
-    height: 50,
-    width: 300
+    height: 40,
+    width: 300,
+  },
+  googleStyle: {
+    height: 40,
+    width: 300,
+    backgroundColor: 'gray',
+    color: 'yellow'
   }
 };
 

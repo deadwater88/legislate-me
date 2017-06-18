@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 
 import UserSettings from './UserSettings';
 import { logout, deleteUser } from '../../actions/session_actions';
-import { updateAddress} from '../../actions/representatives_actions';
+import { updateAddress } from '../../actions/representatives_actions';
 
 const mapStateToProps = state => (
   {
     session: state.session,
-    representatives: state.representatives
+    representatives: state.session.currentUser.representatives
   }
 );
 

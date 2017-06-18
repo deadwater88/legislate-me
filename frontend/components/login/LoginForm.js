@@ -274,6 +274,7 @@ const style = {
     color: '#00AB6C',
     fontSize: 18,
     padding: 14
+
   }
 };
 
