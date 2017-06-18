@@ -54,12 +54,12 @@ class OAuthButtons extends Component {
                   alignItems:"center",
                   justifyContent:"center",
                   marginLeft: -25,
-                  padding: 5,
+                  padding: 2,
                   paddingLeft: 17,
-                  borderRadius: 5,
                   borderColor: "blue",
                   borderWidth: 1,
-                  backgroundColor:"#4285F4"
+                  backgroundColor:"#4285F4",
+                  marginTop: 10,
                 }}>
               <Icon.Button
                   name="google"
@@ -70,7 +70,14 @@ class OAuthButtons extends Component {
                   marginRight= {10}
                   marginLeft={15}
                 />
-              <Text style={{color: "white", marginRight: 10, marginLeft: -5 }}>Continue with Google</Text>
+              <Text
+                style={{color: "white",
+                  marginRight: 10,
+                  marginLeft: -5,
+                  fontWeight: "500"
+                  }}>
+                  Continue with Google
+                </Text>
               <View style={{backgroundColor: "white"}}>
               </View>
           </View>
@@ -83,7 +90,7 @@ class OAuthButtons extends Component {
 
 const styles = {
   containerStyle: {
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch',
 
