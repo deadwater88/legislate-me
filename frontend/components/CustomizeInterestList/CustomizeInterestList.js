@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ListView, StyleSheet, Button } from 'react-native';
+import { View, Text, ListView, StyleSheet, Button, TouchableHighlight } from 'react-native';
 
 import { SUBJECTS } from '../../util/subject_api_util';
 import CustomizeInterestListItem from './CustomizeInterestListItem';
@@ -20,6 +20,7 @@ class CustomizeInterestList extends Component {
       subjects
     };
     this.selectSubject = this.selectSubject.bind(this);
+    this.renderCorrectHeader = this.renderCorrectHeader.bind(this);
   }
 
   selectSubject(subject){
@@ -40,30 +41,37 @@ class CustomizeInterestList extends Component {
   saveInterests(){
     this.props.saveSubjects(this.state.subjects);
     finishSetup();
-    if (this.props.navigation.state && this.props.navigation.state.params.fromSubmitAddress){
-
-    } else{
+    if (this.props.signingUp){
       setTimeout(this.props.navigation.goBack, 100);
     }
   }
 
+  renderCorrectHeader(){
+    if (this.props.signingUp){
+      return (<CustomizeHeader />)
+    }
+  }
+
   render(){
+    console.log(this.props);
     return (
-      <View>
-        <Button
-          onPress={this.saveInterests}
-          title="Continue"
-          color="#015249"
-          accessibilityLabel="Save your interests"
-        />
+      <View style={{flex: 1}}>
+
+      {this.renderCorrectHeader}
         <ListView
           dataSource={this.state.dataSource}
           renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
           renderRow={(data) =>
             <CustomizeInterestListItem data={data} selectSubject={this.selectSubject} />
           }
-          renderHeader={() => <CustomizeHeader />}
           />
+        <TouchableHighlight
+            onPress={this.saveInterests}
+            style={styles.buttonStyle}>
+            <Text style={styles.textStyle}>
+              Continue
+            </Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -74,7 +82,16 @@ const styles = StyleSheet.create({
   separator: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
+    backgroundColor: 'grey',
+  },
+  buttonStyle: {
+    backgroundColor: "#015249",
+    padding: 20
+  },
+  textStyle: {
+    textAlign: 'center',
+    fontSize: 30,
+    color: 'white'
   }
 });
 

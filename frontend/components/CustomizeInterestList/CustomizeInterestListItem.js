@@ -12,7 +12,7 @@ class CustomizeInterestListItem extends Component {
     return (
       <View>
         <CheckBox
-          style={{flex: 1, padding: 10}}
+          style={{flex: 1, padding: 20, backgroundColor: 'white'}}
           onClick={()=>this.onClick()}
           isChecked={this.props.data[1]}
           leftText={this.props.data[0]}
