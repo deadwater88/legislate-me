@@ -15,7 +15,7 @@ class SubjectsIndex extends React.Component {
   render(){
     const { imageStyle, headerText, labelText, imageGroup } = styles;
     const subjects = Object.keys(SUBJECT_IMAGES).map((subjectName,idx) => {
-      const image = SUBJECT_IMAGES[subjectName];
+    const image = SUBJECT_IMAGES[subjectName];
       return(
           <View style={imageGroup} key={idx}>
             <TouchableHighlight onPress={() => this.renderBills(subjectName)}>
