@@ -72,7 +72,6 @@ class LoginForm extends Component {
       this.props.clearErrors();
     }
 
-
     redirectToAddressPage(){
       this.props.navigation.navigate('SubmitAddress');
     }
@@ -82,7 +81,6 @@ class LoginForm extends Component {
     const user_pic = require('../subjects/images/gradient.jpg');
     if(this.state.login){
       return(
-
         <View style={style.parentView}>
 
           <CardSection>
