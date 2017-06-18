@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, Image, TouchableHighlight, ScrollView, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { SUBJECTS, SUBJECT_IMAGES } from '../../util/subject_api_util';
 
 import ContactRepresentativesView  from './contact_representatives_view';
 import SponsorBillView from './sponsor_bill_view';
@@ -42,7 +43,7 @@ class BillView extends React.Component {
       billState, billChamber, billSponsors, blurbHeader,
       blurbText, header, representative } = styles;
 
-    const {
+    let {
       bill_id,
       chamber,
       first,
@@ -56,6 +57,7 @@ class BillView extends React.Component {
       title
     } = this.props.bill;
 
+    img_id = SUBJECT_IMAGES[subject];
 
     const billBlurb = this.state.blurb;
     const linkTitle = this.state.linkTitle;
