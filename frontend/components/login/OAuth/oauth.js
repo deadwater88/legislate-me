@@ -73,7 +73,8 @@ const styles = {
     alignContent: 'flex-end',
     justifyContent: 'flex-end',
     backgroundColor: '#2c3e50',
-    zIndex: 2
+    zIndex: 2,
+    marginBottom: 5
   },
   button: {
     width: 400,

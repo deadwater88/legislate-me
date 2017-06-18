@@ -46,25 +46,36 @@ class OAuthButtons extends Component {
       <View style={containerStyle}>
         <FBOAuth/>
         <TouchableOpacity
-          onPress={this.configureConnection}
-          style={
-            {
-              flexDirection:"row",
-              alignItems:"center", justifyContent:"flex-start",
-              marginLeft: -25
-            }}>
-          <Icon.Button
-              title="AYYY"
-              name="google"
-              onPress={this.configureConnection}
-              color="#00008B"
-              backgroundColor="white"
-
-            />
-          <Text style={{color: "black"}}>Continue with Google</Text>
-          <View style={{backgroundColor: "white"}}>
+          onPress={this.configureConnection}>
+            <View
+              style={
+                {
+                  flexDirection:"row",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  marginLeft: -25,
+                  padding: 5,
+                  paddingLeft: 17,
+                  borderRadius: 5,
+                  borderColor: "blue",
+                  borderWidth: 1,
+                  backgroundColor:"#4285F4"
+                }}>
+              <Icon.Button
+                  name="google"
+                  onPress={this.configureConnection}
+                  color="white"
+                  backgroundColor="#4285F4"
+                  padding={0}
+                  marginRight= {10}
+                  marginLeft={15}
+                />
+              <Text style={{color: "white", marginRight: 10, marginLeft: -5 }}>Continue with Google</Text>
+              <View style={{backgroundColor: "white"}}>
+              </View>
           </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -74,7 +85,8 @@ const styles = {
   containerStyle: {
     justifyContent: 'flex-start',
     alignItems: 'center',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+
   },
   buttonStyle: {
     height: 40,
