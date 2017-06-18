@@ -25,7 +25,7 @@ def get_bills_by_subjects(subjects):
 def google_geocode_call(address):
     r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={GOOGLE_API_KEY}'
     .format(address=address, GOOGLE_API_KEY=GOOGLE_API_KEY))
-    coordinates = r.json()['results'][0]['geometry']['bounds']['northeast']
+    coordinates = r.json()['results'][0]['geometry']['location']
     lat = coordinates['lat']
     lng = coordinates['lng']
     coordinatestring = "lat={lat}&long={lng}".format(lat=lat, lng=lng)

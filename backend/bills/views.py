@@ -8,6 +8,9 @@ import requests
 from legislate_me.api_keys import open_states_call, get_bills_by_subjects
 from bills.models import Bill
 from bills.serializers import BillLiteSerializer, BillsSerializer, BillDetailSerializer
+from bills.utils import SUBJECTS_ARRAY
+from functools import reduce
+import itertools
 # def get(req):
 #     req.session.set_test_cookie()
 #     if req.session.test_cookie_worked():
@@ -57,9 +60,18 @@ class BillsView(APIView):
         user = request.user
         subjects = user.subjects
         if len(subjects) == 0:
-            bills = Bill.objects.filter(leg_id__startswith='CAL').order_by('-last')[:300]
+            subjects = SUBJECTS_ARRAY
+            bills = [list(Bill.objects.filter(leg_id__startswith='CAL',subject=subject).order_by('-last')[:30]) for subject in subjects ]
+            bills = [list(billgroup) for billgroup in itertools.zip_longest(*bills)]
+            bills = reduce(lambda x, y: x + y, bills)
+            bills = [bill for bill in filter(lambda x: x, bills)]
+            # bills = Bill.objects.filter(leg_id__startswith='CAL').order_by('-last')[:300]
         else:
-            bills = Bill.objects.filter(subject__in=subjects,leg_id__startswith='CAL').order_by('-last')[:300]
+            bills = [list(Bill.objects.filter(leg_id__startswith='CAL',subject=subject).order_by('-last')[:30]) for subject in subjects ]
+            bills = [list(billgroup) for billgroup in itertools.zip_longest(*bills)]
+            bills = reduce(lambda x, y: x + y, bills)
+            bills = [bill for bill in filter(lambda x: x, bills)]
+            # bills = Bill.objects.filter(subject__in=subjects,leg_id__startswith='CAL').order_by('-last')[:300]
         response = {}
         for bill in bills:
             response[bill.os_id] = BillLiteSerializer(bill).data
