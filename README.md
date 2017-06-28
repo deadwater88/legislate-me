@@ -16,12 +16,7 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
 ## Technologies
   LegislateMe pairs Redux data architecture with React Native for efficient, unidirectional data management and cross-mobile performant functionality. Django, chosen for its portability and well-organized documentation, serves as the application's server-side web API.
-
-  ![React Icon](/frontend/components/subjects/images/React-icon.png)
-  ![Django Icon](/frontend/components/subjects/images/Django_logo.png)
-  ![Google Maps](/frontend/components/subjects/images/Google_Maps.png)
-
-
+  
   Third Party APIS involved:
    + [OpenStates](http://docs.openstates.org/en/latest/api/)
       - allows for curation of bill data for states.
