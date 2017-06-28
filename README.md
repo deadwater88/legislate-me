@@ -84,6 +84,19 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
    + If the user chooses to email, a prefilled-email with the bill details and legislator's email address are populated and ready to send.
 
+  ```javascript
+      import Communications from 'react-native-communications';
+      emailRep(fName, lName, emailAddress, answer){
+        let title = this.props.bill.title;
+        Communications.email(
+          [emailAddress],
+          null,null, title,
+          this.buildEmail(fName, lName, answer));
+      } 
+     callRep(phoneNum){
+        Communications.phonecall(phoneNum, true);
+      }
+  ```
 
    + In case the user wants to give a more personal touch, the option to call is also provided. Hitting the call button will prefill the number with the representative's phone number.
 
