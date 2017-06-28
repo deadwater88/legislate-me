@@ -81,14 +81,16 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
   ```javascript
       import Communications from 'react-native-communications';
+      
         emailRep(fName, lName, emailAddress, answer){
           let title = this.props.bill.title;
           Communications.email(
             [emailAddress],
             null,null, title,
             this.buildEmail(fName, lName, answer));
-        } 
-       callRep(phoneNum){
+        }
+        
+        callRep(phoneNum){
           Communications.phonecall(phoneNum, true);
         }
   ```
