@@ -32,6 +32,27 @@ Our mission statement is to reduce the effort needed to get involved in local po
   ### OAuth integration
 
   + Nobody likes having to manually sign up for an app. LegislateMe integrates with the Facebook and Google SDK in order to make authentication pain-free.
+  ```javascript
+    configureConnection(){
+     GoogleSignin.configure({
+       forceConsentPrompt: true
+     })
+     .then(() => {
+       GoogleSignin.signIn()
+         .then((user) => {
+           let userNameSplit = user.name.split(" ");
+           user.first_name = userNameSplit[0];
+           user.last_name = userNameSplit[userNameSplit.length-1];
+           user.tokenType = 'google';
+           this.props.authUser(user);
+         })
+          .catch((err) => {
+           console.log('Something went wrong :(', err);
+          })
+         .done();
+     });
+    }
+  ```
 
   ### Find your representative
 
