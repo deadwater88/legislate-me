@@ -81,16 +81,16 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
   ```javascript
       import Communications from 'react-native-communications';
-      emailRep(fName, lName, emailAddress, answer){
-        let title = this.props.bill.title;
-        Communications.email(
-          [emailAddress],
-          null,null, title,
-          this.buildEmail(fName, lName, answer));
-      } 
-     callRep(phoneNum){
-        Communications.phonecall(phoneNum, true);
-      }
+        emailRep(fName, lName, emailAddress, answer){
+          let title = this.props.bill.title;
+          Communications.email(
+            [emailAddress],
+            null,null, title,
+            this.buildEmail(fName, lName, answer));
+        } 
+       callRep(phoneNum){
+          Communications.phonecall(phoneNum, true);
+        }
   ```
 
    + In case the user wants to give a more personal touch, the option to call is also provided. Hitting the call button will prefill the number with the representative's phone number.
