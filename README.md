@@ -28,25 +28,25 @@ Our mission statement is to reduce the effort needed to get involved in local po
 
   + Nobody likes having to manually sign up for an app. LegislateMe integrates with the Facebook and Google SDK in order to make authentication pain-free.
   ```javascript
-    configureConnection(){
-     GoogleSignin.configure({
-       forceConsentPrompt: true
-     })
-     .then(() => {
-       GoogleSignin.signIn()
-         .then((user) => {
-           let userNameSplit = user.name.split(" ");
-           user.first_name = userNameSplit[0];
-           user.last_name = userNameSplit[userNameSplit.length-1];
-           user.tokenType = 'google';
-           this.props.authUser(user);
-         })
-          .catch((err) => {
-           console.log('Something went wrong :(', err);
-          })
-         .done();
-     });
-    }
+  configureConnection(){
+    GoogleSignin.configure({
+     forceConsentPrompt: true
+    })
+    .then(() => {
+     GoogleSignin.signIn()
+       .then((user) => {
+         let userNameSplit = user.name.split(" ");
+         user.first_name = userNameSplit[0];
+         user.last_name = userNameSplit[userNameSplit.length-1];
+         user.tokenType = 'google';
+         this.props.authUser(user);
+       })
+        .catch((err) => {
+         console.log('Something went wrong :(', err);
+        })
+       .done();
+    });
+  }
   ```
 
   ### Find your representative
@@ -80,19 +80,17 @@ Our mission statement is to reduce the effort needed to get involved in local po
    + If the user chooses to email, a prefilled-email with the bill details and legislator's email address are populated and ready to send.
 
   ```javascript
-      import Communications from 'react-native-communications';
-      
-        emailRep(fName, lName, emailAddress, answer){
-          let title = this.props.bill.title;
-          Communications.email(
-            [emailAddress],
-            null,null, title,
-            this.buildEmail(fName, lName, answer));
-        }
-        
-        callRep(phoneNum){
-          Communications.phonecall(phoneNum, true);
-        }
+  import Communications from 'react-native-communications';
+    emailRep(fName, lName, emailAddress, answer){
+      let title = this.props.bill.title;
+      Communications.email(
+        [emailAddress],
+        null,null, title,
+        this.buildEmail(fName, lName, answer));
+    }
+    callRep(phoneNum){
+      Communications.phonecall(phoneNum, true);
+    }
   ```
 
    + In case the user wants to give a more personal touch, the option to call is also provided. Hitting the call button will prefill the number with the representative's phone number.
