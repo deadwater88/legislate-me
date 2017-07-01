@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import merge from 'lodash/merge';
 
 const Button = ({ onPress, children, buttonStyle, textStyle}) => {
-  console.log(merge);
   buttonStyle = merge(defaultStyles.buttonStyle, buttonStyle);
   textStyle = merge(defaultStyles.textStyle, textStyle);
   return (
