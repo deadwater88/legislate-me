@@ -23,7 +23,6 @@ export const fetchBills = () => dispatch => (
 ));
 
 export const fetchBillInfo = billId => dispatch => {
-  console.log('fetch bill info being called...');
   APIUtil.fetchBillInfo(billId).then(bill =>
     dispatch(receiveBill(bill.data)));
 };

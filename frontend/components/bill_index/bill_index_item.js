@@ -6,7 +6,6 @@ import ReactNativeComponentTree from 'react-native/Libraries/Renderer/src/render
 class BillIndexItem extends React.Component{
   constructor(props){
     super(props);
-    console.log("bill index item");
     this.toggleBookmark = this.toggleBookmark.bind(this);
     this.navigateToBill = this.navigateToBill.bind(this);
   }
@@ -23,8 +22,6 @@ class BillIndexItem extends React.Component{
   navigateToBill(e){
     const billId = this.props.bill[0];
     //OS ID is [0], bill object is [1]
-    console.log("navigatng to bill");
-    // debugger;
     this.props.navigation.navigate('BillView', {billId});
   }
 
