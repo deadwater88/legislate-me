@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 class BillIndex extends React.Component{
   constructor(props){
-    console.log("creating bill index");
     super(props);
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
@@ -50,7 +49,6 @@ class BillIndex extends React.Component{
   }
 
   render(){
-    console.log('bill index render function hit');
     const ds = this.state.dataSource;
     const {navigate} = this.props.navigation;
 

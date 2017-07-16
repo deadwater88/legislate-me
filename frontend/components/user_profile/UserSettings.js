@@ -13,7 +13,6 @@ class UserSettings extends React.Component {
   }
 
   changeAddress(){
-    console.log(this.state.address);
     this.props.updateAddress(this.state.address);
   }
 
