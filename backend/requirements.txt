@@ -14,7 +14,7 @@ pdb==0.1
 psycopg2==2.7.1
 python-gnupg==0.4.0
 pytz==2017.2
-PyYAML==3.12
+PyYAML==5.4
 requests==2.17.3
 six==1.10.0
 urllib3==1.21.1
